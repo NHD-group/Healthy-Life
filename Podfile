@@ -8,6 +8,8 @@ pod 'Firebase'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
 pod 'Firebase/Auth'
+pod 'NSDate+TimeAgo'
+pod 'JSQMessagesViewController', '~> 7.3'
 end
 
 target 'HealthyLifeTests' do

@@ -1,4 +1,4 @@
-//
+
 //  foodModel.swift
 //  HealthyLife
 //
@@ -14,8 +14,9 @@ class Food {
     
     private var FoodKey: String!
     private var FoodDes: String!
-    private var Angry: Int!
     private var Love: Int!
+    private var Time: NSDate!
+    
     
     var foodKey: String {
         return FoodKey
@@ -25,16 +26,16 @@ class Food {
         return FoodDes
     }
     
-    var angry: Int {
-        return Angry
-    }
-    
     var love: Int {
         return Love
     }
     
+    var time: NSDate {
+        return Time
+    }
     
-   
+    
+    
     
     // Initialize the new Joke
     
@@ -42,9 +43,6 @@ class Food {
         self.FoodKey = key
         
         // Within the Joke, or Key, the following properties are children
-        if let ang = dictionary["Angry"] as? Int {
-            self.Angry = ang
-        }
         
         if let des = dictionary["Description"] as? String {
             self.FoodDes = des
@@ -53,38 +51,30 @@ class Food {
         if let lo = dictionary["Love"] as? Int {
             self.Love = lo
         }
-   
+        
+        if let T = dictionary["time"] as? Double {
+            self.Time = NSDate(timeIntervalSince1970: T/1000)
+        }
+        
         
         // The above properties are assigned to their key.
         
-        self.FoodRef = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("food_journal").child(self.FoodKey)
+        self.FoodRef = FIRDatabase.database().reference().child("users").child((NSUserDefaults.standardUserDefaults().valueForKey("currentID")) as! String).child("food_journal").child(self.FoodKey)
     }
     
-//    func addSubtractVote(addVote: Bool) {
-//        
-//        if addVote {
-//            PostVotes = PostVotes + 1
-//        } else {
-//            PostVotes = PostVotes - 1
-//        }
-//        
-//        // Save the new vote total.
-//        
-//        _jokeRef.childByAppendingPath("votes").setValue(PostVotes)
-//        
-//    }
-//    
-//    func addCommentCount(addVote: Bool) {
-//        
-//        if addVote {
-//            CommentNumb = CommentNumb + 1
-//        }
-//        
-//        // Save the new vote total.
-//        
-//        _jokeRef.childByAppendingPath("commentNumb").setValue(CommentNumb)
-//        
-//    }
+    func addSubtractLove(addVote: Bool) {
+        
+        if addVote {
+            Love = Love + 1
+        } else {
+            Love = Love - 1
+        }
+        
+        // Save the new vote total.
+        
+        FoodRef.child("Love").setValue(Love)
+        
+    }
     
     
     

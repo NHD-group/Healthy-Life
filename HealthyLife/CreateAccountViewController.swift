@@ -20,6 +20,14 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     
+    
+    @IBAction func cancelAction(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     @IBAction func createButton(sender: AnyObject) {
         if let email = emailTextField.text, let password = passwordTextField.text, let username = usernameTextfield.text {
             FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user, error) in
@@ -31,7 +39,8 @@ class CreateAccountViewController: UIViewController {
                         if error != nil {
                             
                         } else {
-                            
+                            self.ref.child("users").child(user!.uid).setValue(["username" : username ,  "followerCount" : 0 ])
+                
                             self.performSegueWithIdentifier("2", sender: self)
                         }
                     })

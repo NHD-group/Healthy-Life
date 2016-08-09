@@ -13,9 +13,32 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var avaImage: UIImageView!
+    
+    @IBOutlet weak var weightChangeLabel: UILabel!
+    
+    
+    @IBOutlet weak var DOB: UILabel!
+    
+    @IBOutlet weak var name: UILabel!
+    
+    @IBOutlet weak var heightLabel: UILabel!
+    
+    @IBOutlet weak var followerCountLabel: UILabel!
+    
+    @IBOutlet weak var settingButton: UIButton!
+    
      var foods = [Food]()
      var ref =  FIRDatabase.database().reference()
-    let currentUserID = FIRAuth.auth()?.currentUser?.uid
+    let storageRef = FIRStorage.storage().reference()
+    
+    @IBAction func logOutAction(sender: AnyObject) {
+        try! FIRAuth.auth()!.signOut()
+        let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("Login")
+        UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
+    }
+    
+    var currentUserID = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +46,78 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         
-        ref.child("users").child(currentUserID!).child("food_journal").queryLimitedToLast(10).observeEventType(.Value, withBlock: { snapshot in
+        
+        self.avaImage.layer.cornerRadius = 20
+        self.avaImage.clipsToBounds = true
+        
+        
+
+        
+        //MARK: Check which segue
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let checkID = defaults.boolForKey("checkID")
+        
+        if checkID == true {
+            currentUserID = (FIRAuth.auth()?.currentUser?.uid)!
+            defaults.setValue(currentUserID, forKey: "currentID")
+            
+            
+        } else {
+            currentUserID = defaults.valueForKey("currentID") as! String
+            settingButton.hidden = true
+        }
+        
+ 
+        //MARK: set up profile 
+        
+        
+        ref.child("users/\(currentUserID)/user_setting").observeEventType(.Value, withBlock: { snapshot in
+            if let postDictionary = snapshot.value as? NSDictionary {
+                        
+                        self.weightChangeLabel.text = "changed: \(postDictionary["weight changed"] as! String)"
+                        self.DOB.text = postDictionary["DOB"] as? String
+                        self.heightLabel.text = postDictionary["height"] as? String
+                    self.followerCountLabel.text = "\(postDictionary["followerCount"] as? Int) followers"
+                        
+            } else {
+               
+                self.avaImage.image = UIImage(named: "defaults")
+            }
+            
+        })
+        
+        DataService.dataService.userRef.child("followerCount").observeEventType(.Value, withBlock: { snapshot in
+            
+            self.followerCountLabel.text = "\((snapshot.value as? Int)!) followers"
+            
+            })
+        
+       ref.child("users/\(currentUserID)/username").observeEventType(.Value, withBlock: { snapshot in
+          self.name.text = snapshot.value as? String
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setValue(snapshot.value as? String, forKey: "currentUserName")
+        })
+        
+        let islandRef = storageRef.child("images/\(currentUserID)")
+        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        islandRef.dataWithMaxSize((1 * 1024 * 1024)/2) { (data, error) -> Void in
+            if (error != nil) {
+                // Uh-oh, an error occurred!
+            } else {
+                // Data for "images/island.jpg" is returned
+                print("it workss")
+                let AvaImage: UIImage! = UIImage(data: data!)
+                self.avaImage.image = AvaImage
+                }
+        }
+
+        
+        
+        //MARK: Set Up table data
+        
+        DataService.dataService.userRef.child("food_journal").queryLimitedToLast(10).observeEventType(.Value, withBlock: { snapshot in
             
             // The snapshot is a current look at our jokes data.
             

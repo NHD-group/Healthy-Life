@@ -82,3 +82,14 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-HealthyLife/JSQMessagesViewController.framework"
+  install_framework "Pods-HealthyLife/JSQSystemSoundPlayer.framework"
+  install_framework "Pods-HealthyLife/NSDate_TimeAgo.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-HealthyLife/JSQMessagesViewController.framework"
+  install_framework "Pods-HealthyLife/JSQSystemSoundPlayer.framework"
+  install_framework "Pods-HealthyLife/NSDate_TimeAgo.framework"
+fi

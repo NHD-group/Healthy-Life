@@ -16,6 +16,8 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+     let defaults = NSUserDefaults.standardUserDefaults()
+    
     @IBAction func LoginButton(sender: UIButton) {
         if let email = emailTextField.text, let password = passwordTextField.text {
             FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
@@ -29,6 +31,7 @@ class SignInViewController: UIViewController {
                 } else {
                     print(user)
                     print("User logged in")
+                    self.defaults.setBool(true, forKey: "checkID")
                     self.performSegueWithIdentifier("1", sender: self)
                 }
             })
@@ -56,7 +59,13 @@ class SignInViewController: UIViewController {
         if let user = FIRAuth.auth()?.currentUser {
             // User is signed in.
             
+           
+            
+            defaults.setBool(true, forKey: "checkID")
+            
+            
             self.performSegueWithIdentifier("1", sender: self)
+            
             
         } else {
             // No user is signed in.

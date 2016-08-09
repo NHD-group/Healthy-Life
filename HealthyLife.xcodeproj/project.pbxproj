@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FEE3F4FA3D69AF73B170521 /* Pods_HealthyLife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */; };
+		8409619E1D533183008DE12D /* userSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409619D1D533183008DE12D /* userSettingModel.swift */; };
 		84181DE21D47C99800686BAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84181DE11D47C99800686BAB /* AppDelegate.swift */; };
 		84181DE71D47C99800686BAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84181DE51D47C99800686BAB /* Main.storyboard */; };
 		84181DEA1D47C99800686BAB /* HealthyLife.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84181DE81D47C99800686BAB /* HealthyLife.xcdatamodeld */; };
@@ -18,10 +19,35 @@
 		84181E131D47CAC500686BAB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84181E121D47CAC500686BAB /* SignInViewController.swift */; };
 		84181E151D47CAD800686BAB /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84181E141D47CAD800686BAB /* CreateAccountViewController.swift */; };
 		84181E171D47CB7300686BAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84181E161D47CB7300686BAB /* GoogleService-Info.plist */; };
+		841DDAB51D5485BD007917E7 /* cellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DDAB41D5485BD007917E7 /* cellTableViewCell.swift */; };
+		841DDAB71D54917B007917E7 /* sendPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DDAB61D54917B007917E7 /* sendPlanViewController.swift */; };
+		841DDABB1D54CE34007917E7 /* followerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DDABA1D54CE34007917E7 /* followerModel.swift */; };
+		8448B1A71D58434500DBFFFB /* chatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448B1A61D58434500DBFFFB /* chatViewController.swift */; };
+		844902241D56064900B8ADF3 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844902231D56064900B8ADF3 /* Plan.swift */; };
+		844902271D56310C00B8ADF3 /* trackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844902261D56310C00B8ADF3 /* trackingViewController.swift */; };
+		844A87291D586E7100DEC697 /* talksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A87281D586E7100DEC697 /* talksViewController.swift */; };
+		844A872B1D58704D00DEC697 /* chatterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A872A1D58704D00DEC697 /* chatterModel.swift */; };
+		84630B931D5773D60006A8FC /* sendedPlanCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84630B921D5773D60006A8FC /* sendedPlanCellTableViewCell.swift */; };
+		846F3D841D56EB3800722674 /* TrackingCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F3D831D56EB3800722674 /* TrackingCellTableViewCell.swift */; };
+		847C45411D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C45401D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift */; };
+		8482256F1D4E414500750118 /* demoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482256E1D4E414500750118 /* demoModel.swift */; };
+		848225711D4E42CB00750118 /* demoLibViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848225701D4E42CB00750118 /* demoLibViewController.swift */; };
+		848225731D4E430D00750118 /* demoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848225721D4E430D00750118 /* demoTableViewCell.swift */; };
+		848225751D4E436F00750118 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848225741D4E436F00750118 /* DetailsViewController.swift */; };
+		84937EE21D5081EC00E9CBC0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84937EE11D5081EC00E9CBC0 /* SettingViewController.swift */; };
+		84A2384D1D52059F00F9D0B1 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2384C1D52059F00F9D0B1 /* MainTabBarViewController.swift */; };
 		84AB527D1D48877400CB99FE /* journalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB527C1D48877400CB99FE /* journalViewController.swift */; };
 		84AB52801D48881F00CB99FE /* foodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB527F1D48881F00CB99FE /* foodModel.swift */; };
 		84AB52821D488A6000CB99FE /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB52811D488A6000CB99FE /* FoodTableViewCell.swift */; };
+		84B114E81D56416800916206 /* trackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B114E71D56416800916206 /* trackingModel.swift */; };
 		84B343D91D485AC80085F02E /* uploadFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B343D81D485AC80085F02E /* uploadFoodViewController.swift */; };
+		84FACC9B1D4EF86700E73FDC /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACC9A1D4EF86700E73FDC /* Data.swift */; };
+		84FACCA01D4F01FD00E73FDC /* weeklyPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACC9F1D4F01FD00E73FDC /* weeklyPlanViewController.swift */; };
+		84FACCA21D4F021100E73FDC /* dailyPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACCA11D4F021100E73FDC /* dailyPlanViewController.swift */; };
+		84FACCA41D4F022200E73FDC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACCA31D4F022200E73FDC /* DetailViewController.swift */; };
+		84FACCA81D4F048A00E73FDC /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACCA71D4F048A00E73FDC /* Activities.swift */; };
+		84FACCAD1D4F3D6A00E73FDC /* NewfeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACCAC1D4F3D6A00E73FDC /* NewfeedViewController.swift */; };
+		84FACCAF1D4F3EC700E73FDC /* newFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACCAE1D4F3EC700E73FDC /* newFeed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +71,7 @@
 		27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthyLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A91B12079A8F4C1D8E52CAC /* Pods-HealthyLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.release.xcconfig"; sourceTree = "<group>"; };
 		8139B3732A6950CCA938866A /* Pods-HealthyLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.debug.xcconfig"; sourceTree = "<group>"; };
+		8409619D1D533183008DE12D /* userSettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userSettingModel.swift; sourceTree = "<group>"; };
 		84181DDE1D47C99800686BAB /* HealthyLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthyLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84181DE11D47C99800686BAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84181DE61D47C99800686BAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,10 +88,35 @@
 		84181E121D47CAC500686BAB /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		84181E141D47CAD800686BAB /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		84181E161D47CB7300686BAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		841DDAB41D5485BD007917E7 /* cellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cellTableViewCell.swift; sourceTree = "<group>"; };
+		841DDAB61D54917B007917E7 /* sendPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sendPlanViewController.swift; sourceTree = "<group>"; };
+		841DDABA1D54CE34007917E7 /* followerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = followerModel.swift; sourceTree = "<group>"; };
+		8448B1A61D58434500DBFFFB /* chatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatViewController.swift; sourceTree = "<group>"; };
+		844902231D56064900B8ADF3 /* Plan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
+		844902261D56310C00B8ADF3 /* trackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = trackingViewController.swift; sourceTree = "<group>"; };
+		844A87281D586E7100DEC697 /* talksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = talksViewController.swift; sourceTree = "<group>"; };
+		844A872A1D58704D00DEC697 /* chatterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatterModel.swift; sourceTree = "<group>"; };
+		84630B921D5773D60006A8FC /* sendedPlanCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sendedPlanCellTableViewCell.swift; sourceTree = "<group>"; };
+		846F3D831D56EB3800722674 /* TrackingCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingCellTableViewCell.swift; sourceTree = "<group>"; };
+		847C45401D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeedtablviewCellTableViewCell.swift; sourceTree = "<group>"; };
+		8482256E1D4E414500750118 /* demoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = demoModel.swift; sourceTree = "<group>"; };
+		848225701D4E42CB00750118 /* demoLibViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = demoLibViewController.swift; sourceTree = "<group>"; };
+		848225721D4E430D00750118 /* demoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = demoTableViewCell.swift; sourceTree = "<group>"; };
+		848225741D4E436F00750118 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		84937EE11D5081EC00E9CBC0 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		84A2384C1D52059F00F9D0B1 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		84AB527C1D48877400CB99FE /* journalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = journalViewController.swift; sourceTree = "<group>"; };
 		84AB527F1D48881F00CB99FE /* foodModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = foodModel.swift; sourceTree = "<group>"; };
 		84AB52811D488A6000CB99FE /* FoodTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
+		84B114E71D56416800916206 /* trackingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = trackingModel.swift; sourceTree = "<group>"; };
 		84B343D81D485AC80085F02E /* uploadFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uploadFoodViewController.swift; sourceTree = "<group>"; };
+		84FACC9A1D4EF86700E73FDC /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		84FACC9F1D4F01FD00E73FDC /* weeklyPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weeklyPlanViewController.swift; sourceTree = "<group>"; };
+		84FACCA11D4F021100E73FDC /* dailyPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dailyPlanViewController.swift; sourceTree = "<group>"; };
+		84FACCA31D4F022200E73FDC /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		84FACCA71D4F048A00E73FDC /* Activities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
+		84FACCAC1D4F3D6A00E73FDC /* NewfeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewfeedViewController.swift; sourceTree = "<group>"; };
+		84FACCAE1D4F3EC700E73FDC /* newFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newFeed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +179,11 @@
 		84181DE01D47C99800686BAB /* HealthyLife */ = {
 			isa = PBXGroup;
 			children = (
+				84A2384C1D52059F00F9D0B1 /* MainTabBarViewController.swift */,
+				8448B1A51D58430500DBFFFB /* talkBox */,
 				84AB527E1D48880C00CB99FE /*  model */,
+				84FACCAB1D4F3D5200E73FDC /* newFeed */,
+				8482256D1D4E412F00750118 /* demo */,
 				84B343D51D485A970085F02E /* personal */,
 				84B343D41D485A8B0085F02E /* logIn */,
 				84181DE11D47C99800686BAB /* AppDelegate.swift */,
@@ -159,12 +215,91 @@
 			path = HealthyLifeUITests;
 			sourceTree = "<group>";
 		};
+		8448B1A51D58430500DBFFFB /* talkBox */ = {
+			isa = PBXGroup;
+			children = (
+				8448B1A61D58434500DBFFFB /* chatViewController.swift */,
+				844A87281D586E7100DEC697 /* talksViewController.swift */,
+				844A872A1D58704D00DEC697 /* chatterModel.swift */,
+			);
+			name = talkBox;
+			sourceTree = "<group>";
+		};
+		844902251D5630F800B8ADF3 /* tracking */ = {
+			isa = PBXGroup;
+			children = (
+				844902261D56310C00B8ADF3 /* trackingViewController.swift */,
+				846F3D831D56EB3800722674 /* TrackingCellTableViewCell.swift */,
+			);
+			name = tracking;
+			sourceTree = "<group>";
+		};
+		84630B8F1D5767B20006A8FC /* weekly */ = {
+			isa = PBXGroup;
+			children = (
+				84FACC9F1D4F01FD00E73FDC /* weeklyPlanViewController.swift */,
+				841DDAB41D5485BD007917E7 /* cellTableViewCell.swift */,
+				84630B921D5773D60006A8FC /* sendedPlanCellTableViewCell.swift */,
+			);
+			name = weekly;
+			sourceTree = "<group>";
+		};
+		84630B901D5767CC0006A8FC /* daily */ = {
+			isa = PBXGroup;
+			children = (
+				84FACCA11D4F021100E73FDC /* dailyPlanViewController.swift */,
+			);
+			name = daily;
+			sourceTree = "<group>";
+		};
+		84630B911D5768390006A8FC /* details */ = {
+			isa = PBXGroup;
+			children = (
+				84FACCA31D4F022200E73FDC /* DetailViewController.swift */,
+			);
+			name = details;
+			sourceTree = "<group>";
+		};
+		8482256D1D4E412F00750118 /* demo */ = {
+			isa = PBXGroup;
+			children = (
+				848225701D4E42CB00750118 /* demoLibViewController.swift */,
+				848225721D4E430D00750118 /* demoTableViewCell.swift */,
+				848225741D4E436F00750118 /* DetailsViewController.swift */,
+			);
+			name = demo;
+			sourceTree = "<group>";
+		};
+		84937EE31D5089BF00E9CBC0 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				84937EE11D5081EC00E9CBC0 /* SettingViewController.swift */,
+			);
+			name = setting;
+			sourceTree = "<group>";
+		};
 		84AB527E1D48880C00CB99FE /*  model */ = {
 			isa = PBXGroup;
 			children = (
+				84B114E61D56415A00916206 /* tracking */,
 				84AB527F1D48881F00CB99FE /* foodModel.swift */,
+				8482256E1D4E414500750118 /* demoModel.swift */,
+				84FACC9A1D4EF86700E73FDC /* Data.swift */,
+				84FACCA71D4F048A00E73FDC /* Activities.swift */,
+				84FACCAE1D4F3EC700E73FDC /* newFeed.swift */,
+				8409619D1D533183008DE12D /* userSettingModel.swift */,
+				841DDABA1D54CE34007917E7 /* followerModel.swift */,
+				844902231D56064900B8ADF3 /* Plan.swift */,
+				84B114E71D56416800916206 /* trackingModel.swift */,
 			);
 			name = " model";
+			sourceTree = "<group>";
+		};
+		84B114E61D56415A00916206 /* tracking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = tracking;
 			sourceTree = "<group>";
 		};
 		84B343D41D485A8B0085F02E /* logIn */ = {
@@ -179,11 +314,42 @@
 		84B343D51D485A970085F02E /* personal */ = {
 			isa = PBXGroup;
 			children = (
+				84937EE31D5089BF00E9CBC0 /* setting */,
+				844902251D5630F800B8ADF3 /* tracking */,
+				84FACC9E1D4F017D00E73FDC /* activitiesPlanned */,
+				84FACC9C1D4F016600E73FDC /* food */,
+			);
+			name = personal;
+			sourceTree = "<group>";
+		};
+		84FACC9C1D4F016600E73FDC /* food */ = {
+			isa = PBXGroup;
+			children = (
 				84B343D81D485AC80085F02E /* uploadFoodViewController.swift */,
 				84AB527C1D48877400CB99FE /* journalViewController.swift */,
 				84AB52811D488A6000CB99FE /* FoodTableViewCell.swift */,
 			);
-			name = personal;
+			name = food;
+			sourceTree = "<group>";
+		};
+		84FACC9E1D4F017D00E73FDC /* activitiesPlanned */ = {
+			isa = PBXGroup;
+			children = (
+				84630B911D5768390006A8FC /* details */,
+				84630B901D5767CC0006A8FC /* daily */,
+				84630B8F1D5767B20006A8FC /* weekly */,
+				841DDAB61D54917B007917E7 /* sendPlanViewController.swift */,
+			);
+			name = activitiesPlanned;
+			sourceTree = "<group>";
+		};
+		84FACCAB1D4F3D5200E73FDC /* newFeed */ = {
+			isa = PBXGroup;
+			children = (
+				84FACCAC1D4F3D6A00E73FDC /* NewfeedViewController.swift */,
+				847C45401D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift */,
+			);
+			name = newFeed;
 			sourceTree = "<group>";
 		};
 		EFB43DCE55C0AD6018ABC50F /* Frameworks */ = {
@@ -378,13 +544,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				84181E151D47CAD800686BAB /* CreateAccountViewController.swift in Sources */,
+				844A872B1D58704D00DEC697 /* chatterModel.swift in Sources */,
+				844902271D56310C00B8ADF3 /* trackingViewController.swift in Sources */,
 				84181DEA1D47C99800686BAB /* HealthyLife.xcdatamodeld in Sources */,
+				84630B931D5773D60006A8FC /* sendedPlanCellTableViewCell.swift in Sources */,
 				84181DE21D47C99800686BAB /* AppDelegate.swift in Sources */,
+				84A2384D1D52059F00F9D0B1 /* MainTabBarViewController.swift in Sources */,
+				84B114E81D56416800916206 /* trackingModel.swift in Sources */,
+				847C45411D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift in Sources */,
+				844902241D56064900B8ADF3 /* Plan.swift in Sources */,
+				84FACCA21D4F021100E73FDC /* dailyPlanViewController.swift in Sources */,
 				84B343D91D485AC80085F02E /* uploadFoodViewController.swift in Sources */,
+				84FACCA01D4F01FD00E73FDC /* weeklyPlanViewController.swift in Sources */,
+				841DDAB71D54917B007917E7 /* sendPlanViewController.swift in Sources */,
+				846F3D841D56EB3800722674 /* TrackingCellTableViewCell.swift in Sources */,
 				84AB527D1D48877400CB99FE /* journalViewController.swift in Sources */,
+				84FACCA41D4F022200E73FDC /* DetailViewController.swift in Sources */,
+				84FACCA81D4F048A00E73FDC /* Activities.swift in Sources */,
+				8409619E1D533183008DE12D /* userSettingModel.swift in Sources */,
+				8448B1A71D58434500DBFFFB /* chatViewController.swift in Sources */,
+				84FACCAD1D4F3D6A00E73FDC /* NewfeedViewController.swift in Sources */,
 				84AB52821D488A6000CB99FE /* FoodTableViewCell.swift in Sources */,
+				841DDABB1D54CE34007917E7 /* followerModel.swift in Sources */,
 				84AB52801D48881F00CB99FE /* foodModel.swift in Sources */,
+				848225711D4E42CB00750118 /* demoLibViewController.swift in Sources */,
+				84FACC9B1D4EF86700E73FDC /* Data.swift in Sources */,
+				8482256F1D4E414500750118 /* demoModel.swift in Sources */,
+				84937EE21D5081EC00E9CBC0 /* SettingViewController.swift in Sources */,
 				84181E131D47CAC500686BAB /* SignInViewController.swift in Sources */,
+				848225731D4E430D00750118 /* demoTableViewCell.swift in Sources */,
+				841DDAB51D5485BD007917E7 /* cellTableViewCell.swift in Sources */,
+				84FACCAF1D4F3EC700E73FDC /* newFeed.swift in Sources */,
+				848225751D4E436F00750118 /* DetailsViewController.swift in Sources */,
+				844A87291D586E7100DEC697 /* talksViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

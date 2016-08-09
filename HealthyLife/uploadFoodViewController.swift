@@ -19,6 +19,10 @@ class uploadFoodViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBOutlet weak var FoodImageView: UIImageView!
     
+    @IBAction func tapAction(sender: AnyObject) {
+        view.endEditing(true)
+        
+    }
     //MARK: Set up camera and photo lib for uploading photos.
     
     @IBAction func cameraAction(sender: UIButton) {
@@ -59,8 +63,8 @@ class uploadFoodViewController: UIViewController, UIImagePickerControllerDelegat
         let newPost: Dictionary<String, AnyObject> = [
             "ImageUrl": key,
             "Description": foodDesTextField.text!,
-            "Angry": 0,
             "Love": 0,
+             "time": FIRServerValue.timestamp()
             
         ]
 
