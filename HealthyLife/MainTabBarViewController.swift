@@ -26,12 +26,7 @@ class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate  
     
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-        print(item.tag)
         
-        if item.tag == 0 {
-            self.defaults.setBool(true, forKey: "checkID")
-            self.defaults.setValue(FIRAuth.auth()?.currentUser?.uid, forKey: "currentID")
-        } 
     }
     
 

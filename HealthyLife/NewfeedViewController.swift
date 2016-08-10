@@ -99,32 +99,19 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
                 controller.chatKey = cell.chatKey
                 controller.chatRoomTittle = cell.sellectedUsername
             }
+        } else if let vc = segue.destinationViewController as? journalViewController {
+            
+            if let indexPath = tableView.indexPathForSelectedRow {
+                vc.currentUserID = keys[indexPath.row]
+            }
         }
     }
 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let defauls = NSUserDefaults.standardUserDefaults()
-        defauls.setValue(keys[indexPath.row], forKey: "currentID")
-        defauls.setBool(false, forKey: "checkID")
         
     }
 
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

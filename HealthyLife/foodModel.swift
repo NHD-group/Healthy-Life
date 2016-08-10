@@ -16,7 +16,7 @@ class Food {
     private var FoodDes: String!
     private var Love: Int!
     private var Time: NSDate!
-    
+    var currentID = (FIRAuth.auth()?.currentUser?.uid)!
     
     var foodKey: String {
         return FoodKey
@@ -59,7 +59,7 @@ class Food {
         
         // The above properties are assigned to their key.
         
-        self.FoodRef = FIRDatabase.database().reference().child("users").child((NSUserDefaults.standardUserDefaults().valueForKey("currentID")) as! String).child("food_journal").child(self.FoodKey)
+        self.FoodRef = FIRDatabase.database().reference().child("users").child(currentID).child("food_journal").child(self.FoodKey)
     }
     
     func addSubtractLove(addVote: Bool) {

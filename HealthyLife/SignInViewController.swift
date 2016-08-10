@@ -31,7 +31,6 @@ class SignInViewController: UIViewController {
                 } else {
                     print(user)
                     print("User logged in")
-                    self.defaults.setBool(true, forKey: "checkID")
                     self.performSegueWithIdentifier("1", sender: self)
                 }
             })
@@ -60,9 +59,7 @@ class SignInViewController: UIViewController {
             // User is signed in.
             
            
-            
-            defaults.setBool(true, forKey: "checkID")
-            
+                        
             
             self.performSegueWithIdentifier("1", sender: self)
             

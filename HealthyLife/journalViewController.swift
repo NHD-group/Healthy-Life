@@ -38,7 +38,7 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
         UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
     }
     
-    var currentUserID = String()
+    var currentUserID = (FIRAuth.auth()?.currentUser?.uid)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,22 +50,7 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.avaImage.layer.cornerRadius = 20
         self.avaImage.clipsToBounds = true
         
-        
-
-        
-        //MARK: Check which segue
-        
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let checkID = defaults.boolForKey("checkID")
-        
-        if checkID == true {
-            currentUserID = (FIRAuth.auth()?.currentUser?.uid)!
-            defaults.setValue(currentUserID, forKey: "currentID")
-            
-            
-        } else {
-            currentUserID = defaults.valueForKey("currentID") as! String
+        if currentUserID != (FIRAuth.auth()?.currentUser?.uid)! {
             settingButton.hidden = true
         }
         
@@ -90,7 +75,9 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         DataService.dataService.userRef.child("followerCount").observeEventType(.Value, withBlock: { snapshot in
             
-            self.followerCountLabel.text = "\((snapshot.value as? Int)!) followers"
+            if let count = snapshot.value as? Int {
+                self.followerCountLabel.text = "\(count) followers"
+            }
             
             })
         
@@ -134,6 +121,7 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
                     if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
                         let food = Food(key: key, dictionary: postDictionary)
+                        food.currentID = self.currentUserID
                         
                         // Items are returned chronologically, but it's more fun with the newest jokes first.
                         
