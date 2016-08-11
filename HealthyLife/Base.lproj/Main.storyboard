@@ -264,6 +264,7 @@
                         <outlet property="followerCountLabel" destination="DxN-Wh-bKv" id="VXe-F4-w3Q"/>
                         <outlet property="heightLabel" destination="FJ3-RR-Uu1" id="5Ck-UB-bay"/>
                         <outlet property="name" destination="nxV-hu-tSm" id="3bU-lx-ase"/>
+                        <outlet property="planButton" destination="YuC-vk-Uq0" id="Zsy-On-I0C"/>
                         <outlet property="settingButton" destination="3kP-Jf-dbo" id="eEg-QN-7Rt"/>
                         <outlet property="tableView" destination="dVR-JX-zIc" id="6FL-zN-YMk"/>
                         <outlet property="weightChangeLabel" destination="7Ta-fl-gNP" id="CQd-ic-Erq"/>

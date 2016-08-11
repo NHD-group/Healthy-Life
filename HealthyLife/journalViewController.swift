@@ -17,6 +17,7 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var weightChangeLabel: UILabel!
     
+    @IBOutlet weak var planButton: UIButton!
     
     @IBOutlet weak var DOB: UILabel!
     
@@ -52,6 +53,7 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if currentUserID != (FIRAuth.auth()?.currentUser?.uid)! {
             settingButton.hidden = true
+            planButton.hidden = true
         }
         
  

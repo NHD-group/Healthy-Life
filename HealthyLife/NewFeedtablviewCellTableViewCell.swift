@@ -23,6 +23,8 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
     var sellectedUsername = String()
     
     
+    
+    
    
     var currentUserName = String()
     
