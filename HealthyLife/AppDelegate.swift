@@ -20,6 +20,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FIRApp.configure()
         FIRDatabase.database().persistenceEnabled = true
+        
+        if let user = FIRAuth.auth()?.currentUser {
+            // User is signed in.
+            
+            
+            let storyBoard  = UIStoryboard(name: "Main", bundle: nil)
+            let journal = storyBoard.instantiateViewControllerWithIdentifier("personal") as! UINavigationController
+            let demoLib = storyBoard.instantiateViewControllerWithIdentifier("demoLib") as! UINavigationController
+            
+            let newFeed = storyBoard.instantiateViewControllerWithIdentifier("newFeed") as! UINavigationController
+            
+            let talks = storyBoard.instantiateViewControllerWithIdentifier("talks") as! UINavigationController
+            
+            let tabbarController = UITabBarController()
+            tabbarController.viewControllers = [journal, demoLib, newFeed, talks]
+            window?.rootViewController = tabbarController
+
+            
+            
+            
+            
+        }
         return true
     }
 

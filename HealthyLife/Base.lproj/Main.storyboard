@@ -1,10 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h8v-lU-mzc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="IZZ-iu-Txw">
+            <objects>
+                <viewController id="h8v-lU-mzc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k6J-VK-Opu"/>
+                        <viewControllerLayoutGuide type="bottom" id="wbr-DT-V91"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BfS-pm-TYn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="cvu-BP-B0v">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ds8-RL-RUo">
+                                <rect key="frame" x="20" y="498" width="335" height="56"/>
+                                <color key="backgroundColor" red="1" green="0.55956363250410668" blue="0.39803533395134327" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="FKE-Ab-l5h"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJ8-0M-aFz">
+                                <rect key="frame" x="20" y="571" width="335" height="56"/>
+                                <color key="backgroundColor" red="1" green="0.55956363249999996" blue="0.39803533400000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Create Account With Email">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Uor-CJ-xkN" kind="presentation" id="0ho-lr-Cnk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x3A-5S-LIq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-97.5" y="271.5"/>
+        </scene>
         <!--Sign In View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -1077,7 +1121,7 @@
         <!--journal-->
         <scene sceneID="QFA-2l-s6l">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PWO-vw-vH7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="personal" automaticallyAdjustsScrollViewInsets="NO" id="PWO-vw-vH7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="journal" id="HyE-8v-ZVv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r8t-Rr-2Ve">
@@ -1096,7 +1140,7 @@
         <!--demo Lib-->
         <scene sceneID="uur-yu-yRi">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q4I-ZH-681" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="demoLib" automaticallyAdjustsScrollViewInsets="NO" id="q4I-ZH-681" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="demo Lib" id="aVc-Hl-Jts"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8C3-kO-BGZ">
@@ -1151,7 +1195,7 @@
         <!--NewFeed-->
         <scene sceneID="N6Q-Zj-iYZ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o6T-1R-Kbf" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="newFeed" automaticallyAdjustsScrollViewInsets="NO" id="o6T-1R-Kbf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="4" title="NewFeed" id="4tP-FH-aol"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MYo-VF-Ke0">
@@ -1247,7 +1291,7 @@
         <!--Talks-->
         <scene sceneID="uKl-rh-Ds5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XBa-i8-0nx" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="talks" automaticallyAdjustsScrollViewInsets="NO" id="XBa-i8-0nx" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Talks" id="GVm-Cl-1ej"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Plp-4a-Esp">
@@ -1266,11 +1310,13 @@
     </scenes>
     <resources>
         <image name="Settings Filled-50" width="50" height="50"/>
+        <image name="backGround" width="375" height="667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RGv-s7-iXW"/>
-        <segue reference="opb-40-NHk"/>
-        <segue reference="cRV-Ik-ULG"/>
+        <segue reference="Ix1-Dk-Yza"/>
+        <segue reference="WvO-qO-oju"/>
+        <segue reference="0ho-lr-Cnk"/>
+        <segue reference="cXB-Zc-vQ5"/>
         <segue reference="de9-EU-rTg"/>
     </inferredMetricsTieBreakers>
 </document>
