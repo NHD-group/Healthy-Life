@@ -65,7 +65,7 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         //MARK: Set up ava Image
         
         if userProfile.userSetting == nil {
-            avaImage.image = UIImage(named: "defaults")
+            avaImage.image = UIImage(named: "defaults_icon")
     
         } else {
             
