@@ -8,6 +8,9 @@ PODS:
     - FirebaseAuth (= 3.0.4)
   - Firebase/Core (3.4.0):
     - Firebase/Analytics
+  - Firebase/Crash (3.4.0):
+    - Firebase/Analytics
+    - FirebaseCrash (= 1.0.7)
   - Firebase/Database (3.4.0):
     - Firebase/Analytics
     - FirebaseDatabase (= 3.0.2)
@@ -23,6 +26,12 @@ PODS:
     - FirebaseAnalytics (~> 3.2)
     - GoogleNetworkingUtilities (~> 1.2)
     - GoogleParsingUtilities (~> 1.1)
+    - GoogleUtilities (~> 1.2)
+  - FirebaseCrash (1.0.7):
+    - FirebaseAnalytics (~> 3.2)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
     - GoogleUtilities (~> 1.2)
   - FirebaseDatabase (3.0.2):
     - FirebaseAnalytics (~> 3.2)
@@ -43,20 +52,30 @@ PODS:
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - Kingfisher (2.4.2)
+  - MBProgressHUD (1.0.0)
   - NSDate+TimeAgo (1.0.6)
+  - SCRecorder (2.7.0)
+  - SnapKit (0.22.0)
 
 DEPENDENCIES:
   - Firebase
   - Firebase/Auth
+  - Firebase/Crash
   - Firebase/Database
   - Firebase/Storage
   - JSQMessagesViewController (~> 7.3)
+  - Kingfisher (~> 2.4)
+  - MBProgressHUD
   - NSDate+TimeAgo
+  - SCRecorder
+  - SnapKit (~> 0.22.0)
 
 SPEC CHECKSUMS:
   Firebase: 754562547af419cc2f4b15247fee419081924bc2
   FirebaseAnalytics: 228be2991cb28efb96cdafc4d62f64680e615c69
   FirebaseAuth: 26fd291c3b552fc9658420b867520d5ae080421c
+  FirebaseCrash: 2efeb3715b76ac843b841529ce413efb67e5fd4d
   FirebaseDatabase: 59bea2e7dfd81b3b8b2f8e396caf1a52c2ced6f7
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FirebaseStorage: fa2a87dee81f682f553af6839daa37a750e65f6a
@@ -67,6 +86,10 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  Kingfisher: 05bf8d04408aaa70fcd2c8c81b9f1d0f1ad313dd
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   NSDate+TimeAgo: 35601c619b2d59290055e4fe76e61d97677a2360
+  SCRecorder: bbb521dbc222908876ec9cd9156bbc8a893bed44
+  SnapKit: 0dd2fd157330f1ea11fd84da13e6be8a7a22bae0
 
 COCOAPODS: 0.39.0
