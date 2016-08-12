@@ -17,7 +17,6 @@
 		84181DFA1D47C99800686BAB /* HealthyLifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84181DF91D47C99800686BAB /* HealthyLifeTests.swift */; };
 		84181E051D47C99800686BAB /* HealthyLifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84181E041D47C99800686BAB /* HealthyLifeUITests.swift */; };
 		84181E131D47CAC500686BAB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84181E121D47CAC500686BAB /* SignInViewController.swift */; };
-		84181E151D47CAD800686BAB /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84181E141D47CAD800686BAB /* CreateAccountViewController.swift */; };
 		84181E171D47CB7300686BAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84181E161D47CB7300686BAB /* GoogleService-Info.plist */; };
 		841DDAB51D5485BD007917E7 /* cellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DDAB41D5485BD007917E7 /* cellTableViewCell.swift */; };
 		841DDAB71D54917B007917E7 /* sendPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DDAB61D54917B007917E7 /* sendPlanViewController.swift */; };
@@ -86,7 +85,6 @@
 		84181E041D47C99800686BAB /* HealthyLifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyLifeUITests.swift; sourceTree = "<group>"; };
 		84181E061D47C99800686BAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84181E121D47CAC500686BAB /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		84181E141D47CAD800686BAB /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		84181E161D47CB7300686BAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		841DDAB41D5485BD007917E7 /* cellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cellTableViewCell.swift; sourceTree = "<group>"; };
 		841DDAB61D54917B007917E7 /* sendPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sendPlanViewController.swift; sourceTree = "<group>"; };
@@ -305,7 +303,6 @@
 		84B343D41D485A8B0085F02E /* logIn */ = {
 			isa = PBXGroup;
 			children = (
-				84181E141D47CAD800686BAB /* CreateAccountViewController.swift */,
 				84181E121D47CAC500686BAB /* SignInViewController.swift */,
 			);
 			name = logIn;
@@ -543,7 +540,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84181E151D47CAD800686BAB /* CreateAccountViewController.swift in Sources */,
 				844A872B1D58704D00DEC697 /* chatterModel.swift in Sources */,
 				844902271D56310C00B8ADF3 /* trackingViewController.swift in Sources */,
 				84181DEA1D47C99800686BAB /* HealthyLife.xcdatamodeld in Sources */,

@@ -36,12 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let tabbarController = UITabBarController()
             tabbarController.viewControllers = [journal, demoLib, newFeed, talks]
             window?.rootViewController = tabbarController
-
+            
             
             
             
             
         }
+      
         return true
     }
 

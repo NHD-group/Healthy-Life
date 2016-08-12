@@ -17,7 +17,7 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
     var keys =  [String]()
     var chatKey = String()
     let searchController = UISearchController(searchResultsController: nil)
-    
+    var ref =  FIRDatabase.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +27,13 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
         
         
         
-        DataService.dataService.baseRef.child("users").queryOrderedByChild("followerCount").observeEventType(.Value, withBlock: { snapshot in
+         ref.child("users").observeEventType(.Value, withBlock: { snapshot in
             
             self.users = []
             self.keys = []
+            
+            print(snapshot)
+            print("why is this happening")
             
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
@@ -43,10 +46,12 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
                     if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
                         self.keys.insert(key, atIndex: 0)
+                        
                         let user = UserProfile(key: key, dictionary: postDictionary)
                         
                         
                        self.users.insert(user, atIndex: 0)
+                        
 
                     }
                 }
@@ -72,7 +77,7 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("user", forIndexPath:  indexPath) as! NewFeedtablviewCellTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("222", forIndexPath:  indexPath) as! NewFeedtablviewCellTableViewCell
         
         cell.configureCell(users[indexPath.row], setImage: keys[indexPath.row])
         
