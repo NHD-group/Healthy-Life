@@ -33,6 +33,8 @@
 		04426B191D5DB4C9005B3621 /* SCTouchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426B0B1D5DB4C9005B3621 /* SCTouchDetector.m */; };
 		04426B1A1D5DB4C9005B3621 /* SCVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426B0D1D5DB4C9005B3621 /* SCVideoPlayerViewController.m */; };
 		04426B1B1D5DB4C9005B3621 /* SCWatermarkOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426B0F1D5DB4C9005B3621 /* SCWatermarkOverlayView.m */; };
+		04426B1F1D5DBA35005B3621 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04426B1D1D5DBA34005B3621 /* GoogleService-Info.plist */; };
+		04426B201D5DBA35005B3621 /* HealthyLife-40181a67534f.json in Resources */ = {isa = PBXBuildFile; fileRef = 04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */; };
 		3FEE3F4FA3D69AF73B170521 /* Pods_HealthyLife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */; };
 		8409619E1D533183008DE12D /* userSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409619D1D533183008DE12D /* userSettingModel.swift */; };
 		84181DE21D47C99800686BAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84181DE11D47C99800686BAB /* AppDelegate.swift */; };
@@ -40,7 +42,6 @@
 		84181DEC1D47C99800686BAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84181DEB1D47C99800686BAB /* Assets.xcassets */; };
 		84181DFA1D47C99800686BAB /* HealthyLifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84181DF91D47C99800686BAB /* HealthyLifeTests.swift */; };
 		84181E051D47C99800686BAB /* HealthyLifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84181E041D47C99800686BAB /* HealthyLifeUITests.swift */; };
-		84181E171D47CB7300686BAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84181E161D47CB7300686BAB /* GoogleService-Info.plist */; };
 		841DDAB51D5485BD007917E7 /* cellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DDAB41D5485BD007917E7 /* cellTableViewCell.swift */; };
 		841DDAB71D54917B007917E7 /* sendPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DDAB61D54917B007917E7 /* sendPlanViewController.swift */; };
 		841DDABB1D54CE34007917E7 /* followerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DDABA1D54CE34007917E7 /* followerModel.swift */; };
@@ -125,6 +126,8 @@
 		04426B0D1D5DB4C9005B3621 /* SCVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCVideoPlayerViewController.m; sourceTree = "<group>"; };
 		04426B0E1D5DB4C9005B3621 /* SCWatermarkOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCWatermarkOverlayView.h; sourceTree = "<group>"; };
 		04426B0F1D5DB4C9005B3621 /* SCWatermarkOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCWatermarkOverlayView.m; sourceTree = "<group>"; };
+		04426B1D1D5DBA34005B3621 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "HealthyLife-40181a67534f.json"; sourceTree = "<group>"; };
 		27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthyLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A91B12079A8F4C1D8E52CAC /* Pods-HealthyLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.release.xcconfig"; sourceTree = "<group>"; };
 		8139B3732A6950CCA938866A /* Pods-HealthyLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.debug.xcconfig"; sourceTree = "<group>"; };
@@ -140,7 +143,6 @@
 		84181E001D47C99800686BAB /* HealthyLifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthyLifeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84181E041D47C99800686BAB /* HealthyLifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyLifeUITests.swift; sourceTree = "<group>"; };
 		84181E061D47C99800686BAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84181E161D47CB7300686BAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		841DDAB41D5485BD007917E7 /* cellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cellTableViewCell.swift; sourceTree = "<group>"; };
 		841DDAB61D54917B007917E7 /* sendPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sendPlanViewController.swift; sourceTree = "<group>"; };
 		841DDABA1D54CE34007917E7 /* followerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = followerModel.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 		04426AE51D5DAA2C005B3621 /* Share */ = {
 			isa = PBXGroup;
 			children = (
+				04426B1C1D5DBA34005B3621 /* Firebase */,
 				04426AE61D5DAA2C005B3621 /* BaseClasses */,
 				04426AE81D5DAA2C005B3621 /* CustomUIs */,
 				04426AEA1D5DAA2C005B3621 /* Extensions */,
@@ -414,6 +417,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		04426B1C1D5DBA34005B3621 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				04426B1D1D5DBA34005B3621 /* GoogleService-Info.plist */,
+				04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		293FBAE7311AD53C884F0F93 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,7 +472,6 @@
 				84181DE51D47C99800686BAB /* Main.storyboard */,
 				84181DEB1D47C99800686BAB /* Assets.xcassets */,
 				84181DF01D47C99800686BAB /* Info.plist */,
-				84181E161D47CB7300686BAB /* GoogleService-Info.plist */,
 				04426AB61D5D9294005B3621 /* Resources */,
 			);
 			path = HealthyLife;
@@ -640,6 +651,7 @@
 				84181DDC1D47C99800686BAB /* Resources */,
 				137E2E15B951E35907C4B17A /* Embed Pods Frameworks */,
 				8FA4E8D7D6E6D38E177F0168 /* Copy Pods Resources */,
+				04426B211D5DBA63005B3621 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -734,11 +746,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04426B1F1D5DBA35005B3621 /* GoogleService-Info.plist in Resources */,
 				04426AE01D5DA932005B3621 /* ChamsBold.ttf in Resources */,
 				04426AD41D5D9B22005B3621 /* SignIn.storyboard in Resources */,
 				04426ADE1D5DA932005B3621 /* ChamsBlack.ttf in Resources */,
 				04426B111D5DB4C9005B3621 /* Recorder.storyboard in Resources */,
-				84181E171D47CB7300686BAB /* GoogleService-Info.plist in Resources */,
 				04426ADF1D5DA932005B3621 /* ChamsBold Italic.ttf in Resources */,
 				04426B131D5DB4C9005B3621 /* a_filter.cisf in Resources */,
 				04426AF71D5DB324005B3621 /* NHDTabbarView.xib in Resources */,
@@ -746,6 +758,7 @@
 				04426AE21D5DA932005B3621 /* ChamsRegular.ttf in Resources */,
 				84181DEC1D47C99800686BAB /* Assets.xcassets in Resources */,
 				84181DE71D47C99800686BAB /* Main.storyboard in Resources */,
+				04426B201D5DBA35005B3621 /* HealthyLife-40181a67534f.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,6 +779,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		04426B211D5DBA63005B3621 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "JSON_FILE=HealthyLife/Share/Firebase/HealthyLife-40181a67534f.json\n\nGOOGLE_APP_ID=1:5549772432:ios:0225cd86a4b27226\n\ndefaults write com.google.SymbolUpload version -integer 1   # creates file if it does not exist\nJSON=$(cat \"${JSON_FILE}\")\n/usr/bin/plutil -replace \"app_${GOOGLE_APP_ID//:/_}\" -json \"${JSON}\" \"$HOME/Library/Preferences/com.google.SymbolUpload.plist\"\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym";
+		};
 		137E2E15B951E35907C4B17A /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
