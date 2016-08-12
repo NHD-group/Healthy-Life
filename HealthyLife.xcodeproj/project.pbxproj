@@ -10,7 +10,16 @@
 		04426AD11D5D9B07005B3621 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426ACC1D5D9B07005B3621 /* SignInViewController.swift */; };
 		04426AD21D5D9B07005B3621 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426ACF1D5D9B07005B3621 /* MainTabBarViewController.swift */; };
 		04426AD41D5D9B22005B3621 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04426AD31D5D9B22005B3621 /* SignIn.storyboard */; };
-		04426AD71D5D9FE7005B3621 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426AD61D5D9FE7005B3621 /* Configuration.swift */; };
+		04426ADE1D5DA932005B3621 /* ChamsBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04426AD91D5DA932005B3621 /* ChamsBlack.ttf */; };
+		04426ADF1D5DA932005B3621 /* ChamsBold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04426ADA1D5DA932005B3621 /* ChamsBold Italic.ttf */; };
+		04426AE01D5DA932005B3621 /* ChamsBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04426ADB1D5DA932005B3621 /* ChamsBold.ttf */; };
+		04426AE11D5DA932005B3621 /* ChamsItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04426ADC1D5DA932005B3621 /* ChamsItalic.ttf */; };
+		04426AE21D5DA932005B3621 /* ChamsRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04426ADD1D5DA932005B3621 /* ChamsRegular.ttf */; };
+		04426AEF1D5DAA2C005B3621 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426AE71D5DAA2C005B3621 /* BaseNavigationController.swift */; };
+		04426AF01D5DAA2C005B3621 /* NHDFontBucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426AE91D5DAA2C005B3621 /* NHDFontBucket.swift */; };
+		04426AF11D5DAA2C005B3621 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426AEB1D5DAA2C005B3621 /* UIImageExtension.swift */; };
+		04426AF21D5DAA2C005B3621 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426AEC1D5DAA2C005B3621 /* UIImageViewExtension.swift */; };
+		04426AF31D5DAA2C005B3621 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426AEE1D5DAA2C005B3621 /* Configuration.swift */; };
 		3FEE3F4FA3D69AF73B170521 /* Pods_HealthyLife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */; };
 		8409619E1D533183008DE12D /* userSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409619D1D533183008DE12D /* userSettingModel.swift */; };
 		84181DE21D47C99800686BAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84181DE11D47C99800686BAB /* AppDelegate.swift */; };
@@ -70,7 +79,16 @@
 		04426ACC1D5D9B07005B3621 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		04426ACF1D5D9B07005B3621 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		04426AD31D5D9B22005B3621 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
-		04426AD61D5D9FE7005B3621 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		04426AD91D5DA932005B3621 /* ChamsBlack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChamsBlack.ttf; sourceTree = "<group>"; };
+		04426ADA1D5DA932005B3621 /* ChamsBold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ChamsBold Italic.ttf"; sourceTree = "<group>"; };
+		04426ADB1D5DA932005B3621 /* ChamsBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChamsBold.ttf; sourceTree = "<group>"; };
+		04426ADC1D5DA932005B3621 /* ChamsItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChamsItalic.ttf; sourceTree = "<group>"; };
+		04426ADD1D5DA932005B3621 /* ChamsRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChamsRegular.ttf; sourceTree = "<group>"; };
+		04426AE71D5DAA2C005B3621 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		04426AE91D5DAA2C005B3621 /* NHDFontBucket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDFontBucket.swift; sourceTree = "<group>"; };
+		04426AEB1D5DAA2C005B3621 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		04426AEC1D5DAA2C005B3621 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		04426AEE1D5DAA2C005B3621 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthyLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A91B12079A8F4C1D8E52CAC /* Pods-HealthyLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.release.xcconfig"; sourceTree = "<group>"; };
 		8139B3732A6950CCA938866A /* Pods-HealthyLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +164,7 @@
 		04426AB61D5D9294005B3621 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04426AD81D5DA932005B3621 /* Fonts */,
 				04426AB71D5D9294005B3621 /* images */,
 			);
 			path = Resources;
@@ -248,12 +267,60 @@
 			path = views;
 			sourceTree = "<group>";
 		};
-		04426AD51D5D9FDA005B3621 /* Share */ = {
+		04426AD81D5DA932005B3621 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				04426AD61D5D9FE7005B3621 /* Configuration.swift */,
+				04426AD91D5DA932005B3621 /* ChamsBlack.ttf */,
+				04426ADA1D5DA932005B3621 /* ChamsBold Italic.ttf */,
+				04426ADB1D5DA932005B3621 /* ChamsBold.ttf */,
+				04426ADC1D5DA932005B3621 /* ChamsItalic.ttf */,
+				04426ADD1D5DA932005B3621 /* ChamsRegular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		04426AE51D5DAA2C005B3621 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				04426AE61D5DAA2C005B3621 /* BaseClasses */,
+				04426AE81D5DAA2C005B3621 /* CustomUIs */,
+				04426AEA1D5DAA2C005B3621 /* Extensions */,
+				04426AED1D5DAA2C005B3621 /* Helpers */,
 			);
 			path = Share;
+			sourceTree = "<group>";
+		};
+		04426AE61D5DAA2C005B3621 /* BaseClasses */ = {
+			isa = PBXGroup;
+			children = (
+				04426AE71D5DAA2C005B3621 /* BaseNavigationController.swift */,
+			);
+			path = BaseClasses;
+			sourceTree = "<group>";
+		};
+		04426AE81D5DAA2C005B3621 /* CustomUIs */ = {
+			isa = PBXGroup;
+			children = (
+				04426AE91D5DAA2C005B3621 /* NHDFontBucket.swift */,
+			);
+			path = CustomUIs;
+			sourceTree = "<group>";
+		};
+		04426AEA1D5DAA2C005B3621 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				04426AEB1D5DAA2C005B3621 /* UIImageExtension.swift */,
+				04426AEC1D5DAA2C005B3621 /* UIImageViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		04426AED1D5DAA2C005B3621 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				04426AEE1D5DAA2C005B3621 /* Configuration.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		293FBAE7311AD53C884F0F93 /* Pods */ = {
@@ -290,7 +357,7 @@
 		84181DE01D47C99800686BAB /* HealthyLife */ = {
 			isa = PBXGroup;
 			children = (
-				04426AD51D5D9FDA005B3621 /* Share */,
+				04426AE51D5DAA2C005B3621 /* Share */,
 				04426AC41D5D9B07005B3621 /* Modules */,
 				8448B1A51D58430500DBFFFB /* talkBox */,
 				84AB527E1D48880C00CB99FE /* model */,
@@ -576,8 +643,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04426AE01D5DA932005B3621 /* ChamsBold.ttf in Resources */,
 				04426AD41D5D9B22005B3621 /* SignIn.storyboard in Resources */,
+				04426ADE1D5DA932005B3621 /* ChamsBlack.ttf in Resources */,
 				84181E171D47CB7300686BAB /* GoogleService-Info.plist in Resources */,
+				04426ADF1D5DA932005B3621 /* ChamsBold Italic.ttf in Resources */,
+				04426AE11D5DA932005B3621 /* ChamsItalic.ttf in Resources */,
+				04426AE21D5DA932005B3621 /* ChamsRegular.ttf in Resources */,
 				84181DEC1D47C99800686BAB /* Assets.xcassets in Resources */,
 				84181DE71D47C99800686BAB /* Main.storyboard in Resources */,
 			);
@@ -663,18 +735,21 @@
 				84FACCA21D4F021100E73FDC /* dailyPlanViewController.swift in Sources */,
 				84B343D91D485AC80085F02E /* uploadFoodViewController.swift in Sources */,
 				84FACCA01D4F01FD00E73FDC /* weeklyPlanViewController.swift in Sources */,
+				04426AF01D5DAA2C005B3621 /* NHDFontBucket.swift in Sources */,
 				841DDAB71D54917B007917E7 /* sendPlanViewController.swift in Sources */,
 				846F3D841D56EB3800722674 /* TrackingCellTableViewCell.swift in Sources */,
+				04426AF21D5DAA2C005B3621 /* UIImageViewExtension.swift in Sources */,
 				84AB527D1D48877400CB99FE /* journalViewController.swift in Sources */,
 				84FACCA41D4F022200E73FDC /* DetailViewController.swift in Sources */,
 				84FACCA81D4F048A00E73FDC /* Activities.swift in Sources */,
 				8409619E1D533183008DE12D /* userSettingModel.swift in Sources */,
 				8448B1A71D58434500DBFFFB /* chatViewController.swift in Sources */,
+				04426AF31D5DAA2C005B3621 /* Configuration.swift in Sources */,
 				84FACCAD1D4F3D6A00E73FDC /* NewfeedViewController.swift in Sources */,
 				84AB52821D488A6000CB99FE /* FoodTableViewCell.swift in Sources */,
 				841DDABB1D54CE34007917E7 /* followerModel.swift in Sources */,
-				04426AD71D5D9FE7005B3621 /* Configuration.swift in Sources */,
 				84AB52801D48881F00CB99FE /* foodModel.swift in Sources */,
+				04426AF11D5DAA2C005B3621 /* UIImageExtension.swift in Sources */,
 				848225711D4E42CB00750118 /* demoLibViewController.swift in Sources */,
 				84FACC9B1D4EF86700E73FDC /* Data.swift in Sources */,
 				8482256F1D4E414500750118 /* demoModel.swift in Sources */,
@@ -682,6 +757,7 @@
 				848225731D4E430D00750118 /* demoTableViewCell.swift in Sources */,
 				841DDAB51D5485BD007917E7 /* cellTableViewCell.swift in Sources */,
 				04426AD11D5D9B07005B3621 /* SignInViewController.swift in Sources */,
+				04426AEF1D5DAA2C005B3621 /* BaseNavigationController.swift in Sources */,
 				84FACCAF1D4F3EC700E73FDC /* newFeed.swift in Sources */,
 				848225751D4E436F00750118 /* DetailsViewController.swift in Sources */,
 				844A87291D586E7100DEC697 /* talksViewController.swift in Sources */,

@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Journal View Controller-->
+        <!--Journal-->
         <scene sceneID="koj-Pc-Jve">
             <objects>
                 <viewController id="vcx-zX-44i" customClass="journalViewController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,14 +23,14 @@
                                     <rect key="frame" x="0.0" y="64" width="375" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuC-vk-Uq0">
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuC-vk-Uq0" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="88" height="30"/>
                                             <state key="normal" title="Plan"/>
                                             <connections>
                                                 <segue destination="dXl-kM-6GR" kind="push" id="piT-TS-hs8"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKl-L8-x0G">
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKl-L8-x0G" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
                                             <rect key="frame" x="96" y="0.0" width="107" height="30"/>
                                             <state key="normal" title="Tracking"/>
                                             <connections>
@@ -51,7 +51,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UpO-ga-ibG">
                                                     <rect key="frame" x="8" y="15" width="136" height="131"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yv8-b0-svH">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yv8-b0-svH" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
                                                     <rect key="frame" x="152" y="15" width="215" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -66,9 +66,9 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZe-he-Htg">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZe-he-Htg" customClass="NHDCustomItalicFontLabel" customModule="HealthyLife" customModuleProvider="target">
                                                     <rect key="frame" x="156" y="83" width="128" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -96,7 +96,7 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxV-hu-tSm">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxV-hu-tSm" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
                                         <rect key="frame" x="117" y="116" width="139" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -139,7 +139,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hN0-bf-xUg">
+                    <navigationItem key="navigationItem" title="Journal" id="hN0-bf-xUg">
                         <barButtonItem key="leftBarButtonItem" title="LogOut" id="wew-5u-aQ0">
                             <connections>
                                 <action selector="logOutAction:" destination="vcx-zX-44i" id="HsK-IN-BSS"/>
@@ -165,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ru8-ls-EoY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1063.7333333333333" y="-206.84666666666666"/>
+            <point key="canvasLocation" x="815" y="245"/>
         </scene>
         <!--Tracking View Controller-->
         <scene sceneID="dkQ-4x-AeP">
@@ -231,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTu-8r-Zff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700" y="-625.27333333333331"/>
+            <point key="canvasLocation" x="2284" y="-986"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="EsG-g4-zJp">
@@ -312,7 +312,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1205.0666666666666" y="-1275.6333333333332"/>
+            <point key="canvasLocation" x="1197" y="-756"/>
         </scene>
         <!--Workout Plan-->
         <scene sceneID="Pi9-Aa-i3M">
@@ -344,7 +344,7 @@
                                                         <segue destination="UHc-w7-FGD" kind="modal" identifier="send" id="Z5r-Gw-gUy"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVn-wj-jq9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVn-wj-jq9" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
                                                     <rect key="frame" x="14" y="29" width="267" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -365,7 +365,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="347" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULQ-Ol-QwN">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULQ-Ol-QwN" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
                                                     <rect key="frame" x="13" y="24" width="260" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -396,7 +396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JPZ-Wp-eHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1671.2" y="115.02"/>
+            <point key="canvasLocation" x="1823" y="47"/>
         </scene>
         <!--Send Plan View Controller-->
         <scene sceneID="fXA-G2-PJV">
@@ -500,7 +500,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZP-7J-jDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2236" y="422.68666666666667"/>
+            <point key="canvasLocation" x="2292" y="482"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Z8F-hf-Zyb">
@@ -583,7 +583,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gC2-7R-DIL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2872.8000000000002" y="27.926666666666666"/>
+            <point key="canvasLocation" x="2772" y="507"/>
         </scene>
         <!--Upload Food View Controller-->
         <scene sceneID="7Ob-Cl-L1Y">
@@ -652,7 +652,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="872.26666666666665" y="-1300.2466666666667"/>
+            <point key="canvasLocation" x="644" y="-597"/>
         </scene>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="AAV-Zd-izw">
@@ -672,9 +672,9 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hea-gv-6R7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="441.86666666666667" y="657.46000000000004"/>
+            <point key="canvasLocation" x="-55" y="681"/>
         </scene>
-        <!--Demo Lib View Controller-->
+        <!--Demo Lib-->
         <scene sceneID="zV0-1a-CYB">
             <objects>
                 <viewController id="0qr-aP-dj1" customClass="demoLibViewController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
@@ -722,16 +722,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7yr-XT-ogY"/>
+                    <navigationItem key="navigationItem" title="Demo Lib" id="7yr-XT-ogY"/>
                     <connections>
                         <outlet property="tableView" destination="GX7-Pm-qZ2" id="Nca-tz-Y0c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKo-iq-dIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1054.1333333333332" y="1000.1533333333333"/>
+            <point key="canvasLocation" x="1258" y="1068"/>
         </scene>
-        <!--Newfeed View Controller-->
+        <!--Newsfeed-->
         <scene sceneID="iuf-4X-G4S">
             <objects>
                 <viewController id="TfU-wg-Ow2" customClass="NewfeedViewController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
@@ -817,14 +817,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="697-pp-o7l"/>
+                    <navigationItem key="navigationItem" title="Newsfeed" id="697-pp-o7l"/>
                     <connections>
                         <outlet property="tableView" destination="Ahu-gz-b5m" id="k82-fF-HL4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IkE-nl-EG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1032.8" y="1781.1533333333334"/>
+            <point key="canvasLocation" x="1216" y="1805"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="R4y-3C-2ym">
@@ -840,7 +840,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="hLU-Zs-4XA">
-                        <barButtonItem key="leftBarButtonItem" title="back" id="M6n-oN-CxM">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="M6n-oN-CxM">
                             <connections>
                                 <action selector="backAction:" destination="8oQ-Ic-Wgw" id="N79-UN-pCn"/>
                             </connections>
@@ -849,7 +849,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dze-hP-BH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1652.5333333333333" y="2701.3133333333335"/>
+            <point key="canvasLocation" x="1652" y="2577"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="TUf-0Q-HnP">
@@ -965,12 +965,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1353.3333333333333" y="1157.3"/>
+            <point key="canvasLocation" x="1801" y="1105"/>
         </scene>
         <!--journal-->
         <scene sceneID="QFA-2l-s6l">
             <objects>
-                <navigationController storyboardIdentifier="personal" automaticallyAdjustsScrollViewInsets="NO" id="PWO-vw-vH7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="personal" automaticallyAdjustsScrollViewInsets="NO" id="PWO-vw-vH7" customClass="BaseNavigationController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="journal" id="HyE-8v-ZVv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r8t-Rr-2Ve">
@@ -984,12 +984,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2m-we-ac8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="787.4666666666667" y="215.36666666666667"/>
+            <point key="canvasLocation" x="403" y="259"/>
         </scene>
         <!--demo Lib-->
         <scene sceneID="uur-yu-yRi">
             <objects>
-                <navigationController storyboardIdentifier="demoLib" automaticallyAdjustsScrollViewInsets="NO" id="q4I-ZH-681" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="demoLib" automaticallyAdjustsScrollViewInsets="NO" id="q4I-ZH-681" customClass="BaseNavigationController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="demo Lib" id="aVc-Hl-Jts"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8C3-kO-BGZ">
@@ -1005,46 +1005,10 @@
             </objects>
             <point key="canvasLocation" x="804.79999999999995" y="1059.3199999999999"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wbG-Zl-tC7">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wxm-Ts-qrN" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wq9-Ri-VLW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="dXl-kM-6GR" kind="relationship" relationship="rootViewController" id="vzL-Xp-XmP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KaW-zJ-dSf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1366.1333333333332" y="75.260000000000005"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Xbw-EF-phs">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ouf-Fm-FIg" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="udp-tr-LQE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="0Gs-X2-MaY" kind="relationship" relationship="rootViewController" id="KPF-0o-RlG"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oN2-3w-QOI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1969.3333333333333" y="422.68666666666667"/>
-        </scene>
         <!--NewFeed-->
         <scene sceneID="N6Q-Zj-iYZ">
             <objects>
-                <navigationController storyboardIdentifier="newFeed" automaticallyAdjustsScrollViewInsets="NO" id="o6T-1R-Kbf" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="newFeed" automaticallyAdjustsScrollViewInsets="NO" id="o6T-1R-Kbf" customClass="BaseNavigationController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="4" title="NewFeed" id="4tP-FH-aol"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MYo-VF-Ke0">
@@ -1060,7 +1024,7 @@
             </objects>
             <point key="canvasLocation" x="769.33333333333337" y="1824.7"/>
         </scene>
-        <!--Talks View Controller-->
+        <!--Talks-->
         <scene sceneID="sE0-ub-TsA">
             <objects>
                 <viewController id="Nsf-xT-OK2" customClass="talksViewController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
@@ -1092,19 +1056,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rJf-lp-A0E"/>
+                    <navigationItem key="navigationItem" title="Talks" id="rJf-lp-A0E"/>
                     <connections>
                         <outlet property="tableView" destination="Aaa-2E-RYf" id="idh-1B-ZZr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XWt-s1-fYM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882.93333333333328" y="2585.8200000000002"/>
+            <point key="canvasLocation" x="810" y="2569"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Base Navigation Controller-->
         <scene sceneID="aWb-hT-5TB">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PrZ-0n-cGG" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PrZ-0n-cGG" customClass="BaseNavigationController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lIc-qB-JCu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1117,12 +1081,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uiV-Wb-zlZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1386.9333333333334" y="-625.27333333333331"/>
+            <point key="canvasLocation" x="1786" y="-654"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Base Navigation Controller-->
         <scene sceneID="jk7-qJ-8xz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HWd-8e-FEQ" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HWd-8e-FEQ" customClass="BaseNavigationController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vrz-p3-rOV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1135,12 +1099,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkW-Bp-mW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1247.7333333333333" y="2560.2599999999998"/>
+            <point key="canvasLocation" x="1205" y="2560"/>
         </scene>
         <!--Talks-->
         <scene sceneID="uKl-rh-Ds5">
             <objects>
-                <navigationController storyboardIdentifier="talks" automaticallyAdjustsScrollViewInsets="NO" id="XBa-i8-0nx" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="talks" automaticallyAdjustsScrollViewInsets="NO" id="XBa-i8-0nx" customClass="BaseNavigationController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Talks" id="GVm-Cl-1ej"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Plp-4a-Esp">
@@ -1154,7 +1118,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VLo-hK-M13" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="588" y="2560.2599999999998"/>
+            <point key="canvasLocation" x="372" y="2560"/>
         </scene>
     </scenes>
     <resources>
@@ -1163,7 +1127,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="cRV-Ik-ULG"/>
         <segue reference="opb-40-NHk"/>
-        <segue reference="vzL-Xp-XmP"/>
         <segue reference="de9-EU-rTg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

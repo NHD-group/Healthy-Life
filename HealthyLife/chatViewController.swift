@@ -193,6 +193,7 @@ class chatViewController: JSQMessagesViewController {
         } else {
             cell.textView!.textColor = UIColor.blackColor()
         }
+        cell.textView.font = NHDFontBucket.fontWithSize(cell.textView.font!.pointSize)
         
         return cell
     }

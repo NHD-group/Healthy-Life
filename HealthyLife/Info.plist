@@ -34,5 +34,18 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+    <key>UIAppFonts</key>
+    <array>
+        <string>ChamsBlack.ttf</string>
+        <string>ChamsBold Italic.ttf</string>
+        <string>ChamsBold.ttf</string>
+        <string>ChamsItalic.ttf</string>
+        <string>ChamsRegular.ttf</string>
+    </array>
 </dict>
 </plist>
