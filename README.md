@@ -31,9 +31,13 @@ The following **required** functionality is completed:
 
 - [ ] List of other users profile. 
 
+**Chat**
+
+- [ ] Chat with the follower users
 
 The following **optional** features are implemented:
 
+- [ ] Integrate [SCRecorder](https://github.com/rFlex/SCRecorder)
 - [ ] Youtube APIs
 - [ ] Tabbar animation
 - [ ] Report plan history
@@ -48,9 +52,9 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![App Icon](HealthyLife/Resources/Images/app_icon@3x.png)
+![App Icon](HealthyLife/Resources/images/app_icon@3x.png)
 
-![Layout](HealthyLife/Resources/Images/layout.png)
+![Layout](HealthyLife/Resources/images/layout.png)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
