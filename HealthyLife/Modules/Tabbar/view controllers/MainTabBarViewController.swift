@@ -7,35 +7,51 @@
 //
 
 import UIKit
-import Firebase
+import SnapKit
 
-class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate  {
+class MainTabBarViewController: UITabBarController  {
     
-    let defaults = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
         
-    }
-    
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let tabbarView = NHDTabbarView(frame: self.tabBar.frame)
+        view.addSubview(tabbarView)
+        tabbarView.snp_makeConstraints { (make) in
+            make.edges.equalTo(tabBar.snp_edges)
         }
-    
+        tabbarView.delegate = self
+    }
 
 }
+
+extension MainTabBarViewController: NHDTabbarViewDelegate {
+    
+    func tabWasSelected(index: Int) {
+        
+        if index == 2 {
+            
+            if let navVC = selectedViewController as? UINavigationController {
+                navVC.popViewControllerAnimated(true)
+            }
+        } else if index == 4 {
+            
+            let storyboard = UIStoryboard(name: "Recorder", bundle: nil)
+            if let vc = storyboard.instantiateInitialViewController() {
+                presentViewController(vc, animated: true, completion: nil)
+            }
+        }
+        
+        guard let items = tabBar.items else {
+            return
+        }
+        
+        if index < items.count {
+            
+            selectedIndex = index
+        }
+    }
+}
+

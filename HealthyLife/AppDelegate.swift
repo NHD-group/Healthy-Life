@@ -37,21 +37,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func changeRootView(isLoggedIn: Bool, animated: Bool) {
         let storyboardName = isLoggedIn ? "Main" : "SignIn"
         let storyBoard = UIStoryboard(name: storyboardName, bundle: nil)
-        var vc = storyBoard.instantiateInitialViewController()
+        let vc = storyBoard.instantiateInitialViewController()
 
-        if isLoggedIn {
-            let journal = storyBoard.instantiateViewControllerWithIdentifier("personal") as! UINavigationController
-            let demoLib = storyBoard.instantiateViewControllerWithIdentifier("demoLib") as! UINavigationController
-            
-            let newFeed = storyBoard.instantiateViewControllerWithIdentifier("newFeed") as! UINavigationController
-            
-            let talks = storyBoard.instantiateViewControllerWithIdentifier("talks") as! UINavigationController
-            
-            let tabbarVC = UITabBarController()
-            tabbarVC.viewControllers = [journal, demoLib, newFeed, talks]
-            vc = tabbarVC
-        }
-        
+//        if isLoggedIn {
+//            let journal = storyBoard.instantiateViewControllerWithIdentifier("personal") as! UINavigationController
+//            let demoLib = storyBoard.instantiateViewControllerWithIdentifier("demoLib") as! UINavigationController
+//            
+//            let newFeed = storyBoard.instantiateViewControllerWithIdentifier("newFeed") as! UINavigationController
+//            
+//            let talks = storyBoard.instantiateViewControllerWithIdentifier("talks") as! UINavigationController
+//            
+//            let tabbarVC = MainTabBarViewController()
+//            tabbarVC.viewControllers = [journal, demoLib, newFeed, talks]
+//            vc = tabbarVC
+//        }
+//        
         if animated == false {
             self.window?.rootViewController = vc
             return

@@ -20,6 +20,19 @@
 		04426AF11D5DAA2C005B3621 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426AEB1D5DAA2C005B3621 /* UIImageExtension.swift */; };
 		04426AF21D5DAA2C005B3621 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426AEC1D5DAA2C005B3621 /* UIImageViewExtension.swift */; };
 		04426AF31D5DAA2C005B3621 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426AEE1D5DAA2C005B3621 /* Configuration.swift */; };
+		04426AF61D5DB324005B3621 /* NHDTabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426AF41D5DB324005B3621 /* NHDTabbarView.swift */; };
+		04426AF71D5DB324005B3621 /* NHDTabbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04426AF51D5DB324005B3621 /* NHDTabbarView.xib */; };
+		04426B111D5DB4C9005B3621 /* Recorder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04426AFB1D5DB4C9005B3621 /* Recorder.storyboard */; };
+		04426B121D5DB4C9005B3621 /* SCRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426AFD1D5DB4C9005B3621 /* SCRecorderViewController.m */; };
+		04426B131D5DB4C9005B3621 /* a_filter.cisf in Resources */ = {isa = PBXBuildFile; fileRef = 04426AFF1D5DB4C9005B3621 /* a_filter.cisf */; };
+		04426B141D5DB4C9005B3621 /* SCEditVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426B011D5DB4C9005B3621 /* SCEditVideoViewController.m */; };
+		04426B151D5DB4C9005B3621 /* SCImageDisplayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426B031D5DB4C9005B3621 /* SCImageDisplayerViewController.m */; };
+		04426B161D5DB4C9005B3621 /* SCRecordSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426B051D5DB4C9005B3621 /* SCRecordSessionManager.m */; };
+		04426B171D5DB4C9005B3621 /* SCSessionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426B071D5DB4C9005B3621 /* SCSessionListViewController.m */; };
+		04426B181D5DB4C9005B3621 /* SCSessionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426B091D5DB4C9005B3621 /* SCSessionTableViewCell.m */; };
+		04426B191D5DB4C9005B3621 /* SCTouchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426B0B1D5DB4C9005B3621 /* SCTouchDetector.m */; };
+		04426B1A1D5DB4C9005B3621 /* SCVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426B0D1D5DB4C9005B3621 /* SCVideoPlayerViewController.m */; };
+		04426B1B1D5DB4C9005B3621 /* SCWatermarkOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426B0F1D5DB4C9005B3621 /* SCWatermarkOverlayView.m */; };
 		3FEE3F4FA3D69AF73B170521 /* Pods_HealthyLife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */; };
 		8409619E1D533183008DE12D /* userSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409619D1D533183008DE12D /* userSettingModel.swift */; };
 		84181DE21D47C99800686BAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84181DE11D47C99800686BAB /* AppDelegate.swift */; };
@@ -89,6 +102,29 @@
 		04426AEB1D5DAA2C005B3621 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		04426AEC1D5DAA2C005B3621 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		04426AEE1D5DAA2C005B3621 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		04426AF41D5DB324005B3621 /* NHDTabbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDTabbarView.swift; sourceTree = "<group>"; };
+		04426AF51D5DB324005B3621 /* NHDTabbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHDTabbarView.xib; sourceTree = "<group>"; };
+		04426AFA1D5DB4C9005B3621 /* HealthyLife-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HealthyLife-Bridging-Header.h"; sourceTree = "<group>"; };
+		04426AFB1D5DB4C9005B3621 /* Recorder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Recorder.storyboard; sourceTree = "<group>"; };
+		04426AFC1D5DB4C9005B3621 /* SCRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRecorderViewController.h; sourceTree = "<group>"; };
+		04426AFD1D5DB4C9005B3621 /* SCRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRecorderViewController.m; sourceTree = "<group>"; };
+		04426AFF1D5DB4C9005B3621 /* a_filter.cisf */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = a_filter.cisf; sourceTree = "<group>"; };
+		04426B001D5DB4C9005B3621 /* SCEditVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEditVideoViewController.h; sourceTree = "<group>"; };
+		04426B011D5DB4C9005B3621 /* SCEditVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEditVideoViewController.m; sourceTree = "<group>"; };
+		04426B021D5DB4C9005B3621 /* SCImageDisplayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCImageDisplayerViewController.h; sourceTree = "<group>"; };
+		04426B031D5DB4C9005B3621 /* SCImageDisplayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCImageDisplayerViewController.m; sourceTree = "<group>"; };
+		04426B041D5DB4C9005B3621 /* SCRecordSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRecordSessionManager.h; sourceTree = "<group>"; };
+		04426B051D5DB4C9005B3621 /* SCRecordSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRecordSessionManager.m; sourceTree = "<group>"; };
+		04426B061D5DB4C9005B3621 /* SCSessionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSessionListViewController.h; sourceTree = "<group>"; };
+		04426B071D5DB4C9005B3621 /* SCSessionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSessionListViewController.m; sourceTree = "<group>"; };
+		04426B081D5DB4C9005B3621 /* SCSessionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSessionTableViewCell.h; sourceTree = "<group>"; };
+		04426B091D5DB4C9005B3621 /* SCSessionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSessionTableViewCell.m; sourceTree = "<group>"; };
+		04426B0A1D5DB4C9005B3621 /* SCTouchDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTouchDetector.h; sourceTree = "<group>"; };
+		04426B0B1D5DB4C9005B3621 /* SCTouchDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTouchDetector.m; sourceTree = "<group>"; };
+		04426B0C1D5DB4C9005B3621 /* SCVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCVideoPlayerViewController.h; sourceTree = "<group>"; };
+		04426B0D1D5DB4C9005B3621 /* SCVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCVideoPlayerViewController.m; sourceTree = "<group>"; };
+		04426B0E1D5DB4C9005B3621 /* SCWatermarkOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCWatermarkOverlayView.h; sourceTree = "<group>"; };
+		04426B0F1D5DB4C9005B3621 /* SCWatermarkOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCWatermarkOverlayView.m; sourceTree = "<group>"; };
 		27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthyLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A91B12079A8F4C1D8E52CAC /* Pods-HealthyLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.release.xcconfig"; sourceTree = "<group>"; };
 		8139B3732A6950CCA938866A /* Pods-HealthyLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,9 +216,10 @@
 		04426AC41D5D9B07005B3621 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				04426ACD1D5D9B07005B3621 /* Tabbar */,
 				04426AC51D5D9B07005B3621 /* Personal */,
 				04426ACB1D5D9B07005B3621 /* SignIn */,
-				04426ACD1D5D9B07005B3621 /* Tabbar */,
+				04426AF81D5DB4C9005B3621 /* Recorder */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -263,6 +300,8 @@
 		04426AD01D5D9B07005B3621 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				04426AF41D5DB324005B3621 /* NHDTabbarView.swift */,
+				04426AF51D5DB324005B3621 /* NHDTabbarView.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -321,6 +360,58 @@
 				04426AEE1D5DAA2C005B3621 /* Configuration.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		04426AF81D5DB4C9005B3621 /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				04426AF91D5DB4C9005B3621 /* ViewControllers */,
+				04426B101D5DB4C9005B3621 /* Views */,
+			);
+			path = Recorder;
+			sourceTree = "<group>";
+		};
+		04426AF91D5DB4C9005B3621 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				04426AFA1D5DB4C9005B3621 /* HealthyLife-Bridging-Header.h */,
+				04426AFB1D5DB4C9005B3621 /* Recorder.storyboard */,
+				04426AFC1D5DB4C9005B3621 /* SCRecorderViewController.h */,
+				04426AFD1D5DB4C9005B3621 /* SCRecorderViewController.m */,
+				04426AFE1D5DB4C9005B3621 /* Source */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		04426AFE1D5DB4C9005B3621 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				04426AFF1D5DB4C9005B3621 /* a_filter.cisf */,
+				04426B001D5DB4C9005B3621 /* SCEditVideoViewController.h */,
+				04426B011D5DB4C9005B3621 /* SCEditVideoViewController.m */,
+				04426B021D5DB4C9005B3621 /* SCImageDisplayerViewController.h */,
+				04426B031D5DB4C9005B3621 /* SCImageDisplayerViewController.m */,
+				04426B041D5DB4C9005B3621 /* SCRecordSessionManager.h */,
+				04426B051D5DB4C9005B3621 /* SCRecordSessionManager.m */,
+				04426B061D5DB4C9005B3621 /* SCSessionListViewController.h */,
+				04426B071D5DB4C9005B3621 /* SCSessionListViewController.m */,
+				04426B081D5DB4C9005B3621 /* SCSessionTableViewCell.h */,
+				04426B091D5DB4C9005B3621 /* SCSessionTableViewCell.m */,
+				04426B0A1D5DB4C9005B3621 /* SCTouchDetector.h */,
+				04426B0B1D5DB4C9005B3621 /* SCTouchDetector.m */,
+				04426B0C1D5DB4C9005B3621 /* SCVideoPlayerViewController.h */,
+				04426B0D1D5DB4C9005B3621 /* SCVideoPlayerViewController.m */,
+				04426B0E1D5DB4C9005B3621 /* SCWatermarkOverlayView.h */,
+				04426B0F1D5DB4C9005B3621 /* SCWatermarkOverlayView.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		04426B101D5DB4C9005B3621 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		293FBAE7311AD53C884F0F93 /* Pods */ = {
@@ -646,8 +737,11 @@
 				04426AE01D5DA932005B3621 /* ChamsBold.ttf in Resources */,
 				04426AD41D5D9B22005B3621 /* SignIn.storyboard in Resources */,
 				04426ADE1D5DA932005B3621 /* ChamsBlack.ttf in Resources */,
+				04426B111D5DB4C9005B3621 /* Recorder.storyboard in Resources */,
 				84181E171D47CB7300686BAB /* GoogleService-Info.plist in Resources */,
 				04426ADF1D5DA932005B3621 /* ChamsBold Italic.ttf in Resources */,
+				04426B131D5DB4C9005B3621 /* a_filter.cisf in Resources */,
+				04426AF71D5DB324005B3621 /* NHDTabbarView.xib in Resources */,
 				04426AE11D5DA932005B3621 /* ChamsItalic.ttf in Resources */,
 				04426AE21D5DA932005B3621 /* ChamsRegular.ttf in Resources */,
 				84181DEC1D47C99800686BAB /* Assets.xcassets in Resources */,
@@ -726,6 +820,7 @@
 			files = (
 				844A872B1D58704D00DEC697 /* chatterModel.swift in Sources */,
 				844902271D56310C00B8ADF3 /* trackingViewController.swift in Sources */,
+				04426B121D5DB4C9005B3621 /* SCRecorderViewController.m in Sources */,
 				04426AD21D5D9B07005B3621 /* MainTabBarViewController.swift in Sources */,
 				84630B931D5773D60006A8FC /* sendedPlanCellTableViewCell.swift in Sources */,
 				84181DE21D47C99800686BAB /* AppDelegate.swift in Sources */,
@@ -739,26 +834,35 @@
 				841DDAB71D54917B007917E7 /* sendPlanViewController.swift in Sources */,
 				846F3D841D56EB3800722674 /* TrackingCellTableViewCell.swift in Sources */,
 				04426AF21D5DAA2C005B3621 /* UIImageViewExtension.swift in Sources */,
+				04426B141D5DB4C9005B3621 /* SCEditVideoViewController.m in Sources */,
+				04426B1B1D5DB4C9005B3621 /* SCWatermarkOverlayView.m in Sources */,
 				84AB527D1D48877400CB99FE /* journalViewController.swift in Sources */,
 				84FACCA41D4F022200E73FDC /* DetailViewController.swift in Sources */,
+				04426B151D5DB4C9005B3621 /* SCImageDisplayerViewController.m in Sources */,
 				84FACCA81D4F048A00E73FDC /* Activities.swift in Sources */,
 				8409619E1D533183008DE12D /* userSettingModel.swift in Sources */,
 				8448B1A71D58434500DBFFFB /* chatViewController.swift in Sources */,
 				04426AF31D5DAA2C005B3621 /* Configuration.swift in Sources */,
+				04426B171D5DB4C9005B3621 /* SCSessionListViewController.m in Sources */,
 				84FACCAD1D4F3D6A00E73FDC /* NewfeedViewController.swift in Sources */,
 				84AB52821D488A6000CB99FE /* FoodTableViewCell.swift in Sources */,
+				04426B1A1D5DB4C9005B3621 /* SCVideoPlayerViewController.m in Sources */,
 				841DDABB1D54CE34007917E7 /* followerModel.swift in Sources */,
 				84AB52801D48881F00CB99FE /* foodModel.swift in Sources */,
 				04426AF11D5DAA2C005B3621 /* UIImageExtension.swift in Sources */,
 				848225711D4E42CB00750118 /* demoLibViewController.swift in Sources */,
 				84FACC9B1D4EF86700E73FDC /* Data.swift in Sources */,
+				04426B191D5DB4C9005B3621 /* SCTouchDetector.m in Sources */,
 				8482256F1D4E414500750118 /* demoModel.swift in Sources */,
 				84937EE21D5081EC00E9CBC0 /* SettingViewController.swift in Sources */,
 				848225731D4E430D00750118 /* demoTableViewCell.swift in Sources */,
 				841DDAB51D5485BD007917E7 /* cellTableViewCell.swift in Sources */,
 				04426AD11D5D9B07005B3621 /* SignInViewController.swift in Sources */,
 				04426AEF1D5DAA2C005B3621 /* BaseNavigationController.swift in Sources */,
+				04426B161D5DB4C9005B3621 /* SCRecordSessionManager.m in Sources */,
 				84FACCAF1D4F3EC700E73FDC /* newFeed.swift in Sources */,
+				04426B181D5DB4C9005B3621 /* SCSessionTableViewCell.m in Sources */,
+				04426AF61D5DB324005B3621 /* NHDTabbarView.swift in Sources */,
 				848225751D4E436F00750118 /* DetailsViewController.swift in Sources */,
 				844A87291D586E7100DEC697 /* talksViewController.swift in Sources */,
 			);
