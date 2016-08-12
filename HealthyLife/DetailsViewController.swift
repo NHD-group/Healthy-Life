@@ -62,7 +62,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let planRef = DataService.dataService.activitiesPlannedRef.child("yourPlan").child(planTextField.text!)
         
         planRef.child("note").setValue("")
-        planRef.child("plan_creatorID").setValue((FIRAuth.auth()?.currentUser?.uid)!)
+        planRef.child("plan_creatorID").setValue(DataService.currentUserID)
         planRef.child("plan_creatorName").setValue(userName!)
         planRef.child("activities").childByAutoId().setValue(activity)
         

@@ -87,7 +87,7 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate, U
     
     @IBAction func saveAction(sender: AnyObject) {
         
-        let currentID = (FIRAuth.auth()?.currentUser?.uid)!
+        let currentID = DataService.currentUserID
        
         
         let userSetting: Dictionary<String, AnyObject> = [

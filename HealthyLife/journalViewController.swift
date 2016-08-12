@@ -30,16 +30,14 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var settingButton: UIButton!
     
      var foods = [Food]()
-     var ref =  FIRDatabase.database().reference()
-    let storageRef = FIRStorage.storage().reference()
     
     @IBAction func logOutAction(sender: AnyObject) {
         try! FIRAuth.auth()!.signOut()
-        let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("Login")
-        UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(Configuration.userDidLogoutNotificationKey, object: nil)
     }
     
-    var currentUserID = (FIRAuth.auth()?.currentUser?.uid)!
+    var currentUserID = DataService.currentUserID
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +49,7 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.avaImage.layer.cornerRadius = 20
         self.avaImage.clipsToBounds = true
         
-        if currentUserID != (FIRAuth.auth()?.currentUser?.uid)! {
+        if currentUserID != DataService.currentUserID {
             settingButton.hidden = true
             planButton.hidden = true
         }
@@ -59,6 +57,9 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
  
         //MARK: set up profile 
         
+        
+        let ref = DataService.BaseRef
+        let storageRef = DataService.storageRef
         
         ref.child("users/\(currentUserID)/user_setting").observeEventType(.Value, withBlock: { snapshot in
             if let postDictionary = snapshot.value as? NSDictionary {

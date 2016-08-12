@@ -151,7 +151,8 @@ class SignInViewController: UIViewController {
                 } else {
                     print(user)
                     print("User logged in")
-                    self.performSegueWithIdentifier("1", sender: self)
+                    
+                    NSNotificationCenter.defaultCenter().postNotificationName(Configuration.userDidLoginNotificationKey, object: nil)
                 }
             })
         } else {
@@ -174,8 +175,7 @@ class SignInViewController: UIViewController {
                         let ref =  FIRDatabase.database().reference()
                         ref.child("users").child(user!.uid).setValue(["username" : username ,  "followerCount" : 0 ])
                             
-                            self.performSegueWithIdentifier("1", sender: self)
-                        }
+                            NSNotificationCenter.defaultCenter().postNotificationName(Configuration.userDidLoginNotificationKey, object: nil)                        }
                     })
                 }
                 

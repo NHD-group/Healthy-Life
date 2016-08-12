@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Pjm-h4-Xl2">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Sign In View Controller-->
+        <scene sceneID="fLb-56-jzX">
+            <objects>
+                <viewController storyboardIdentifier="Login" id="Pjm-h4-Xl2" customClass="SignInViewController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9ti-Os-lsc"/>
+                        <viewControllerLayoutGuide type="bottom" id="xK5-zT-LSD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uGt-CY-vnF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="cQX-qH-KXq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EiT-L4-86D">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="eXM-H9-Zxi">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GIj-vl-I3W">
+                                            <rect key="frame" x="30" y="121" width="314" height="261"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="beS-w2-Yqe">
+                                                    <rect key="frame" x="20" y="20" width="274" height="57"/>
+                                                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ulL-mf-dM7">
+                                                    <rect key="frame" x="20" y="99" width="274" height="57"/>
+                                                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                </textField>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wro-63-tmF">
+                                                    <rect key="frame" x="61" y="164" width="192" height="54"/>
+                                                    <state key="normal" title="LogIn">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="LoginButton:" destination="Pjm-h4-Xl2" eventType="touchUpInside" id="dCU-y9-0WV"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WT-yl-4TH">
+                                                    <rect key="frame" x="61" y="226" width="192" height="30"/>
+                                                    <state key="normal" title="Cancel">
+                                                        <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="cancelAction:" destination="Pjm-h4-Xl2" eventType="touchUpInside" id="hB9-Me-va4"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M6r-1e-DxK">
+                                            <rect key="frame" x="30" y="121" width="314" height="348"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w6o-sf-IMf">
+                                                    <rect key="frame" x="20" y="23" width="274" height="57"/>
+                                                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLd-R7-2FQ">
+                                                    <rect key="frame" x="61" y="251" width="192" height="54"/>
+                                                    <state key="normal" title="CreateAccount">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="createAccountAction:" destination="Pjm-h4-Xl2" eventType="touchUpInside" id="kq4-NE-gxO"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXu-79-uYg">
+                                                    <rect key="frame" x="61" y="313" width="192" height="30"/>
+                                                    <state key="normal" title="Cancel">
+                                                        <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="cancelAction:" destination="Pjm-h4-Xl2" eventType="touchUpInside" id="U2k-rN-6Qm"/>
+                                                    </connections>
+                                                </button>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jvl-H9-NNn">
+                                                    <rect key="frame" x="20" y="103" width="274" height="57"/>
+                                                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mzl-aJ-A1r">
+                                                    <rect key="frame" x="20" y="186" width="274" height="57"/>
+                                                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HqD-Df-ugO">
+                                <rect key="frame" x="20" y="512" width="335" height="56"/>
+                                <color key="backgroundColor" red="1" green="0.16049054099999999" blue="0.16447674509999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="displaySignInViewAction:" destination="Pjm-h4-Xl2" eventType="touchUpInside" id="pgn-hU-8v1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOd-QP-Fno">
+                                <rect key="frame" x="20" y="584" width="335" height="56"/>
+                                <color key="backgroundColor" red="1" green="0.16049054099999999" blue="0.16447674509999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Create Account With Email">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="displayCreateAccountViewAction:" destination="Pjm-h4-Xl2" eventType="touchUpInside" id="gDe-ro-TGa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="CreateAccountButton" destination="1WT-yl-4TH" id="zdm-zy-rzg"/>
+                        <outlet property="createAccountView" destination="M6r-1e-DxK" id="nke-r7-7an"/>
+                        <outlet property="createEmail" destination="w6o-sf-IMf" id="h6N-cT-zoG"/>
+                        <outlet property="createPassword" destination="mzl-aJ-A1r" id="Od6-wh-nMH"/>
+                        <outlet property="createUsername" destination="Jvl-H9-NNn" id="BMr-nL-3nE"/>
+                        <outlet property="displayCButton" destination="zOd-QP-Fno" id="VCH-Wr-wP7"/>
+                        <outlet property="displaySButton" destination="HqD-Df-ugO" id="CNG-d3-EPT"/>
+                        <outlet property="emailTextField" destination="beS-w2-Yqe" id="zU0-6x-dfB"/>
+                        <outlet property="logInView" destination="GIj-vl-I3W" id="ce1-F4-YwI"/>
+                        <outlet property="loginButton" destination="wro-63-tmF" id="L4V-fc-Qwb"/>
+                        <outlet property="passwordTextField" destination="ulL-mf-dM7" id="ssP-io-kcl"/>
+                        <outlet property="viewEffect" destination="EiT-L4-86D" id="7Bo-K7-KjZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AC7-gd-IfS" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="183.73333333333332" y="257.01999999999998"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backGround" width="375" height="667"/>
+    </resources>
+    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+</document>

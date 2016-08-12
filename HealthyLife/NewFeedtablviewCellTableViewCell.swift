@@ -18,7 +18,7 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
     var followerRef = FIRDatabaseReference()
     var userProfile: UserProfile!
     var selectedUID: String!
-    var currentUID = (FIRAuth.auth()?.currentUser?.uid)!
+    var currentUID = DataService.currentUserID
     var chatKey = String()
     var sellectedUsername = String()
     

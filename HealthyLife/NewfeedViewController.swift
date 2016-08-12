@@ -17,7 +17,6 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
     var keys =  [String]()
     var chatKey = String()
     let searchController = UISearchController(searchResultsController: nil)
-    var ref =  FIRDatabase.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +26,9 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
         
         
         
-         ref.child("users").observeEventType(.Value, withBlock: { snapshot in
+        let ref = DataService.BaseRef
+
+        ref.child("users").observeEventType(.Value, withBlock: { snapshot in
             
             self.users = []
             self.keys = []

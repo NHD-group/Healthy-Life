@@ -13,7 +13,6 @@ class demoLibViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var tableView: UITableView!
     
-    var ref =  FIRDatabase.database().reference()
     var demos = [Demo]()
     
     override func viewDidLoad() {
@@ -24,7 +23,8 @@ class demoLibViewController: UIViewController, UITableViewDelegate, UITableViewD
         
        
         
-        
+        let ref = DataService.BaseRef
+
         ref.child("demo_lib").observeEventType(.Value, withBlock: { snapshot in
             
             self.demos = []

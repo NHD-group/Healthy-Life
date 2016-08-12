@@ -16,7 +16,7 @@ class Food {
     private var FoodDes: String!
     private var Love: Int!
     private var Time: NSDate!
-    var currentID = (FIRAuth.auth()?.currentUser?.uid)!
+    var currentID = DataService.currentUserID
     
     var foodKey: String {
         return FoodKey

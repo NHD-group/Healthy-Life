@@ -61,7 +61,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        trackingRef = DataService.dataService.baseRef.child("users").child(creatorID).child("tracking").child((FIRAuth.auth()?.currentUser?.uid)!).child("workingOn")
+        trackingRef = DataService.dataService.baseRef.child("users").child(creatorID).child("tracking").child(DataService.currentUserID).child("workingOn")
 
         finishButtonLable.hidden = true
         amountView.hidden = true

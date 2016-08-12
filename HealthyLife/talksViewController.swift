@@ -13,7 +13,7 @@ class talksViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     var chatters = [Chatter]()
     
-    let currentUID = (FIRAuth.auth()?.currentUser?.uid)!
+    let currentUID = DataService.currentUserID
     var currentUserName = String()
     let defaults = NSUserDefaults.standardUserDefaults()
     
