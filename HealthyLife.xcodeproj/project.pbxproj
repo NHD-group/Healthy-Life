@@ -128,6 +128,7 @@
 		04426B0F1D5DB4C9005B3621 /* SCWatermarkOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCWatermarkOverlayView.m; sourceTree = "<group>"; };
 		04426B1D1D5DBA34005B3621 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "HealthyLife-40181a67534f.json"; sourceTree = "<group>"; };
+		04426B221D5DBE5F005B3621 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthyLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A91B12079A8F4C1D8E52CAC /* Pods-HealthyLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.release.xcconfig"; sourceTree = "<group>"; };
 		8139B3732A6950CCA938866A /* Pods-HealthyLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.debug.xcconfig"; sourceTree = "<group>"; };
@@ -438,6 +439,7 @@
 		84181DD51D47C99800686BAB = {
 			isa = PBXGroup;
 			children = (
+				04426B221D5DBE5F005B3621 /* README.md */,
 				84181DE01D47C99800686BAB /* HealthyLife */,
 				84181DF81D47C99800686BAB /* HealthyLifeTests */,
 				84181E031D47C99800686BAB /* HealthyLifeUITests */,
@@ -467,7 +469,6 @@
 				84FACCAB1D4F3D5200E73FDC /* newFeed */,
 				8482256D1D4E412F00750118 /* demo */,
 				84B343D51D485A970085F02E /* personal */,
-				84B343D41D485A8B0085F02E /* logIn */,
 				84181DE11D47C99800686BAB /* AppDelegate.swift */,
 				84181DE51D47C99800686BAB /* Main.storyboard */,
 				84181DEB1D47C99800686BAB /* Assets.xcassets */,
@@ -580,13 +581,6 @@
 			children = (
 			);
 			name = tracking;
-			sourceTree = "<group>";
-		};
-		84B343D41D485A8B0085F02E /* logIn */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = logIn;
 			sourceTree = "<group>";
 		};
 		84B343D51D485A970085F02E /* personal */ = {
