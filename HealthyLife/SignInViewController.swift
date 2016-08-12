@@ -10,10 +10,12 @@ import UIKit
 import Firebase
 
 
+
 class SignInViewController: UIViewController {
     
     
-    
+    let animationDuration: CFTimeInterval = 0.5
+
 
     @IBOutlet weak var emailTextField: UITextField!
     
@@ -63,14 +65,14 @@ class SignInViewController: UIViewController {
     
     
     @IBAction func displaySignInViewAction(sender: AnyObject) {
-         UIView.animateWithDuration(1) {
+         UIView.animateWithDuration(animationDuration) {
         self.displaySignIn()
         }
     }
     
     
     @IBAction func displayCreateAccountViewAction(sender: AnyObject) {
-        UIView.animateWithDuration(1) { 
+        UIView.animateWithDuration(animationDuration) {
             self.displayCreateAccount()
         }
         
@@ -78,7 +80,7 @@ class SignInViewController: UIViewController {
     
     
     @IBAction func cancelAction(sender: AnyObject) {
-        UIView.animateWithDuration(1) { 
+        UIView.animateWithDuration(animationDuration) {
             self.startingDisplay()
         }
         
