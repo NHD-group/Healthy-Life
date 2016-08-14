@@ -88,10 +88,6 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
 
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
-    
  
     
 
@@ -120,7 +116,7 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
     
