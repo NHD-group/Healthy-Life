@@ -8,15 +8,15 @@
 
 import UIKit
 import Firebase
-
+import SnapKit
 
 
 class SignInViewController: UIViewController {
     
     
     let animationDuration: CFTimeInterval = 0.5
-
-
+    
+    
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var createEmail: UITextField!
@@ -40,19 +40,22 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var displaySButton: UIButton!
     
     @IBOutlet weak var displayCButton: UIButton!
-     let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-            self.startingDisplay()
-      
+        
+        self.startingDisplay()
         
     }
-
+    
+    @IBAction func onTap(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
     
     @IBAction func LoginButton(sender: UIButton) {
         
@@ -65,8 +68,8 @@ class SignInViewController: UIViewController {
     
     
     @IBAction func displaySignInViewAction(sender: AnyObject) {
-         UIView.animateWithDuration(animationDuration) {
-        self.displaySignIn()
+        UIView.animateWithDuration(animationDuration) {
+            self.displaySignIn()
         }
     }
     
@@ -86,8 +89,8 @@ class SignInViewController: UIViewController {
         
     }
     
-
-   
+    
+    
     
     func alertMessage (title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
@@ -106,7 +109,7 @@ class SignInViewController: UIViewController {
         
         displayCButton.layer.cornerRadius = 10
         displayCButton.clipsToBounds = true
-
+        
         displaySButton.layer.cornerRadius = 10
         displaySButton.clipsToBounds = true
     }
@@ -121,7 +124,7 @@ class SignInViewController: UIViewController {
         
         logInView.layer.cornerRadius = 10
         logInView.clipsToBounds = true
-
+        
         
     }
     
@@ -134,7 +137,7 @@ class SignInViewController: UIViewController {
         
         createAccountView.layer.cornerRadius = 10
         createAccountView.clipsToBounds = true
-
+        
     }
     
     
@@ -158,7 +161,7 @@ class SignInViewController: UIViewController {
         } else {
             alertMessage("Oops", message: "Please fill in all the fields")
         }
-
+        
     }
     
     func createAccount() {
@@ -172,8 +175,8 @@ class SignInViewController: UIViewController {
                         if error != nil {
                             
                         } else {
-                        let ref =  FIRDatabase.database().reference()
-                        ref.child("users").child(user!.uid).setValue(["username" : username ,  "followerCount" : 0 ])
+                            let ref =  FIRDatabase.database().reference()
+                            ref.child("users").child(user!.uid).setValue(["username" : username ,  "followerCount" : 0 ])
                             
                             NSNotificationCenter.defaultCenter().postNotificationName(Configuration.userDidLoginNotificationKey, object: nil)                        }
                     })
@@ -183,7 +186,7 @@ class SignInViewController: UIViewController {
         } else {
             alertMessage("Oops", message: "Please fill in all the fields")
         }
-
+        
     }
     
     
