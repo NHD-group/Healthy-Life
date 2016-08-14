@@ -90,7 +90,7 @@ class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     @IBAction func backAction(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
         
     }
     override func didReceiveMemoryWarning() {

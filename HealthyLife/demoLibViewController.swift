@@ -81,6 +81,10 @@ class demoLibViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
     var currentVideoId = String()
     
     
