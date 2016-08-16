@@ -107,7 +107,7 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //MARK: Set Up table data
         
-        DataService.dataService.userRef.child("food_journal").queryLimitedToLast(10).observeEventType(.Value, withBlock: { snapshot in
+        ref.child("users").child(currentUserID).child("food_journal").queryLimitedToLast(10).observeEventType(.Value, withBlock: { snapshot in
             
             // The snapshot is a current look at our jokes data.
             
