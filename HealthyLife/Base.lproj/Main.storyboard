@@ -42,6 +42,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igw-bq-xlu" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
                                             <rect key="frame" x="169" y="0.0" width="79" height="30"/>
                                             <state key="normal" title="Upload Vid"/>
+                                            <connections>
+                                                <segue destination="vrP-cU-r0R" kind="modal" id="wpn-st-4o8"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -237,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTu-8r-Zff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2284" y="-986"/>
+            <point key="canvasLocation" x="2816" y="-986"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="EsG-g4-zJp">
@@ -318,7 +321,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1509" y="-848"/>
+            <point key="canvasLocation" x="2041" y="-848"/>
         </scene>
         <!--Workout Plan-->
         <scene sceneID="Pi9-Aa-i3M">
@@ -408,7 +411,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JPZ-Wp-eHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1823" y="47"/>
+            <point key="canvasLocation" x="2355" y="47"/>
         </scene>
         <!--Send Plan View Controller-->
         <scene sceneID="fXA-G2-PJV">
@@ -465,7 +468,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NET-uG-OEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2305.3333333333335" y="-310.0333333333333"/>
+            <point key="canvasLocation" x="2837" y="-311"/>
         </scene>
         <!--Daily Workout Plan-->
         <scene sceneID="c0s-qX-flH">
@@ -664,7 +667,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1134" y="-899"/>
+            <point key="canvasLocation" x="1666" y="-899"/>
         </scene>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="AAV-Zd-izw">
@@ -1074,6 +1077,239 @@
             </objects>
             <point key="canvasLocation" x="1760.5" y="1058.5"/>
         </scene>
+        <!--Upload Video View Controller-->
+        <scene sceneID="50C-hK-LlN">
+            <objects>
+                <viewController id="Yhk-j5-PPV" customClass="uploadVideoViewController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="keg-Ic-vhW"/>
+                        <viewControllerLayoutGuide type="bottom" id="1rY-3X-u6H"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h6B-cu-6gX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7lT-rU-RqA">
+                                <rect key="frame" x="20" y="33" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Tt-sA-YqV">
+                                <rect key="frame" x="20" y="78" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnS-9l-rcc">
+                                <rect key="frame" x="135" y="200" width="50" height="30"/>
+                                <state key="normal" title="Upload"/>
+                                <connections>
+                                    <action selector="uploadAction:" destination="Yhk-j5-PPV" eventType="touchUpInside" id="maT-WH-Kcr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3z-J4-CmS">
+                                <rect key="frame" x="136" y="250" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelAction:" destination="Yhk-j5-PPV" eventType="touchUpInside" id="p39-9c-TpV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upload Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hau-8r-kPs">
+                                <rect key="frame" x="106" y="154" width="109" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="desTextField" destination="6Tt-sA-YqV" id="dcc-y6-iJz"/>
+                        <outlet property="nameVideoTextField" destination="7lT-rU-RqA" id="Aby-4K-tdI"/>
+                        <outlet property="uploadStatusLabel" destination="Hau-8r-kPs" id="I7Y-bZ-fOk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="py0-rn-cA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-589" y="-304"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="7RH-Oc-qRZ">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="ZeC-c9-ceX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fa5-Kq-yYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-659" y="-1014"/>
+        </scene>
+        <!--Add Plan Vid View Controller-->
+        <scene sceneID="dkn-eU-slG">
+            <objects>
+                <viewController id="Vgw-dO-Rh1" customClass="addPlanVidViewController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KLz-ab-9xe"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ueb-7G-J7I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qra-hT-dL6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxo-sD-aDw">
+                                <rect key="frame" x="106" y="34" width="109" height="30"/>
+                                <state key="normal" title="add to new plan"/>
+                                <connections>
+                                    <action selector="addNewPlanAction:" destination="Vgw-dO-Rh1" eventType="touchUpInside" id="oi3-at-xP0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6H-BF-hMj">
+                                <rect key="frame" x="110" y="77" width="102" height="30"/>
+                                <state key="normal" title="add to old plan"/>
+                                <connections>
+                                    <action selector="addOldPlanAction:" destination="Vgw-dO-Rh1" eventType="touchUpInside" id="vya-1D-qdJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkP-2Z-ynU">
+                                <rect key="frame" x="136" y="115" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelBackAction:" destination="Vgw-dO-Rh1" eventType="touchUpInside" id="Rwc-hc-erN"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="65r-T4-u3y">
+                                <rect key="frame" x="20" y="153" width="280" height="223"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="rep" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KWL-Fa-meh">
+                                        <rect key="frame" x="8" y="18" width="264" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="set" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fel-iM-kFG">
+                                        <rect key="frame" x="8" y="71" width="264" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name of plan" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ova-O4-3LX">
+                                        <rect key="frame" x="8" y="127" width="264" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hI2-W3-Ama">
+                                        <rect key="frame" x="16" y="179" width="30" height="30"/>
+                                        <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="addAction:" destination="Vgw-dO-Rh1" eventType="touchUpInside" id="h7r-q4-3Ig"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eqv-1z-ab6">
+                                        <rect key="frame" x="225" y="179" width="48" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelViewAction:" destination="Vgw-dO-Rh1" eventType="touchUpInside" id="M0l-LZ-kbv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cvr-ds-Bok">
+                                <rect key="frame" x="0.0" y="153" width="320" height="415"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vM7-wA-sBO">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vM7-wA-sBO" id="Q3U-o3-LRe">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="actionView" destination="65r-T4-u3y" id="h3e-V0-yyc"/>
+                        <outlet property="addToNewPlanButton" destination="hxo-sD-aDw" id="rvP-NX-u6S"/>
+                        <outlet property="addToOldPlanButton" destination="S6H-BF-hMj" id="3Yn-W9-rYa"/>
+                        <outlet property="cancelButton" destination="dkP-2Z-ynU" id="Qcc-9K-qG3"/>
+                        <outlet property="nameOfPlanTextField" destination="ova-O4-3LX" id="OAu-PX-WEE"/>
+                        <outlet property="repTextField" destination="KWL-Fa-meh" id="KS2-Wf-Xd7"/>
+                        <outlet property="setTextField" destination="Fel-iM-kFG" id="UPE-u8-fud"/>
+                        <outlet property="tableView" destination="cvr-ds-Bok" id="Ecd-GI-2N2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fvN-Fj-eUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2" y="-1256"/>
+        </scene>
+        <!--Your Videos View Controller-->
+        <scene sceneID="hkv-pM-RV7">
+            <objects>
+                <viewController id="Yue-Nz-GyF" customClass="yourVideosViewController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0m4-0o-vcR"/>
+                        <viewControllerLayoutGuide type="bottom" id="J5f-8j-8tY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tyn-IB-eqb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hfC-ig-2lP">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="videos" rowHeight="91" id="GgK-Fl-oov" customClass="vidCellTableViewCell" customModule="HealthyLife" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="91"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GgK-Fl-oov" id="Dqc-Nd-ww0">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxv-1l-JhO">
+                                                    <rect key="frame" x="8" y="8" width="103" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZ3-9Q-CVg">
+                                                    <rect key="frame" x="8" y="33" width="246" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDy-9K-9Go">
+                                                    <rect key="frame" x="271" y="18" width="32" height="32"/>
+                                                    <state key="normal" image="addToPlan"/>
+                                                    <connections>
+                                                        <segue destination="Vgw-dO-Rh1" kind="modal" id="67M-E0-gE3"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="desVidLabel" destination="OZ3-9Q-CVg" id="u5e-h0-OQM"/>
+                                            <outlet property="nameVidLabel" destination="Cxv-1l-JhO" id="Ttp-ve-B8Y"/>
+                                            <segue destination="ZeC-c9-ceX" kind="modal" identifier="videoSegue" id="5Vp-aW-7Vh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FSX-Tv-N7R">
+                        <barButtonItem key="rightBarButtonItem" title="AddVid" id="XjD-vQ-xO8">
+                            <connections>
+                                <segue destination="Yhk-j5-PPV" kind="modal" id="9ng-y6-F3b"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="hfC-ig-2lP" id="9Z8-Cq-s15"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vKZ-dY-uZ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-55" y="-508"/>
+        </scene>
         <!--journal-->
         <scene sceneID="QFA-2l-s6l">
             <objects>
@@ -1218,7 +1454,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uiV-Wb-zlZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786" y="-654"/>
+            <point key="canvasLocation" x="2318" y="-654"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="jk7-qJ-8xz">
@@ -1257,9 +1493,28 @@
             </objects>
             <point key="canvasLocation" x="372" y="2569"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="G63-kE-QMp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vrP-cU-r0R" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xeq-gA-I32">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Yue-Nz-GyF" kind="relationship" relationship="rootViewController" id="z97-SQ-kUD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C67-O6-gWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="573" y="-425"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Settings Filled-50" width="50" height="50"/>
+        <image name="addToPlan" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cRV-Ik-ULG"/>

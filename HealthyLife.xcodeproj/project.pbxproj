@@ -57,6 +57,10 @@
 		848225711D4E42CB00750118 /* demoLibViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848225701D4E42CB00750118 /* demoLibViewController.swift */; };
 		848225731D4E430D00750118 /* demoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848225721D4E430D00750118 /* demoTableViewCell.swift */; };
 		848225751D4E436F00750118 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848225741D4E436F00750118 /* DetailsViewController.swift */; };
+		8493714F1D6365410096CE4B /* vidCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493714E1D6365410096CE4B /* vidCellTableViewCell.swift */; };
+		849371511D6365690096CE4B /* uploadVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849371501D6365690096CE4B /* uploadVideoViewController.swift */; };
+		849371531D6365780096CE4B /* yourVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849371521D6365780096CE4B /* yourVideosViewController.swift */; };
+		849371551D63658C0096CE4B /* addPlanVidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849371541D63658C0096CE4B /* addPlanVidViewController.swift */; };
 		84937EE21D5081EC00E9CBC0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84937EE11D5081EC00E9CBC0 /* SettingViewController.swift */; };
 		84AB527D1D48877400CB99FE /* journalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB527C1D48877400CB99FE /* journalViewController.swift */; };
 		84AB52801D48881F00CB99FE /* foodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB527F1D48881F00CB99FE /* foodModel.swift */; };
@@ -160,6 +164,10 @@
 		848225701D4E42CB00750118 /* demoLibViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = demoLibViewController.swift; sourceTree = "<group>"; };
 		848225721D4E430D00750118 /* demoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = demoTableViewCell.swift; sourceTree = "<group>"; };
 		848225741D4E436F00750118 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		8493714E1D6365410096CE4B /* vidCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = vidCellTableViewCell.swift; sourceTree = "<group>"; };
+		849371501D6365690096CE4B /* uploadVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uploadVideoViewController.swift; sourceTree = "<group>"; };
+		849371521D6365780096CE4B /* yourVideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = yourVideosViewController.swift; sourceTree = "<group>"; };
+		849371541D63658C0096CE4B /* addPlanVidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addPlanVidViewController.swift; sourceTree = "<group>"; };
 		84937EE11D5081EC00E9CBC0 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		84AB527C1D48877400CB99FE /* journalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = journalViewController.swift; sourceTree = "<group>"; };
 		84AB527F1D48881F00CB99FE /* foodModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = foodModel.swift; sourceTree = "<group>"; };
@@ -464,6 +472,7 @@
 		84181DE01D47C99800686BAB /* HealthyLife */ = {
 			isa = PBXGroup;
 			children = (
+				8493714D1D6365230096CE4B /* addVideo */,
 				04426AE51D5DAA2C005B3621 /* Share */,
 				04426AC41D5D9B07005B3621 /* Modules */,
 				8448B1A51D58430500DBFFFB /* talkBox */,
@@ -552,6 +561,17 @@
 				848225741D4E436F00750118 /* DetailsViewController.swift */,
 			);
 			name = demo;
+			sourceTree = "<group>";
+		};
+		8493714D1D6365230096CE4B /* addVideo */ = {
+			isa = PBXGroup;
+			children = (
+				8493714E1D6365410096CE4B /* vidCellTableViewCell.swift */,
+				849371501D6365690096CE4B /* uploadVideoViewController.swift */,
+				849371521D6365780096CE4B /* yourVideosViewController.swift */,
+				849371541D63658C0096CE4B /* addPlanVidViewController.swift */,
+			);
+			name = addVideo;
 			sourceTree = "<group>";
 		};
 		84937EE31D5089BF00E9CBC0 /* setting */ = {
@@ -844,12 +864,14 @@
 				844A872B1D58704D00DEC697 /* chatterModel.swift in Sources */,
 				844902271D56310C00B8ADF3 /* trackingViewController.swift in Sources */,
 				04426B121D5DB4C9005B3621 /* SCRecorderViewController.m in Sources */,
+				849371511D6365690096CE4B /* uploadVideoViewController.swift in Sources */,
 				04426AD21D5D9B07005B3621 /* MainTabBarViewController.swift in Sources */,
 				84630B931D5773D60006A8FC /* sendedPlanCellTableViewCell.swift in Sources */,
 				84181DE21D47C99800686BAB /* AppDelegate.swift in Sources */,
 				84B114E81D56416800916206 /* trackingModel.swift in Sources */,
 				847C45411D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift in Sources */,
 				844902241D56064900B8ADF3 /* Plan.swift in Sources */,
+				8493714F1D6365410096CE4B /* vidCellTableViewCell.swift in Sources */,
 				84FACCA21D4F021100E73FDC /* dailyPlanViewController.swift in Sources */,
 				84B343D91D485AC80085F02E /* uploadFoodViewController.swift in Sources */,
 				84FACCA01D4F01FD00E73FDC /* weeklyPlanViewController.swift in Sources */,
@@ -886,9 +908,11 @@
 				04426B161D5DB4C9005B3621 /* SCRecordSessionManager.m in Sources */,
 				84FACCAF1D4F3EC700E73FDC /* newFeed.swift in Sources */,
 				04426B181D5DB4C9005B3621 /* SCSessionTableViewCell.m in Sources */,
+				849371551D63658C0096CE4B /* addPlanVidViewController.swift in Sources */,
 				04426AF61D5DB324005B3621 /* NHDTabbarView.swift in Sources */,
 				848225751D4E436F00750118 /* DetailsViewController.swift in Sources */,
 				844A87291D586E7100DEC697 /* talksViewController.swift in Sources */,
+				849371531D6365780096CE4B /* yourVideosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
