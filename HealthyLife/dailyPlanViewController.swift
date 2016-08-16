@@ -13,6 +13,7 @@ class dailyPlanViewController: UIViewController, UITableViewDataSource, UITableV
 
     @IBOutlet weak var tableView: UITableView!
     
+    
     var activities = [Activities]()
     var plan: Plan!
     var key = String()
@@ -38,7 +39,7 @@ class dailyPlanViewController: UIViewController, UITableViewDataSource, UITableV
                     if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
                         let activity = Activities(key: key, dictionary: postDictionary)
-                    
+                        
                         // Items are returned chronologically, but it's more fun with the newest jokes first.
                         
                         self.activities.insert(activity, atIndex: 0)
@@ -54,14 +55,6 @@ class dailyPlanViewController: UIViewController, UITableViewDataSource, UITableV
         })
         
         
-        
-        DataService.dataService.activitiesPlannedRef.child(segue).child(key).observeEventType(.Value, withBlock: { snapshot in
-            let value = snapshot.value as? NSDictionary
-            var plan = Plan(dictionary: value!)
-            self.creatorID = plan.plan_CreatorID as! String
-            
-            
-        })
     }
     
     @IBAction func backAction(sender: AnyObject) {
@@ -87,16 +80,16 @@ class dailyPlanViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPathForCell(cell)
         let activity = activities[indexPath!.row]
-      
+        
         let detailViewController = segue.destinationViewController as! DetailViewController
         detailViewController.activity = activity
-        detailViewController.creatorID = creatorID
+        detailViewController.creatorID = activity.creatorID
         detailViewController.nameOfPlan = key
         
     }
     
-
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -104,15 +97,15 @@ class dailyPlanViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

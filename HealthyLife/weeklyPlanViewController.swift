@@ -13,7 +13,7 @@ class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @IBOutlet weak var tableView: UITableView!
     
-  
+    
     var yourPlans = [String]()
     var sendedPlans = [String]()
     
@@ -22,22 +22,22 @@ class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.registerClass(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HeaderViewIdentifier)
         tableView.registerClass(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: headerViewIdentifier)
-
+        
         
         DataService.dataService.activitiesPlannedRef.child("yourPlan").observeEventType(.Value, withBlock: { snapshot in
             
-           
+            
             
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
                 
-            
+                
                 self.yourPlans = []
                 
                 for snap in snapshots {
@@ -53,7 +53,7 @@ class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableVi
             
             self.tableView.reloadData()
             //            MBProgressHUD.hideHUDForView(self.view, animated: true)
-
+            
         })
         
         
@@ -88,9 +88,9 @@ class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableVi
         
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func backAction(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+        dismissViewControllerAnimated(true, completion: nil)
         
     }
     override func didReceiveMemoryWarning() {
@@ -151,7 +151,7 @@ class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-   
+    
     
     //MARK: Set Up the display of cell
     
@@ -173,11 +173,11 @@ class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableVi
             
             let cell = tableView.dequeueReusableCellWithIdentifier("sendedPlan") as! sendedPlanCellTableViewCell
             cell.plan = sendedPlans[indexPath.row]
-                        
+            
             return cell
             // Sort
             
-
+            
             
             
             
@@ -191,7 +191,7 @@ class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableVi
     //*******************************
     
     
-
+    
     func makeSegue(button:UIButton) {
         self.performSegueWithIdentifier("send", sender: button)
     }
@@ -210,8 +210,8 @@ class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         } else if segue.identifier == "yourPlan" {
             
-            let DestViewController = segue.destinationViewController as! UINavigationController
-            let targetController = DestViewController.topViewController as! dailyPlanViewController
+        
+            let targetController = segue.destinationViewController as! dailyPlanViewController
             
             let cell = sender as! UITableViewCell
             let indexPath = tableView.indexPathForCell(cell)
@@ -221,8 +221,8 @@ class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableVi
             
         } else if segue.identifier == "sendedPlan" {
             
-            let DestViewController = segue.destinationViewController as! UINavigationController
-            let targetController = DestViewController.topViewController as! dailyPlanViewController
+            
+            let targetController = segue.destinationViewController as! dailyPlanViewController
             
             let cell = sender as! UITableViewCell
             let indexPath = tableView.indexPathForCell(cell)

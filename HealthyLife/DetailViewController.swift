@@ -8,6 +8,9 @@
 
 import UIKit
 import Firebase
+import AVFoundation
+import AVKit
+
 
 class DetailViewController: UIViewController {
     
@@ -18,7 +21,10 @@ class DetailViewController: UIViewController {
     var activityName = String()
     var trackingRef: FIRDatabaseReference!
 
-    @IBOutlet weak var videoView: UIWebView!
+    @IBOutlet weak var cancelButtonLabel: UIButton!
+    @IBOutlet weak var playInstructionButton: UIButton!
+    
+
     
     @IBOutlet weak var finishButtonLable: UIButton!
     
@@ -34,8 +40,10 @@ class DetailViewController: UIViewController {
         finishButtonLable.hidden = false
         amountView.hidden = false
         
-        videoView.hidden = true
+      
         startButtonLabel.hidden = true
+        cancelButtonLabel.hidden = true
+        playInstructionButton.hidden = true
         
         trackingRef.setValue(["activityName": activity.name , "nameOfPlan": nameOfPlan])
         
@@ -43,6 +51,21 @@ class DetailViewController: UIViewController {
     }
     
    
+    @IBAction func playInstructionAction(sender: AnyObject) {
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "playVideo"
+        {
+         
+            let url = NSURL(string:  activity.videoUrl)
+            let destination = segue.destinationViewController as! AVPlayerViewController
+            
+            destination.player = AVPlayer(URL: url!)
+        
+        }
+    }
     
     @IBAction func cancelAction(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -58,44 +81,50 @@ class DetailViewController: UIViewController {
     }
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        trackingRef = DataService.dataService.baseRef.child("users").child(creatorID).child("tracking").child(DataService.currentUserID).child("workingOn")
-
+        trackingRef = DataService.dataService.baseRef.child("users").child(creatorID).child("tracking").child((FIRAuth.auth()?.currentUser?.uid)!).child("workingOn")
+        
         finishButtonLable.hidden = true
         amountView.hidden = true
-        let id = activity.idVideo
-        print(id)
         
-
+        amountView.layer.cornerRadius = 10
+        amountView.clipsToBounds = true
         
+        startButtonLabel.layer.cornerRadius = 10
+        startButtonLabel.clipsToBounds = true
+        
+        finishButtonLable.layer.cornerRadius = 10
+        finishButtonLable.clipsToBounds = true
+        
+        cancelButtonLabel.layer.cornerRadius = 10
+        cancelButtonLabel.clipsToBounds = true
         
         
         repCountLabel.text = activity.rep
         setCountLabel.text = activity.set
         
         
-        videoView.loadHTMLString("<iframe width=\"\(videoView.frame.width - 20 )\" height=\"\(videoView.frame.height)\" src=\"https://www.youtube.com/embed/\(id)\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
-        
 
     }
     
-  
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

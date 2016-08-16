@@ -151,7 +151,7 @@ class yourVideosViewController: UIViewController, UITableViewDelegate, UITableVi
             let controller = segue.destinationViewController as! addPlanVidViewController
             if let button = sender as? UIButton {
                 let cell = button.superview?.superview as! vidCellTableViewCell
-//                controller.video = cell.video
+                controller.video = cell.video
             }
             
         }

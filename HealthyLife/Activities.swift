@@ -11,13 +11,15 @@ import Firebase
 
 class Activities {
     
-       
+    
     private var KeyActivities: String!
     
     private var Name: String!
-    private var IDvideo: String!
+    private var Des: String!
+    private var VideoUrl: String!
     private var Rep : String!
     private var Set : String!
+    private var CreatorID: String!
     
     
     
@@ -29,8 +31,12 @@ class Activities {
         return Name
     }
     
-    var idVideo: String {
-        return IDvideo
+    var des: String {
+        return Des
+    }
+    
+    var videoUrl: String {
+        return VideoUrl
     }
     
     var rep: String {
@@ -39,6 +45,10 @@ class Activities {
     
     var set: String {
         return Set
+    }
+    
+    var creatorID: String {
+        return CreatorID
     }
     
     
@@ -51,8 +61,12 @@ class Activities {
             self.Name = name
         }
         
-        if let id = dictionary["videoId"] as? String {
-            self.IDvideo = id
+        if let de = dictionary["description"] as? String {
+            self.Des = de
+        }
+        
+        if let Url = dictionary["videoUrl"] as? String {
+            self.VideoUrl = Url
         }
         
         if let rep = dictionary["rep"] as? String {
@@ -63,8 +77,10 @@ class Activities {
             self.Set = set
         }
         
+        if let createrID = dictionary["creatorID"] as? String {
+            self.CreatorID = createrID
+        }
         
-//        FIRDatabase.database().reference().child("demo_lib").child(self.KeyDemo)
     }
     
     
