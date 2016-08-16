@@ -50,7 +50,13 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         self.currentUserName = self.defaults.valueForKey("currentUserName") as! String
         
         sellectedUsername = userProfile.username as! String
-
+        
+        
+        self.avaImage.layer.cornerRadius = self.avaImage.frame.size.width / 2
+        self.avaImage.clipsToBounds = true
+        
+        self.avaImage.layer.borderWidth = 1.0
+        self.avaImage.layer.borderColor = UIColor.blackColor().CGColor
         
         
         //MARK: set up labels
@@ -65,8 +71,8 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         //MARK: Set up ava Image
         
         if userProfile.userSetting == nil {
-            avaImage.image = UIImage(named: "defaults_icon")
-    
+            avaImage.image = UIImage(named: "defaults")
+            
         } else {
             
             islandRef  = storageRef.child("images/\(setImage)")
@@ -86,8 +92,6 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
             }
         }
         
-        self.avaImage.layer.cornerRadius = 20
-        self.avaImage.clipsToBounds = true
         
         
         //******************************
@@ -124,21 +128,21 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
                 print("check chatKey")
             }
         })
-
+        
     }
     
     
     
     @IBAction func talkAction(sender: AnyObject) {
-       DataService.dataService.chatRoom.child(userProfile.username as! String).observeSingleEventOfType(.Value, withBlock: { snapshot in
-        if let checkRoom = snapshot.value as? NSNull {
+        DataService.dataService.chatRoom.child(userProfile.username as! String).observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if let checkRoom = snapshot.value as? NSNull {
+                
+                DataService.dataService.chatRoom.child(self.sellectedUsername).setValue(["chatRoomKey": self.chatKey, "id": self.selectedUID])
+                DataService.dataService.baseRef.child("users").child(self.selectedUID).child("chatRoom").child(self.currentUserName).setValue(["chatRoomKey": self.chatKey, "id": self.currentUID])
+                
+            }
             
-            DataService.dataService.chatRoom.child(self.sellectedUsername).setValue(["chatRoomKey": self.chatKey])
-            DataService.dataService.baseRef.child("users").child(self.selectedUID).child("chatRoom").child(self.currentUserName).setValue(["chatRoomKey": self.chatKey])
-
-        }
-        
-        
+            
         })
         
         
@@ -153,15 +157,15 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
                 print(thumbsUpDown)
                 self.followImage.image = UIImage(named: "add")
                 
-                                
+                
                 
                 self.followerRef =   DataService.dataService.baseRef.child("users").child(self.selectedUID).child("follower").child(self.currentUID)
                 
                 self.followerRef.child("name").setValue( self.currentUserName)
                 self.followedRef.child("name").setValue(self.currentUserName)
-               
+                
                 self.userProfile.addSubTractFollower(true)
-
+                
                 // setValue saves the vote as true for the current user.
                 // voteRef is a reference to the user's "votes" path.
                 

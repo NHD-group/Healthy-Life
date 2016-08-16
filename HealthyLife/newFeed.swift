@@ -23,7 +23,7 @@ class UserProfile: NSObject {
         followerCount = dictionary["followerCount"] as? Int
         
         if let setting = dictionary["user_setting"] as? NSDictionary {
-        userSetting = UserSetting(dictionary: setting)
+            userSetting = UserSetting(dictionary: setting)
         }
         
         FollowerCountRef =  DataService.dataService.baseRef.child("users").child(UserKey as! String)
@@ -32,7 +32,7 @@ class UserProfile: NSObject {
     
     
     
-   
+    
     func addSubTractFollower(addFollower: Bool) {
         if addFollower {
             followerCount = followerCount! + 1

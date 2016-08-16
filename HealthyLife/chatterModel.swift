@@ -15,13 +15,15 @@ class Chatter: NSObject {
     
     var chatRoomKey: NSString?
     
+    var id: NSString?
+    
     init(key: String , dictionary: NSDictionary) {
         
       chatterName = key
         
       chatRoomKey = dictionary["chatRoomKey"] as? String
 
-        
+    id = dictionary["id"] as? String
     }
     
 }

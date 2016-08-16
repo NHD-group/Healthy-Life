@@ -87,7 +87,7 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
        ref.child("users/\(currentUserID)/username").observeEventType(.Value, withBlock: { snapshot in
           self.name.text = snapshot.value as? String
             let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setValue(snapshot.value as? String, forKey: "currentUserName")
+            defaults.setValue(snapshot.value as! String, forKey: "currentUserName")
         })
         
         let islandRef = storageRef.child("images/\(currentUserID)")

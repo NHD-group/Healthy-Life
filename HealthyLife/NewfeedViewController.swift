@@ -27,7 +27,7 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.rowHeight = UITableViewAutomaticDimension
         
         
-        let ref = DataService.BaseRef
+        let ref = FIRDatabase.database().reference()
 
         ref.child("users").observeEventType(.Value, withBlock: { snapshot in
             
@@ -52,9 +52,9 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
                         let user = UserProfile(key: key, dictionary: postDictionary)
                         
                         
-                       self.users.insert(user, atIndex: 0)
+                        self.users.insert(user, atIndex: 0)
                         
-
+                        
                     }
                 }
                 
@@ -65,9 +65,11 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
             self.tableView.reloadData()
             //            MBProgressHUD.hideHUDForView(self.view, animated: true)
             
-
+            
             
         })
+        
+
 
         // Do any additional setup after loading the view.
     }

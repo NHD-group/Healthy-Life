@@ -72,11 +72,9 @@ class talksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("talks")
-        cell?.textLabel?.text = chatters[indexPath.row].chatterName as? String
-        return cell!
-        
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("talks") as! TalksCellTableViewCell
+        cell.chatter = chatters[indexPath.row]
+        return cell
         
     }
     
