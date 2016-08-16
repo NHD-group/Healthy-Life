@@ -52,6 +52,22 @@ class NHDCustomItalicFontLabel: UILabel {
     }
 }
 
+class NHDCustomBoldFontLabel: UILabel {
+    
+    override func awakeFromNib() {
+        
+        font = NHDFontBucket.boldFontWithSize(font.pointSize - 1)
+    }
+}
+
+class NHDCustomBlackFontLabel: UILabel {
+    
+    override func awakeFromNib() {
+        
+        font = NHDFontBucket.blackFontWithSize(font.pointSize - 1)
+    }
+}
+
 class NHDCustomFontButton: UIButton {
     
     override func awakeFromNib() {
