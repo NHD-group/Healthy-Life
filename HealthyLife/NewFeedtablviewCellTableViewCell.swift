@@ -21,12 +21,7 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
     var currentUID = DataService.currentUserID
     var chatKey = String()
     var sellectedUsername = String()
-    
-    
-    
-    
-   
-    var currentUserName = String()
+    var currentUserName = DataService.currentUserName
     
     @IBOutlet weak var avaImage: UIImageView!
     
@@ -43,13 +38,11 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
     
     
    
-    func configureCell(userProfile: UserProfile, setImage: String ) {
+    func configureCell(userProfile: UserProfile, setImage: String) {
         
         self.userProfile = userProfile
         selectedUID = setImage
-        self.currentUserName = self.defaults.valueForKey("currentUserName") as! String
-        
-        sellectedUsername = userProfile.username as! String
+        sellectedUsername = userProfile.username!
         
         
         self.avaImage.layer.cornerRadius = self.avaImage.frame.size.width / 2
@@ -134,7 +127,7 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
     
     
     @IBAction func talkAction(sender: AnyObject) {
-        DataService.dataService.chatRoom.child(userProfile.username as! String).observeSingleEventOfType(.Value, withBlock: { snapshot in
+        DataService.dataService.chatRoom.child(userProfile.username!).observeSingleEventOfType(.Value, withBlock: { snapshot in
             if let checkRoom = snapshot.value as? NSNull {
                 
                 DataService.dataService.chatRoom.child(self.sellectedUsername).setValue(["chatRoomKey": self.chatKey, "id": self.selectedUID])

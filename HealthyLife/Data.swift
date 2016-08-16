@@ -24,6 +24,20 @@ class DataService {
             return ""
         }
     }
+    static var currentUserName : String! {
+
+        get {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            if let userName = defaults.valueForKey("currentUserName") {
+                return userName as! String
+            }
+            return currentUser?.displayName
+        }
+        set {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setValue(newValue, forKey: "currentUserName")
+        }
+    }
     
     private var UserRef = DataService.BaseRef.child("users").child(DataService.currentUserID)
     
@@ -77,5 +91,6 @@ class DataService {
         
         return (currentUser != nil)
     }
+
 }
 

@@ -50,7 +50,6 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func saveAction(sender: AnyObject) {
         
-        let userName = defaults.valueForKey("currentUserName")
         
         let activity: Dictionary<String, AnyObject> = [
             "videoId": selectedDemo.idDemo,
@@ -63,7 +62,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         planRef.child("note").setValue("")
         planRef.child("plan_creatorID").setValue(DataService.currentUserID)
-        planRef.child("plan_creatorName").setValue(userName!)
+        planRef.child("plan_creatorName").setValue(DataService.currentUserName)
         planRef.child("activities").childByAutoId().setValue(activity)
         
         

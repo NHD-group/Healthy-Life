@@ -148,14 +148,9 @@ class SignInViewController: UIViewController {
                     print(error?.localizedDescription)
                     
                     self.alertMessage("Error", message: "\(error?.localizedDescription)")
-                    
-                    
-                    
+
                 } else {
-                    print(user)
-                    print("User logged in")
-                    
-                    NSNotificationCenter.defaultCenter().postNotificationName(Configuration.userDidLoginNotificationKey, object: nil)
+                    self.getDetailsOfUser()
                 }
             })
         } else {
@@ -177,8 +172,8 @@ class SignInViewController: UIViewController {
                         } else {
                             let ref =  FIRDatabase.database().reference()
                             ref.child("users").child(user!.uid).setValue(["username" : username ,  "followerCount" : 0 ])
-                            
-                            NSNotificationCenter.defaultCenter().postNotificationName(Configuration.userDidLoginNotificationKey, object: nil)                        }
+                            self.getDetailsOfUser()
+                        }
                     })
                 }
                 
@@ -189,14 +184,16 @@ class SignInViewController: UIViewController {
         
     }
     
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func getDetailsOfUser() {
+        
+        DataService.dataService.userRef.child("username").observeEventType(.Value, withBlock: { snapshot in
+            if let userName = snapshot.value as? String {
+                DataService.currentUserName = userName
+            }
+            
+            NSNotificationCenter.defaultCenter().postNotificationName(Configuration.userDidLoginNotificationKey, object: nil)
+        })
     }
-    
     
     
     

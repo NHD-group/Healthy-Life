@@ -112,6 +112,8 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
             
             if let indexPath = tableView.indexPathForSelectedRow {
                 vc.currentUserID = keys[indexPath.row]
+                let user = users[indexPath.row]
+                vc.currentUserName = user.username
             }
         }
     }

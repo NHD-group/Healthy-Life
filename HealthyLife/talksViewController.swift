@@ -14,7 +14,7 @@ class talksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var chatters = [Chatter]()
     
     let currentUID = DataService.currentUserID
-    var currentUserName = String()
+    var currentUserName = DataService.currentUserName
     let defaults = NSUserDefaults.standardUserDefaults()
     
     @IBOutlet weak var tableView: UITableView!
@@ -23,9 +23,7 @@ class talksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
-        currentUserName = defaults.valueForKey("currentUserName") as! String
-        
+                
         DataService.dataService.chatRoom.queryLimitedToLast(20).observeEventType(.Value, withBlock: { snapshot in
             
             

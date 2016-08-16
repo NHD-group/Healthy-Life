@@ -38,6 +38,7 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     var currentUserID = DataService.currentUserID
+    var currentUserName = DataService.currentUserName
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,8 +55,9 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
             planButton.hidden = true
         }
         
+        self.name.text = currentUserName
  
-        //MARK: set up profile 
+        //MARK: set up profile
         
         
         let ref = DataService.BaseRef
@@ -83,12 +85,6 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             
             })
-        
-       ref.child("users/\(currentUserID)/username").observeEventType(.Value, withBlock: { snapshot in
-          self.name.text = snapshot.value as? String
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setValue(snapshot.value as! String, forKey: "currentUserName")
-        })
         
         let islandRef = storageRef.child("images/\(currentUserID)")
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
