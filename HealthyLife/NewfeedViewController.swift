@@ -97,8 +97,8 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
         if segue.identifier == "chat"
         {
             
-            let DestViewController = segue.destinationViewController as! UINavigationController
-            let controller = DestViewController.topViewController as! chatViewController
+           
+            let controller = segue.destinationViewController as! chatViewController
 
             if let button = sender as? UIButton {
                 let cell = button.superview?.superview as! NewFeedtablviewCellTableViewCell

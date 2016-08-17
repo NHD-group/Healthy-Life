@@ -45,7 +45,7 @@ class DetailViewController: UIViewController {
         cancelButtonLabel.hidden = true
         playInstructionButton.hidden = true
         
-        trackingRef.setValue(["activityName": activity.name , "nameOfPlan": nameOfPlan])
+        trackingRef.child("workingOn").setValue(["activityName": activity.name , "nameOfPlan": nameOfPlan])
         
         
     }
@@ -75,8 +75,8 @@ class DetailViewController: UIViewController {
     
     @IBAction func finishAction(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
-        trackingRef.removeValue()
-        
+        trackingRef.child("workingOn").removeValue()
+        trackingRef.child("activitiesDone").childByAutoId().setValue(["activityName": activity.name , "nameOfPlan": nameOfPlan, "time": FIRServerValue.timestamp()])
         
     }
     
@@ -85,7 +85,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        trackingRef = DataService.dataService.baseRef.child("users").child(creatorID).child("tracking").child((FIRAuth.auth()?.currentUser?.uid)!).child("workingOn")
+        trackingRef = DataService.dataService.baseRef.child("users").child(creatorID).child("tracking").child((FIRAuth.auth()?.currentUser?.uid)!)
         
         finishButtonLable.hidden = true
         amountView.hidden = true

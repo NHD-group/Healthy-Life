@@ -30,7 +30,8 @@ class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.registerClass(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: headerViewIdentifier)
         
         
-        DataService.dataService.activitiesPlannedRef.child("yourPlan").observeEventType(.Value, withBlock: { snapshot in
+        FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("activities_planned")
+.child("yourPlan").observeEventType(.Value, withBlock: { snapshot in
             
             
             
@@ -58,7 +59,8 @@ class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
         
-        DataService.dataService.activitiesPlannedRef.child("sendedPlan").observeEventType(.Value, withBlock: { snapshot in
+        FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("activities_planned")
+.child("sendedPlan").observeEventType(.Value, withBlock: { snapshot in
             
             
             
