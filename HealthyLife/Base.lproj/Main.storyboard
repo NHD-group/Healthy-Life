@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="E27-b1-Y7W"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nuc-lY-cRx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="164" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dVR-JX-zIc">
@@ -41,7 +41,7 @@
                                             <rect key="frame" x="169" y="0.0" width="79" height="30"/>
                                             <state key="normal" title="Upload Vid"/>
                                             <connections>
-                                                <segue destination="vrP-cU-r0R" kind="modal" id="wpn-st-4o8"/>
+                                                <segue destination="Yue-Nz-GyF" kind="push" id="PXI-SI-9AB"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -183,7 +183,7 @@
                         <viewControllerLayoutGuide type="bottom" id="yCk-bz-RZ3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZKg-fb-Cd9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Zc-8P-nIk">
@@ -249,7 +249,7 @@
                         <viewControllerLayoutGuide type="bottom" id="3o6-yx-QI8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="j2Z-1v-yZi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOz-h2-PoK">
@@ -708,7 +708,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ZIa-3M-lQp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Tsx-bJ-VnI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNr-ii-cwc">
@@ -1222,42 +1222,43 @@
                         <viewControllerLayoutGuide type="bottom" id="1rY-3X-u6H"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="h6B-cu-6gX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7lT-rU-RqA">
-                                <rect key="frame" x="20" y="33" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Tt-sA-YqV">
-                                <rect key="frame" x="20" y="78" width="280" height="30"/>
+                                <rect key="frame" x="26" y="180" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnS-9l-rcc">
-                                <rect key="frame" x="135" y="200" width="50" height="30"/>
+                                <rect key="frame" x="152" y="290" width="50" height="30"/>
                                 <state key="normal" title="Upload"/>
                                 <connections>
                                     <action selector="uploadAction:" destination="Yhk-j5-PPV" eventType="touchUpInside" id="maT-WH-Kcr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3z-J4-CmS">
-                                <rect key="frame" x="136" y="250" width="48" height="30"/>
+                                <rect key="frame" x="142" y="319" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelAction:" destination="Yhk-j5-PPV" eventType="touchUpInside" id="p39-9c-TpV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upload Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hau-8r-kPs">
-                                <rect key="frame" x="106" y="154" width="109" height="21"/>
+                                <rect key="frame" x="128" y="246" width="109" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7lT-rU-RqA">
+                                <rect key="frame" x="37" y="128" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="XUz-Dq-Xll"/>
                     <connections>
                         <outlet property="desTextField" destination="6Tt-sA-YqV" id="dcc-y6-iJz"/>
                         <outlet property="nameVideoTextField" destination="7lT-rU-RqA" id="Aby-4K-tdI"/>
@@ -1266,7 +1267,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="py0-rn-cA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-589" y="-304"/>
+            <point key="canvasLocation" x="-609.5" y="-235.5"/>
         </scene>
         <!--AV Player View Controller-->
         <scene sceneID="7RH-Oc-qRZ">
@@ -1285,7 +1286,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Ueb-7G-J7I"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Qra-hT-dL6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxo-sD-aDw">
@@ -1361,6 +1362,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="QAg-9v-Ze4"/>
                     <connections>
                         <outlet property="actionView" destination="65r-T4-u3y" id="h3e-V0-yyc"/>
                         <outlet property="addToNewPlanButton" destination="hxo-sD-aDw" id="rvP-NX-u6S"/>
@@ -1374,7 +1376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fvN-Fj-eUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2" y="-1256"/>
+            <point key="canvasLocation" x="-34" y="-1224"/>
         </scene>
         <!--Your Videos View Controller-->
         <scene sceneID="hkv-pM-RV7">
@@ -1385,7 +1387,7 @@
                         <viewControllerLayoutGuide type="bottom" id="J5f-8j-8tY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Tyn-IB-eqb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hfC-ig-2lP">
@@ -1415,7 +1417,7 @@
                                                     <rect key="frame" x="271" y="18" width="32" height="32"/>
                                                     <state key="normal" image="addToPlan"/>
                                                     <connections>
-                                                        <segue destination="Vgw-dO-Rh1" kind="modal" identifier="createPlan" id="67M-E0-gE3"/>
+                                                        <segue destination="Vgw-dO-Rh1" kind="push" identifier="createPlan" id="lTS-CD-HXL"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1434,7 +1436,7 @@
                     <navigationItem key="navigationItem" id="FSX-Tv-N7R">
                         <barButtonItem key="rightBarButtonItem" title="AddVid" id="XjD-vQ-xO8">
                             <connections>
-                                <segue destination="Yhk-j5-PPV" kind="modal" id="9ng-y6-F3b"/>
+                                <segue destination="Yhk-j5-PPV" kind="push" id="fvi-0R-zzQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1444,7 +1446,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKZ-dY-uZ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-144" y="-547"/>
+            <point key="canvasLocation" x="212" y="-350"/>
         </scene>
         <!--journal-->
         <scene sceneID="QFA-2l-s6l">
@@ -1463,7 +1465,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2m-we-ac8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="403" y="259"/>
+            <point key="canvasLocation" x="307" y="405"/>
         </scene>
         <!--demo Lib-->
         <scene sceneID="uur-yu-yRi">
@@ -1629,24 +1631,6 @@
             </objects>
             <point key="canvasLocation" x="372" y="2569"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="G63-kE-QMp">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vrP-cU-r0R" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xeq-gA-I32">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Yue-Nz-GyF" kind="relationship" relationship="rootViewController" id="z97-SQ-kUD"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C67-O6-gWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="573" y="-425"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Settings Filled-50" width="50" height="50"/>
@@ -1654,8 +1638,8 @@
         <image name="addToPlan" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Ix1-Dk-Yza"/>
         <segue reference="de9-EU-rTg"/>
-        <segue reference="cRV-Ik-ULG"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
