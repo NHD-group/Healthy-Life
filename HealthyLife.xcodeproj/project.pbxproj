@@ -58,7 +58,6 @@
 		8482256F1D4E414500750118 /* demoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482256E1D4E414500750118 /* demoModel.swift */; };
 		848225711D4E42CB00750118 /* demoLibViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848225701D4E42CB00750118 /* demoLibViewController.swift */; };
 		848225731D4E430D00750118 /* demoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848225721D4E430D00750118 /* demoTableViewCell.swift */; };
-		848225751D4E436F00750118 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848225741D4E436F00750118 /* DetailsViewController.swift */; };
 		8493714F1D6365410096CE4B /* vidCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493714E1D6365410096CE4B /* vidCellTableViewCell.swift */; };
 		849371511D6365690096CE4B /* uploadVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849371501D6365690096CE4B /* uploadVideoViewController.swift */; };
 		849371531D6365780096CE4B /* yourVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849371521D6365780096CE4B /* yourVideosViewController.swift */; };
@@ -168,7 +167,6 @@
 		8482256E1D4E414500750118 /* demoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = demoModel.swift; sourceTree = "<group>"; };
 		848225701D4E42CB00750118 /* demoLibViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = demoLibViewController.swift; sourceTree = "<group>"; };
 		848225721D4E430D00750118 /* demoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = demoTableViewCell.swift; sourceTree = "<group>"; };
-		848225741D4E436F00750118 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		8493714E1D6365410096CE4B /* vidCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = vidCellTableViewCell.swift; sourceTree = "<group>"; };
 		849371501D6365690096CE4B /* uploadVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uploadVideoViewController.swift; sourceTree = "<group>"; };
 		849371521D6365780096CE4B /* yourVideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = yourVideosViewController.swift; sourceTree = "<group>"; };
@@ -564,7 +562,6 @@
 			children = (
 				848225701D4E42CB00750118 /* demoLibViewController.swift */,
 				848225721D4E430D00750118 /* demoTableViewCell.swift */,
-				848225741D4E436F00750118 /* DetailsViewController.swift */,
 			);
 			name = demo;
 			sourceTree = "<group>";
@@ -921,7 +918,6 @@
 				04426B181D5DB4C9005B3621 /* SCSessionTableViewCell.m in Sources */,
 				849371551D63658C0096CE4B /* addPlanVidViewController.swift in Sources */,
 				04426AF61D5DB324005B3621 /* NHDTabbarView.swift in Sources */,
-				848225751D4E436F00750118 /* DetailsViewController.swift in Sources */,
 				844A87291D586E7100DEC697 /* talksViewController.swift in Sources */,
 				840E474E1D64B7CE0002790C /* commentCellTableViewCell.swift in Sources */,
 				849371531D6365780096CE4B /* yourVideosViewController.swift in Sources */,

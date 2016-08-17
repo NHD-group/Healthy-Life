@@ -27,7 +27,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="67" height="30"/>
                                             <state key="normal" title="Plan"/>
                                             <connections>
-                                                <segue destination="dXl-kM-6GR" kind="push" id="piT-TS-hs8"/>
+                                                <segue destination="dXl-kM-6GR" kind="push" id="iLl-MN-qTd"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKl-L8-x0G" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
@@ -416,7 +416,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JPZ-Wp-eHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2355" y="47"/>
+            <point key="canvasLocation" x="1439.5" y="300.5"/>
         </scene>
         <!--Send Plan View Controller-->
         <scene sceneID="fXA-G2-PJV">
@@ -828,7 +828,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="videosLabel" destination="LbS-wN-6ci" id="elJ-HY-J3u"/>
-                                            <segue destination="50I-Fh-diC" kind="modal" id="lGz-6R-kfz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -849,7 +848,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKo-iq-dIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1258" y="1068"/>
+            <point key="canvasLocation" x="1300" y="830"/>
         </scene>
         <!--Newsfeed-->
         <scene sceneID="iuf-4X-G4S">
@@ -1056,163 +1055,6 @@
             </objects>
             <point key="canvasLocation" x="1652" y="2577"/>
         </scene>
-        <!--Details View Controller-->
-        <scene sceneID="TUf-0Q-HnP">
-            <objects>
-                <viewController id="50I-Fh-diC" customClass="DetailsViewController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="W9E-Id-aM8"/>
-                        <viewControllerLayoutGuide type="bottom" id="oW3-cs-ewX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hcG-SX-mRe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKV-1l-w5j">
-                                <rect key="frame" x="0.0" y="20" width="375" height="239"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="239" id="H5o-ic-4WX"/>
-                                </constraints>
-                            </webView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T30-PN-u37">
-                                <rect key="frame" x="132" y="319" width="111" height="30"/>
-                                <state key="normal" title="Add to new plan"/>
-                                <connections>
-                                    <action selector="newPlanAction:" destination="50I-Fh-diC" eventType="touchUpInside" id="LIx-sN-nqV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eym-zN-Jno">
-                                <rect key="frame" x="132" y="340" width="104" height="30"/>
-                                <state key="normal" title="Add to old Plan"/>
-                                <connections>
-                                    <action selector="addToOldPlanAction:" destination="50I-Fh-diC" eventType="touchUpInside" id="d3c-bk-eYe"/>
-                                    <action selector="oldPlanAction:" destination="50I-Fh-diC" eventType="touchUpInside" id="nqu-NY-wXN"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wuv-AN-TRh">
-                                <rect key="frame" x="0.0" y="259" width="375" height="170"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="rep" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3c-KQ-uYH">
-                                        <rect key="frame" x="10" y="10" width="355" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="BSV-25-NUH"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="set number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p68-1n-Ptd">
-                                        <rect key="frame" x="10" y="50" width="355" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="hDw-fg-cED"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpz-cV-zS1">
-                                        <rect key="frame" x="10" y="130" width="34" height="30"/>
-                                        <state key="normal" title="Save"/>
-                                        <connections>
-                                            <action selector="saveAction:" destination="50I-Fh-diC" eventType="touchUpInside" id="HXY-ZR-IQo"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYQ-dc-Xir">
-                                        <rect key="frame" x="317" y="130" width="48" height="30"/>
-                                        <state key="normal" title="Cancel"/>
-                                        <connections>
-                                            <action selector="cancelAction:" destination="50I-Fh-diC" eventType="touchUpInside" id="GCZ-Mt-JKo"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="plan" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DUN-SV-cPZ">
-                                        <rect key="frame" x="10" y="90" width="355" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="vmx-B7-nGm"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstItem="Zpz-cV-zS1" firstAttribute="leading" secondItem="Wuv-AN-TRh" secondAttribute="leading" constant="10" id="467-w2-Khe"/>
-                                    <constraint firstAttribute="height" constant="170" id="4Fu-Qg-tnM"/>
-                                    <constraint firstItem="p68-1n-Ptd" firstAttribute="top" secondItem="w3c-KQ-uYH" secondAttribute="bottom" constant="10" id="DGe-iB-IrH"/>
-                                    <constraint firstItem="w3c-KQ-uYH" firstAttribute="leading" secondItem="Wuv-AN-TRh" secondAttribute="leading" constant="10" id="Hbj-36-h1y"/>
-                                    <constraint firstAttribute="trailing" secondItem="aYQ-dc-Xir" secondAttribute="trailing" constant="10" id="Qik-qo-kH9"/>
-                                    <constraint firstItem="p68-1n-Ptd" firstAttribute="leading" secondItem="Wuv-AN-TRh" secondAttribute="leading" constant="10" id="T4T-qp-J1N"/>
-                                    <constraint firstAttribute="bottom" secondItem="Zpz-cV-zS1" secondAttribute="bottom" constant="10" id="U70-Lf-AE4"/>
-                                    <constraint firstAttribute="bottom" secondItem="aYQ-dc-Xir" secondAttribute="bottom" constant="10" id="WEr-rm-CDa"/>
-                                    <constraint firstItem="w3c-KQ-uYH" firstAttribute="top" secondItem="Wuv-AN-TRh" secondAttribute="top" constant="10" id="bGV-HZ-IDX"/>
-                                    <constraint firstAttribute="trailing" secondItem="p68-1n-Ptd" secondAttribute="trailing" constant="10" id="h6Q-hP-yk7"/>
-                                    <constraint firstItem="DUN-SV-cPZ" firstAttribute="top" secondItem="p68-1n-Ptd" secondAttribute="bottom" constant="10" id="hOy-HB-5pW"/>
-                                    <constraint firstAttribute="trailing" secondItem="w3c-KQ-uYH" secondAttribute="trailing" constant="10" id="lah-e2-Gpd"/>
-                                    <constraint firstAttribute="trailing" secondItem="DUN-SV-cPZ" secondAttribute="trailing" constant="10" id="o98-om-2kG"/>
-                                    <constraint firstItem="DUN-SV-cPZ" firstAttribute="leading" secondItem="Wuv-AN-TRh" secondAttribute="leading" constant="10" id="vQ7-f2-QtL"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="VPQ-KS-BsE" appends="YES" id="zlr-ES-Zs8"/>
-                                </connections>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rPP-eq-baU">
-                                <rect key="frame" x="0.0" y="448" width="375" height="219"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="plan" rowHeight="78" id="owr-dP-vxN">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="78"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="owr-dP-vxN" id="JPh-fz-rRF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="T30-PN-u37" firstAttribute="centerX" secondItem="hcG-SX-mRe" secondAttribute="centerX" id="87R-9O-5AL"/>
-                            <constraint firstItem="eym-zN-Jno" firstAttribute="top" secondItem="T30-PN-u37" secondAttribute="bottom" constant="10" id="8zl-Vn-Yue"/>
-                            <constraint firstAttribute="trailing" secondItem="EKV-1l-w5j" secondAttribute="trailing" id="920-KO-FCl"/>
-                            <constraint firstItem="Wuv-AN-TRh" firstAttribute="leading" secondItem="hcG-SX-mRe" secondAttribute="leading" id="FGt-Fs-MGi"/>
-                            <constraint firstAttribute="trailing" secondItem="Wuv-AN-TRh" secondAttribute="trailing" id="MSw-l4-tY1"/>
-                            <constraint firstItem="EKV-1l-w5j" firstAttribute="leading" secondItem="hcG-SX-mRe" secondAttribute="leading" id="Y1M-Nf-YUZ"/>
-                            <constraint firstItem="EKV-1l-w5j" firstAttribute="top" secondItem="W9E-Id-aM8" secondAttribute="bottom" id="e0j-AN-Gi6"/>
-                            <constraint firstItem="Wuv-AN-TRh" firstAttribute="top" secondItem="EKV-1l-w5j" secondAttribute="bottom" id="nKs-x5-Hla"/>
-                            <constraint firstItem="eym-zN-Jno" firstAttribute="centerX" secondItem="T30-PN-u37" secondAttribute="centerX" id="ncK-yY-WIn"/>
-                            <constraint firstItem="T30-PN-u37" firstAttribute="centerY" secondItem="hcG-SX-mRe" secondAttribute="centerY" id="uMR-cz-lXl"/>
-                        </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="b86-6W-jBV" appends="YES" id="jQF-fh-OJZ"/>
-                        </connections>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="addNewPlanButton" destination="T30-PN-u37" id="Fwt-2w-4KQ"/>
-                        <outlet property="addOldPlanButton" destination="eym-zN-Jno" id="5jf-Jc-dNU"/>
-                        <outlet property="newPlanView" destination="Wuv-AN-TRh" id="Avv-4F-UeY"/>
-                        <outlet property="planTextField" destination="DUN-SV-cPZ" id="rWw-t4-0PY"/>
-                        <outlet property="repTextField" destination="w3c-KQ-uYH" id="dZL-r3-9jx"/>
-                        <outlet property="setTextField" destination="p68-1n-Ptd" id="gRR-yp-1mW"/>
-                        <outlet property="tableView" destination="rPP-eq-baU" id="eHw-mk-Way"/>
-                        <outlet property="videoview" destination="EKV-1l-w5j" id="LdS-vY-WYq"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C25-ge-SAG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="b86-6W-jBV">
-                    <connections>
-                        <action selector="tapAction:" destination="50I-Fh-diC" id="fD1-Yn-zdg"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="VPQ-KS-BsE">
-                    <connections>
-                        <action selector="tapAction:" destination="50I-Fh-diC" id="NFJ-oK-3yN"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="1760.5" y="1058.5"/>
-        </scene>
         <!--Upload Video View Controller-->
         <scene sceneID="50C-hK-LlN">
             <objects>
@@ -1289,25 +1131,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxo-sD-aDw">
-                                <rect key="frame" x="106" y="34" width="109" height="30"/>
-                                <state key="normal" title="add to new plan"/>
-                                <connections>
-                                    <action selector="addNewPlanAction:" destination="Vgw-dO-Rh1" eventType="touchUpInside" id="oi3-at-xP0"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6H-BF-hMj">
-                                <rect key="frame" x="110" y="77" width="102" height="30"/>
+                                <rect key="frame" x="109" y="103" width="102" height="30"/>
                                 <state key="normal" title="add to old plan"/>
                                 <connections>
                                     <action selector="addOldPlanAction:" destination="Vgw-dO-Rh1" eventType="touchUpInside" id="vya-1D-qdJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkP-2Z-ynU">
-                                <rect key="frame" x="136" y="115" width="48" height="30"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancelBackAction:" destination="Vgw-dO-Rh1" eventType="touchUpInside" id="Rwc-hc-erN"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="65r-T4-u3y">
@@ -1359,6 +1187,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxo-sD-aDw">
+                                <rect key="frame" x="106" y="65" width="109" height="30"/>
+                                <state key="normal" title="add to new plan"/>
+                                <connections>
+                                    <action selector="addNewPlanAction:" destination="Vgw-dO-Rh1" eventType="touchUpInside" id="oi3-at-xP0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1367,7 +1202,6 @@
                         <outlet property="actionView" destination="65r-T4-u3y" id="h3e-V0-yyc"/>
                         <outlet property="addToNewPlanButton" destination="hxo-sD-aDw" id="rvP-NX-u6S"/>
                         <outlet property="addToOldPlanButton" destination="S6H-BF-hMj" id="3Yn-W9-rYa"/>
-                        <outlet property="cancelButton" destination="dkP-2Z-ynU" id="Qcc-9K-qG3"/>
                         <outlet property="nameOfPlanTextField" destination="ova-O4-3LX" id="OAu-PX-WEE"/>
                         <outlet property="repTextField" destination="KWL-Fa-meh" id="KS2-Wf-Xd7"/>
                         <outlet property="setTextField" destination="Fel-iM-kFG" id="UPE-u8-fud"/>
@@ -1376,7 +1210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fvN-Fj-eUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-34" y="-1224"/>
+            <point key="canvasLocation" x="148" y="-1047"/>
         </scene>
         <!--Your Videos View Controller-->
         <scene sceneID="hkv-pM-RV7">
@@ -1417,7 +1251,7 @@
                                                     <rect key="frame" x="271" y="18" width="32" height="32"/>
                                                     <state key="normal" image="addToPlan"/>
                                                     <connections>
-                                                        <segue destination="Vgw-dO-Rh1" kind="push" identifier="createPlan" id="lTS-CD-HXL"/>
+                                                        <segue destination="Vgw-dO-Rh1" kind="push" identifier="createPlan" id="KPG-n3-Saw"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

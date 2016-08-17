@@ -23,7 +23,7 @@ class addPlanVidViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var addToOldPlanButton: UIButton!
     
-    @IBOutlet weak var cancelButton: UIButton!
+   
     
     
     @IBOutlet weak var repTextField: UITextField!
@@ -69,7 +69,7 @@ class addPlanVidViewController: UIViewController, UITableViewDataSource, UITable
         tableView.hidden = true
         addToNewPlanButton.hidden = false
         addToOldPlanButton.hidden = false
-        cancelButton.hidden = false
+       
 
         
     }
@@ -78,7 +78,7 @@ class addPlanVidViewController: UIViewController, UITableViewDataSource, UITable
         actionView.hidden = false
         addToNewPlanButton.hidden = true
         addToOldPlanButton.hidden = true
-        cancelButton.hidden = true
+        
         tableView.hidden = true
     }
     
@@ -86,7 +86,7 @@ class addPlanVidViewController: UIViewController, UITableViewDataSource, UITable
         actionView.hidden = true
         addToNewPlanButton.hidden = true
         addToOldPlanButton.hidden = true
-        cancelButton.hidden = true
+        
         tableView.hidden = false
         
     }

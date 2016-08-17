@@ -90,15 +90,6 @@ class demoLibViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        let cell = sender as! UITableViewCell
-        let indexPath = tableView.indexPathForCell(cell)
-        let demo = demos[indexPath!.row]
-        let detailViewController = segue.destinationViewController as! DetailsViewController
-        detailViewController.selectedDemo = demo
-        
-    }
-    
+       
     
 }
