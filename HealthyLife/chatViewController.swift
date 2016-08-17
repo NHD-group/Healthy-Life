@@ -77,7 +77,8 @@ class chatViewController: JSQMessagesViewController {
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         
         // 5
-        finishSendingMessage()
+        finishSendingMessageAnimated(true)
+
         
         isTyping = false
     }
@@ -99,9 +100,9 @@ class chatViewController: JSQMessagesViewController {
     private func setupBubbles() {
         let factory = JSQMessagesBubbleImageFactory()
         outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(
-            UIColor.jsq_messageBubbleBlueColor())
+            Configuration.Colors.brightRed)
         incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(
-            UIColor.jsq_messageBubbleLightGrayColor())
+            Configuration.Colors.softCyan)
     }
     
     //MARK: checkMessage
@@ -133,8 +134,8 @@ class chatViewController: JSQMessagesViewController {
     }
     
     private func observeTyping() {
-        let typingIndicatorRef = DataService.dataService.baseRef.childByAppendingPath("typingIndicator")
-        userIsTypingRef = typingIndicatorRef.childByAppendingPath(senderId)
+        let typingIndicatorRef = DataService.dataService.baseRef.child("typingIndicator")
+        userIsTypingRef = typingIndicatorRef.child(senderId)
         userIsTypingRef.onDisconnectRemoveValue()
         
         // 1
