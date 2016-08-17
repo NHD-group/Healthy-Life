@@ -25,7 +25,9 @@ class TalksCellTableViewCell: UITableViewCell {
             usernameLabel.text = chatter?.chatterName as? String
             
             DataService.dataService.baseRef.child("users").child((chatter?.id)! as String).observeEventType(.Value, withBlock: { snapshot in
-                let value = snapshot.value as! NSDictionary
+                guard let value = snapshot.value as? NSDictionary else {
+                    return
+                }
                 self.usernameLabel.text = value["username"] as? String
                 if value["user_setting"] != nil {
                     
