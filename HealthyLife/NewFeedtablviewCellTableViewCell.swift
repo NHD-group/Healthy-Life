@@ -28,9 +28,14 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
     @IBOutlet weak var talkButton: UIButton!
     
     @IBOutlet weak var HeightLabel: UILabel!
-    @IBOutlet weak var weightChangedLabel: UILabel!
+   
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var DOBLabel: UILabel!
+    
+    @IBOutlet weak var averageStarLabel: UILabel!
+    
+    @IBOutlet weak var amountPeopleVotedLabel: UILabel!
+    @IBOutlet weak var commentsButton: UIButton!
+    
     
     @IBOutlet weak var followerCountLabel: UILabel!
     
@@ -54,13 +59,27 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         
         //MARK: set up labels
         
+
+        
+        if userProfile.totalPeopleVoted != 0 {
+            averageStarLabel.text = "\(userProfile.totalStar!/userProfile.totalPeopleVoted!)"
+
+        } else {
+            averageStarLabel.text = "0"
+            
+        }
+        
+        commentsButton.setTitle("\(userProfile.userCommentCount!) comments", forState: .Normal)
+       
+        
+        print(userProfile.totalPeopleVoted)
+        print("check totalstarvoted")
+        
         HeightLabel.text = userProfile.userSetting?.height as? String
-        weightChangedLabel.text = userProfile.userSetting?.weightChanged as? String
-        DOBLabel.text = userProfile.userSetting?.DOB  as? String
+       
         nameLabel.text = sellectedUsername
         followerCountLabel.text = "\(userProfile.followerCount!) followers"
-        
-        
+        amountPeopleVotedLabel.text = "\(userProfile.totalPeopleVoted!) voted"
         //MARK: Set up ava Image
         
         if userProfile.userSetting == nil {

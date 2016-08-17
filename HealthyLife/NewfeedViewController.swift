@@ -23,8 +23,8 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 130
-        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.estimatedRowHeight = 130
+//        tableView.rowHeight = UITableViewAutomaticDimension
         
         
         let ref = FIRDatabase.database().reference()
@@ -34,8 +34,7 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
             self.users = []
             self.keys = []
             
-            print(snapshot)
-            print("why is this happening")
+        
             
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 

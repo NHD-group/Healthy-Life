@@ -55,13 +55,19 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
             planButton.hidden = true
         }
         
-        self.name.text = currentUserName
+//        self.name.text = currentUserName
  
         //MARK: set up profile
         
         
         let ref = DataService.BaseRef
         let storageRef = DataService.storageRef
+        
+        ref.child("users/\(currentUserID)/username").observeEventType(.Value, withBlock: { snapshot in
+            self.name.text = snapshot.value as? String
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setValue(snapshot.value as? String, forKey: "currentUserName")
+        })
         
         ref.child("users/\(currentUserID)/user_setting").observeEventType(.Value, withBlock: { snapshot in
             if let postDictionary = snapshot.value as? NSDictionary {
@@ -78,7 +84,7 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         })
         
-        DataService.dataService.userRef.child("followerCount").observeEventType(.Value, withBlock: { snapshot in
+       ref.child("users").child(currentUserID).child("followerCount").observeEventType(.Value, withBlock: { snapshot in
             
             if let count = snapshot.value as? Int {
                 self.followerCountLabel.text = "\(count) followers"

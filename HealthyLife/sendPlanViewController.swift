@@ -35,6 +35,7 @@ class sendPlanViewController: UIViewController, UITableViewDelegate, UITableView
         
         sendPlanRef.setValue(plan)
         sendPlanRef.child("note").setValue(noteTextField.text!)
+        sendPlanRef.child("senderID").setValue((FIRAuth.auth()?.currentUser?.uid)!)
         
         
         DataService.dataService.userRef.child("tracking").child(sendToID).setValue(["name" : selectedFollowerName])

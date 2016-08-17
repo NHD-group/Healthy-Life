@@ -10,12 +10,16 @@ import Foundation
 import Firebase
 
 
+
 class UserProfile: NSObject {
     private var FollowerCountRef: FIRDatabaseReference!
     var UserKey: String?
     var username: String?
     var followerCount: Int?
     var userSetting: UserSetting?
+    var totalStar: Int?
+    var totalPeopleVoted: Int?
+    var userCommentCount: Int?
     
     init(key: String, dictionary: NSDictionary) {
         UserKey = key
@@ -26,7 +30,12 @@ class UserProfile: NSObject {
             userSetting = UserSetting(dictionary: setting)
         }
         
+        totalStar = dictionary["totalRate"] as? Int
+        totalPeopleVoted = dictionary["totalPeoleVoted"] as? Int
+        userCommentCount = dictionary["userCommentsCount"] as? Int
         FollowerCountRef =  DataService.dataService.baseRef.child("users").child(UserKey!)
+        
+        
     }
     
     

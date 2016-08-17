@@ -164,7 +164,7 @@ class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableVi
             
             let cell = tableView.dequeueReusableCellWithIdentifier("yourPlan") as! cellTableViewCell
             cell.plan = yourPlans[indexPath.row]
-            cell.sendButton.addTarget(self, action: #selector(weeklyPlanViewController.makeSegue(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+           
             
             return cell
             // Distance
@@ -192,9 +192,7 @@ class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     
-    func makeSegue(button:UIButton) {
-        self.performSegueWithIdentifier("send", sender: button)
-    }
+   
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
@@ -207,6 +205,12 @@ class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableVi
             if let button = sender as? UIButton {
                 let cell = button.superview?.superview as! cellTableViewCell
                 controller.nameOfPlan = cell.plan
+            }
+        } else if segue.identifier == "rate" {
+            let controller = segue.destinationViewController as! ratingViewController
+            if let button = sender as? UIButton {
+                let cell = button.superview?.superview as! sendedPlanCellTableViewCell
+                controller.KeyUID = cell.keyUID
             }
         } else if segue.identifier == "yourPlan" {
             

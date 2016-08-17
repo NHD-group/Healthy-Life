@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class sendedPlanCellTableViewCell: UITableViewCell {
 
@@ -14,13 +15,20 @@ class sendedPlanCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var planName: UILabel!
     
+    var keyUID = String()
+    
     var plan: String! {
         didSet {
             planName.text = plan as? String
             
-            
+             DataService.dataService.activitiesPlannedRef.child("sendedPlan").child(plan).child("senderID").observeEventType(.Value, withBlock: { snapshot in
+                self.keyUID = snapshot.value as! String
+                print(snapshot.value)
+            })
         }
     }
+    
+
     
     override func awakeFromNib() {
         super.awakeFromNib()

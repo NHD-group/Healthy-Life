@@ -139,6 +139,7 @@ class addPlanVidViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("planVid")
+        
         cell?.textLabel?.text = nameOfPlan[indexPath.row]
         
         return cell!

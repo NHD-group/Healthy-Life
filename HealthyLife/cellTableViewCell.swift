@@ -13,7 +13,6 @@ import Firebase
 
 class cellTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var sendButton: UIButton!
    
     @IBOutlet weak var planName: UILabel!
     

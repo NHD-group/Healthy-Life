@@ -39,16 +39,16 @@ class DataService {
         }
     }
     
-    private var UserRef = DataService.BaseRef.child("users").child(DataService.currentUserID)
+    private var UserRef = DataService.BaseRef.child("users").child((FIRAuth.auth()?.currentUser?.uid)!)
     
     
-    private var FoodJournalRef = FIRDatabase.database().reference().child("users").child(DataService.currentUserID).child("food_journal")
+    private var FoodJournalRef = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("food_journal")
     
-    private var ActivitiesJournalRef = FIRDatabase.database().reference().child("users").child(DataService.currentUserID).child("activities_journal")
+    private var ActivitiesJournalRef = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("activities_journal")
     
-    private var ActivitiesPlannedRed = FIRDatabase.database().reference().child("users").child(DataService.currentUserID).child("activities_planned")
+    private var ActivitiesPlannedRed = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("activities_planned")
     
-    private var ChatRoom = FIRDatabase.database().reference().child("users").child(DataService.currentUserID).child("chatRoom")
+    private var ChatRoom = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("chatRoom")
     private var Chats = FIRDatabase.database().reference().child("chats")
     
     var baseRef: FIRDatabaseReference {

@@ -147,7 +147,7 @@ class yourVideosViewController: UIViewController, UITableViewDelegate, UITableVi
             let url = NSURL(string: videoUrl )
             destination.player = AVPlayer(URL: url!)
             
-        } else if segue.identifier == "sendPlan" {
+        } else if segue.identifier == "createPlan" {
             let controller = segue.destinationViewController as! addPlanVidViewController
             if let button = sender as? UIButton {
                 let cell = button.superview?.superview as! vidCellTableViewCell

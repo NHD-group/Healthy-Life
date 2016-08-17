@@ -23,6 +23,10 @@ class vidCellTableViewCell: UITableViewCell {
             nameVidLabel.text = video.name as? String
             desVidLabel.text = video.des as? String
             
+            print(video)
+            print("checkVideos")
+            
+            
         }
     }
 

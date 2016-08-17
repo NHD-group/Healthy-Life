@@ -171,7 +171,8 @@ class SignInViewController: UIViewController {
                             
                         } else {
                             let ref =  FIRDatabase.database().reference()
-                            ref.child("users").child(user!.uid).setValue(["username" : username ,  "followerCount" : 0 ])
+                            ref.child("users").child(user!.uid).setValue(["username" : username ,  "followerCount" : 0, "totalRate": 0, "totalPeoleVoted": 0, "userCommentsCount": 0  ])
+                            
                             self.getDetailsOfUser()
                         }
                     })
