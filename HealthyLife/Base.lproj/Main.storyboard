@@ -939,7 +939,7 @@
                                                     <state key="normal" title="Talk"/>
                                                     <connections>
                                                         <action selector="talkAction:" destination="yxy-qd-ueT" eventType="touchUpInside" id="mLA-VY-yJb"/>
-                                                        <segue destination="8oQ-Ic-Wgw" kind="push" identifier="chat" id="ci8-bR-1d0"/>
+                                                        <segue destination="HWd-8e-FEQ" kind="modal" identifier="chat" id="f5J-3P-dOk"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OiO-02-WSG">
@@ -1482,7 +1482,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkW-Bp-mW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1205" y="2560"/>
+            <point key="canvasLocation" x="1207.5" y="2636.5"/>
         </scene>
         <!--Talks-->
         <scene sceneID="uKl-rh-Ds5">
@@ -1511,7 +1511,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cRV-Ik-ULG"/>
-        <segue reference="ci8-bR-1d0"/>
+        <segue reference="f5J-3P-dOk"/>
         <segue reference="de9-EU-rTg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
