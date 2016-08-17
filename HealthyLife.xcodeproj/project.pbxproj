@@ -37,7 +37,8 @@
 		04426B201D5DBA35005B3621 /* HealthyLife-40181a67534f.json in Resources */ = {isa = PBXBuildFile; fileRef = 04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */; };
 		3FEE3F4FA3D69AF73B170521 /* Pods_HealthyLife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */; };
 		8409619E1D533183008DE12D /* userSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409619D1D533183008DE12D /* userSettingModel.swift */; };
-		840E474A1D6461150002790C /* commentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E47491D6461150002790C /* commentsTableViewController.swift */; };
+		840E474C1D64B0D80002790C /* commentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E474B1D64B0D80002790C /* commentsViewController.swift */; };
+		840E474E1D64B7CE0002790C /* commentCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E474D1D64B7CE0002790C /* commentCellTableViewCell.swift */; };
 		84181DE21D47C99800686BAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84181DE11D47C99800686BAB /* AppDelegate.swift */; };
 		84181DE71D47C99800686BAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84181DE51D47C99800686BAB /* Main.storyboard */; };
 		84181DEC1D47C99800686BAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84181DEB1D47C99800686BAB /* Assets.xcassets */; };
@@ -140,7 +141,8 @@
 		7A91B12079A8F4C1D8E52CAC /* Pods-HealthyLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.release.xcconfig"; sourceTree = "<group>"; };
 		8139B3732A6950CCA938866A /* Pods-HealthyLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.debug.xcconfig"; sourceTree = "<group>"; };
 		8409619D1D533183008DE12D /* userSettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userSettingModel.swift; sourceTree = "<group>"; };
-		840E47491D6461150002790C /* commentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commentsTableViewController.swift; sourceTree = "<group>"; };
+		840E474B1D64B0D80002790C /* commentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commentsViewController.swift; sourceTree = "<group>"; };
+		840E474D1D64B7CE0002790C /* commentCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commentCellTableViewCell.swift; sourceTree = "<group>"; };
 		84181DDE1D47C99800686BAB /* HealthyLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthyLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84181DE11D47C99800686BAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84181DE61D47C99800686BAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -648,7 +650,8 @@
 			children = (
 				84FACCAC1D4F3D6A00E73FDC /* NewfeedViewController.swift */,
 				847C45401D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift */,
-				840E47491D6461150002790C /* commentsTableViewController.swift */,
+				840E474B1D64B0D80002790C /* commentsViewController.swift */,
+				840E474D1D64B7CE0002790C /* commentCellTableViewCell.swift */,
 			);
 			name = newFeed;
 			sourceTree = "<group>";
@@ -896,7 +899,6 @@
 				04426AF31D5DAA2C005B3621 /* Configuration.swift in Sources */,
 				84C8920C1D63450700DA1F2B /* TalksCellTableViewCell.swift in Sources */,
 				04426B171D5DB4C9005B3621 /* SCSessionListViewController.m in Sources */,
-				840E474A1D6461150002790C /* commentsTableViewController.swift in Sources */,
 				84BD7C7F1D63FF5D006A868E /* ratingViewController.swift in Sources */,
 				84FACCAD1D4F3D6A00E73FDC /* NewfeedViewController.swift in Sources */,
 				84AB52821D488A6000CB99FE /* FoodTableViewCell.swift in Sources */,
@@ -904,6 +906,7 @@
 				841DDABB1D54CE34007917E7 /* followerModel.swift in Sources */,
 				84AB52801D48881F00CB99FE /* foodModel.swift in Sources */,
 				04426AF11D5DAA2C005B3621 /* UIImageExtension.swift in Sources */,
+				840E474C1D64B0D80002790C /* commentsViewController.swift in Sources */,
 				848225711D4E42CB00750118 /* demoLibViewController.swift in Sources */,
 				84FACC9B1D4EF86700E73FDC /* Data.swift in Sources */,
 				04426B191D5DB4C9005B3621 /* SCTouchDetector.m in Sources */,
@@ -920,6 +923,7 @@
 				04426AF61D5DB324005B3621 /* NHDTabbarView.swift in Sources */,
 				848225751D4E436F00750118 /* DetailsViewController.swift in Sources */,
 				844A87291D586E7100DEC697 /* talksViewController.swift in Sources */,
+				840E474E1D64B7CE0002790C /* commentCellTableViewCell.swift in Sources */,
 				849371531D6365780096CE4B /* yourVideosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

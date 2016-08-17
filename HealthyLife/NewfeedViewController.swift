@@ -114,7 +114,14 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
                 let user = users[indexPath.row]
                 vc.currentUserName = user.username
             }
+        } else if segue.identifier == "comment" {
+            let controller = segue.destinationViewController as! commentsViewController
+            if let button = sender as? UIButton {
+                let cell = button.superview?.superview as! NewFeedtablviewCellTableViewCell
+                controller.KeyUid = cell.selectedUID
+            }
         }
+        
     }
 
     
