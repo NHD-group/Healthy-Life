@@ -39,6 +39,8 @@
 		8409619E1D533183008DE12D /* userSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409619D1D533183008DE12D /* userSettingModel.swift */; };
 		840E474C1D64B0D80002790C /* commentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E474B1D64B0D80002790C /* commentsViewController.swift */; };
 		840E474E1D64B7CE0002790C /* commentCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E474D1D64B7CE0002790C /* commentCellTableViewCell.swift */; };
+		840E47521D64CF4E0002790C /* DetailsActivitiesDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E47511D64CF4E0002790C /* DetailsActivitiesDoneViewController.swift */; };
+		840E47541D64D2AB0002790C /* ActivitiesDoneCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E47531D64D2AB0002790C /* ActivitiesDoneCellTableViewCell.swift */; };
 		84181DE21D47C99800686BAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84181DE11D47C99800686BAB /* AppDelegate.swift */; };
 		84181DE71D47C99800686BAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84181DE51D47C99800686BAB /* Main.storyboard */; };
 		84181DEC1D47C99800686BAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84181DEB1D47C99800686BAB /* Assets.xcassets */; };
@@ -142,6 +144,8 @@
 		8409619D1D533183008DE12D /* userSettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userSettingModel.swift; sourceTree = "<group>"; };
 		840E474B1D64B0D80002790C /* commentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commentsViewController.swift; sourceTree = "<group>"; };
 		840E474D1D64B7CE0002790C /* commentCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commentCellTableViewCell.swift; sourceTree = "<group>"; };
+		840E47511D64CF4E0002790C /* DetailsActivitiesDoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsActivitiesDoneViewController.swift; sourceTree = "<group>"; };
+		840E47531D64D2AB0002790C /* ActivitiesDoneCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesDoneCellTableViewCell.swift; sourceTree = "<group>"; };
 		84181DDE1D47C99800686BAB /* HealthyLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthyLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84181DE11D47C99800686BAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84181DE61D47C99800686BAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -527,6 +531,8 @@
 			children = (
 				844902261D56310C00B8ADF3 /* trackingViewController.swift */,
 				846F3D831D56EB3800722674 /* TrackingCellTableViewCell.swift */,
+				840E47511D64CF4E0002790C /* DetailsActivitiesDoneViewController.swift */,
+				840E47531D64D2AB0002790C /* ActivitiesDoneCellTableViewCell.swift */,
 			);
 			name = tracking;
 			sourceTree = "<group>";
@@ -870,6 +876,7 @@
 				844A872B1D58704D00DEC697 /* chatterModel.swift in Sources */,
 				844902271D56310C00B8ADF3 /* trackingViewController.swift in Sources */,
 				04426B121D5DB4C9005B3621 /* SCRecorderViewController.m in Sources */,
+				840E47521D64CF4E0002790C /* DetailsActivitiesDoneViewController.swift in Sources */,
 				849371511D6365690096CE4B /* uploadVideoViewController.swift in Sources */,
 				04426AD21D5D9B07005B3621 /* MainTabBarViewController.swift in Sources */,
 				84630B931D5773D60006A8FC /* sendedPlanCellTableViewCell.swift in Sources */,
@@ -888,6 +895,7 @@
 				04426B141D5DB4C9005B3621 /* SCEditVideoViewController.m in Sources */,
 				04426B1B1D5DB4C9005B3621 /* SCWatermarkOverlayView.m in Sources */,
 				84AB527D1D48877400CB99FE /* journalViewController.swift in Sources */,
+				840E47541D64D2AB0002790C /* ActivitiesDoneCellTableViewCell.swift in Sources */,
 				84FACCA41D4F022200E73FDC /* DetailViewController.swift in Sources */,
 				04426B151D5DB4C9005B3621 /* SCImageDisplayerViewController.m in Sources */,
 				84FACCA81D4F048A00E73FDC /* Activities.swift in Sources */,

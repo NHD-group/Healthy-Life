@@ -71,6 +71,21 @@ class trackingViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let uid = trackUsers[indexPath!.row].UserID as! String
+            let nameTitle = trackUsers[indexPath!.row].name as! String
+        
+            let detailViewController = segue.destinationViewController as! DetailsActivitiesDoneViewController
+            detailViewController.uid = uid
+            detailViewController.titleName = nameTitle
+
+            
+    }
+    
+    
     
 
     
