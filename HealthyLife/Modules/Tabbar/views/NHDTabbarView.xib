@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NHDTabbarView" customModule="HealthyLife" customModuleProvider="target">
@@ -19,12 +20,13 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POA-RY-sfp">
-                    <rect key="frame" x="135" y="0.0" width="50" height="53"/>
+                    <rect key="frame" x="133" y="-4" width="54" height="54"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="j4w-2K-RYG"/>
+                        <constraint firstAttribute="width" secondItem="POA-RY-sfp" secondAttribute="height" multiplier="1:1" id="Uby-wO-LP5"/>
+                        <constraint firstAttribute="width" constant="54" id="j4w-2K-RYG"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                    <state key="normal" image="icon-camera-on">
+                    <state key="normal" image="camera-icon">
                         <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -93,8 +95,7 @@
                 <constraint firstAttribute="trailing" secondItem="KO4-Ur-Znh" secondAttribute="trailing" id="X7c-Le-zQT"/>
                 <constraint firstItem="Lkn-iL-t5y" firstAttribute="top" secondItem="fwy-RX-u3n" secondAttribute="top" constant="5" id="Xb4-S9-hKz"/>
                 <constraint firstItem="9pe-kH-BlC" firstAttribute="leading" secondItem="yh9-xR-npy" secondAttribute="trailing" id="ZGW-Bj-3cF"/>
-                <constraint firstAttribute="bottom" secondItem="POA-RY-sfp" secondAttribute="bottom" id="bk7-Ni-jjp"/>
-                <constraint firstItem="POA-RY-sfp" firstAttribute="top" secondItem="fwy-RX-u3n" secondAttribute="top" id="cSg-rK-8VW"/>
+                <constraint firstAttribute="bottom" secondItem="POA-RY-sfp" secondAttribute="bottom" constant="3" id="bk7-Ni-jjp"/>
                 <constraint firstItem="yh9-xR-npy" firstAttribute="leading" secondItem="fwy-RX-u3n" secondAttribute="leading" id="dKb-8P-hLB"/>
                 <constraint firstItem="KO4-Ur-Znh" firstAttribute="leading" secondItem="Lkn-iL-t5y" secondAttribute="trailing" id="eh1-US-Cof"/>
                 <constraint firstItem="POA-RY-sfp" firstAttribute="centerX" secondItem="fwy-RX-u3n" secondAttribute="centerX" id="kCf-OV-WXm"/>
@@ -108,7 +109,7 @@
         </view>
     </objects>
     <resources>
-        <image name="icon-camera-on" width="70" height="70"/>
+        <image name="camera-icon" width="128" height="128"/>
         <image name="icon-journal" width="90" height="70"/>
         <image name="icon-journal-normal" width="90" height="70"/>
         <image name="icon-lib" width="90" height="70"/>
