@@ -51,7 +51,8 @@ class chatViewController: JSQMessagesViewController {
         
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
-        
+        collectionView!.collectionViewLayout.messageBubbleFont = NHDFontBucket.blackFontWithSize(15)
+
         // Do any additional setup after loading the view.
     }
     
@@ -194,7 +195,6 @@ class chatViewController: JSQMessagesViewController {
         } else {
             cell.textView!.textColor = UIColor.blackColor()
         }
-        cell.textView.font = NHDFontBucket.fontWithSize(cell.textView.font!.pointSize)
         
         return cell
     }
