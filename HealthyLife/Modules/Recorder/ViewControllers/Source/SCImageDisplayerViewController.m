@@ -54,11 +54,16 @@
     UIImage *image = [self.filterSwitcherView renderedUIImage];
     
     [image saveToCameraRollWithCompletion:^(NSError * _Nullable error) {
-        if (error == nil) {
-            [[[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        NSString *title = @"Done";
+        if (error != nil) {
         } else {
-            [[[UIAlertView alloc] initWithTitle:@"Failed :(" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            title = @"Failed :(";
         }
+        
+        UIAlertController *alert= [UIAlertController alertControllerWithTitle:title message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
     }];
 }
 

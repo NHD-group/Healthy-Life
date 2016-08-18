@@ -258,17 +258,25 @@
                 [[UIApplication sharedApplication] endIgnoringInteractionEvents];
 
                 if (error == nil) {
-                    [[[UIAlertView alloc] initWithTitle:@"Saved to camera roll" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                    [self showAlertViewWithTitle:@"Saved to camera roll" message:@""];
                 } else {
-                    [[[UIAlertView alloc] initWithTitle:@"Failed to save" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                    [self showAlertViewWithTitle:@"Failed to save" message:@""];
                 }
             }];
         } else {
             if (!exportSession.cancelled) {
-                [[[UIAlertView alloc] initWithTitle:@"Failed to save" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                [self showAlertViewWithTitle:@"Failed to save" message:@""];
             }
         }
     }];
+}
+
+
+- (void)showAlertViewWithTitle:(NSString*)title message:(NSString*) message {
+    UIAlertController *alert= [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end
