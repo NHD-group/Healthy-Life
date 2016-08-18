@@ -31,11 +31,7 @@ class demoTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     //done
     
-    @IBOutlet weak var followerCountLabel: UILabel!
-    //co the xoa
-    
-    @IBOutlet weak var followImage: UIImageView!
-    //co the xoa
+
     
     @IBOutlet weak var talkButton: UIButton!
     
@@ -105,7 +101,7 @@ class demoTableViewCell: UITableViewCell {
             
             //amount Vote
             
-            self.amoutVotes.text = "\(userProfile.totalPeopleVoted!)"
+            self.amoutVotes.text = "\(userProfile.totalPeopleVoted!) votes"
             
             // Button count
             

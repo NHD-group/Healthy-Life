@@ -55,6 +55,8 @@
 		844A87291D586E7100DEC697 /* talksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A87281D586E7100DEC697 /* talksViewController.swift */; };
 		844A872B1D58704D00DEC697 /* chatterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A872A1D58704D00DEC697 /* chatterModel.swift */; };
 		84630B931D5773D60006A8FC /* sendedPlanCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84630B921D5773D60006A8FC /* sendedPlanCellTableViewCell.swift */; };
+		846BFCCB1D65AF31009333B1 /* displayResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BFCCA1D65AF31009333B1 /* displayResultViewController.swift */; };
+		846BFCCD1D65AF3D009333B1 /* uploadResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BFCCC1D65AF3D009333B1 /* uploadResultViewController.swift */; };
 		846F3D841D56EB3800722674 /* TrackingCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F3D831D56EB3800722674 /* TrackingCellTableViewCell.swift */; };
 		847C45411D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C45401D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift */; };
 		8482256F1D4E414500750118 /* demoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482256E1D4E414500750118 /* demoModel.swift */; };
@@ -167,6 +169,8 @@
 		844A87281D586E7100DEC697 /* talksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = talksViewController.swift; sourceTree = "<group>"; };
 		844A872A1D58704D00DEC697 /* chatterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatterModel.swift; sourceTree = "<group>"; };
 		84630B921D5773D60006A8FC /* sendedPlanCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sendedPlanCellTableViewCell.swift; sourceTree = "<group>"; };
+		846BFCCA1D65AF31009333B1 /* displayResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = displayResultViewController.swift; sourceTree = "<group>"; };
+		846BFCCC1D65AF3D009333B1 /* uploadResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uploadResultViewController.swift; sourceTree = "<group>"; };
 		846F3D831D56EB3800722674 /* TrackingCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingCellTableViewCell.swift; sourceTree = "<group>"; };
 		847C45401D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeedtablviewCellTableViewCell.swift; sourceTree = "<group>"; };
 		8482256E1D4E414500750118 /* demoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = demoModel.swift; sourceTree = "<group>"; };
@@ -565,6 +569,15 @@
 			name = details;
 			sourceTree = "<group>";
 		};
+		846BFCC91D65AF18009333B1 /* results */ = {
+			isa = PBXGroup;
+			children = (
+				846BFCCA1D65AF31009333B1 /* displayResultViewController.swift */,
+				846BFCCC1D65AF3D009333B1 /* uploadResultViewController.swift */,
+			);
+			name = results;
+			sourceTree = "<group>";
+		};
 		8482256D1D4E412F00750118 /* demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -621,6 +634,7 @@
 		84B343D51D485A970085F02E /* personal */ = {
 			isa = PBXGroup;
 			children = (
+				846BFCC91D65AF18009333B1 /* results */,
 				84937EE31D5089BF00E9CBC0 /* setting */,
 				844902251D5630F800B8ADF3 /* tracking */,
 				84FACC9E1D4F017D00E73FDC /* activitiesPlanned */,
@@ -896,7 +910,9 @@
 				841DDAB71D54917B007917E7 /* sendPlanViewController.swift in Sources */,
 				846F3D841D56EB3800722674 /* TrackingCellTableViewCell.swift in Sources */,
 				04426AF21D5DAA2C005B3621 /* UIImageViewExtension.swift in Sources */,
+				846BFCCB1D65AF31009333B1 /* displayResultViewController.swift in Sources */,
 				04426B141D5DB4C9005B3621 /* SCEditVideoViewController.m in Sources */,
+				846BFCCD1D65AF3D009333B1 /* uploadResultViewController.swift in Sources */,
 				04426B1B1D5DB4C9005B3621 /* SCWatermarkOverlayView.m in Sources */,
 				84AB527D1D48877400CB99FE /* journalViewController.swift in Sources */,
 				840E47541D64D2AB0002790C /* ActivitiesDoneCellTableViewCell.swift in Sources */,

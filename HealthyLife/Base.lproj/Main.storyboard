@@ -4,6 +4,101 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--Display Result View Controller-->
+        <scene sceneID="3Gh-Ib-vKN">
+            <objects>
+                <viewController id="KbS-Ym-zXw" customClass="displayResultViewController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nmW-MF-dU0"/>
+                        <viewControllerLayoutGuide type="bottom" id="TkJ-Kl-WIi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yrL-PS-gKw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MwT-94-AcT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2yx-ZO-fwG">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2yx-ZO-fwG" id="eM7-8K-unK">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xZ2-ie-z5I">
+                        <barButtonItem key="rightBarButtonItem" title="Update result" id="TUh-y2-o85">
+                            <connections>
+                                <segue destination="7kH-oR-lgh" kind="push" id="6Io-V1-e1J"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bkw-S2-0uv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="213.5" y="-1777.5"/>
+        </scene>
+        <!--Upload Result View Controller-->
+        <scene sceneID="c2M-he-ZeE">
+            <objects>
+                <viewController id="7kH-oR-lgh" customClass="uploadResultViewController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ekw-h7-qFl"/>
+                        <viewControllerLayoutGuide type="bottom" id="aRj-pz-K8g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tfy-Fn-ebv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cSq-YG-3sE">
+                                <rect key="frame" x="67" y="88" width="240" height="166"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="current Weight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i1U-HD-Kmc">
+                                <rect key="frame" x="67" y="276" width="240" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCp-fq-dRD">
+                                <rect key="frame" x="78" y="327" width="26" height="25"/>
+                                <state key="normal" image="camera"/>
+                                <connections>
+                                    <action selector="libAction:" destination="7kH-oR-lgh" eventType="touchUpInside" id="NyU-54-MFz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alG-9Q-hIf">
+                                <rect key="frame" x="272" y="327" width="25" height="25"/>
+                                <state key="normal" image="lib"/>
+                                <connections>
+                                    <action selector="cameraAction:" destination="7kH-oR-lgh" eventType="touchUpInside" id="zVL-py-Od4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdq-Sz-dYN">
+                                <rect key="frame" x="164" y="379" width="47" height="30"/>
+                                <state key="normal" title="upload"/>
+                                <connections>
+                                    <action selector="uploadAction:" destination="7kH-oR-lgh" eventType="touchUpInside" id="Ayw-ZY-yB3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7Od-tn-4bJ"/>
+                    <connections>
+                        <outlet property="currentWeightLabel" destination="i1U-HD-Kmc" id="GTR-V8-I7q"/>
+                        <outlet property="resultImage" destination="cSq-YG-3sE" id="7At-cF-h4z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xQE-S2-LRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="720.5" y="-1798.5"/>
+        </scene>
         <!--Journal-->
         <scene sceneID="koj-Pc-Jve">
             <objects>
@@ -27,21 +122,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="67" height="30"/>
                                             <state key="normal" title="Plan"/>
                                             <connections>
-                                                <segue destination="dXl-kM-6GR" kind="push" id="iLl-MN-qTd"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKl-L8-x0G" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
-                                            <rect key="frame" x="75" y="0.0" width="79" height="30"/>
-                                            <state key="normal" title="Tracking"/>
-                                            <connections>
-                                                <segue destination="PrZ-0n-cGG" kind="modal" id="K5W-GF-n6s"/>
+                                                <segue destination="dXl-kM-6GR" kind="push" id="Dxp-xe-Vjn"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igw-bq-xlu" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
-                                            <rect key="frame" x="169" y="0.0" width="79" height="30"/>
+                                            <rect key="frame" x="186" y="1" width="79" height="30"/>
                                             <state key="normal" title="Upload Vid"/>
                                             <connections>
                                                 <segue destination="Yue-Nz-GyF" kind="push" id="PXI-SI-9AB"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGB-BY-R00" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
+                                            <rect key="frame" x="288" y="1" width="79" height="30"/>
+                                            <state key="normal" title="result"/>
+                                            <connections>
+                                                <segue destination="KbS-Ym-zXw" kind="push" id="G4C-EX-Iwq"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKl-L8-x0G" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
+                                            <rect key="frame" x="83" y="0.0" width="79" height="30"/>
+                                            <state key="normal" title="Tracking"/>
+                                            <connections>
+                                                <segue destination="PrZ-0n-cGG" kind="modal" id="K5W-GF-n6s"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -154,7 +256,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="vcz-TR-u85">
                             <connections>
-                                <segue destination="0cS-9h-tg1" kind="modal" id="RpS-oX-5mB"/>
+                                <segue destination="0cS-9h-tg1" kind="push" id="46X-nW-VcW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -172,7 +274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ru8-ls-EoY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="831.5" y="-565.5"/>
+            <point key="canvasLocation" x="599.5" y="-592.5"/>
         </scene>
         <!--Tracking View Controller-->
         <scene sceneID="dkQ-4x-AeP">
@@ -334,7 +436,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQd-Bp-7dX">
                                 <rect key="frame" x="137" y="58" width="100" height="100"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="weight changed" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="acv-FU-dMp">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="your weight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="acv-FU-dMp">
                                 <rect key="frame" x="20" y="181" width="335" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -467,13 +569,7 @@
                             <constraint firstItem="myS-hY-wsQ" firstAttribute="leading" secondItem="wwg-K1-StD" secondAttribute="leading" id="yfA-JO-z9F"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Workout Plan" id="SAR-QL-0qm">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="05S-6A-mcQ">
-                            <connections>
-                                <action selector="backAction:" destination="dXl-kM-6GR" id="WyS-sM-AhZ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Workout Plan" id="SAR-QL-0qm"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="myS-hY-wsQ" id="5QK-6G-giY"/>
@@ -481,7 +577,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JPZ-Wp-eHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1439.5" y="300.5"/>
+            <point key="canvasLocation" x="1247.5" y="7.5"/>
         </scene>
         <!--Send Plan View Controller-->
         <scene sceneID="fXA-G2-PJV">
@@ -615,7 +711,7 @@
                 <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="4xq-3G-r9K" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pqq-DD-ehP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1922.5" y="839.5"/>
+            <point key="canvasLocation" x="2108.5" y="779.5"/>
         </scene>
         <!--Daily Workout Plan-->
         <scene sceneID="c0s-qX-flH">
@@ -662,7 +758,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZP-7J-jDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2343.5" y="598.5"/>
+            <point key="canvasLocation" x="1843.5" y="584.5"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Z8F-hf-Zyb">
@@ -784,42 +880,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNr-ii-cwc">
-                                <rect key="frame" x="20" y="35" width="54" height="30"/>
-                                <state key="normal" title="Camera"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNr-ii-cwc">
+                                <rect key="frame" x="49" y="289" width="25" height="25"/>
+                                <state key="normal" image="camera"/>
                                 <connections>
                                     <action selector="cameraAction:" destination="0cS-9h-tg1" eventType="touchUpInside" id="TwL-UD-SB7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6f-RJ-sRQ">
-                                <rect key="frame" x="259" y="35" width="96" height="30"/>
-                                <state key="normal" title="Photo Library "/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6f-RJ-sRQ">
+                                <rect key="frame" x="289" y="289" width="25" height="25"/>
+                                <state key="normal" image="lib"/>
                                 <connections>
                                     <action selector="photoLibAction:" destination="0cS-9h-tg1" eventType="touchUpInside" id="WoC-lR-N4G"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type of Food" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ue-bi-xK6">
-                                <rect key="frame" x="20" y="294" width="335" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="860-1T-j8w">
-                                <rect key="frame" x="162" y="352" width="50" height="30"/>
-                                <state key="normal" title="Upload"/>
-                                <connections>
-                                    <action selector="uploadAction:" destination="0cS-9h-tg1" eventType="touchUpInside" id="g7i-Rx-kRX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ltp-SB-zfp">
-                                <rect key="frame" x="163" y="416" width="48" height="30"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancelAction:" destination="0cS-9h-tg1" eventType="touchUpInside" id="OYZ-L4-R3v"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kyH-29-b98">
                                 <rect key="frame" x="20" y="88" width="335" height="185"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="860-1T-j8w">
+                                <rect key="frame" x="162" y="390" width="50" height="30"/>
+                                <state key="normal" title="Upload"/>
+                                <connections>
+                                    <action selector="uploadAction:" destination="0cS-9h-tg1" eventType="touchUpInside" id="g7i-Rx-kRX"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type of Food" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ue-bi-xK6">
+                                <rect key="frame" x="20" y="340" width="335" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -827,6 +916,7 @@
                             <outletCollection property="gestureRecognizers" destination="W5E-aQ-4mL" appends="YES" id="a7J-Ih-KWc"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="sQ5-nW-aIB"/>
                     <connections>
                         <outlet property="FoodImageView" destination="kyH-29-b98" id="yLZ-PJ-v8b"/>
                         <outlet property="foodDesTextField" destination="0ue-bi-xK6" id="OEF-K1-ybR"/>
@@ -839,7 +929,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1685.5" y="-1199.5"/>
+            <point key="canvasLocation" x="1180.5" y="-896.5"/>
         </scene>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="AAV-Zd-izw">
@@ -889,7 +979,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6d-Mj-hYP">
                                                     <rect key="frame" x="64" y="28" width="11" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -926,7 +1016,7 @@
                                                     <state key="normal" title="Video Trailer"/>
                                                     <connections>
                                                         <action selector="videoTrailerAction:" destination="lGX-lZ-Il6" eventType="touchUpInside" id="erZ-uA-q7P"/>
-                                                        <segue destination="4xq-3G-r9K" kind="modal" id="psH-s6-PxX"/>
+                                                        <segue destination="4xq-3G-r9K" kind="modal" identifier="playtrailer" id="psH-s6-PxX"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfa-G5-15n">
@@ -935,9 +1025,6 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1VR-FN-y3y">
-                                                    <rect key="frame" x="78" y="30" width="18" height="18"/>
-                                                </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyM-i3-VzB">
                                                     <rect key="frame" x="8" y="160" width="172" height="30"/>
                                                     <color key="backgroundColor" red="0.98925497165873222" green="1" blue="0.56829516990861761" alpha="1" colorSpace="calibratedRGB"/>
@@ -946,6 +1033,9 @@
                                                         <action selector="getHealthyAction:" destination="lGX-lZ-Il6" eventType="touchUpInside" id="kVc-gR-Yfr"/>
                                                     </connections>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="1VR-FN-y3y">
+                                                    <rect key="frame" x="78" y="28" width="18" height="18"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1035,7 +1125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vN4-lI-7P6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2157.5" y="1502.5"/>
+            <point key="canvasLocation" x="2055.5" y="1146.5"/>
         </scene>
         <!--Newsfeed-->
         <scene sceneID="iuf-4X-G4S">
@@ -1658,6 +1748,8 @@
         <image name="Settings Filled-50" width="50" height="50"/>
         <image name="Star" width="25" height="25"/>
         <image name="addToPlan" width="25" height="25"/>
+        <image name="camera" width="25" height="25"/>
+        <image name="lib" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cRV-Ik-ULG"/>

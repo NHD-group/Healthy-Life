@@ -106,22 +106,11 @@ class demoLibViewController: UIViewController, UITableViewDelegate, UITableViewD
             let controller = segue.destinationViewController as! AVPlayerViewController
             if let button = sender as? UIButton {
                 let cell = button.superview?.superview as! demoTableViewCell
-             
-                controller.player = AVPlayer(URL: cell.videoUrl)
-            
-               
+                let videoUrl = cell.videoUrl
+                controller.player = AVPlayer(URL: videoUrl)
+    
                 
             }
-            
-            //try this
-            
-//            let cell = sender as! UITableViewCell
-//            let indexPath = tableView.indexPathForCell(cell)
-//            let videoUrl = trailers[indexPath!.row].videoUrl!
-//            let destination = segue.destinationViewController as! AVPlayerViewController
-//            
-//            let url = NSURL(string: videoUrl )
-//            destination.player = AVPlayer(URL: url!)
             
         } else if segue.identifier == "commentFromLib" {
             let controller = segue.destinationViewController as! commentsViewController
