@@ -76,7 +76,7 @@ class demoTableViewCell: UITableViewCell {
         let ref = FIRDatabase.database().reference()
         
         ref.child("users").child(uid).observeEventType(.Value, withBlock: { snapshot in
-            let userProfile = UserProfile(key: snapshot.key as! String, dictionary: snapshot.value as! NSDictionary)
+            let userProfile = UserProfile(key: snapshot.key , dictionary: snapshot.value as! NSDictionary)
             
             self.selectedUsername = userProfile.username!
             
@@ -122,18 +122,17 @@ class demoTableViewCell: UITableViewCell {
             } else {
                 
                 let islandRef  = self.storageRef.child("images/\(self.uid)")
-                avaImage.downloadImageWithImageReference(islandRef)
+                self.avaImage.downloadImageWithImageReference(islandRef)
             }
             
             
             DataService.dataService.chatRoom.child(self.selectedUsername).observeSingleEventOfType(.Value, withBlock: { snapshot in
-                if let checkRoom = snapshot.value as? NSNull {
-                    self.chatKey =  self.selectedUid + self.currentUid
-                } else {
-                    let dictinary = snapshot.value as? NSDictionary
-                    self.chatKey = dictinary!["chatRoomKey"] as! String
+                if let dictinary = snapshot.value as? NSDictionary {
+                    self.chatKey = dictinary["chatRoomKey"] as! String
                     print(self.chatKey)
                     print("check chatKey")
+                } else {
+                    self.chatKey =  self.selectedUid + self.currentUid
                 }
             })
 
@@ -158,7 +157,7 @@ class demoTableViewCell: UITableViewCell {
     
     @IBAction func talkAction(sender: AnyObject) {
         DataService.dataService.chatRoom.child(selectedUsername).observeSingleEventOfType(.Value, withBlock: { snapshot in
-            if let checkRoom = snapshot.value as? NSNull {
+            if snapshot.value is NSNull {
                 
                 DataService.dataService.chatRoom.child(self.selectedUsername).setValue(["chatRoomKey": self.chatKey, "id": self.selectedUid])
                 DataService.dataService.baseRef.child("users").child(self.selectedUid).child("chatRoom").child(self.currentUserName).setValue(["chatRoomKey": self.chatKey, "id": self.currentUid])

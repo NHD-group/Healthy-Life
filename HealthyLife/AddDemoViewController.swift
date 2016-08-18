@@ -56,7 +56,7 @@ class AddDemoViewController: UIViewController , UIImagePickerControllerDelegate,
             })
             uploadTask.observeStatus(.Progress, handler: { (snapshot) in
                 print(snapshot)
-                if let completedUnitCount = snapshot.progress?.completedUnitCount{
+                if (snapshot.progress?.completedUnitCount) != nil{
                     self.uploadStatusLabel.text = "uploading"
                     //                    String(completedUnitCount)
                     

@@ -750,6 +750,7 @@
 		84181DD61D47C99800686BAB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = NHD;
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "NHD Group";

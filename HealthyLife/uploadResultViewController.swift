@@ -75,7 +75,7 @@ class uploadResultViewController: UIViewController, UIImagePickerControllerDeleg
         let riversRef = storageRef.child("images/\(key)")
         
         // Upload the file to the path ""images/\(key)"
-        let uploadTask = riversRef.putData(imageData, metadata: nil) { metadata, error in
+        riversRef.putData(imageData, metadata: nil) { metadata, error in
             if (error != nil) {
                 // Uh-oh, an error occurred!
                 

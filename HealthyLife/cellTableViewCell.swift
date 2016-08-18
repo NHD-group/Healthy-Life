@@ -18,7 +18,7 @@ class cellTableViewCell: UITableViewCell {
     
     var plan: String! {
         didSet {
-            planName.text = plan as? String
+            planName.text = plan
             
             
         }

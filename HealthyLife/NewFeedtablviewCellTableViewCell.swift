@@ -117,13 +117,12 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         
         
         DataService.dataService.chatRoom.child(sellectedUsername).observeSingleEventOfType(.Value, withBlock: { snapshot in
-            if let checkRoom = snapshot.value as? NSNull {
-                self.chatKey =  self.selectedUID + self.currentUID
-            } else {
-                let dictinary = snapshot.value as? NSDictionary
-                self.chatKey = dictinary!["chatRoomKey"] as! String
+            if let dictinary = snapshot.value as? NSDictionary {
+                self.chatKey = dictinary["chatRoomKey"] as! String
                 print(self.chatKey)
                 print("check chatKey")
+            } else {
+                self.chatKey =  self.selectedUID + self.currentUID
             }
         })
         
@@ -133,7 +132,7 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
     
     @IBAction func talkAction(sender: AnyObject) {
         DataService.dataService.chatRoom.child(userProfile.username!).observeSingleEventOfType(.Value, withBlock: { snapshot in
-            if let checkRoom = snapshot.value as? NSNull {
+            if snapshot.value is NSNull {
                 
                 DataService.dataService.chatRoom.child(self.sellectedUsername).setValue(["chatRoomKey": self.chatKey, "id": self.selectedUID])
                 DataService.dataService.baseRef.child("users").child(self.selectedUID).child("chatRoom").child(self.currentUserName).setValue(["chatRoomKey": self.chatKey, "id": self.currentUID])
