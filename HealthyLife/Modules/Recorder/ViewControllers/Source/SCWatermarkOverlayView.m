@@ -25,7 +25,7 @@
         _watermarkLabel = [UILabel new];
         _watermarkLabel.textColor = [UIColor whiteColor];
         _watermarkLabel.font = [UIFont boldSystemFontOfSize:40];
-        _watermarkLabel.text = @"SCRecorder ©";
+        _watermarkLabel.text = @"HealthyLife ©";
         
         _timeLabel = [UILabel new];
         _timeLabel.textColor = [UIColor yellowColor];
