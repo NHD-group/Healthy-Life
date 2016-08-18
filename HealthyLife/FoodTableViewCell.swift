@@ -44,20 +44,7 @@ class FoodTableViewCell: UITableViewCell {
         
         
         let islandRef = storageRef.child("images/\(food.foodKey)")
-        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-        islandRef.dataWithMaxSize((1 * 1024 * 1024)/2) { (data, error) -> Void in
-            if (error != nil) {
-                // Uh-oh, an error occurred!
-            } else {
-                // Data for "images/island.jpg" is returned
-                print("it workss")
-                let foodImage: UIImage! = UIImage(data: data!)
-                self.foodImageView.image = foodImage
-                
-                
-                
-            }
-        }
+        foodImageView.downloadImageWithImageReference(islandRef)
         
         loveRef = ref.child("users").child(currentUserID!).child("votesLove").child(food.foodKey)
         

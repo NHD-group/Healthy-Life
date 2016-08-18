@@ -32,18 +32,7 @@ class TalksCellTableViewCell: UITableViewCell {
                 if value["user_setting"] != nil {
                     
                     let islandRef = self.storageRef.child("images/\(self.chatter?.id as! String)")
-                    
-                    islandRef.dataWithMaxSize((1 * 1024 * 1024)/2) { (data, error) -> Void in
-                        if (error != nil) {
-                            // Uh-oh, an error occurred!
-                        } else {
-                            // Data for "images/island.jpg" is returned
-                            print("it workss")
-                            let AvaImage: UIImage! = UIImage(data: data!)
-                            self.avaImage.image = AvaImage
-                        }
-                    }
-                    
+                    self.avaImage.downloadImageWithImageReference(islandRef)
                     
                     
                 } else {
