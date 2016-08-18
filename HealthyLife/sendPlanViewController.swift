@@ -76,7 +76,7 @@ class sendPlanViewController: UIViewController, UITableViewDelegate, UITableView
         
        
         
-         DataService.dataService.userRef.child("follower").observeEventType(.Value, withBlock: { snapshot in
+         DataService.dataService.userRef.child("trainee").observeEventType(.Value, withBlock: { snapshot in
             
             self.followers = []
            

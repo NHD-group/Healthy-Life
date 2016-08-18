@@ -7,21 +7,184 @@
 //
 
 import UIKit
+import Firebase
+import AVFoundation
+import AVKit
 
 class demoTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var videosLabel: UILabel!
+    @IBOutlet weak var avaImage: UIImageView!
+    //done
     
-    @IBAction func addAction(sender: AnyObject) {
+    @IBOutlet weak var averageVote: UILabel!
+    //done
+    
+    @IBOutlet weak var amoutVotes: UILabel!
+    //done
+
+    @IBOutlet weak var commentCountButton: UIButton!
+    //done
+    
+    @IBOutlet weak var desTextView: UITextView!
+    //done
+    
+    @IBOutlet weak var usernameLabel: UILabel!
+    //done
+    
+    @IBOutlet weak var followerCountLabel: UILabel!
+    //co the xoa
+    
+    @IBOutlet weak var followImage: UIImageView!
+    //co the xoa
+    
+    @IBOutlet weak var talkButton: UIButton!
+    
+    @IBOutlet weak var getHealthyButton: UIButton!
+    
+    @IBAction func videoTrailerAction(sender: AnyObject) {
+      
+       
     }
-    var demo: Demo!
+    
+    var trailer: Trailer!
+    var uid = String()
+    var videoUrl = NSURL()
+    let storageRef = FIRStorage.storage().reference()
+    
+    var currentUid = (FIRAuth.auth()?.currentUser?.uid)!
+    var currentUserName = String()
+    
+    var selectedUid = String()
+    var selectedUsername = String()
+    
+    var chatKey = String()
+ 
+
+    
+    func configureCell(demo : Trailer ) {
+        trailer = demo
+        
+        currentUserName = NSUserDefaults.standardUserDefaults().valueForKey("currentUserName") as! String
+        
+        let url = NSURL(string: trailer.videoUrl!)
+        videoUrl = url!
+        print(videoUrl)
+        print("cadsfasdfjasmdflaskdfmlasdkfmalsdkfmlsakdmflaskdfmlaskdmflaskdmflkasdmflaskdmf")
+        uid = trailer.uid!
+        selectedUid = trailer.uid!
+        
+        desTextView.text = trailer.des!
+        
+        
+        // profile
+        let ref = FIRDatabase.database().reference()
+        
+        ref.child("users").child(uid).observeEventType(.Value, withBlock: { snapshot in
+            let userProfile = UserProfile(key: snapshot.key as! String, dictionary: snapshot.value as! NSDictionary)
+            
+            self.selectedUsername = userProfile.username!
+            
+            
+            //average Rate
+            if userProfile.totalPeopleVoted != 0 {
+                self.averageVote.text = "\(userProfile.totalStar!/userProfile.totalPeopleVoted!)"
+                
+            } else {
+                self.averageVote.text = "0"
+                
+            }
+            //set up button display
+            
+            //talk
+            self.talkButton.layer.cornerRadius = 10
+            self.talkButton.clipsToBounds = true
+            
+            //get Healthy
+            self.getHealthyButton.layer.cornerRadius = 10
+            self.getHealthyButton.clipsToBounds = true
+            
+            //amount Vote
+            
+            self.amoutVotes.text = "\(userProfile.totalPeopleVoted!)"
+            
+            // Button count
+            
+            self.commentCountButton.setTitle("\(userProfile.userCommentCount!) comments", forState: .Normal)
+            
+            //Username
+            
+            self.usernameLabel.text = userProfile.username!
+            
+            //avaImage
+            
+            self.avaImage.layer.borderWidth = 1.0
+            self.avaImage.layer.borderColor = UIColor.blackColor().CGColor
+            
+            if userProfile.userSetting == nil {
+                self.avaImage.image = UIImage(named: "defaults")
+                
+            } else {
+                
+                let islandRef  = self.storageRef.child("images/\(self.uid)")
+                // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+                islandRef.dataWithMaxSize((1 * 1024 * 1024)/2) { (data, error) -> Void in
+                    if (error != nil) {
+                        // Uh-oh, an error occurred!
+                    } else {
+                        // Data for "images/island.jpg" is returned
+                        print("it workss")
+                        let AvaImage: UIImage! = UIImage(data: data!)
+                        self.avaImage.image = AvaImage
+                        
+                        
+                        
+                    }
+                }
+            }
+            
+            
+            DataService.dataService.chatRoom.child(self.selectedUsername).observeSingleEventOfType(.Value, withBlock: { snapshot in
+                if let checkRoom = snapshot.value as? NSNull {
+                    self.chatKey =  self.selectedUid + self.currentUid
+                } else {
+                    let dictinary = snapshot.value as? NSDictionary
+                    self.chatKey = dictinary!["chatRoomKey"] as! String
+                    print(self.chatKey)
+                    print("check chatKey")
+                }
+            })
+
+            
+        })
+        
+
+
+        
+       
+    }
     
     
-    func configureCell(demo : Demo) {
+    @IBAction func getHealthyAction(sender: AnyObject) {
         
-        self.demo = demo
+     DataService.dataService.baseRef.child("users").child(uid).child("trainee").child(currentUid).child("name").setValue( self.currentUserName)
         
-        videosLabel.text = demo.nameDemo
+ 
+        
+    }
+    
+    
+    @IBAction func talkAction(sender: AnyObject) {
+        DataService.dataService.chatRoom.child(selectedUsername).observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if let checkRoom = snapshot.value as? NSNull {
+                
+                DataService.dataService.chatRoom.child(self.selectedUsername).setValue(["chatRoomKey": self.chatKey, "id": self.selectedUid])
+                DataService.dataService.baseRef.child("users").child(self.selectedUid).child("chatRoom").child(self.currentUserName).setValue(["chatRoomKey": self.chatKey, "id": self.currentUid])
+                
+            }
+            
+            
+        })
+
     }
     
     

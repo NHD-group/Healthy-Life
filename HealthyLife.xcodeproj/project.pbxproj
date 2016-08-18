@@ -71,6 +71,7 @@
 		84B114E81D56416800916206 /* trackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B114E71D56416800916206 /* trackingModel.swift */; };
 		84B343D91D485AC80085F02E /* uploadFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B343D81D485AC80085F02E /* uploadFoodViewController.swift */; };
 		84BD7C7F1D63FF5D006A868E /* ratingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD7C7E1D63FF5D006A868E /* ratingViewController.swift */; };
+		84C367891D65680D0033AFC1 /* AddDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C367881D65680D0033AFC1 /* AddDemoViewController.swift */; };
 		84C8920C1D63450700DA1F2B /* TalksCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8920B1D63450700DA1F2B /* TalksCellTableViewCell.swift */; };
 		84FACC9B1D4EF86700E73FDC /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACC9A1D4EF86700E73FDC /* Data.swift */; };
 		84FACCA01D4F01FD00E73FDC /* weeklyPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACC9F1D4F01FD00E73FDC /* weeklyPlanViewController.swift */; };
@@ -182,6 +183,7 @@
 		84B114E71D56416800916206 /* trackingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = trackingModel.swift; sourceTree = "<group>"; };
 		84B343D81D485AC80085F02E /* uploadFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uploadFoodViewController.swift; sourceTree = "<group>"; };
 		84BD7C7E1D63FF5D006A868E /* ratingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ratingViewController.swift; sourceTree = "<group>"; };
+		84C367881D65680D0033AFC1 /* AddDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDemoViewController.swift; sourceTree = "<group>"; };
 		84C8920B1D63450700DA1F2B /* TalksCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalksCellTableViewCell.swift; sourceTree = "<group>"; };
 		84FACC9A1D4EF86700E73FDC /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		84FACC9F1D4F01FD00E73FDC /* weeklyPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weeklyPlanViewController.swift; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 			children = (
 				848225701D4E42CB00750118 /* demoLibViewController.swift */,
 				848225721D4E430D00750118 /* demoTableViewCell.swift */,
+				84C367881D65680D0033AFC1 /* AddDemoViewController.swift */,
 			);
 			name = demo;
 			sourceTree = "<group>";
@@ -882,6 +885,7 @@
 				84630B931D5773D60006A8FC /* sendedPlanCellTableViewCell.swift in Sources */,
 				84181DE21D47C99800686BAB /* AppDelegate.swift in Sources */,
 				84B114E81D56416800916206 /* trackingModel.swift in Sources */,
+				84C367891D65680D0033AFC1 /* AddDemoViewController.swift in Sources */,
 				847C45411D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift in Sources */,
 				844902241D56064900B8ADF3 /* Plan.swift in Sources */,
 				8493714F1D6365410096CE4B /* vidCellTableViewCell.swift in Sources */,

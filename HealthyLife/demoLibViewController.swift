@@ -8,12 +8,26 @@
 
 import UIKit
 import Firebase
+import AVFoundation
+import AVKit
+
+class Trailer: NSObject {
+    var uid: String?
+    var videoUrl: String?
+    var des: String?
+    init(key: String, dictionary: NSDictionary ) {
+        uid = key
+        videoUrl = dictionary["videoUrl"] as? String
+        des = dictionary["description"] as? String
+        
+    }
+}
 
 class demoLibViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var demos = [Demo]()
+    var trailers = [Trailer]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +35,16 @@ class demoLibViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         tableView.delegate = self
         
+        
+//        FIRDatabase.database().reference().child("videosTrailer").child(currentUid)
+//        ["videoUrl": videoUrl, "description": self.desTextView.text!]
        
         
         let ref = DataService.BaseRef
 
-        ref.child("demo_lib").observeEventType(.Value, withBlock: { snapshot in
+        ref.child("videosTrailer").observeEventType(.Value, withBlock: { snapshot in
             
-            self.demos = []
+            self.trailers = []
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
                 for snap in snapshots {
@@ -38,11 +55,11 @@ class demoLibViewController: UIViewController, UITableViewDelegate, UITableViewD
                     
                     if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
-                        let demo = Demo(key: key, dictionary: postDictionary)
+                        let demo = Trailer(key: key, dictionary: postDictionary)
                         
                         // Items are returned chronologically, but it's more fun with the newest jokes first.
                         
-                        self.demos.insert(demo, atIndex: 0)
+                        self.trailers.insert(demo, atIndex: 0)
                     }
                 }
                 
@@ -63,14 +80,14 @@ class demoLibViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return demos.count
+        return trailers.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCellWithIdentifier("demoCell") as? demoTableViewCell {
             
-            cell.configureCell(demos[indexPath.row])
+            cell.configureCell(trailers[indexPath.row])
             
             return cell
             
@@ -81,11 +98,59 @@ class demoLibViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "playtrailer" {
+            
+            
+            let controller = segue.destinationViewController as! AVPlayerViewController
+            if let button = sender as? UIButton {
+                let cell = button.superview?.superview as! demoTableViewCell
+             
+                controller.player = AVPlayer(URL: cell.videoUrl)
+            
+               
+                
+            }
+            
+            //try this
+            
+//            let cell = sender as! UITableViewCell
+//            let indexPath = tableView.indexPathForCell(cell)
+//            let videoUrl = trailers[indexPath!.row].videoUrl!
+//            let destination = segue.destinationViewController as! AVPlayerViewController
+//            
+//            let url = NSURL(string: videoUrl )
+//            destination.player = AVPlayer(URL: url!)
+            
+        } else if segue.identifier == "commentFromLib" {
+            let controller = segue.destinationViewController as! commentsViewController
+            if let button = sender as? UIButton {
+                let cell = button.superview?.superview as! demoTableViewCell
+                controller.KeyUid = cell.uid
+            }
+        } else if segue.identifier == "chattrainer" {
+            
+            
+            let DestViewController = segue.destinationViewController as! UINavigationController
+            let controller = DestViewController.topViewController as! chatViewController
+            
+            
+            if let button = sender as? UIButton {
+                let cell = button.superview?.superview as! demoTableViewCell
+                controller.senderId = cell.currentUid
+                controller.senderDisplayName = cell.currentUserName
+                controller.chatKey = cell.chatKey
+                controller.chatRoomTittle = cell.selectedUsername
+            }
+        }
+        
+    }
+
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-    
-    var currentVideoId = String()
     
     
     

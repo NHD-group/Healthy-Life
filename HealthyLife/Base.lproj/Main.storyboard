@@ -172,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ru8-ls-EoY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="942.5" y="-223.5"/>
+            <point key="canvasLocation" x="831.5" y="-565.5"/>
         </scene>
         <!--Tracking View Controller-->
         <scene sceneID="dkQ-4x-AeP">
@@ -609,6 +609,14 @@
             </objects>
             <point key="canvasLocation" x="2823.5" y="90.5"/>
         </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="YIn-lb-yRC">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="4xq-3G-r9K" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pqq-DD-ehP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1922.5" y="839.5"/>
+        </scene>
         <!--Daily Workout Plan-->
         <scene sceneID="c0s-qX-flH">
             <objects>
@@ -654,7 +662,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZP-7J-jDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2310" y="830"/>
+            <point key="canvasLocation" x="2343.5" y="598.5"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Z8F-hf-Zyb">
@@ -862,37 +870,93 @@
                         <viewControllerLayoutGuide type="bottom" id="als-8o-u70"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JIz-Be-S2U">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GX7-Pm-qZ2">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="197" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GX7-Pm-qZ2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="demoCell" rowHeight="85" id="lGX-lZ-Il6" customClass="demoTableViewCell" customModule="HealthyLife" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="85"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="demoCell" rowHeight="197" id="lGX-lZ-Il6" customClass="demoTableViewCell" customModule="HealthyLife" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="197"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lGX-lZ-Il6" id="cui-yR-YSK">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="196"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-wN-6ci" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="31" width="248" height="21"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YE9-D7-Rlg">
+                                                    <rect key="frame" x="8" y="8" width="48" height="48"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6d-Mj-hYP">
+                                                    <rect key="frame" x="64" y="28" width="11" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTf-Gx-BP8">
-                                                    <rect key="frame" x="329" y="27" width="30" height="30"/>
-                                                    <state key="normal" title="Add"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilC-Da-7rr">
+                                                    <rect key="frame" x="192" y="160" width="175" height="30"/>
+                                                    <color key="backgroundColor" red="0.73403336374525241" green="1" blue="0.74783457241007767" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="Talk"/>
                                                     <connections>
-                                                        <action selector="addAction:" destination="lGX-lZ-Il6" eventType="touchUpInside" id="fbN-gG-3Uz"/>
+                                                        <action selector="talkAction:" destination="lGX-lZ-Il6" eventType="touchUpInside" id="ZPC-cM-y1O"/>
+                                                        <segue destination="HWd-8e-FEQ" kind="modal" identifier="chattrainer" id="Ma2-Lr-V81"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2 votes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iah-IB-qA2">
+                                                    <rect key="frame" x="64" y="51" width="46" height="13"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Description: For the training " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LOn-C6-zHX">
+                                                    <rect key="frame" x="8" y="72" width="359" height="80"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0W-iH-MAC">
+                                                    <rect key="frame" x="234" y="0.0" width="133" height="26"/>
+                                                    <state key="normal" title="0 Comments"/>
+                                                    <connections>
+                                                        <segue destination="6uA-Dw-i77" kind="push" identifier="commentFromLib" id="8Xa-GN-A15"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUz-Cx-Q9z">
+                                                    <rect key="frame" x="234" y="27" width="133" height="23"/>
+                                                    <state key="normal" title="Video Trailer"/>
+                                                    <connections>
+                                                        <action selector="videoTrailerAction:" destination="lGX-lZ-Il6" eventType="touchUpInside" id="erZ-uA-q7P"/>
+                                                        <segue destination="4xq-3G-r9K" kind="modal" id="psH-s6-PxX"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfa-G5-15n">
+                                                    <rect key="frame" x="64" y="8" width="162" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1VR-FN-y3y">
+                                                    <rect key="frame" x="78" y="30" width="18" height="18"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyM-i3-VzB">
+                                                    <rect key="frame" x="8" y="160" width="172" height="30"/>
+                                                    <color key="backgroundColor" red="0.98925497165873222" green="1" blue="0.56829516990861761" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="Get Healthy"/>
+                                                    <connections>
+                                                        <action selector="getHealthyAction:" destination="lGX-lZ-Il6" eventType="touchUpInside" id="kVc-gR-Yfr"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="videosLabel" destination="LbS-wN-6ci" id="elJ-HY-J3u"/>
+                                            <outlet property="amoutVotes" destination="iah-IB-qA2" id="naK-jx-dob"/>
+                                            <outlet property="avaImage" destination="YE9-D7-Rlg" id="Ufe-cN-FDZ"/>
+                                            <outlet property="averageVote" destination="h6d-Mj-hYP" id="yfl-iM-lOF"/>
+                                            <outlet property="commentCountButton" destination="l0W-iH-MAC" id="mlW-vM-7yk"/>
+                                            <outlet property="desTextView" destination="LOn-C6-zHX" id="guI-jT-b0a"/>
+                                            <outlet property="getHealthyButton" destination="vyM-i3-VzB" id="zeh-Ag-uTP"/>
+                                            <outlet property="talkButton" destination="ilC-Da-7rr" id="xnP-nc-DbF"/>
+                                            <outlet property="usernameLabel" destination="Jfa-G5-15n" id="lTa-Ww-cfM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -906,14 +970,72 @@
                             <constraint firstItem="GX7-Pm-qZ2" firstAttribute="top" secondItem="JIz-Be-S2U" secondAttribute="top" id="o7s-pH-t5S"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Demo Lib" id="7yr-XT-ogY"/>
+                    <navigationItem key="navigationItem" title="Demo Lib" id="7yr-XT-ogY">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="erW-zB-HLi">
+                            <connections>
+                                <segue destination="zgl-1x-sw1" kind="push" id="O7b-S5-5od"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="GX7-Pm-qZ2" id="Nca-tz-Y0c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKo-iq-dIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1332" y="962"/>
+            <point key="canvasLocation" x="1422.5" y="993.5"/>
+        </scene>
+        <!--Add Demo View Controller-->
+        <scene sceneID="jV9-KH-YgR">
+            <objects>
+                <viewController id="zgl-1x-sw1" customClass="AddDemoViewController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="70f-NM-mb5"/>
+                        <viewControllerLayoutGuide type="bottom" id="pF7-Hw-Txl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lJ4-py-V30">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Decription" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ckK-SF-33z">
+                                <rect key="frame" x="20" y="88" width="335" height="174"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EyF-dW-Dil">
+                                <rect key="frame" x="162" y="362" width="50" height="30"/>
+                                <state key="normal" title="Upload"/>
+                                <connections>
+                                    <action selector="cancelAction:" destination="zgl-1x-sw1" eventType="touchUpInside" id="IY2-Uq-0Sn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOc-mD-l5d">
+                                <rect key="frame" x="117" y="284" width="141" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjI-BC-Me1">
+                                <rect key="frame" x="162" y="319" width="50" height="30"/>
+                                <state key="normal" title="Upload"/>
+                                <connections>
+                                    <action selector="uploadAction:" destination="zgl-1x-sw1" eventType="touchUpInside" id="gz9-eX-mwH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ibU-wg-bWf"/>
+                    <connections>
+                        <outlet property="desTextView" destination="ckK-SF-33z" id="v86-rF-NK3"/>
+                        <outlet property="uploadStatusLabel" destination="YOc-mD-l5d" id="EvS-cb-lHO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vN4-lI-7P6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2157.5" y="1502.5"/>
         </scene>
         <!--Newsfeed-->
         <scene sceneID="iuf-4X-G4S">
@@ -1038,7 +1160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IkE-nl-EG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1215.5" y="1803.5"/>
+            <point key="canvasLocation" x="1151.5" y="1852.5"/>
         </scene>
         <!--Comments View Controller-->
         <scene sceneID="ls1-pL-zIJ">
@@ -1094,7 +1216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RrP-4I-Lcj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1714.5" y="1784.5"/>
+            <point key="canvasLocation" x="2075.5" y="1732.5"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="R4y-3C-2ym">
@@ -1119,7 +1241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dze-hP-BH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1619.5" y="2636.5"/>
+            <point key="canvasLocation" x="2281.5" y="2506.5"/>
         </scene>
         <!--Upload Video View Controller-->
         <scene sceneID="50C-hK-LlN">
@@ -1346,7 +1468,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKZ-dY-uZ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="212" y="-350"/>
+            <point key="canvasLocation" x="-10.5" y="-290.5"/>
         </scene>
         <!--journal-->
         <scene sceneID="QFA-2l-s6l">
@@ -1510,7 +1632,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkW-Bp-mW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1207.5" y="2636.5"/>
+            <point key="canvasLocation" x="1672.5" y="2287.5"/>
         </scene>
         <!--Talks-->
         <scene sceneID="uKl-rh-Ds5">
@@ -1539,7 +1661,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cRV-Ik-ULG"/>
-        <segue reference="f5J-3P-dOk"/>
+        <segue reference="Ma2-Lr-V81"/>
+        <segue reference="8Xa-GN-A15"/>
         <segue reference="de9-EU-rTg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
