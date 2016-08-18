@@ -69,7 +69,8 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
             
         }
         
-        commentsButton.setTitle("\(userProfile.userCommentCount!) comments", forState: .Normal)
+        let commentsCount = userProfile.userCommentCount ?? 0
+        commentsButton.setTitle("\(commentsCount) comments", forState: .Normal)
        
         
         print(userProfile.totalPeopleVoted)
