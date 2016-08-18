@@ -65,16 +65,6 @@ class uploadVideoViewController: UIViewController, UIImagePickerControllerDelega
                 if let videoUrl = metadata?.downloadURL()?.absoluteString {
                     
                     
-<<<<<<< HEAD
-=======
-                }
-            })
-            uploadTask.observeStatus(.Progress, handler: { (snapshot) in
-                print(snapshot)
-                if (snapshot.progress?.completedUnitCount) != nil{
-                    self.uploadStatusLabel.text = "uploading"
-                    //                    String(completedUnitCount)
->>>>>>> origin/master
                     
                     let videoInfo: [String: AnyObject] = ["videoUrl": videoUrl, "name": self.nameVideoTextField.text!, "description": self.desTextField.text!]
                     
@@ -95,7 +85,10 @@ class uploadVideoViewController: UIViewController, UIImagePickerControllerDelega
         
         uploadTask.observeStatus(.Success, handler: { (snapshot) in
             self.uploadStatusLabel.text = "done"
+    
+            
         })
+
 
     }
     
@@ -124,4 +117,5 @@ class uploadVideoViewController: UIViewController, UIImagePickerControllerDelega
      */
     
 }
+
 
