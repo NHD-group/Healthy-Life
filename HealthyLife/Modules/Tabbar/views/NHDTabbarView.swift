@@ -47,6 +47,16 @@ class NHDTabbarView: UIView {
         
         if selectedIndex != button.tag {
             button.selected = !button.selected
+            
+            button.transform = CGAffineTransformMakeScale(0.1, 0.1)
+            UIView.animateWithDuration(2.0,
+                                       delay: 0,
+                                       usingSpringWithDamping: 0.2,
+                                       initialSpringVelocity: 6.0,
+                                       options: UIViewAnimationOptions.AllowUserInteraction,
+                                       animations: {
+                                        button.transform = CGAffineTransformIdentity
+                }, completion: nil)
         }
         
         selectedIndex = button.tag
