@@ -192,7 +192,7 @@ class SignInViewController: UIViewController {
                 DataService.currentUserName = userName
             }
             
-            NSNotificationCenter.defaultCenter().postNotificationName(Configuration.userDidLoginNotificationKey, object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName(Configuration.NotificationKey.userDidLogin, object: nil)
         })
     }
     

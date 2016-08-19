@@ -34,7 +34,7 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func logOutAction(sender: AnyObject) {
         try! FIRAuth.auth()!.signOut()
         
-        NSNotificationCenter.defaultCenter().postNotificationName(Configuration.userDidLogoutNotificationKey, object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(Configuration.NotificationKey.userDidLogout, object: nil)
     }
     
     var currentUserID = DataService.currentUserID

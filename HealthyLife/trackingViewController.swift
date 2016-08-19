@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class trackingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class trackingViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     

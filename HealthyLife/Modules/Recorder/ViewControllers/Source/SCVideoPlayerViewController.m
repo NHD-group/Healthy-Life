@@ -76,8 +76,11 @@
     
     self.exportView.clipsToBounds = YES;
     self.exportView.layer.cornerRadius = 20;
+    UIBarButtonItem *exitButton = [[UIBarButtonItem alloc] initWithTitle:@"Exit" style:UIBarButtonItemStylePlain target:self action:@selector(closeVideoPlayer)];
+    exitButton.tintColor = [UIColor lightGrayColor];
+    
     self.navigationItem.rightBarButtonItems = @[
-                                                [[UIBarButtonItem alloc] initWithTitle:@"Exit" style:UIBarButtonItemStylePlain target:self action:@selector(closeVideoPlayer)],
+//                                                exitButton,
                                                 [[UIBarButtonItem alloc] initWithTitle:@"UPLOAD" style:UIBarButtonItemStylePlain target:self action:@selector(saveToCameraRoll)]
                                                 ];
     
@@ -131,11 +134,11 @@
 - (void)closeVideoPlayer {
     
     UIAlertController *alert= [UIAlertController alertControllerWithTitle:@"Are you sure to exit without save/upload?" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     }];
     [alert addAction:ok];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alert animated:YES completion:nil];
     
 }

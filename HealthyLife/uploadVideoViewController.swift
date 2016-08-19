@@ -38,7 +38,18 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
         if videoUrl != nil {
             resultImage.thumbnailForVideoAtURL(videoUrl!)
         }
+        
+        NSNotificationCenter.defaultCenter().addObserverForName(Configuration.NotificationKey.uploadVideo, object: nil, queue: NSOperationQueue.mainQueue()) { (notif) in
+            
+            if Configuration.selectedViewControllerName == String(self) {
+                if let path = notif.object as? String {
+                    self.videoUrl = NSURL(fileURLWithPath: path)
+                }
+            }
+        }
+        
         title = "Upload Video"
+        resultImage.contentMode = .ScaleAspectFit
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -57,11 +68,12 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
     }
     
     @IBAction func onCamera(sender: AnyObject) {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = .Camera
         
-        presentViewController(picker, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Recorder", bundle: nil)
+        if let vc = storyboard.instantiateInitialViewController() {
+            navigationController?.presentViewController(vc, animated: true, completion: nil)
+            Configuration.selectedViewControllerName = String(self)
+        }
     }
     
     @IBAction func uploadAction(sender: AnyObject) {

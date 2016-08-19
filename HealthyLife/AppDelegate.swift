@@ -21,12 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         changeRootView(DataService.isLoggedIn(), animated: false)
         window?.makeKeyAndVisible()
         
-        NSNotificationCenter.defaultCenter().addObserverForName(Configuration.userDidLogoutNotificationKey, object: nil, queue: NSOperationQueue.mainQueue()) { (notif) in
+        NSNotificationCenter.defaultCenter().addObserverForName(Configuration.NotificationKey.userDidLogout, object: nil, queue: NSOperationQueue.mainQueue()) { (notif) in
             
             self.changeRootView(false, animated: true)
         }
         
-        NSNotificationCenter.defaultCenter().addObserverForName(Configuration.userDidLoginNotificationKey, object: nil, queue: NSOperationQueue.mainQueue()) { (notif) in
+        NSNotificationCenter.defaultCenter().addObserverForName(Configuration.NotificationKey.userDidLogin, object: nil, queue: NSOperationQueue.mainQueue()) { (notif) in
             
             self.changeRootView(true, animated: true)
         }
