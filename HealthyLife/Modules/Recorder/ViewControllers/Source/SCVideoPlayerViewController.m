@@ -77,8 +77,8 @@
     self.exportView.clipsToBounds = YES;
     self.exportView.layer.cornerRadius = 20;
     self.navigationItem.rightBarButtonItems = @[
-                                                [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(closeVideoPlayer)],
-                                                [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(saveToCameraRoll)]
+                                                [[UIBarButtonItem alloc] initWithTitle:@"Exit" style:UIBarButtonItemStylePlain target:self action:@selector(closeVideoPlayer)],
+                                                [[UIBarButtonItem alloc] initWithTitle:@"UPLOAD" style:UIBarButtonItemStylePlain target:self action:@selector(saveToCameraRoll)]
                                                 ];
     
     
@@ -130,7 +130,14 @@
 
 - (void)closeVideoPlayer {
     
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    UIAlertController *alert= [UIAlertController alertControllerWithTitle:@"Are you sure to exit without save/upload?" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:ok];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+    
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -258,7 +265,11 @@
                 [[UIApplication sharedApplication] endIgnoringInteractionEvents];
 
                 if (error == nil) {
-                    [self showAlertViewWithTitle:@"Saved to camera roll" message:@""];
+//                    [self showAlertViewWithTitle:@"Saved to camera roll" message:@""];
+                    
+                    // Handle send video to upload
+                    [self.navigationController dismissViewControllerAnimated:true completion:nil];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"kUploadVideoNotification" object:path];
                 } else {
                     [self showAlertViewWithTitle:@"Failed to save" message:@""];
                 }

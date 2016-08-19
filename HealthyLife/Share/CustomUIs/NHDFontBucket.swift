@@ -78,3 +78,21 @@ class NHDCustomFontButton: UIButton {
         }
     }
 }
+
+class NHDCustomSubmitButton: NHDCustomFontButton {
+    
+    override func awakeFromNib() {
+        
+        super.awakeFromNib()
+        
+        backgroundColor = Configuration.Colors.veryYellow
+        setTitleColor(Configuration.Colors.primary, forState: UIControlState.Normal)
+        layer.cornerRadius = 5
+        layer.masksToBounds = true
+        
+        layer.shadowColor = UIColor.darkGrayColor().CGColor
+        layer.shadowOffset = CGSizeMake(1.0, 2.0)
+        layer.shadowOpacity = 1.0
+        layer.shadowRadius = 0.2
+    }
+}

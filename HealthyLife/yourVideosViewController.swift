@@ -40,7 +40,7 @@ class Video: NSObject {
 class yourVideosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    
+
     var videos = [Video]()
     var videoRef = FIRDatabaseReference()
     let storage = FIRStorage.storage().reference()
@@ -140,24 +140,9 @@ class yourVideosViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
-    
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func onAddVideo(sender: AnyObject) {
+        
+        let vc = uploadVideoViewController(nibName: String(uploadVideoViewController), bundle: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

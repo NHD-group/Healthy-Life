@@ -11,22 +11,15 @@ import UIKit
 import Firebase
 import MobileCoreServices
 import AVFoundation
+import MBProgressHUD
 
-class uploadVideoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
-
-   
+class uploadVideoViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     @IBOutlet weak var nameVideoTextField: UITextField!
-    
     @IBOutlet weak var libImagesButton: UIButton!
-    
     @IBOutlet weak var cameraButton: UIButton!
-    
     @IBOutlet weak var desTextField: UITextField!
-    
-    @IBOutlet weak var thumbnailImage: UIImageView!
-    
-    @IBOutlet weak var uploadStatusLabel: UILabel!
+    @IBOutlet weak var resultImage: UIImageView!
     
     @IBAction func chooseImageAction(sender: AnyObject) {
         let imagePickerController = UIImagePickerController()
@@ -37,35 +30,62 @@ class uploadVideoViewController: UIViewController, UIImagePickerControllerDelega
         presentViewController(imagePickerController, animated: true, completion: nil)
     }
     
-    var videoUrl = NSURL()
+    var videoUrl: NSURL?
     
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        if videoUrl != nil {
+            resultImage.thumbnailForVideoAtURL(videoUrl!)
+        }
+        title = "Upload Video"
+    }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let videoUrl = info[UIImagePickerControllerMediaURL] as? NSURL {
             // we selected a video
             self.videoUrl = videoUrl
-            libImagesButton.hidden = true
-            cameraButton.hidden = true
-            thumbnailImage.image = thumbnailForVideoAtURL(videoUrl)
-            
+            resultImage.thumbnailForVideoAtURL(videoUrl)
+        }
+        
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            resultImage.image = image
         }
         
         dismissViewControllerAnimated(true, completion: nil)
         
     }
     
+    @IBAction func onCamera(sender: AnyObject) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = .Camera
+        
+        presentViewController(picker, animated: true, completion: nil)
+    }
     
     @IBAction func uploadAction(sender: AnyObject) {
         
-        let key = DataService.dataService.userRef.child("yourVideo").childByAutoId().key
+        let name = nameVideoTextField.text
+        if name?.characters.count == 0 {
+            Helper.showAlert("Warning", message: "Please enter the title of video", inViewController: self)
+            return
+        }
+        guard let videoUrl = videoUrl else {
+            Helper.showAlert("Warning", message: "Please select an photo/video!", inViewController: self)
+            return
+        }
         
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+
+        let key = DataService.dataService.userRef.child("yourVideo").childByAutoId().key
+
         let uploadTask = FIRStorage.storage().reference().child("videos").child(key).putFile(videoUrl, metadata: nil, completion: { (metadata, error) in
             if error  != nil {
                 
-                return
+                Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
             } else {
                 if let videoUrl = metadata?.downloadURL()?.absoluteString {
-                    
                     
                     
                     let videoInfo: [String: AnyObject] = ["videoUrl": videoUrl, "name": self.nameVideoTextField.text!, "description": self.desTextField.text!]
@@ -75,39 +95,12 @@ class uploadVideoViewController: UIViewController, UIImagePickerControllerDelega
                 
             }
         })
-        uploadTask.observeStatus(.Progress, handler: { (snapshot) in
-            print(snapshot)
-            if let completedUnitCount = snapshot.progress?.completedUnitCount{
-                self.uploadStatusLabel.text = "uploading"
-                //                    String(completedUnitCount)
-                
-            }
-            
-        })
         
         uploadTask.observeStatus(.Success, handler: { (snapshot) in
-            self.uploadStatusLabel.text = "done"
-    
-            
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            self.onBack()
         })
         
-    }
-    
-    private func thumbnailForVideoAtURL(url: NSURL) -> UIImage? {
-        
-        let asset = AVAsset(URL: url)
-        let assetImageGenerator = AVAssetImageGenerator(asset: asset)
-        
-        var time = asset.duration
-        time.value = min(time.value, 2)
-        
-        do {
-            let imageRef = try assetImageGenerator.copyCGImageAtTime(time, actualTime: nil)
-            return UIImage(CGImage: imageRef)
-        } catch {
-            print("error")
-            return nil
-        }
     }
 }
 

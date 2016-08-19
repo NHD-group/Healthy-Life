@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="uploadVideoViewController" customModule="HealthyLife" customModuleProvider="target">
+            <connections>
+                <outlet property="cameraButton" destination="3Al-JF-JLa" id="Aon-C9-bFR"/>
+                <outlet property="desTextField" destination="nIm-BW-ZyD" id="YH5-F2-LZQ"/>
+                <outlet property="libImagesButton" destination="7YD-eD-k01" id="iwU-tR-N5S"/>
+                <outlet property="nameVideoTextField" destination="gOn-F8-MqK" id="g3q-er-nUP"/>
+                <outlet property="resultImage" destination="MdY-mu-rkN" id="Zv6-XE-JW0"/>
+                <outlet property="view" destination="uWV-ff-eZi" id="UOu-86-VyH"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="uWV-ff-eZi">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nIm-BW-ZyD">
+                    <rect key="frame" x="20" y="125" width="280" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcr-8x-9FV" customClass="NHDCustomSubmitButton" customModule="HealthyLife" customModuleProvider="target">
+                    <rect key="frame" x="98" y="458" width="124" height="30"/>
+                    <state key="normal" title="UPLOAD"/>
+                    <connections>
+                        <action selector="uploadAction:" destination="-1" eventType="touchUpInside" id="rxO-gZ-f6m"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gOn-F8-MqK">
+                    <rect key="frame" x="20" y="80" width="280" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YD-eD-k01">
+                    <rect key="frame" x="34" y="383" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="7YD-eD-k01" secondAttribute="height" multiplier="1: 1" id="EHq-gw-GtM"/>
+                        <constraint firstAttribute="height" constant="50" id="IR5-JV-aZ5"/>
+                    </constraints>
+                    <state key="normal" image="lib"/>
+                    <connections>
+                        <action selector="chooseImageAction:" destination="-1" eventType="touchUpInside" id="lH2-1o-Jhf"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="MdY-mu-rkN">
+                    <rect key="frame" x="34" y="186" width="252" height="189"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="MdY-mu-rkN" secondAttribute="height" multiplier="4:3" id="YdA-dd-8Pk"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Al-JF-JLa">
+                    <rect key="frame" x="236" y="383" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="3Al-JF-JLa" secondAttribute="height" multiplier="1:1" id="RuT-sh-Smr"/>
+                    </constraints>
+                    <state key="normal" image="camera"/>
+                    <connections>
+                        <action selector="onCamera:" destination="-1" eventType="touchUpInside" id="j01-5f-GU5"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="7YD-eD-k01" firstAttribute="top" secondItem="MdY-mu-rkN" secondAttribute="bottom" constant="8" id="8ZN-qd-9hV"/>
+                <constraint firstItem="rcr-8x-9FV" firstAttribute="leading" secondItem="7YD-eD-k01" secondAttribute="trailing" constant="14" id="8iK-SL-o3a"/>
+                <constraint firstItem="nIm-BW-ZyD" firstAttribute="leading" secondItem="gOn-F8-MqK" secondAttribute="leading" id="AZf-5P-NeK"/>
+                <constraint firstItem="MdY-mu-rkN" firstAttribute="top" secondItem="nIm-BW-ZyD" secondAttribute="bottom" constant="31" id="BiS-3b-2RK"/>
+                <constraint firstItem="7YD-eD-k01" firstAttribute="leading" secondItem="MdY-mu-rkN" secondAttribute="leading" id="ENj-c5-LDg"/>
+                <constraint firstItem="gOn-F8-MqK" firstAttribute="top" secondItem="uWV-ff-eZi" secondAttribute="top" constant="80" id="KwX-1g-FSc"/>
+                <constraint firstItem="gOn-F8-MqK" firstAttribute="centerX" secondItem="uWV-ff-eZi" secondAttribute="centerX" id="Nbb-7f-OEl"/>
+                <constraint firstAttribute="bottom" secondItem="rcr-8x-9FV" secondAttribute="bottom" constant="80" id="Oel-Rq-422"/>
+                <constraint firstItem="rcr-8x-9FV" firstAttribute="centerX" secondItem="uWV-ff-eZi" secondAttribute="centerX" id="QUQ-xe-Bse"/>
+                <constraint firstItem="gOn-F8-MqK" firstAttribute="leading" secondItem="uWV-ff-eZi" secondAttribute="leading" constant="20" id="WlO-ft-B6a"/>
+                <constraint firstItem="nIm-BW-ZyD" firstAttribute="trailing" secondItem="gOn-F8-MqK" secondAttribute="trailing" id="Ymc-IG-DcO"/>
+                <constraint firstItem="3Al-JF-JLa" firstAttribute="trailing" secondItem="MdY-mu-rkN" secondAttribute="trailing" id="Yod-0z-E2K"/>
+                <constraint firstItem="nIm-BW-ZyD" firstAttribute="top" secondItem="gOn-F8-MqK" secondAttribute="bottom" constant="15" id="ad2-sF-HAO"/>
+                <constraint firstItem="MdY-mu-rkN" firstAttribute="centerX" secondItem="uWV-ff-eZi" secondAttribute="centerX" id="bph-rr-amK"/>
+                <constraint firstItem="MdY-mu-rkN" firstAttribute="leading" secondItem="uWV-ff-eZi" secondAttribute="leading" constant="34" id="iVm-nJ-DpJ"/>
+                <constraint firstItem="3Al-JF-JLa" firstAttribute="top" secondItem="7YD-eD-k01" secondAttribute="top" id="nl1-3C-0SB"/>
+                <constraint firstItem="3Al-JF-JLa" firstAttribute="bottom" secondItem="7YD-eD-k01" secondAttribute="bottom" id="y4D-it-Pmx"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <point key="canvasLocation" x="460" y="-24"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="camera" width="25" height="25"/>
+        <image name="lib" width="25" height="25"/>
+        <image name="placeholder" width="570" height="380"/>
+    </resources>
+</document>

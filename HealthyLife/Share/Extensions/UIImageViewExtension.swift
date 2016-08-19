@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 import Firebase
+import AVFoundation
 
 extension UIImageView {
     
@@ -40,4 +41,18 @@ extension UIImageView {
         }
         
     }
+    
+    func thumbnailForVideoAtURL(url: NSURL) {
+        let asset = AVAsset(URL: url)
+        let assetImageGenerator = AVAssetImageGenerator(asset: asset)
+        var time = asset.duration
+        time.value = min(time.value, 1)
+        do {
+            let imageRef = try assetImageGenerator.copyCGImageAtTime(time, actualTime: nil)
+            image = UIImage(CGImage: imageRef)
+        } catch {
+            
+        }
+    }
+
 }

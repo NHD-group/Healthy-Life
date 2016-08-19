@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="uuG-VB-6K1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="uuG-VB-6K1">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -1450,72 +1450,6 @@
             </objects>
             <point key="canvasLocation" x="2281.5" y="2506.5"/>
         </scene>
-        <!--Upload Video View Controller-->
-        <scene sceneID="50C-hK-LlN">
-            <objects>
-                <viewController id="Yhk-j5-PPV" customClass="uploadVideoViewController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="keg-Ic-vhW"/>
-                        <viewControllerLayoutGuide type="bottom" id="1rY-3X-u6H"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="h6B-cu-6gX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Tt-sA-YqV">
-                                <rect key="frame" x="37" y="181" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3z-J4-CmS">
-                                <rect key="frame" x="164" y="355" width="47" height="30"/>
-                                <state key="normal" title="upload"/>
-                                <connections>
-                                    <action selector="uploadAction:" destination="Yhk-j5-PPV" eventType="touchUpInside" id="w4K-x5-Ps0"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upload Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hau-8r-kPs">
-                                <rect key="frame" x="123" y="266" width="109" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7lT-rU-RqA">
-                                <rect key="frame" x="37" y="128" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnS-9l-rcc">
-                                <rect key="frame" x="60" y="302" width="25" height="25"/>
-                                <state key="normal" image="lib"/>
-                                <connections>
-                                    <action selector="chooseImageAction:" destination="Yhk-j5-PPV" eventType="touchUpInside" id="dpQ-l8-v96"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKh-KU-wSM">
-                                <rect key="frame" x="281" y="302" width="25" height="25"/>
-                                <state key="normal" image="camera"/>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pxt-SF-iRs">
-                                <rect key="frame" x="60" y="393" width="246" height="154"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="XUz-Dq-Xll"/>
-                    <connections>
-                        <outlet property="cameraButton" destination="TKh-KU-wSM" id="8Ji-xM-Zg0"/>
-                        <outlet property="desTextField" destination="6Tt-sA-YqV" id="dcc-y6-iJz"/>
-                        <outlet property="libImagesButton" destination="GnS-9l-rcc" id="bKp-NS-KFD"/>
-                        <outlet property="nameVideoTextField" destination="7lT-rU-RqA" id="Aby-4K-tdI"/>
-                        <outlet property="thumbnailImage" destination="Pxt-SF-iRs" id="oDn-FV-uk4"/>
-                        <outlet property="uploadStatusLabel" destination="Hau-8r-kPs" id="I7Y-bZ-fOk"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="py0-rn-cA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-609.5" y="-235.5"/>
-        </scene>
         <!--AV Player View Controller-->
         <scene sceneID="7RH-Oc-qRZ">
             <objects>
@@ -1675,7 +1609,7 @@
                     <navigationItem key="navigationItem" id="FSX-Tv-N7R">
                         <barButtonItem key="rightBarButtonItem" title="AddVid" id="XjD-vQ-xO8">
                             <connections>
-                                <segue destination="Yhk-j5-PPV" kind="push" id="fvi-0R-zzQ"/>
+                                <action selector="onAddVideo:" destination="Yue-Nz-GyF" id="Ng2-Ik-5YI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
