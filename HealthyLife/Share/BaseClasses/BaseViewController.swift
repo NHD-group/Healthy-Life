@@ -20,6 +20,20 @@ class BaseViewController: UIViewController {
             button.addTarget(self, action: #selector(self.onBack), forControlEvents: UIControlEvents.TouchUpInside)
             navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
         }
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        for gesture in view.gestureRecognizers! {
+            view.removeGestureRecognizer(gesture)
+        }
     }
     
     func onBack() {
@@ -31,4 +45,12 @@ class BaseViewController: UIViewController {
         }
     }
     
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BaseViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
