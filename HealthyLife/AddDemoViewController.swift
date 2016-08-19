@@ -31,6 +31,7 @@ class AddDemoViewController: UIViewController , UIImagePickerControllerDelegate,
         let uploadTask = FIRStorage.storage().reference().child("videosTrailer").child(currentUid).putFile(videoUrl, metadata: nil, completion: { (metadata, error) in
             if error  != nil {
                 
+                Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
                 return
             } else {
                 var thumbNail = self.thumbnailImage.image
@@ -49,7 +50,7 @@ class AddDemoViewController: UIViewController , UIImagePickerControllerDelegate,
                 riversRef.putData(imageData, metadata: nil) { metadata, error in
                     if (error != nil) {
                         // Uh-oh, an error occurred!
-                        
+                        Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
                     } else {
                         // Metadata contains file metadata such as size, content-type, and download URL.
                         if let downloadURL = metadata?.downloadURL()?.absoluteString {
@@ -107,29 +108,11 @@ class AddDemoViewController: UIViewController , UIImagePickerControllerDelegate,
             // we selected a video
             
             self.videoUrl = videoUrl
-              thumbnailImage.image = thumbnailForVideoAtURL(videoUrl)
+              thumbnailImage.thumbnailForVideoAtURL(videoUrl)
         }
         
         dismissViewControllerAnimated(true, completion: nil)
         
-    }
-    
-    
-    private func thumbnailForVideoAtURL(url: NSURL) -> UIImage? {
-        
-        let asset = AVAsset(URL: url)
-        let assetImageGenerator = AVAssetImageGenerator(asset: asset)
-        
-        var time = asset.duration
-        time.value = min(time.value, 2)
-        
-        do {
-            let imageRef = try assetImageGenerator.copyCGImageAtTime(time, actualTime: nil)
-            return UIImage(CGImage: imageRef)
-        } catch {
-            print("error")
-            return nil
-        }
     }
 
     

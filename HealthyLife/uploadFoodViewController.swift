@@ -56,6 +56,11 @@ class uploadFoodViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func uploadAction(sender: UIButton) {
         
+        guard var foodImage = FoodImageView.image else {
+            Helper.showAlert("Warning", message: "Please select a photo!", inViewController: self)
+            return
+        }
+        
         //: Upload JSON to realtime database
         
         key =  ref.child("users").child(currentUserID!).child("food_journal").childByAutoId().key
@@ -73,11 +78,10 @@ class uploadFoodViewController: UIViewController, UIImagePickerControllerDelegat
         
         
         //: Upload Image 
+
+        foodImage = foodImage.resizeImage(CGSize(width: 500.0, height: 500.0))
         
-        var foodImage = FoodImageView.image
-        foodImage = foodImage?.resizeImage(CGSize(width: 500.0, height: 500.0))
-        
-        let imageData: NSData = UIImagePNGRepresentation(foodImage!)!
+        let imageData: NSData = UIImagePNGRepresentation(foodImage)!
 
         
         
@@ -90,7 +94,7 @@ class uploadFoodViewController: UIViewController, UIImagePickerControllerDelegat
         riversRef.putData(imageData, metadata: nil) { metadata, error in
             if (error != nil) {
                 // Uh-oh, an error occurred!
-                
+                Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
             } else {
                 // Metadata contains file metadata such as size, content-type, and download URL.
                 let downloadURL = metadata!.downloadURL

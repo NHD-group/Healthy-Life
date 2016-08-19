@@ -89,17 +89,6 @@ class SignInViewController: UIViewController {
         
     }
     
-    
-    
-    
-    func alertMessage (title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        let OK = UIAlertAction(title: "ok", style: .Default, handler: nil)
-        alert.addAction(OK)
-        presentViewController(alert, animated: true, completion: nil)
-        
-    }
-    
     func startingDisplay() {
         viewEffect.alpha = 0
         logInView.alpha = 0
@@ -145,16 +134,14 @@ class SignInViewController: UIViewController {
         if let email = emailTextField.text, let password = passwordTextField.text {
             FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
                 if error != nil {
-                    print(error?.localizedDescription)
-                    
-                    self.alertMessage("Error", message: "\(error?.localizedDescription)")
+                    Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
 
                 } else {
                     self.getDetailsOfUser()
                 }
             })
         } else {
-            alertMessage("Oops", message: "Please fill in all the fields")
+            Helper.showAlert("Oops", message: "Please fill in all the fields", inViewController: self)
         }
         
     }
@@ -163,8 +150,7 @@ class SignInViewController: UIViewController {
         if let email = createEmail.text, let password = createPassword.text, let username = createUsername.text {
             FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user, error) in
                 if error != nil {
-                    print(error?.localizedDescription)
-                    self.alertMessage("Error", message: "\(error!.localizedDescription)")
+                    Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
                 } else {
                     FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
                         if error != nil {
@@ -180,7 +166,8 @@ class SignInViewController: UIViewController {
                 
             })
         } else {
-            alertMessage("Oops", message: "Please fill in all the fields")
+            Helper.showAlert("Oops", message: "Please fill in all the fields", inViewController: self)
+
         }
         
     }

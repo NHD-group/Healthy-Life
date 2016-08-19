@@ -78,7 +78,7 @@ class uploadResultViewController: UIViewController, UIImagePickerControllerDeleg
         riversRef.putData(imageData, metadata: nil) { metadata, error in
             if (error != nil) {
                 // Uh-oh, an error occurred!
-                
+                Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
             } else {
                 // Metadata contains file metadata such as size, content-type, and download URL.
                 let downloadURL = metadata!.downloadURL

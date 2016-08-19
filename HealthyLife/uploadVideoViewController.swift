@@ -44,6 +44,7 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
             if Configuration.selectedViewControllerName == String(self) {
                 if let path = notif.object as? String {
                     self.videoUrl = NSURL(fileURLWithPath: path)
+                    self.resultImage.thumbnailForVideoAtURL(self.videoUrl!)
                 }
             }
         }
@@ -84,7 +85,7 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
             return
         }
         guard let videoUrl = videoUrl else {
-            Helper.showAlert("Warning", message: "Please select an photo/video!", inViewController: self)
+            Helper.showAlert("Warning", message: "Please select/recorde video to upload", inViewController: self)
             return
         }
         
@@ -98,7 +99,6 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
                 Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
             } else {
                 if let videoUrl = metadata?.downloadURL()?.absoluteString {
-                    
                     
                     let videoInfo: [String: AnyObject] = ["videoUrl": videoUrl, "name": self.nameVideoTextField.text!, "description": self.desTextField.text!]
                     
