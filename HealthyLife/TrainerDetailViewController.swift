@@ -34,6 +34,9 @@ class TrainerDetailViewController: UIViewController {
     @IBOutlet weak var avaImage: UIImageView!
     //done
     
+    @IBOutlet weak var blurrView: UIVisualEffectView!
+    
+    
     @IBOutlet weak var averageVote: UILabel!
     //done
     
@@ -97,10 +100,14 @@ class TrainerDetailViewController: UIViewController {
         let islandRef = storageRef.child("images/trailer/\(currentUid)")
         thumbnailUrl.downloadImageWithImageReference(islandRef)
 
+        self.blurrView.layer.cornerRadius = self.avaImage.frame.size.width / 2
+        self.blurrView.clipsToBounds = true
+        
+        self.thumbnailUrl.layer.cornerRadius = 10
+        self.thumbnailUrl.clipsToBounds = true
 
-        
-        
-        // Do any additional setup after loading the view.
+
+      
     }
     
     override func didReceiveMemoryWarning() {

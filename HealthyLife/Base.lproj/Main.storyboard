@@ -1333,9 +1333,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="73" height="73"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7j-uf-yxm">
-                                            <rect key="frame" x="21" y="22" width="30" height="30"/>
-                                            <state key="normal" title="Play"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7j-uf-yxm">
+                                            <rect key="frame" x="24" y="19" width="36" height="36"/>
+                                            <state key="normal" image="playButton"/>
                                             <connections>
                                                 <action selector="videoTrailerAction:" destination="MNm-bG-QeR" eventType="touchUpInside" id="9Fs-n0-3Lj"/>
                                                 <segue destination="4xq-3G-r9K" kind="modal" identifier="player" id="p7o-h6-Snf"/>
@@ -1360,6 +1360,7 @@
                         <outlet property="amoutVotes" destination="KXb-qc-yNr" id="OoQ-zp-Ihh"/>
                         <outlet property="avaImage" destination="5q2-Rq-bCi" id="ODj-O9-O3g"/>
                         <outlet property="averageVote" destination="ElA-6a-QmA" id="YBv-ga-vd7"/>
+                        <outlet property="blurrView" destination="mGK-Bb-rZr" id="17t-Va-ETh"/>
                         <outlet property="commentCountButton" destination="u2i-mo-NF9" id="hmp-sF-044"/>
                         <outlet property="desTextView" destination="zVw-3d-eAD" id="tNE-bE-OAF"/>
                         <outlet property="getHealthyButton" destination="zrZ-OA-pgd" id="Yk0-hz-lZq"/>
@@ -1880,6 +1881,7 @@
         <image name="addToPlan" width="25" height="25"/>
         <image name="camera" width="25" height="25"/>
         <image name="lib" width="25" height="25"/>
+        <image name="playButton" width="70" height="82"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="de9-EU-rTg"/>
