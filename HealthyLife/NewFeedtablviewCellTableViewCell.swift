@@ -60,9 +60,9 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         //MARK: set up labels
         
 
-        
-        if userProfile.totalPeopleVoted != 0 {
-            averageStarLabel.text = "\(userProfile.totalStar!/userProfile.totalPeopleVoted!)"
+        let totalPeopleVoted = userProfile.totalPeopleVoted ?? 0
+        if totalPeopleVoted != 0 {
+            averageStarLabel.text = "\(userProfile.totalStar!/totalPeopleVoted)"
 
         } else {
             averageStarLabel.text = "0"
@@ -73,14 +73,11 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         commentsButton.setTitle("\(commentsCount) comments", forState: .Normal)
        
         
-        print(userProfile.totalPeopleVoted)
-        print("check totalstarvoted")
-        
         HeightLabel.text = userProfile.userSetting?.height as? String
        
         nameLabel.text = sellectedUsername
         followerCountLabel.text = "\(userProfile.followerCount!) followers"
-        amountPeopleVotedLabel.text = "\(userProfile.totalPeopleVoted!) voted"
+        amountPeopleVotedLabel.text = "\(totalPeopleVoted) voted"
         //MARK: Set up ava Image
         
         if userProfile.userSetting == nil {
