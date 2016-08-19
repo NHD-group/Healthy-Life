@@ -33,19 +33,19 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="weight changed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxg-4f-623">
                                                     <rect key="frame" x="204" y="52" width="123" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVQ-kJ-JNW">
                                                     <rect key="frame" x="204" y="108" width="98" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZv-WW-D3z">
                                                     <rect key="frame" x="204" y="8" width="163" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Od-JA-4eY">
@@ -734,7 +734,7 @@
                 <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="4xq-3G-r9K" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pqq-DD-ehP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1738.5" y="1493.5"/>
+            <point key="canvasLocation" x="2294.5" y="1661.5"/>
         </scene>
         <!--Daily Workout Plan-->
         <scene sceneID="c0s-qX-flH">
@@ -1112,30 +1112,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Decription" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ckK-SF-33z">
-                                <rect key="frame" x="20" y="88" width="335" height="174"/>
+                                <rect key="frame" x="20" y="88" width="335" height="126"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOc-mD-l5d">
-                                <rect key="frame" x="117" y="284" width="141" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjI-BC-Me1">
-                                <rect key="frame" x="162" y="319" width="50" height="30"/>
+                                <rect key="frame" x="162" y="333" width="50" height="30"/>
                                 <state key="normal" title="Upload"/>
                                 <connections>
                                     <action selector="uploadAction:" destination="zgl-1x-sw1" eventType="touchUpInside" id="gz9-eX-mwH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBp-Ic-iqc">
+                                <rect key="frame" x="175" y="244" width="25" height="25"/>
+                                <state key="normal" image="lib"/>
+                                <connections>
+                                    <action selector="chooseVideoAction:" destination="zgl-1x-sw1" eventType="touchUpInside" id="oTW-n5-V34"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOc-mD-l5d">
+                                <rect key="frame" x="166" y="277" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wy1-Og-pb6">
+                                <rect key="frame" x="20" y="384" width="335" height="187"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ibU-wg-bWf"/>
                     <connections>
                         <outlet property="desTextView" destination="ckK-SF-33z" id="v86-rF-NK3"/>
+                        <outlet property="thumbnailImage" destination="wy1-Og-pb6" id="WfI-n6-FZ3"/>
                         <outlet property="uploadStatusLabel" destination="YOc-mD-l5d" id="EvS-cb-lHO"/>
                     </connections>
                 </viewController>
@@ -1281,6 +1292,7 @@
                                 <state key="normal" title="Talk"/>
                                 <connections>
                                     <action selector="talkAction:" destination="MNm-bG-QeR" eventType="touchUpInside" id="0dG-ZY-qvG"/>
+                                    <segue destination="HWd-8e-FEQ" kind="modal" identifier="talk" id="H2p-Yh-2tL"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2 votes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXb-qc-yNr">
@@ -1326,7 +1338,7 @@
                                             <state key="normal" title="Play"/>
                                             <connections>
                                                 <action selector="videoTrailerAction:" destination="MNm-bG-QeR" eventType="touchUpInside" id="9Fs-n0-3Lj"/>
-                                                <segue destination="4xq-3G-r9K" kind="modal" id="aH3-Uv-ifd"/>
+                                                <segue destination="4xq-3G-r9K" kind="modal" identifier="player" id="p7o-h6-Snf"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -1337,7 +1349,7 @@
                                 <rect key="frame" x="234" y="85" width="133" height="26"/>
                                 <state key="normal" title="0 Comments"/>
                                 <connections>
-                                    <segue destination="6uA-Dw-i77" kind="push" id="qHN-1s-BfY"/>
+                                    <segue destination="6uA-Dw-i77" kind="push" identifier="trainerComment" id="qHN-1s-BfY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1352,6 +1364,7 @@
                         <outlet property="desTextView" destination="zVw-3d-eAD" id="tNE-bE-OAF"/>
                         <outlet property="getHealthyButton" destination="zrZ-OA-pgd" id="Yk0-hz-lZq"/>
                         <outlet property="talkButton" destination="MTI-Xc-PuB" id="jep-2y-OWe"/>
+                        <outlet property="thumbnailUrl" destination="1tw-MI-0zl" id="o7J-Tb-zsl"/>
                         <outlet property="usernameLabel" destination="UFL-fs-roj" id="8sK-uZ-oZW"/>
                     </connections>
                 </viewController>
@@ -1413,7 +1426,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RrP-4I-Lcj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1744.5" y="2156.5"/>
+            <point key="canvasLocation" x="1945.5" y="1853.5"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="R4y-3C-2ym">
@@ -1486,6 +1499,9 @@
                                 <rect key="frame" x="281" y="302" width="25" height="25"/>
                                 <state key="normal" image="camera"/>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pxt-SF-iRs">
+                                <rect key="frame" x="60" y="393" width="246" height="154"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1495,6 +1511,7 @@
                         <outlet property="desTextField" destination="6Tt-sA-YqV" id="dcc-y6-iJz"/>
                         <outlet property="libImagesButton" destination="GnS-9l-rcc" id="bKp-NS-KFD"/>
                         <outlet property="nameVideoTextField" destination="7lT-rU-RqA" id="Aby-4K-tdI"/>
+                        <outlet property="thumbnailImage" destination="Pxt-SF-iRs" id="oDn-FV-uk4"/>
                         <outlet property="uploadStatusLabel" destination="Hau-8r-kPs" id="I7Y-bZ-fOk"/>
                     </connections>
                 </viewController>
@@ -1835,7 +1852,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkW-Bp-mW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1672.5" y="2287.5"/>
+            <point key="canvasLocation" x="1617.5" y="2548.5"/>
         </scene>
         <!--Talks-->
         <scene sceneID="uKl-rh-Ds5">
@@ -1865,11 +1882,11 @@
         <image name="lib" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ma2-Lr-V81"/>
-        <segue reference="cRV-Ik-ULG"/>
-        <segue reference="qHN-1s-BfY"/>
-        <segue reference="aH3-Uv-ifd"/>
         <segue reference="de9-EU-rTg"/>
+        <segue reference="cRV-Ik-ULG"/>
+        <segue reference="H2p-Yh-2tL"/>
+        <segue reference="p7o-h6-Snf"/>
+        <segue reference="qHN-1s-BfY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

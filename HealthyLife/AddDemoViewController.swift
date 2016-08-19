@@ -15,12 +15,84 @@ class AddDemoViewController: UIViewController , UIImagePickerControllerDelegate,
 
     @IBOutlet weak var desTextView: UITextView!
     
+    @IBOutlet weak var thumbnailImage: UIImageView!
+    
+    
     var currentUid = (FIRAuth.auth()?.currentUser?.uid)!
+    var videoUrl = NSURL()
     
     
     
     @IBOutlet weak var uploadStatusLabel: UILabel!
     @IBAction func uploadAction(sender: AnyObject) {
+        
+        let trailerRef = FIRDatabase.database().reference().child("videosTrailer").child(currentUid)
+        
+        let uploadTask = FIRStorage.storage().reference().child("videosTrailer").child(currentUid).putFile(videoUrl, metadata: nil, completion: { (metadata, error) in
+            if error  != nil {
+                
+                return
+            } else {
+                var thumbNail = self.thumbnailImage.image
+                thumbNail = thumbNail!.resizeImage(CGSize(width: 500.0, height: 500.0))
+                
+                let imageData: NSData = UIImagePNGRepresentation(thumbNail!)!
+                
+                
+                
+                
+                // Create a reference to the file you want to upload
+                
+                let riversRef = FIRStorage.storage().reference().child("images").child("trailer").child(self.currentUid)
+                
+                // Upload the file to the path ""images/\(key)"
+                riversRef.putData(imageData, metadata: nil) { metadata, error in
+                    if (error != nil) {
+                        // Uh-oh, an error occurred!
+                        
+                    } else {
+                        // Metadata contains file metadata such as size, content-type, and download URL.
+                        if let downloadURL = metadata?.downloadURL()?.absoluteString {
+                            trailerRef.child("thumbnail").setValue(downloadURL)
+                            
+                        }
+                       
+                        
+                    }
+                }
+                
+                if let videoUrl = metadata?.downloadURL()?.absoluteString {
+                    
+                    
+                    
+                    let videoInfo: [String: AnyObject] = ["videoUrl": videoUrl, "description": self.desTextView.text!]
+                    
+                    trailerRef.setValue(videoInfo)
+                }
+                
+            }
+        })
+        uploadTask.observeStatus(.Progress, handler: { (snapshot) in
+            print(snapshot)
+            if (snapshot.progress?.completedUnitCount) != nil{
+                self.uploadStatusLabel.text = "uploading"
+                //                    String(completedUnitCount)
+                
+            }
+            
+        })
+        
+        uploadTask.observeStatus(.Success, handler: { (snapshot) in
+            self.uploadStatusLabel.text = "done"
+        })
+
+
+    
+    }
+    
+   
+    
+    @IBAction func chooseVideoAction(sender: AnyObject) {
         
         let imagePickerController = UIImagePickerController()
         imagePickerController.allowsEditing = true
@@ -28,45 +100,14 @@ class AddDemoViewController: UIViewController , UIImagePickerControllerDelegate,
         imagePickerController.mediaTypes = [kUTTypeImage as String , kUTTypeMovie as String]
         
         presentViewController(imagePickerController, animated: true, completion: nil)
-
     }
-    
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let videoUrl = info[UIImagePickerControllerMediaURL] as? NSURL {
             // we selected a video
             
-            let trailerRef = FIRDatabase.database().reference().child("videosTrailer").child(currentUid)
-            
-            let uploadTask = FIRStorage.storage().reference().child("videosTrailer").child(currentUid).putFile(videoUrl, metadata: nil, completion: { (metadata, error) in
-                if error  != nil {
-                    
-                    return
-                } else {
-                    if let videoUrl = metadata?.downloadURL()?.absoluteString {
-                        
-                        
-                        
-                        let videoInfo: [String: AnyObject] = ["videoUrl": videoUrl, "description": self.desTextView.text!]
-                        
-                        trailerRef.setValue(videoInfo)
-                    }
-                    
-                }
-            })
-            uploadTask.observeStatus(.Progress, handler: { (snapshot) in
-                print(snapshot)
-                if (snapshot.progress?.completedUnitCount) != nil{
-                    self.uploadStatusLabel.text = "uploading"
-                    //                    String(completedUnitCount)
-                    
-                }
-                
-            })
-            
-            uploadTask.observeStatus(.Success, handler: { (snapshot) in
-                self.uploadStatusLabel.text = "done"
-            })
+            self.videoUrl = videoUrl
+              thumbnailImage.image = thumbnailForVideoAtURL(videoUrl)
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -74,9 +115,23 @@ class AddDemoViewController: UIViewController , UIImagePickerControllerDelegate,
     }
     
     
-    @IBAction func cancelAction(sender: AnyObject) {
+    private func thumbnailForVideoAtURL(url: NSURL) -> UIImage? {
+        
+        let asset = AVAsset(URL: url)
+        let assetImageGenerator = AVAssetImageGenerator(asset: asset)
+        
+        var time = asset.duration
+        time.value = min(time.value, 2)
+        
+        do {
+            let imageRef = try assetImageGenerator.copyCGImageAtTime(time, actualTime: nil)
+            return UIImage(CGImage: imageRef)
+        } catch {
+            print("error")
+            return nil
+        }
     }
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +143,9 @@ class AddDemoViewController: UIViewController , UIImagePickerControllerDelegate,
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
+    
     
 
     /*

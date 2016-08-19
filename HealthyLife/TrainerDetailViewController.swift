@@ -8,16 +8,21 @@
 
 import UIKit
 import Firebase
+import AVFoundation
+import AVKit
 
 class DetailTrailer: NSObject {
   
     var videoUrl: String?
     var des: String?
+    var thumbNailUrl: String?
+    
     
     init(dictionary: NSDictionary ) {
     
         videoUrl = dictionary["videoUrl"] as? String
         des = dictionary["description"] as? String
+        thumbNailUrl = dictionary["thumbnail"] as? String
         
     }
 }
@@ -44,6 +49,7 @@ class TrainerDetailViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     //done
     
+    @IBOutlet weak var thumbnailUrl: UIImageView!
     
     
     @IBOutlet weak var talkButton: UIButton!
@@ -86,6 +92,11 @@ class TrainerDetailViewController: UIViewController {
            self.configureCell(detailTrailer)
         
         })
+        
+        
+        let islandRef = storageRef.child("images/trailer/\(currentUid)")
+        thumbnailUrl.downloadImageWithImageReference(islandRef)
+
 
         
         
@@ -212,7 +223,42 @@ class TrainerDetailViewController: UIViewController {
         })
         
     }
+  
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        
+//        trainerComment
+        
+        
+        if segue.identifier == "player" {
+            
+            let destination = segue.destinationViewController as! AVPlayerViewController
+            destination.player = AVPlayer(URL: videoUrl)
+
+          
+        } else if segue.identifier == "trainerComment" {
+            let controller = segue.destinationViewController as! commentsViewController
+           
+                controller.KeyUid = uid
+            
+        } else if segue.identifier == "talk" {
+            
+            
+            let DestViewController = segue.destinationViewController as! UINavigationController
+            let controller = DestViewController.topViewController as! chatViewController
+            
+            
+            
+                controller.senderId =  currentUid
+                controller.senderDisplayName = currentUserName
+                controller.chatKey = chatKey
+                controller.chatRoomTittle = selectedUsername
+            
+        }
+
+    }
     
     
-       
+    
+    
 }

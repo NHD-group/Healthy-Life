@@ -24,6 +24,7 @@ class uploadVideoViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBOutlet weak var desTextField: UITextField!
     
+    @IBOutlet weak var thumbnailImage: UIImageView!
     
     @IBOutlet weak var uploadStatusLabel: UILabel!
     
@@ -45,6 +46,7 @@ class uploadVideoViewController: UIViewController, UIImagePickerControllerDelega
             self.videoUrl = videoUrl
             libImagesButton.hidden = true
             cameraButton.hidden = true
+            thumbnailImage.image = thumbnailForVideoAtURL(videoUrl)
             
         }
         
@@ -88,10 +90,25 @@ class uploadVideoViewController: UIViewController, UIImagePickerControllerDelega
     
             
         })
-
-
-   
-}
+        
+    }
+    
+    private func thumbnailForVideoAtURL(url: NSURL) -> UIImage? {
+        
+        let asset = AVAsset(URL: url)
+        let assetImageGenerator = AVAssetImageGenerator(asset: asset)
+        
+        var time = asset.duration
+        time.value = min(time.value, 2)
+        
+        do {
+            let imageRef = try assetImageGenerator.copyCGImageAtTime(time, actualTime: nil)
+            return UIImage(CGImage: imageRef)
+        } catch {
+            print("error")
+            return nil
+        }
+    }
 }
 
 
