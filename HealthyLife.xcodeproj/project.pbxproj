@@ -35,6 +35,7 @@
 		04426B1B1D5DB4C9005B3621 /* SCWatermarkOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426B0F1D5DB4C9005B3621 /* SCWatermarkOverlayView.m */; };
 		04426B1F1D5DBA35005B3621 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04426B1D1D5DBA34005B3621 /* GoogleService-Info.plist */; };
 		04426B201D5DBA35005B3621 /* HealthyLife-40181a67534f.json in Resources */ = {isa = PBXBuildFile; fileRef = 04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */; };
+		04D1AA781D66B3FF00106C27 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA771D66B3FF00106C27 /* UIColorExtension.swift */; };
 		3FEE3F4FA3D69AF73B170521 /* Pods_HealthyLife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */; };
 		8409619E1D533183008DE12D /* userSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409619D1D533183008DE12D /* userSettingModel.swift */; };
 		840E474C1D64B0D80002790C /* commentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E474B1D64B0D80002790C /* commentsViewController.swift */; };
@@ -143,6 +144,7 @@
 		04426B1D1D5DBA34005B3621 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "HealthyLife-40181a67534f.json"; sourceTree = "<group>"; };
 		04426B221D5DBE5F005B3621 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		04D1AA771D66B3FF00106C27 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthyLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A91B12079A8F4C1D8E52CAC /* Pods-HealthyLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.release.xcconfig"; sourceTree = "<group>"; };
 		8139B3732A6950CCA938866A /* Pods-HealthyLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.debug.xcconfig"; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 			children = (
 				04426AEB1D5DAA2C005B3621 /* UIImageExtension.swift */,
 				04426AEC1D5DAA2C005B3621 /* UIImageViewExtension.swift */,
+				04D1AA771D66B3FF00106C27 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -946,6 +949,7 @@
 				04426B191D5DB4C9005B3621 /* SCTouchDetector.m in Sources */,
 				8482256F1D4E414500750118 /* demoModel.swift in Sources */,
 				84937EE21D5081EC00E9CBC0 /* SettingViewController.swift in Sources */,
+				04D1AA781D66B3FF00106C27 /* UIColorExtension.swift in Sources */,
 				848225731D4E430D00750118 /* demoTableViewCell.swift in Sources */,
 				841DDAB51D5485BD007917E7 /* cellTableViewCell.swift in Sources */,
 				04426AD11D5D9B07005B3621 /* SignInViewController.swift in Sources */,

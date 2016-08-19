@@ -101,9 +101,9 @@ class chatViewController: JSQMessagesViewController {
     private func setupBubbles() {
         let factory = JSQMessagesBubbleImageFactory()
         outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(
-            Configuration.Colors.brightRed)
+            Configuration.Colors.veryYellow)
         incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(
-            Configuration.Colors.softCyan)
+            Configuration.Colors.paleLimeGreen)
     }
     
     //MARK: checkMessage
@@ -191,9 +191,9 @@ class chatViewController: JSQMessagesViewController {
         let message = messages[indexPath.item]
         
         if message.senderId == senderId {
-            cell.textView!.textColor = UIColor.whiteColor()
+            cell.textView!.textColor = Configuration.Colors.primary
         } else {
-            cell.textView!.textColor = UIColor.blackColor()
+            cell.textView!.textColor = UIColor.darkGrayColor()
         }
         
         return cell
