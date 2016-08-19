@@ -17,6 +17,7 @@ class displayCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var weightChangedLabel: UILabel!
     
+    @IBOutlet weak var loveImage: UIImageView!
     
     @IBOutlet weak var likeCountLabel: UILabel!
     
@@ -49,28 +50,28 @@ class displayCellTableViewCell: UITableViewCell {
                 
             })
             
+            let islandRef = storageRef.child("images/\(result!.resultKey)")
+            avaImage.downloadImageWithImageReference(islandRef)
+
+            
             
             timeLabel.text = "\(result!.time.timeAgo())"
             likeCountLabel.text = "\(result?.love)"
             
             
-            let islandRef = storageRef.child("images/\(result?.resultKey)")
-            avaImage.downloadImageWithImageReference(islandRef)
+          
             
             
         }
     }
     
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
         
-        // Configure the view for the selected state
-    }
+        // UITapGestureRecognizer is set programatically.
+          }
+    
     
 }
-
