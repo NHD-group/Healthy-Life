@@ -95,24 +95,6 @@ class yourVideosViewController: UIViewController, UITableViewDelegate, UITableVi
         print(indexPath.row)
         
         
-        
-        let desertRef = storage.child("videos/\(videos[indexPath.row].key as! String)")
-        // Delete the file
-        desertRef.deleteWithCompletion { (error) -> Void in
-            if (error != nil) {
-                
-                //                let alert = UIAlertController(title: "error", message: "\(error?.localizedDescription)", preferredStyle: .Alert )
-                //                let okAction = UIAlertAction(title: "ok", style: .Default, handler: nil)
-                //                alert.addAction(okAction)
-                //
-                //                self.presentViewController(alert, animated: true, completion: nil)
-                //                 Uh-oh, an error occurred!
-            } else {
-                
-                
-                // File deleted successfully
-            }
-        }
         videoRef.child(videos[indexPath.row].key as! String).removeValue()
         
         

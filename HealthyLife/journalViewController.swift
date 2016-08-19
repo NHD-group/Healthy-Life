@@ -18,8 +18,8 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var weightChangeLabel: UILabel!
     
     @IBOutlet weak var planButton: UIButton!
+ 
     
-    @IBOutlet weak var DOB: UILabel!
     
     @IBOutlet weak var name: UILabel!
     
@@ -71,10 +71,27 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         ref.child("users/\(currentUserID)/user_setting").observeEventType(.Value, withBlock: { snapshot in
             if let postDictionary = snapshot.value as? NSDictionary {
-                        
-                        self.weightChangeLabel.text = "changed: \(postDictionary["weight changed"] as! String)"
-                        self.DOB.text = postDictionary["DOB"] as? String
-                        self.heightLabel.text = postDictionary["height"] as? String
+                
+                ref.child("users").child(self.currentUserID).child("results_journal").observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
+                    
+                    let currentWeight = snapshot.value!["CurrentWeight"] as! String
+                    let startingWeight = postDictionary["weight changed"] as! String
+                    
+                    
+                    let weightChanged = Double(currentWeight)! - Double(startingWeight)!
+                    
+                    if weightChanged > 0 {
+                        self.weightChangeLabel.text = "gain: \(abs(weightChanged)) kg"
+                    } else {
+                        self.weightChangeLabel.text = "lose: \(abs(weightChanged)) kg"
+                    }
+
+                    
+                
+                }
+
+                
+                    self.heightLabel.text = postDictionary["height"] as? String
                     self.followerCountLabel.text = "\(postDictionary["followerCount"] as? Int) followers"
                         
             } else {

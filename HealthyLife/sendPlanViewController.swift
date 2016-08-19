@@ -40,6 +40,9 @@ class sendPlanViewController: UIViewController, UITableViewDelegate, UITableView
         
         DataService.dataService.userRef.child("tracking").child(sendToID).setValue(["name" : selectedFollowerName])
         
+        
+        DataService.dataService.baseRef.child("users").child(sendToID).child("currentTrainer").child((FIRAuth.auth()?.currentUser?.uid)!).child("name").setValue(username)
+        
   
         dismissViewControllerAnimated(true, completion: nil)
         

@@ -31,16 +31,16 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
    
     @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var averageStarLabel: UILabel!
+    @IBOutlet weak var weightChangedLabel: NHDCustomItalicFontLabel!
     
-    @IBOutlet weak var amountPeopleVotedLabel: UILabel!
-    @IBOutlet weak var commentsButton: UIButton!
-    
+    @IBOutlet weak var trainerButton: UIButton!
     
     @IBOutlet weak var followerCountLabel: UILabel!
     
     @IBOutlet weak var followImage: UIImageView!
     
+    let ref = DataService.BaseRef
+    var trainerUid = String()
     
    
     func configureCell(userProfile: UserProfile, setImage: String) {
@@ -48,6 +48,7 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         self.userProfile = userProfile
         selectedUID = setImage
         sellectedUsername = userProfile.username!
+        
         
         
         self.avaImage.layer.cornerRadius = self.avaImage.frame.size.width / 2
@@ -59,25 +60,51 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         
         //MARK: set up labels
         
-
-        let totalPeopleVoted = userProfile.totalPeopleVoted ?? 0
-        if totalPeopleVoted != 0 {
-            averageStarLabel.text = "\(userProfile.totalStar!/totalPeopleVoted)"
-
-        } else {
-            averageStarLabel.text = "0"
+        
+        ref.child("users").child(self.selectedUID).child("results_journal").observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
+            
+            let currentWeight = snapshot.value!["CurrentWeight"] as! String
+            let startingWeight = userProfile.userSetting?.weightChanged as! String
+            
+            
+            let weightChanged = Double(currentWeight)! - Double(startingWeight)!
+            
+            if weightChanged > 0 {
+                self.weightChangedLabel.text = "gain: \(abs(weightChanged)) kg"
+            } else {
+                self.weightChangedLabel.text = "lose: \(abs(weightChanged)) kg"
+            }
+            
+            
             
         }
         
-        let commentsCount = userProfile.userCommentCount ?? 0
-        commentsButton.setTitle("\(commentsCount) comments", forState: .Normal)
-       
+        ref.child("users").child(self.selectedUID).child("currentTrainer").observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
+            
+            if snapshot.value != nil {
+            let name = snapshot.value!["name"] as! String
+              self.trainerButton.setTitle("work with: \(name) ", forState: .Normal)
+                self.trainerUid = snapshot.key
+              
+            } else {
+                self.trainerButton.hidden = true
+            }
+            
+            
+            
+        }
+
+
+
+
+        
+        
         
         HeightLabel.text = userProfile.userSetting?.height as? String
        
         nameLabel.text = sellectedUsername
         followerCountLabel.text = "\(userProfile.followerCount!) followers"
-        amountPeopleVotedLabel.text = "\(totalPeopleVoted) voted"
+      
         //MARK: Set up ava Image
         
         if userProfile.userSetting == nil {

@@ -1,18 +1,31 @@
 //
-//  demoTableViewCell.swift
+//  TrainerDetailViewController.swift
 //  HealthyLife
 //
-//  Created by admin on 7/31/16.
-//  Copyright © 2016 NguyenBui. All rights reserved.
+//  Created by admin on 8/19/16.
+//  Copyright © 2016 NHD Group. All rights reserved.
 //
 
 import UIKit
 import Firebase
-import AVFoundation
-import AVKit
 
-class demoTableViewCell: UITableViewCell {
+class DetailTrailer: NSObject {
+  
+    var videoUrl: String?
+    var des: String?
+    
+    init(dictionary: NSDictionary ) {
+    
+        videoUrl = dictionary["videoUrl"] as? String
+        des = dictionary["description"] as? String
+        
+    }
+}
 
+class TrainerDetailViewController: UIViewController {
+
+    var trainerUid = String()
+    
     @IBOutlet weak var avaImage: UIImageView!
     //done
     
@@ -21,7 +34,7 @@ class demoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var amoutVotes: UILabel!
     //done
-
+    
     @IBOutlet weak var commentCountButton: UIButton!
     //done
     
@@ -31,18 +44,19 @@ class demoTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     //done
     
-
+    
     
     @IBOutlet weak var talkButton: UIButton!
     
     @IBOutlet weak var getHealthyButton: UIButton!
     
     @IBAction func videoTrailerAction(sender: AnyObject) {
-      
-       
+        
+        
     }
     
-    var trailer: Trailer!
+    
+    var Detailtrailer: DetailTrailer!
     var uid = String()
     var videoUrl = NSURL()
     let storageRef = FIRStorage.storage().reference()
@@ -54,32 +68,59 @@ class demoTableViewCell: UITableViewCell {
     var selectedUsername = String()
     
     var chatKey = String()
- 
+    
+    let ref = FIRDatabase.database().reference()
+    
+   
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+   
+        
+        ref.child("videosTrailer").child(trainerUid).observeEventType(.Value, withBlock: { snapshot in
+            let value = snapshot.value as! NSDictionary
+            let detailTrailer = DetailTrailer(dictionary: value)
+            
+          
+           self.configureCell(detailTrailer)
+        
+        })
+
+        
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 
     
-    func configureCell(demo : Trailer ) {
-        trailer = demo
+    
+    
+    func configureCell(demo : DetailTrailer ) {
+        Detailtrailer = demo
         
         currentUserName = NSUserDefaults.standardUserDefaults().valueForKey("currentUserName") as! String
         
-        let url = NSURL(string: trailer.videoUrl!)
+        let url = NSURL(string: Detailtrailer.videoUrl!)
         videoUrl = url!
-        uid = trailer.uid!
-        selectedUid = trailer.uid!
         
-        desTextView.text = trailer.des!
+        
+        uid = trainerUid
+        selectedUid = trainerUid
+        
+        desTextView.text = Detailtrailer.des!
         
         
         // profile
-        let ref = FIRDatabase.database().reference()
+        
         
         ref.child("users").child(uid).observeEventType(.Value, withBlock: { snapshot in
-            
-            guard let dictionary = snapshot.value as? NSDictionary else {
-                return
-            }
-            
-            let userProfile = UserProfile(key: snapshot.key , dictionary: dictionary)
+            let userProfile = UserProfile(key: snapshot.key , dictionary: snapshot.value as! NSDictionary)
             
             self.selectedUsername = userProfile.username!
             
@@ -138,22 +179,22 @@ class demoTableViewCell: UITableViewCell {
                     self.chatKey =  self.selectedUid + self.currentUid
                 }
             })
-
+            
             
         })
         
-
-
         
-       
+        
+        
+        
     }
     
     
     @IBAction func getHealthyAction(sender: AnyObject) {
         
-     DataService.dataService.baseRef.child("users").child(uid).child("trainee").child(currentUid).child("name").setValue( self.currentUserName)
+        DataService.dataService.baseRef.child("users").child(uid).child("trainee").child(currentUid).child("name").setValue( self.currentUserName)
         
- 
+        
         
     }
     
@@ -169,19 +210,9 @@ class demoTableViewCell: UITableViewCell {
             
             
         })
-
-    }
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
         
-        // Configure the view for the selected state
     }
     
+    
+       
 }

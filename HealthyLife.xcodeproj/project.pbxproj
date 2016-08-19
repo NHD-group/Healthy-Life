@@ -61,6 +61,7 @@
 		846BFCCB1D65AF31009333B1 /* displayResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BFCCA1D65AF31009333B1 /* displayResultViewController.swift */; };
 		846BFCCD1D65AF3D009333B1 /* uploadResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BFCCC1D65AF3D009333B1 /* uploadResultViewController.swift */; };
 		846F3D841D56EB3800722674 /* TrackingCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F3D831D56EB3800722674 /* TrackingCellTableViewCell.swift */; };
+		8470B3EC1D66D249000D7638 /* TrainerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8470B3EB1D66D249000D7638 /* TrainerDetailViewController.swift */; };
 		847C45411D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C45401D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift */; };
 		8482256F1D4E414500750118 /* demoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482256E1D4E414500750118 /* demoModel.swift */; };
 		848225711D4E42CB00750118 /* demoLibViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848225701D4E42CB00750118 /* demoLibViewController.swift */; };
@@ -178,6 +179,7 @@
 		846BFCCA1D65AF31009333B1 /* displayResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = displayResultViewController.swift; sourceTree = "<group>"; };
 		846BFCCC1D65AF3D009333B1 /* uploadResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uploadResultViewController.swift; sourceTree = "<group>"; };
 		846F3D831D56EB3800722674 /* TrackingCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingCellTableViewCell.swift; sourceTree = "<group>"; };
+		8470B3EB1D66D249000D7638 /* TrainerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerDetailViewController.swift; sourceTree = "<group>"; };
 		847C45401D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeedtablviewCellTableViewCell.swift; sourceTree = "<group>"; };
 		8482256E1D4E414500750118 /* demoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = demoModel.swift; sourceTree = "<group>"; };
 		848225701D4E42CB00750118 /* demoLibViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = demoLibViewController.swift; sourceTree = "<group>"; };
@@ -681,6 +683,7 @@
 				847C45401D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift */,
 				840E474B1D64B0D80002790C /* commentsViewController.swift */,
 				840E474D1D64B7CE0002790C /* commentCellTableViewCell.swift */,
+				8470B3EB1D66D249000D7638 /* TrainerDetailViewController.swift */,
 			);
 			name = newFeed;
 			sourceTree = "<group>";
@@ -901,6 +904,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				844A872B1D58704D00DEC697 /* chatterModel.swift in Sources */,
+				8470B3EC1D66D249000D7638 /* TrainerDetailViewController.swift in Sources */,
 				844902271D56310C00B8ADF3 /* trackingViewController.swift in Sources */,
 				04426B121D5DB4C9005B3621 /* SCRecorderViewController.m in Sources */,
 				840E47521D64CF4E0002790C /* DetailsActivitiesDoneViewController.swift in Sources */,

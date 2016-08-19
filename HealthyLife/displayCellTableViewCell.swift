@@ -56,7 +56,7 @@ class displayCellTableViewCell: UITableViewCell {
             
             
             timeLabel.text = "\(result!.time.timeAgo())"
-            likeCountLabel.text = "\(result?.love)"
+            likeCountLabel.text = "\(result!.love)"
             
             
           
