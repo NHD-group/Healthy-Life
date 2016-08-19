@@ -12,6 +12,7 @@ import Firebase
 class sendedPlanCellTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var rateButton: UIButton!
     
     @IBOutlet weak var planName: UILabel!
     
@@ -29,6 +30,9 @@ class sendedPlanCellTableViewCell: UITableViewCell {
     }
     
 
+    @IBAction func rateAction(sender: AnyObject) {
+        
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
