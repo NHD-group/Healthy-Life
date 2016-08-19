@@ -76,7 +76,12 @@ class demoTableViewCell: UITableViewCell {
         let ref = FIRDatabase.database().reference()
         
         ref.child("users").child(uid).observeEventType(.Value, withBlock: { snapshot in
-            let userProfile = UserProfile(key: snapshot.key , dictionary: snapshot.value as! NSDictionary)
+            
+            guard let dictionary = snapshot.value as? NSDictionary else {
+                return
+            }
+            
+            let userProfile = UserProfile(key: snapshot.key , dictionary: dictionary)
             
             self.selectedUsername = userProfile.username!
             
