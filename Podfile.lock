@@ -14,6 +14,9 @@ PODS:
   - Firebase/Database (3.4.0):
     - Firebase/Analytics
     - FirebaseDatabase (= 3.0.2)
+  - Firebase/Messaging (3.4.0):
+    - Firebase/Analytics
+    - FirebaseMessaging (= 1.1.1)
   - Firebase/Storage (3.4.0):
     - Firebase/Analytics
     - FirebaseStorage (= 1.0.2)
@@ -36,11 +39,20 @@ PODS:
   - FirebaseDatabase (3.0.2):
     - FirebaseAnalytics (~> 3.2)
   - FirebaseInstanceID (1.0.8)
+  - FirebaseMessaging (1.1.1):
+    - FirebaseAnalytics (~> 3.3)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleIPhoneUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
   - FirebaseStorage (1.0.2):
     - FirebaseAnalytics (~> 3.2)
     - GoogleNetworkingUtilities (~> 1.2)
   - GoogleInterchangeUtilities (1.2.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - GoogleIPhoneUtilities (1.2.1):
+    - GoogleSymbolUtilities (~> 1.0)
+    - GoogleUtilities (~> 1.0)
   - GoogleNetworkingUtilities (1.2.1):
     - GoogleSymbolUtilities (~> 1.0)
   - GoogleParsingUtilities (1.1.1):
@@ -52,7 +64,7 @@ PODS:
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
-  - Kingfisher (2.4.2)
+  - Kingfisher (2.4.3)
   - MBProgressHUD (1.0.0)
   - NSDate+TimeAgo (1.0.6)
   - SCRecorder (2.7.0)
@@ -61,8 +73,10 @@ PODS:
 DEPENDENCIES:
   - Firebase
   - Firebase/Auth
+  - Firebase/Core
   - Firebase/Crash
   - Firebase/Database
+  - Firebase/Messaging
   - Firebase/Storage
   - JSQMessagesViewController (~> 7.3)
   - Kingfisher (~> 2.4)
@@ -78,15 +92,17 @@ SPEC CHECKSUMS:
   FirebaseCrash: 2efeb3715b76ac843b841529ce413efb67e5fd4d
   FirebaseDatabase: 59bea2e7dfd81b3b8b2f8e396caf1a52c2ced6f7
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  FirebaseMessaging: 6bc7cd2ecb875c1a9c0f8b94956398aa3145bbb8
   FirebaseStorage: fa2a87dee81f682f553af6839daa37a750e65f6a
   GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
+  GoogleIPhoneUtilities: 63f25e93a3ddcb66884d182aab3a660d98f1479b
   GoogleNetworkingUtilities: 3e83269048cfb498dc7ec83ab36813360965c74f
   GoogleParsingUtilities: 30b3896f9ee167dc78747f013d3de157ced1cadf
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
-  Kingfisher: 05bf8d04408aaa70fcd2c8c81b9f1d0f1ad313dd
+  Kingfisher: 322a9c1c5b03212c1e741d6bece72d387b01a77a
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   NSDate+TimeAgo: 35601c619b2d59290055e4fe76e61d97677a2360
   SCRecorder: bbb521dbc222908876ec9cd9156bbc8a893bed44
