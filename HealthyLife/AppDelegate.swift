@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseMessaging
+import FirebaseInstanceID
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,6 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.changeRootView(true, animated: true)
         }
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.tokenRefreshNotificaiton),
+                                                         name: kFIRInstanceIDTokenRefreshNotification, object: nil)
+        
         return true
     }
 
@@ -45,20 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboardName = isLoggedIn ? "Main" : "SignIn"
         let storyBoard = UIStoryboard(name: storyboardName, bundle: nil)
         let vc = storyBoard.instantiateInitialViewController()
-
-//        if isLoggedIn {
-//            let journal = storyBoard.instantiateViewControllerWithIdentifier("personal") as! UINavigationController
-//            let demoLib = storyBoard.instantiateViewControllerWithIdentifier("demoLib") as! UINavigationController
-//            
-//            let newFeed = storyBoard.instantiateViewControllerWithIdentifier("newFeed") as! UINavigationController
-//            
-//            let talks = storyBoard.instantiateViewControllerWithIdentifier("talks") as! UINavigationController
-//            
-//            let tabbarVC = MainTabBarViewController()
-//            tabbarVC.viewControllers = [journal, demoLib, newFeed, talks]
-//            vc = tabbarVC
-//        }
-//        
         if animated == false {
             self.window?.rootViewController = vc
             return
@@ -69,14 +60,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }, completion: nil)
     }
     
+    func tokenRefreshNotificaiton(notification: NSNotification) {
+        let refreshedToken = FIRInstanceID.instanceID().token()!
+        print("InstanceID token: \(refreshedToken)")
+        
+        // Connect to FCM since connection may have failed when attempted before having a token.
+        connectToFcm()
+    }
+    // [END refresh_token]
+    
+    // [START connect_to_fcm]
+    func connectToFcm() {
+        FIRMessaging.messaging().connectWithCompletion { (error) in
+            if (error != nil) {
+                print("Unable to connect with FCM. \(error)")
+            } else {
+                print("Connected to FCM.")
+            }
+        }
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        FIRMessaging.messaging().disconnect()
+        print("Disconnected from FCM.")
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
