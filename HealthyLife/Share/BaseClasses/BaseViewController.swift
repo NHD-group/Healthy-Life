@@ -48,7 +48,9 @@ class BaseViewController: UIViewController {
     }
     
     func keyboardWillDisappear() {
-        view.removeGestureRecognizer(tapOnKeyboard!)
+        if tapOnKeyboard != nil {
+            view.removeGestureRecognizer(tapOnKeyboard!)
+        }
     }
     
     func onBack() {
