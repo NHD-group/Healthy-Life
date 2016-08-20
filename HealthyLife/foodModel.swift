@@ -13,16 +13,16 @@ class Food {
     private var FoodRef: FIRDatabaseReference!
     
     private var FoodKey: String!
-    private var FoodDes: String!
+    private var FoodDes: String?
     private var Love: Int!
-    private var Time: NSDate!
+    private var Time: NSDate?
     var currentID = DataService.currentUserID
     
     var foodKey: String {
         return FoodKey
     }
     
-    var foodDes: String {
+    var foodDes: String? {
         return FoodDes
     }
     
@@ -30,7 +30,7 @@ class Food {
         return Love
     }
     
-    var time: NSDate {
+    var time: NSDate? {
         return Time
     }
     
