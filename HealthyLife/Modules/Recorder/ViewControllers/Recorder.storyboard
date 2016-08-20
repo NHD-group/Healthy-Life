@@ -12,6 +12,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xx1-vR-ccO">
+                                <rect key="frame" x="128" y="150" width="63" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="50"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" id="5sm-lp-ye4" userLabel="Preview View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,11 +42,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="eLo-xi-Gev" userLabel="Record View">
-                                        <rect key="frame" x="0.0" y="-1" width="162" height="56"/>
+                                        <rect key="frame" x="0.0" y="-1" width="162" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hold to record" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X5y-HF-Cxa">
-                                                <rect key="frame" x="36" y="17" width="102" height="21"/>
+                                                <rect key="frame" x="36" y="11" width="102" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -49,7 +56,7 @@
                                         <color key="backgroundColor" red="1" green="0.29803921570000003" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XjY-JE-Kvs">
-                                        <rect key="frame" x="247" y="-1" width="73" height="56"/>
+                                        <rect key="frame" x="247" y="-1" width="73" height="46"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
@@ -62,7 +69,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Eum-u5-1Bq">
-                                        <rect key="frame" x="162" y="-1" width="85" height="56"/>
+                                        <rect key="frame" x="162" y="-1" width="85" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.3803921569" green="0.68235294120000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
@@ -75,7 +82,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FL3-np-18q">
-                                        <rect key="frame" x="0.0" y="54" width="320" height="38"/>
+                                        <rect key="frame" x="0.0" y="45" width="247" height="47"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -92,7 +99,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ATA-8X-LMq">
-                                        <rect key="frame" x="0.0" y="53" width="320" height="38"/>
+                                        <rect key="frame" x="0.0" y="45" width="247" height="46"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.3294117647" green="0.87843137250000003" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -105,6 +112,22 @@
                                         </state>
                                         <connections>
                                             <action selector="capturePhoto:" destination="nA0-Aw-TaC" eventType="touchUpInside" id="WSv-Ih-y1v"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="v9Z-uO-0Sn">
+                                        <rect key="frame" x="247" y="44" width="73" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.98823529409999999" green="1" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="Timer">
+                                            <color key="titleColor" red="0.91764705879999997" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTimerTap:" destination="nA0-Aw-TaC" eventType="touchUpInside" id="OPu-hy-baM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -244,12 +267,14 @@
                         <outlet property="loadingView" destination="BCA-N4-das" id="g7h-tA-HkC"/>
                         <outlet property="openToolsButton" destination="eKS-QO-mM4" id="dNZ-GI-iU9"/>
                         <outlet property="previewView" destination="5sm-lp-ye4" id="EOW-Bl-vMb"/>
+                        <outlet property="recordButton" destination="FL3-np-18q" id="XZS-7F-DoC"/>
                         <outlet property="recordView" destination="eLo-xi-Gev" id="ziQ-V6-fUh"/>
                         <outlet property="retakeButton" destination="Eum-u5-1Bq" id="vyI-4C-u3E"/>
                         <outlet property="reverseCamera" destination="gvo-cq-tEM" id="nAm-uj-YbM"/>
                         <outlet property="stopButton" destination="XjY-JE-Kvs" id="66V-Q2-O7U"/>
                         <outlet property="switchCameraModeButton" destination="PdC-1m-GF3" id="OKd-fa-KcZ"/>
                         <outlet property="timeRecordedLabel" destination="qM8-mr-gFJ" id="QDT-u0-Ojq"/>
+                        <outlet property="timerLabel" destination="Xx1-vR-ccO" id="Fw7-yc-1XT"/>
                         <outlet property="toolsContainerView" destination="O8G-06-pRl" id="d0q-Bs-1UE"/>
                         <segue destination="4Jj-Tr-4Be" kind="push" identifier="Video" id="O4e-FZ-k9s"/>
                         <segue destination="zU6-LM-WLm" kind="push" identifier="Photo" id="1en-oQ-SHY"/>

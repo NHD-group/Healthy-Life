@@ -31,7 +31,7 @@ class BaseNavigationController: UINavigationController {
         navigationBar.addSubview(topView)
         
         UINavigationBar.appearance().titleTextAttributes = [
-            NSFontAttributeName: NHDFontBucket.boldItalicFontWithSize(25)
+            NSFontAttributeName: NHDFontBucket.boldItalicFontWithSize(20)
         ]
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: NHDFontBucket.blackFontWithSize(12)], forState: .Normal)
     }

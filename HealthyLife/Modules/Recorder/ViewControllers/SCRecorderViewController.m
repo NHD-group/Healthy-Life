@@ -28,9 +28,12 @@
     UIImage *_photo;
     SCRecordSession *_recordSession;
     UIImageView *_ghostImageView;
+    NSTimer *timer;
 }
 
 @property (strong, nonatomic) SCRecorderToolsView *focusView;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+@property (weak, nonatomic) IBOutlet UIButton *recordButton;
 
 @end
 
@@ -196,6 +199,7 @@
     [self showVideo];
 }
 - (void) handleStopButtonTapped:(id)sender {
+    self.recordButton.selected = NO;
     [_recorder pause:^{
         [self saveAndShowSession:_recorder.session];
     }];
@@ -360,10 +364,45 @@
     }
 }
 
+- (IBAction)onTimerTap:(id)sender {
+    
+    self.timerLabel.text = @"6";
+    
+    if (timer == nil) {
+        timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                 target:self
+                                               selector:@selector(onTimerChange)
+                                               userInfo:nil
+                                                repeats:YES];
+    }
+}
+
+- (void)onTimerChange {
+    
+    self.timerLabel.hidden = NO;
+    int value = self.timerLabel.text.intValue - 1;
+    self.timerLabel.text = [NSString stringWithFormat:@"%d", value];
+
+    self.timerLabel.transform = CGAffineTransformMakeScale(3.0, 3.0);
+    [UIView animateWithDuration:0.5 animations:^{
+        self.timerLabel.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+    }];
+
+    if (value == 0) {
+        self.timerLabel.hidden = YES;
+        [_recorder record];
+        self.recordButton.selected = YES;
+        [timer invalidate];
+        timer = nil;
+    }
+}
+
 - (IBAction)recordVideo:(UIButton *)button {
     
     if (button.selected) {
         [_recorder pause];
+        [self handleStopButtonTapped:nil];
     } else {
         [_recorder record];
     }

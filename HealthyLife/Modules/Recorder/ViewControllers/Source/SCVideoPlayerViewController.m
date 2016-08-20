@@ -76,11 +76,15 @@
     
     self.exportView.clipsToBounds = YES;
     self.exportView.layer.cornerRadius = 20;
-    UIBarButtonItem *exitButton = [[UIBarButtonItem alloc] initWithTitle:@"Exit" style:UIBarButtonItemStylePlain target:self action:@selector(closeVideoPlayer)];
+    
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [button setBackgroundImage:[UIImage imageNamed:@"close-icon"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(closeVideoPlayer) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *exitButton = [[UIBarButtonItem alloc] initWithCustomView:button];
     exitButton.tintColor = [UIColor lightGrayColor];
     
     self.navigationItem.rightBarButtonItems = @[
-//                                                exitButton,
+                                                exitButton,
                                                 [[UIBarButtonItem alloc] initWithTitle:@"UPLOAD" style:UIBarButtonItemStylePlain target:self action:@selector(saveToCameraRoll)]
                                                 ];
     
