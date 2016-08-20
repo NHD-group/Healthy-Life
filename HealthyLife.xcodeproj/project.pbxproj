@@ -40,6 +40,7 @@
 		04D1AA7C1D66FC4E00106C27 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA7B1D66FC4E00106C27 /* Helper.swift */; };
 		04D1AA7E1D67046600106C27 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA7D1D67046600106C27 /* BaseViewController.swift */; };
 		3FEE3F4FA3D69AF73B170521 /* Pods_HealthyLife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */; };
+		746E341E1D67F80900E9C9A0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E341D1D67F80900E9C9A0 /* Message.swift */; };
 		8409619E1D533183008DE12D /* userSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409619D1D533183008DE12D /* userSettingModel.swift */; };
 		840E474C1D64B0D80002790C /* commentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E474B1D64B0D80002790C /* commentsViewController.swift */; };
 		840E474E1D64B7CE0002790C /* commentCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E474D1D64B7CE0002790C /* commentCellTableViewCell.swift */; };
@@ -153,6 +154,7 @@
 		04D1AA7B1D66FC4E00106C27 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		04D1AA7D1D67046600106C27 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthyLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		746E341D1D67F80900E9C9A0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		7A91B12079A8F4C1D8E52CAC /* Pods-HealthyLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.release.xcconfig"; sourceTree = "<group>"; };
 		8139B3732A6950CCA938866A /* Pods-HealthyLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.debug.xcconfig"; sourceTree = "<group>"; };
 		8409619D1D533183008DE12D /* userSettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userSettingModel.swift; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 				844A87281D586E7100DEC697 /* talksViewController.swift */,
 				844A872A1D58704D00DEC697 /* chatterModel.swift */,
 				84C8920B1D63450700DA1F2B /* TalksCellTableViewCell.swift */,
+				746E341D1D67F80900E9C9A0 /* Message.swift */,
 			);
 			name = talkBox;
 			sourceTree = "<group>";
@@ -961,6 +964,7 @@
 				84C8920C1D63450700DA1F2B /* TalksCellTableViewCell.swift in Sources */,
 				844B8FF51D668C8900B42991 /* ResultModel.swift in Sources */,
 				04426B171D5DB4C9005B3621 /* SCSessionListViewController.m in Sources */,
+				746E341E1D67F80900E9C9A0 /* Message.swift in Sources */,
 				84BD7C7F1D63FF5D006A868E /* ratingViewController.swift in Sources */,
 				84FACCAD1D4F3D6A00E73FDC /* NewfeedViewController.swift in Sources */,
 				84AB52821D488A6000CB99FE /* FoodTableViewCell.swift in Sources */,

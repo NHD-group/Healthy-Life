@@ -9,15 +9,17 @@
 import UIKit
 import JSQMessagesViewController
 import Firebase
+import Kingfisher
 
-class chatViewController: JSQMessagesViewController {
+class chatViewController: JSQMessagesViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var chatRoomTittle: String?
     
+    let storageRef = FIRStorage.storage().reference()
     
     var messageRef: FIRDatabaseReference!
     
-    var messages = [JSQMessage]()
+    var messages = [Message]()
     
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
     var incomingBubbleImageView: JSQMessagesBubbleImage!
@@ -39,6 +41,10 @@ class chatViewController: JSQMessagesViewController {
     }
     
     var usersTypingQuery: FIRDatabaseQuery!
+    
+    let imagePicker = UIImagePickerController()
+    
+    
     //*******
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,23 +57,14 @@ class chatViewController: JSQMessagesViewController {
         
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
-        collectionView!.collectionViewLayout.messageBubbleFont = NHDFontBucket.blackFontWithSize(15)
-
-        // Do any additional setup after loading the view.
         
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        button.setBackgroundImage(UIImage(named: "close-icon"), forState: UIControlState.Normal)
-        button.addTarget(self, action: #selector(self.onBack), forControlEvents: UIControlEvents.TouchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
-    }
-    
-    
-    func onBack() {
-        dismissViewControllerAnimated(true, completion: nil)
+        observeMessages()
+        observeTyping()
     }
     
     @IBAction func backAction(sender: AnyObject) {
-        onBack()
+        dismissViewControllerAnimated(true, completion: nil)
+        
     }
     //MARK: add message to firebase
     
@@ -75,11 +72,12 @@ class chatViewController: JSQMessagesViewController {
                                      senderDisplayName: String!, date: NSDate!) {
         
         let itemRef = messageRef.childByAutoId() // 1
+        
         let messageItem = [ // 2
+            "type": "TEXT",
             "text": text,
             "senderId": senderId
         ]
-        
         
         itemRef.setValue(messageItem) // 3
         
@@ -87,32 +85,30 @@ class chatViewController: JSQMessagesViewController {
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         
         // 5
-        finishSendingMessageAnimated(true)
-
+        finishSendingMessage()
         
         isTyping = false
     }
     
-    func addMessage(id: String, text: String) {
-        let message = JSQMessage(senderId: id, displayName: "", text: text)
+    func addTextMessage(id: String, text: String) {
+        //let message = JSQMessage(senderId: id, displayName: "", text: text)
+        let message = Message(senderId: id, senderDisplayName: "", type: .Text, data: text)
         messages.append(message)
     }
     
-    //MARK: cai nay la de hien message
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        observeMessages()
-        observeTyping()
+    func addPhotoMessage(id: String, photo: UIImage) {
+        let message = Message(senderId: id, senderDisplayName: "", type: .Photo, data: photo)
+        messages.append(message)
     }
+    
     //************
     
     private func setupBubbles() {
         let factory = JSQMessagesBubbleImageFactory()
         outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(
-            Configuration.Colors.veryYellow)
+            UIColor.jsq_messageBubbleBlueColor())
         incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(
-            Configuration.Colors.paleLimeGreen)
+            UIColor.jsq_messageBubbleLightGrayColor())
     }
     
     //MARK: checkMessage
@@ -120,18 +116,32 @@ class chatViewController: JSQMessagesViewController {
     private func observeMessages() {
         // 1
         let messagesQuery = messageRef.queryLimitedToLast(25)
+        
         // 2
-        messagesQuery.observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
+        messageRef.observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
             // 3
             let id = snapshot.value!["senderId"] as! String
-            let text = snapshot.value!["text"] as! String
-            
-            // 4
-            self.addMessage(id, text: text)
-            
-            // 5
+            let type = snapshot.value!["type"] as! String
+            if type == "TEXT" {
+                let text = snapshot.value!["text"] as! String
+                // 4
+                
+                self.addTextMessage(id, text: text)
+                
+                
+                
+            }
+            else if type == "PHOTO" {
+                let text = snapshot.value!["text"] as! String
+                
+                let imageData = NSData(base64EncodedString: text, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+                let image = UIImage(data: imageData!)
+                self.addPhotoMessage(id, photo: image!)
+            }
             self.finishReceivingMessage()
         }
+        
+        
     }
     
     //********
@@ -169,7 +179,7 @@ class chatViewController: JSQMessagesViewController {
     
     override func collectionView(collectionView: JSQMessagesCollectionView!,
                                  messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
-        return messages[indexPath.item]
+        return messages[indexPath.item].data
     }
     
     override func collectionView(collectionView: UICollectionView,
@@ -199,12 +209,14 @@ class chatViewController: JSQMessagesViewController {
         
         let message = messages[indexPath.item]
         
-        if message.senderId == senderId {
-            cell.textView!.textColor = Configuration.Colors.primary
-        } else {
-            cell.textView!.textColor = UIColor.darkGrayColor()
+        if message.type == Message.MessageType.Text {
+            if message.senderId == senderId {
+                cell.textView!.textColor = UIColor.whiteColor()
+            } else {
+                cell.textView!.textColor = UIColor.blackColor()
+            }
+            cell.textView.font = NHDFontBucket.fontWithSize(cell.textView.font!.pointSize)
         }
-        
         return cell
     }
     
@@ -212,6 +224,44 @@ class chatViewController: JSQMessagesViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func didPressAccessoryButton(sender: UIButton!) {
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            let image = pickedImage.resizeImage(CGSize(width: 500, height: 500))
+            
+            let imageData:NSData = UIImagePNGRepresentation(image)!
+            
+            let dataStr = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+            
+            let itemRef = self.messageRef.childByAutoId() //
+            
+            let messageItem = [ // 2
+                "type": "PHOTO",
+                "text": dataStr ,
+                "senderId": self.senderId
+            ]
+            
+            itemRef.setValue(messageItem)
+            
+            self.finishSendingMessage()
+            
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     
