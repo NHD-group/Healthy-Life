@@ -293,9 +293,9 @@ extension chatViewController: UIImagePickerControllerDelegate, UINavigationContr
             
             MBProgressHUD.showHUDAddedTo(self.view, animated: true)
 
-            let key = DataService.dataService.userRef.child("yourVideo").childByAutoId().key
+            let itemRef = self.messageRef.childByAutoId()
             
-            FIRStorage.storage().reference().child("videos").child(key).putFile(videoURL, metadata: nil, completion: { (metadata, error) in
+            FIRStorage.storage().reference().child("videosChat").child(itemRef.key).putFile(videoURL, metadata: nil, completion: { (metadata, error) in
                 if error  != nil {
                     
                     Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
@@ -303,7 +303,6 @@ extension chatViewController: UIImagePickerControllerDelegate, UINavigationContr
                     if let videoUrl = metadata?.downloadURL()?.absoluteString {
 
                         let type = Message.MessageType.Video.rawValue
-                        let itemRef = self.messageRef.childByAutoId()
                         var thumbnail = Helper.thumbnailForVideoAtURL(videoURL)
                         thumbnail = thumbnail?.addWaterMark(UIImage(named: "lightboxPlayIconW")!)
 
