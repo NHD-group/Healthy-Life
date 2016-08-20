@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class dailyPlanViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,6 +26,7 @@ class dailyPlanViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.dataSource = self
         // Do any additional setup after loading the view.
         
+        showLoading()
         DataService.dataService.activitiesPlannedRef.child(segue).child(key).child("activities").observeEventType(.Value, withBlock: { snapshot in
             self.activities = []
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
@@ -51,7 +52,7 @@ class dailyPlanViewController: UIViewController, UITableViewDataSource, UITableV
             // Be sure that the tableView updates when there is new data.
             
             self.tableView.reloadData()
-            //            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            self.hideLoading()
         })
         
         

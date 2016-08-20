@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class journalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class journalViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -114,7 +114,7 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         //MARK: Set Up table data
-        
+        showLoading()
         ref.child("users").child(currentUserID).child("food_journal").queryLimitedToLast(10).observeEventType(.Value, withBlock: { snapshot in
             
             // The snapshot is a current look at our jokes data.
@@ -145,7 +145,7 @@ class journalViewController: UIViewController, UITableViewDelegate, UITableViewD
             // Be sure that the tableView updates when there is new data.
             
             self.tableView.reloadData()
-//            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            self.hideLoading()
         })
 
         

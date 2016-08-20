@@ -23,7 +23,7 @@ class Trailer: NSObject {
     }
 }
 
-class demoLibViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class demoLibViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -42,6 +42,7 @@ class demoLibViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let ref = DataService.BaseRef
 
+        showLoading()
         ref.child("videosTrailer").observeEventType(.Value, withBlock: { snapshot in
             
             self.trailers = []
@@ -68,7 +69,7 @@ class demoLibViewController: UIViewController, UITableViewDelegate, UITableViewD
             // Be sure that the tableView updates when there is new data.
             
             self.tableView.reloadData()
-            //            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            self.hideLoading()
             
         })
         

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase 
 
-class displayResultViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class displayResultViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
         
@@ -26,6 +26,7 @@ class displayResultViewController: UIViewController, UITableViewDataSource, UITa
         let ref = DataService.BaseRef
         let currentUserID = (FIRAuth.auth()?.currentUser?.uid)!
         
+        showLoading()
         ref.child("users").child(currentUserID).child("results_journal").queryLimitedToLast(10).observeEventType(.Value, withBlock: { snapshot in
             
             // The snapshot is a current look at our jokes data.
@@ -56,7 +57,7 @@ class displayResultViewController: UIViewController, UITableViewDataSource, UITa
             // Be sure that the tableView updates when there is new data.
             
             self.tableView.reloadData()
-            //            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            self.hideLoading()
         })
         
         

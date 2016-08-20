@@ -7,21 +7,35 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class Helper: NSObject {
     
-    static func showAlert(title: String, message: String?, inViewController nav: UIViewController) {
+    static func showAlert(title: String, message: String?, okActionBlock: (()->())?, cancelActionBlock: (()->())?, inViewController nav: UIViewController) {
         
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         
-        let OKAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
-            
+        if cancelActionBlock != nil {
+            let CancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+                cancelActionBlock!()
+            }
+            alertVC.addAction(CancelAction)
+        }
+        
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            if okActionBlock != nil {
+                okActionBlock!()
+            }
         }
         
         alertVC.addAction(OKAction)
         nav.presentViewController(alertVC, animated: true, completion: nil)
+        MBProgressHUD.hideHUDForView(nav.view, animated: true)
     }
     
+    static func showAlert(title: String, message: String?, inViewController nav: UIViewController) {
+        showAlert(title, message: message, okActionBlock: nil, cancelActionBlock: nil, inViewController: nav)
+    }
     
     static func getPresentationDateString(sinceDate: NSDate) -> String {
         let DateFormatter = NSDateFormatter()

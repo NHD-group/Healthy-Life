@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class NewfeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,6 +29,7 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let ref = FIRDatabase.database().reference()
 
+        showLoading()
         ref.child("users").observeEventType(.Value, withBlock: { snapshot in
             
             self.users = []
@@ -62,7 +63,7 @@ class NewfeedViewController: UIViewController, UITableViewDataSource, UITableVie
             // Be sure that the tableView updates when there is new data.
             
             self.tableView.reloadData()
-            //            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            self.hideLoading()
             
             
             

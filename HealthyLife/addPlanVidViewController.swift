@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class addPlanVidViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class addPlanVidViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     var nameOfPlan = [String]()
@@ -102,8 +102,7 @@ class addPlanVidViewController: UIViewController, UITableViewDataSource, UITable
         
         startingView()
         
-        
-        
+        showLoading()
         planRef.observeEventType(.Value, withBlock: { snapshot in
             
             print(snapshot)
@@ -122,8 +121,7 @@ class addPlanVidViewController: UIViewController, UITableViewDataSource, UITable
             
             
             self.tableView.reloadData()
-            //            MBProgressHUD.hideHUDForView(self.view, animated: true)
-            
+            self.hideLoading()
             
         })
         

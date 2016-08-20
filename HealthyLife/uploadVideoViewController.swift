@@ -89,7 +89,8 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
             return
         }
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
+        showLoading()
 
         let key = DataService.dataService.userRef.child("yourVideo").childByAutoId().key
 
@@ -103,13 +104,15 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
                     let videoInfo: [String: AnyObject] = ["videoUrl": videoUrl, "name": self.nameVideoTextField.text!, "description": self.desTextField.text!]
                     
                     DataService.dataService.userRef.child("yourVideo").child(key).setValue(videoInfo)
+                    Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
+
                 }
                 
             }
         })
         
         uploadTask.observeStatus(.Success, handler: { (snapshot) in
-            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            self.hideLoading()
             self.onBack()
         })
         

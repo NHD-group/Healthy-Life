@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class weeklyPlanViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,62 +29,56 @@ class weeklyPlanViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.registerClass(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HeaderViewIdentifier)
         tableView.registerClass(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: headerViewIdentifier)
         
-        
+        showLoading()
         FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("activities_planned")
-.child("yourPlan").observeEventType(.Value, withBlock: { snapshot in
-            
-            
-            
-            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+            .child("yourPlan").observeEventType(.Value, withBlock: { snapshot in
                 
                 
                 
-                self.yourPlans = []
-                
-                for snap in snapshots {
+                if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                     
-                    let key = snap.key
+                    self.yourPlans = []
                     
-                    self.yourPlans.insert(key, atIndex: 0)
+                    for snap in snapshots {
+                        
+                        let key = snap.key
+                        
+                        self.yourPlans.insert(key, atIndex: 0)
+                    }
+                    
                 }
                 
-            }
-            
-            // Be sure that the tableView updates when there is new data.
-            
-            self.tableView.reloadData()
-            //            MBProgressHUD.hideHUDForView(self.view, animated: true)
-            
-        })
+                // Be sure that the tableView updates when there is new data.
+                
+                self.tableView.reloadData()
+                self.hideLoading()
+                
+            })
         
         
-        
+        showLoading()
         FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("activities_planned")
-.child("sendedPlan").observeEventType(.Value, withBlock: { snapshot in
+            .child("sendedPlan").observeEventType(.Value, withBlock: { snapshot in
             
-            
-            
-            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                
-                
-                
-                self.sendedPlans = []
-                
-                for snap in snapshots {
+                if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+              
+                    self.sendedPlans = []
                     
-                    let key = snap.key
+                    for snap in snapshots {
+                        
+                        let key = snap.key
+                        
+                        self.sendedPlans.insert(key, atIndex: 0)
+                    }
                     
-                    self.sendedPlans.insert(key, atIndex: 0)
                 }
                 
-            }
-            
-            // Be sure that the tableView updates when there is new data.
-            
-            self.tableView.reloadData()
-            //            MBProgressHUD.hideHUDForView(self.view, animated: true)
-            
-        })
+                // Be sure that the tableView updates when there is new data.
+                
+                self.tableView.reloadData()
+                self.hideLoading()
+                
+            })
         
         
         

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class BaseViewController: UIViewController {
 
@@ -52,5 +53,13 @@ class BaseViewController: UIViewController {
     
     func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    func showLoading() {
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+    }
+    
+    func hideLoading() {
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
     }
 }

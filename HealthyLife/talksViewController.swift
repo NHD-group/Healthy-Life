@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class talksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class talksViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     var chatters = [Chatter]()
     
@@ -23,7 +23,8 @@ class talksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-                
+        
+        showLoading()
         DataService.dataService.chatRoom.queryLimitedToLast(20).observeEventType(.Value, withBlock: { snapshot in
             
             
@@ -52,7 +53,7 @@ class talksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             // Be sure that the tableView updates when there is new data.
             
             self.tableView.reloadData()
-            //            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            self.hideLoading()
         })
         // Do any additional setup after loading the view.
     }

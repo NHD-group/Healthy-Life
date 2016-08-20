@@ -11,7 +11,7 @@ import Firebase
 import MobileCoreServices
 import AVFoundation
 
-class AddDemoViewController: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class AddDemoViewController: BaseViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     @IBOutlet weak var desTextView: UITextView!
     
@@ -26,6 +26,8 @@ class AddDemoViewController: UIViewController , UIImagePickerControllerDelegate,
     @IBOutlet weak var uploadStatusLabel: UILabel!
     @IBAction func uploadAction(sender: AnyObject) {
         
+        showLoading()
+
         let trailerRef = FIRDatabase.database().reference().child("videosTrailer").child(currentUid)
         
         let uploadTask = FIRStorage.storage().reference().child("videosTrailer").child(currentUid).putFile(videoUrl, metadata: nil, completion: { (metadata, error) in
@@ -85,6 +87,7 @@ class AddDemoViewController: UIViewController , UIImagePickerControllerDelegate,
         
         uploadTask.observeStatus(.Success, handler: { (snapshot) in
             self.uploadStatusLabel.text = "done"
+            self.hideLoading()
         })
 
 
