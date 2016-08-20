@@ -30,7 +30,7 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
         let ref = FIRDatabase.database().reference()
 
         showLoading()
-        ref.child("users").observeEventType(.Value, withBlock: { snapshot in
+        ref.child("users").queryOrderedByChild("followerCount").queryLimitedToFirst(20).observeEventType(.Value, withBlock: { snapshot in
             
             self.users = []
             self.keys = []

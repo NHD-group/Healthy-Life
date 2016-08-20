@@ -20,7 +20,9 @@ class journalViewController: BaseViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var planButton: UIButton!
  
     
+    @IBOutlet weak var trackingButton: NHDCustomSubmitButton!
     
+    @IBOutlet weak var uploadButton: NHDCustomSubmitButton!
     @IBOutlet weak var name: UILabel!
     
     @IBOutlet weak var heightLabel: UILabel!
@@ -57,6 +59,8 @@ class journalViewController: BaseViewController, UITableViewDelegate, UITableVie
         if currentUserID != DataService.currentUserID {
             settingButton.hidden = true
             planButton.hidden = true
+            trackingButton.hidden = true
+            uploadButton.hidden = true
         }
         
 //        self.name.text = currentUserName

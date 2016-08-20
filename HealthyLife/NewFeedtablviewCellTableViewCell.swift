@@ -28,7 +28,7 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
     @IBOutlet weak var talkButton: UIButton!
     
     @IBOutlet weak var HeightLabel: UILabel!
-   
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var weightChangedLabel: NHDCustomItalicFontLabel!
@@ -42,12 +42,14 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
     let ref = DataService.BaseRef
     var trainerUid = String()
     
-   
+    
     func configureCell(userProfile: UserProfile, setImage: String) {
         
         self.userProfile = userProfile
         selectedUID = setImage
         sellectedUsername = userProfile.username!
+        
+        trainerButton.hidden = true
         
         
         
@@ -82,29 +84,28 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         ref.child("users").child(self.selectedUID).child("currentTrainer").observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
             
             if snapshot.value != nil {
-            let name = snapshot.value!["name"] as! String
-              self.trainerButton.setTitle("work with: \(name) ", forState: .Normal)
+                
+                self.trainerButton.hidden = false
+                
+                let name = snapshot.value!["name"] as! String
+                self.trainerButton.setTitle("work with: \(name) ", forState: .Normal)
                 self.trainerUid = snapshot.key
-              
-            } else {
-                self.trainerButton.hidden = true
+                
             }
             
-            
-            
         }
-
-
-
-
+        
+        
+        
+        
         
         
         
         HeightLabel.text = userProfile.userSetting?.height as? String
-       
+        
         nameLabel.text = sellectedUsername
         followerCountLabel.text = "\(userProfile.followerCount!) followers"
-      
+        
         //MARK: Set up ava Image
         
         if userProfile.userSetting == nil {
