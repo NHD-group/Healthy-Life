@@ -57,13 +57,25 @@ class chatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
-        
+        collectionView!.collectionViewLayout.messageBubbleFont = NHDFontBucket.blackFontWithSize(15)
+
         observeMessages()
         observeTyping()
+        
+        // Do any additional setup after loading the view.
+        
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        button.setBackgroundImage(UIImage(named: "close-icon"), forState: UIControlState.Normal)
+        button.addTarget(self, action: #selector(self.onBack), forControlEvents: UIControlEvents.TouchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+    }
+    
+    func onBack() {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func backAction(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        onBack()
         
     }
     //MARK: add message to firebase
@@ -74,7 +86,7 @@ class chatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         let itemRef = messageRef.childByAutoId() // 1
         
         let messageItem = [ // 2
-            "type": "TEXT",
+            "type": Message.MessageType.Text.rawValue,
             "text": text,
             "senderId": senderId
         ]
@@ -106,9 +118,9 @@ class chatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     private func setupBubbles() {
         let factory = JSQMessagesBubbleImageFactory()
         outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(
-            UIColor.jsq_messageBubbleBlueColor())
+            Configuration.Colors.veryYellow)
         incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(
-            UIColor.jsq_messageBubbleLightGrayColor())
+            Configuration.Colors.paleLimeGreen)
     }
     
     //MARK: checkMessage
@@ -121,22 +133,19 @@ class chatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         messageRef.observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
             // 3
             let id = snapshot.value!["senderId"] as! String
-            let type = snapshot.value!["type"] as! String
-            if type == "TEXT" {
-                let text = snapshot.value!["text"] as! String
-                // 4
-                
-                self.addTextMessage(id, text: text)
-                
-                
-                
+            let text = snapshot.value!["text"] as! String
+
+            var type = Message.MessageType.Text.rawValue
+            if let Type = snapshot.value!["type"] as? String {
+                type = Type
             }
-            else if type == "PHOTO" {
-                let text = snapshot.value!["text"] as! String
-                
+            
+            if type == Message.MessageType.Photo.rawValue {
                 let imageData = NSData(base64EncodedString: text, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
                 let image = UIImage(data: imageData!)
                 self.addPhotoMessage(id, photo: image!)
+            } else {
+                self.addTextMessage(id, text: text)
             }
             self.finishReceivingMessage()
         }
@@ -209,13 +218,12 @@ class chatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         let message = messages[indexPath.item]
         
-        if message.type == Message.MessageType.Text {
+        if message.type.isText() {
             if message.senderId == senderId {
-                cell.textView!.textColor = UIColor.whiteColor()
+                cell.textView!.textColor = Configuration.Colors.primary
             } else {
-                cell.textView!.textColor = UIColor.blackColor()
+                cell.textView!.textColor = UIColor.darkGrayColor()
             }
-            cell.textView.font = NHDFontBucket.fontWithSize(cell.textView.font!.pointSize)
         }
         return cell
     }
@@ -246,7 +254,7 @@ class chatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             let itemRef = self.messageRef.childByAutoId() //
             
             let messageItem = [ // 2
-                "type": "PHOTO",
+                "type": Message.MessageType.Photo.rawValue,
                 "text": dataStr ,
                 "senderId": self.senderId
             ]

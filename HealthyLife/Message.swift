@@ -11,11 +11,19 @@ import JSQMessagesViewController
 
 class Message: NSObject {
     
-    enum MessageType {
-        case Text
-        case Photo
-        case Audio
-        case Video
+    enum MessageType: String {
+        case Text = "TEXT"
+        case Photo = "PHOTO"
+        case Audio = "AUDIO"
+        case Video = "VIDEO"
+        
+        func isText() -> Bool {
+            return self == .Text
+        }
+        
+        func isPhoto() -> Bool {
+            return self == .Photo
+        }
     }
     
     var senderId:String!
