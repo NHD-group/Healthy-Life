@@ -10,8 +10,11 @@ import UIKit
 import JSQMessagesViewController
 import Firebase
 import Kingfisher
+import MobileCoreServices
+import MBProgressHUD
+import AVKit
 
-class chatViewController: JSQMessagesViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class chatViewController: JSQMessagesViewController {
     
     var chatRoomTittle: String?
     
@@ -58,7 +61,7 @@ class chatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
         collectionView!.collectionViewLayout.messageBubbleFont = NHDFontBucket.blackFontWithSize(15)
-
+        
         observeMessages()
         observeTyping()
         
@@ -108,8 +111,9 @@ class chatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         messages.append(message)
     }
     
-    func addPhotoMessage(id: String, photo: UIImage) {
-        let message = Message(senderId: id, senderDisplayName: "", type: .Photo, data: photo)
+    func addPhotoMessage(id: String, photo: UIImage, type: Message.MessageType?, fileURL: String?) {
+        let message = Message(senderId: id, senderDisplayName: "", type: type, data: photo)
+        message.fileURL = fileURL
         messages.append(message)
     }
     
@@ -131,26 +135,43 @@ class chatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         // 2
         messageRef.observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
-            // 3
-            let id = snapshot.value!["senderId"] as! String
-            let text = snapshot.value!["text"] as! String
 
+            guard let value = snapshot.value else {
+                return
+            }
+            // 3
+            let id = value["senderId"] as! String
+            let text = value["text"] as! String
+            
             var type = Message.MessageType.Text.rawValue
-            if let Type = snapshot.value!["type"] as? String {
+            if let Type = value["type"] as? String {
                 type = Type
             }
             
             if type == Message.MessageType.Photo.rawValue {
-                let imageData = NSData(base64EncodedString: text, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-                let image = UIImage(data: imageData!)
-                self.addPhotoMessage(id, photo: image!)
+               
+                    if let image = UIImage.getImageFromText(text) {
+                        self.addPhotoMessage(id, photo: image, type: Message.MessageType.Photo, fileURL: nil)
+                    }
+                
+            } else if type == Message.MessageType.Video.rawValue {
+                
+                if let image = UIImage.getImageFromText(text) {
+                    self.addPhotoMessage(id, photo: image, type: Message.MessageType.Video, fileURL: value["fileURL"] as? String)
+                }
+                
             } else {
                 self.addTextMessage(id, text: text)
             }
             self.finishReceivingMessage()
+
         }
-        
-        
+    }
+    
+    func getDocumentsDirectory() -> NSString {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
     }
     
     //********
@@ -228,42 +249,102 @@ class chatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         return cell
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func didPressAccessoryButton(sender: UIButton!) {
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
-        imagePicker.sourceType = .PhotoLibrary
+        imagePicker.mediaTypes = [kUTTypeImage as String , kUTTypeMovie as String]
         
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    override func collectionView(collectionView: JSQMessagesCollectionView!, didTapMessageBubbleAtIndexPath indexPath: NSIndexPath!) {
+   
+        let message = messages[indexPath.item]
+        if message.type.isVideo() {
+            
+            if let url = message.fileURL {
+                
+                let vc = AVPlayerViewController()
+                vc.player = AVPlayer(URL: NSURL(string: url)!)
+                vc.player?.play()
+                presentViewController(vc, animated: true, completion: nil)
+            }
+        }
+    }
+}
+
+extension chatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        var image: UIImage?
+        var videoURL: NSURL?
+        
+        if let url = info[UIImagePickerControllerMediaURL] as? NSURL {
+            videoURL = url
+        }
+        
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            image = pickedImage
+        }
+        
+        if let videoURL = videoURL {
             
-            let image = pickedImage.resizeImage(CGSize(width: 500, height: 500))
+            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+
+            let key = DataService.dataService.userRef.child("yourVideo").childByAutoId().key
             
-            let imageData:NSData = UIImagePNGRepresentation(image)!
+            FIRStorage.storage().reference().child("videos").child(key).putFile(videoURL, metadata: nil, completion: { (metadata, error) in
+                if error  != nil {
+                    
+                    Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
+                } else {
+                    if let videoUrl = metadata?.downloadURL()?.absoluteString {
+
+                        let type = Message.MessageType.Video.rawValue
+                        let itemRef = self.messageRef.childByAutoId()
+                        var thumbnail = Helper.thumbnailForVideoAtURL(videoURL)
+                        thumbnail = thumbnail?.addWaterMark(UIImage(named: "lightboxPlayIconW")!)
+
+                        let messageItem = [ // 2
+                            "type": type,
+                            "text": thumbnail?.convertImageToString(CGSize(width: 500, height: 500)) ?? "",
+                            "fileURL": videoUrl,
+                            "senderId": self.senderId
+                        ]
+                        itemRef.setValue(messageItem)
+                        
+                        self.finishSendingMessage()
+                        MBProgressHUD.hideHUDForView(self.view, animated: true)
+                    }
+                    
+                }
+            })
             
-            let dataStr = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
-            
+        }
+        
+        if let image = image {
             let itemRef = self.messageRef.childByAutoId() //
             
+            var type = Message.MessageType.Photo.rawValue
+            let fileURL = videoURL?.absoluteString ?? ""
+            if videoURL != nil {
+                type = Message.MessageType.Video.rawValue
+            }
             let messageItem = [ // 2
-                "type": Message.MessageType.Photo.rawValue,
-                "text": dataStr ,
+                "type": type,
+                "text": image.convertImageToString(CGSize(width: 500, height: 500)),
+                "fileURL": fileURL,
                 "senderId": self.senderId
             ]
             
             itemRef.setValue(messageItem)
             
             self.finishSendingMessage()
-            
         }
+        
+        
         
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -272,15 +353,5 @@ class chatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

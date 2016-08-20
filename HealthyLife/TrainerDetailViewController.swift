@@ -241,6 +241,7 @@ class TrainerDetailViewController: UIViewController {
             
             let destination = segue.destinationViewController as! AVPlayerViewController
             destination.player = AVPlayer(URL: videoUrl)
+            destination.player?.play()
 
           
         } else if segue.identifier == "trainerComment" {

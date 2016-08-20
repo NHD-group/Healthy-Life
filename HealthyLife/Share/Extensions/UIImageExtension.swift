@@ -34,4 +34,33 @@ extension UIImage {
         
         return newImage
     }
+    
+    func convertImageToString(targetSize: CGSize) -> String {
+        
+        let image = self.resizeImage(targetSize)
+        let imageData: NSData = UIImagePNGRepresentation(image)!
+        let dataStr = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        return dataStr
+    }
+    
+    static func getImageFromText(text: String!) -> UIImage? {
+        if let imageData = NSData(base64EncodedString: text, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters) {
+            
+            if let image = UIImage(data: imageData) {
+                return image
+            }
+        }
+        return nil
+    }
+    
+    func addWaterMark(watermarkImage: UIImage) -> UIImage {
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        drawInRect(CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height))
+        watermarkImage.drawInRect(CGRect(x: (size.width - watermarkImage.size.width) / 2, y: (size.height - watermarkImage.size.height) / 2, width: watermarkImage.size.width, height: watermarkImage.size.height))
+        let result = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return result
+    }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import AVFoundation
 
 class Helper: NSObject {
     
@@ -48,5 +49,19 @@ class Helper: NSObject {
         let NumberFormatter = NSNumberFormatter()
         NumberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         return NumberFormatter.stringFromNumber(number)!
+    }
+    
+    static func thumbnailForVideoAtURL(url: NSURL) -> UIImage? {
+        let asset = AVAsset(URL: url)
+        let assetImageGenerator = AVAssetImageGenerator(asset: asset)
+        var time = asset.duration
+        time.value = min(time.value, 1)
+        do {
+            let imageRef = try assetImageGenerator.copyCGImageAtTime(time, actualTime: nil)
+            return UIImage(CGImage: imageRef)
+        } catch {
+            
+        }
+        return nil
     }
 }

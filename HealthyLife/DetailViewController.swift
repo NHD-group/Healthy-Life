@@ -63,7 +63,8 @@ class DetailViewController: UIViewController {
             let destination = segue.destinationViewController as! AVPlayerViewController
             
             destination.player = AVPlayer(URL: url!)
-        
+            destination.player?.play()
+
         }
     }
     

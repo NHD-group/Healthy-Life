@@ -50,7 +50,22 @@ class TalksCellTableViewCell: UITableViewCell {
             
             DataService.dataService.chats.child(chatter?.chatRoomKey as! String).queryLimitedToLast(1).observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
                 
-                let text = snapshot.value?["text"] as? String
+                guard let value = snapshot.value else {
+                    return
+                }
+                
+                var type = ""
+                var text = value["text"] as? String
+                if let Type = value["type"] as? String {
+                    type = Type
+                }
+                
+                if type == Message.MessageType.Photo.rawValue {
+                    text = "[Photo sent]"
+                } else if type == Message.MessageType.Video.rawValue {
+                    text = "[Video sent]"
+                }
+                
                 self.recentChatLabel.text = text
                 
             }

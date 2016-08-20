@@ -9,7 +9,6 @@
 import UIKit
 import Kingfisher
 import Firebase
-import AVFoundation
 
 extension UIImageView {
     
@@ -23,8 +22,7 @@ extension UIImageView {
             if cachedImage != nil {
                 self.image = cachedImage
             } else {
-                // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-                imageRef.dataWithMaxSize((1 * 1024 * 1024)/2) { (data, error) -> Void in
+                imageRef.dataWithMaxSize(Configuration.kMaxSize) { (data, error) -> Void in
                     
                     if (error != nil) {
                         // Uh-oh, an error occurred!
@@ -43,15 +41,9 @@ extension UIImageView {
     }
     
     func thumbnailForVideoAtURL(url: NSURL) {
-        let asset = AVAsset(URL: url)
-        let assetImageGenerator = AVAssetImageGenerator(asset: asset)
-        var time = asset.duration
-        time.value = min(time.value, 1)
-        do {
-            let imageRef = try assetImageGenerator.copyCGImageAtTime(time, actualTime: nil)
-            image = UIImage(CGImage: imageRef)
-        } catch {
-            
+        
+        if let image = Helper.thumbnailForVideoAtURL(url) {
+            self.image = image
         }
     }
 

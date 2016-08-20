@@ -109,7 +109,8 @@ class demoLibViewController: BaseViewController, UITableViewDelegate, UITableVie
                 let cell = button.superview?.superview as! demoTableViewCell
                 let videoUrl = cell.videoUrl
                 controller.player = AVPlayer(URL: videoUrl)
-    
+                controller.player?.play()
+
                 
             }
             

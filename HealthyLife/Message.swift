@@ -24,6 +24,10 @@ class Message: NSObject {
         func isPhoto() -> Bool {
             return self == .Photo
         }
+        
+        func isVideo() -> Bool {
+            return self == .Video
+        }
     }
     
     var senderId:String!
@@ -31,44 +35,33 @@ class Message: NSObject {
     var date:NSDate?
     var type:MessageType!
     var data:JSQMessage?
+    var fileURL:String?
     
-    init(senderId: String!, senderDisplayName: String!, date: NSDate!, type: MessageType!, data: AnyObject!) {
+    func initMessage(senderId: String!, senderDisplayName: String!, date: NSDate!, type: MessageType!, data: AnyObject!) {
         self.senderId = senderId
         self.senderDisplayName = senderDisplayName
         self.date = date
         self.type = type
-        if type == .Text {
+        
+        if type.isText() {
             self.data = JSQMessage(senderId: self.senderId, senderDisplayName: self.senderDisplayName, date: self.date, text: data as! String)
-        } else if type == .Photo {
+        } else if type.isPhoto() || type.isVideo() {
             let photoItem = JSQPhotoMediaItem(image: data as! UIImage)
             self.data = JSQMessage(senderId: self.senderId, senderDisplayName: self.senderDisplayName, date: self.date, media: photoItem)
-        } else if type == .Video {
-            let url = NSURL(string: data as! String)
-            let videoItem = JSQVideoMediaItem(fileURL: url, isReadyToPlay: true)
-            self.data = JSQMessage(senderId: self.senderId, senderDisplayName: self.senderDisplayName, date: self.date, media: videoItem)
         } else {
             self.data = JSQMessage(senderId: self.senderId, senderDisplayName: self.senderDisplayName, date: self.date, media: data as! JSQMessageMediaData)
         }
     }
     
+    init(senderId: String!, senderDisplayName: String!, date: NSDate!, type: MessageType!, data: AnyObject!) {
+        
+        super.init()
+        self.initMessage(senderId, senderDisplayName: senderDisplayName, date: date, type: type, data: data)
+    }
+    
     init(senderId: String!, senderDisplayName: String!, type: MessageType!, data: AnyObject!) {
-        self.senderId = senderId
-        self.senderDisplayName = senderDisplayName
-        self.type = type
-        if type == .Text {
-            self.data = JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, text: data as! String)
-        }
-        else if type == .Photo {
-            let photoItem = JSQPhotoMediaItem(image: data as! UIImage)
-            self.data = JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, media: photoItem)
-        } else if type == .Video {
-            let url = NSURL(string: data as! String)
-            let videoItem = JSQVideoMediaItem(fileURL: url, isReadyToPlay: true)
-            self.data = JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, media: videoItem)
-        }
-            
-        else {
-            self.data = JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, media: data as! JSQMessageMediaData)
-        }
+        
+        super.init()
+        self.initMessage(senderId, senderDisplayName: senderDisplayName, date: NSDate(), type: type, data: data)
     }
 }
