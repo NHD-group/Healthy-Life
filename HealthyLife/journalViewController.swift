@@ -191,6 +191,15 @@ class journalViewController: BaseViewController, UITableViewDelegate, UITableVie
         
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "result" {
+            let controller = segue.destinationViewController as! displayResultViewController
+            controller.currentUserID = currentUserID
+            
+            
+        }
+    }
 
     
 

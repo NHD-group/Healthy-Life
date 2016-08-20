@@ -13,7 +13,7 @@ class displayResultViewController: BaseViewController, UITableViewDataSource, UI
 
     @IBOutlet weak var tableView: UITableView!
         
- 
+    var currentUserID = String()
     
     var results = [Result]()
     
@@ -24,7 +24,8 @@ class displayResultViewController: BaseViewController, UITableViewDataSource, UI
         tableView.dataSource = self
         
         let ref = DataService.BaseRef
-        let currentUserID = (FIRAuth.auth()?.currentUser?.uid)!
+       
+        
         
         showLoading()
         ref.child("users").child(currentUserID).child("results_journal").queryLimitedToLast(10).observeEventType(.Value, withBlock: { snapshot in

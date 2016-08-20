@@ -13,6 +13,9 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var searchTextField: UITextField!
+    
+    
     var users = [UserProfile]()
     var keys =  [String]()
     var chatKey = String()
@@ -30,12 +33,13 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
         let ref = FIRDatabase.database().reference()
 
         showLoading()
+        
+        
+
         ref.child("users").queryOrderedByChild("followerCount").queryLimitedToFirst(20).observeEventType(.Value, withBlock: { snapshot in
             
             self.users = []
-            self.keys = []
             
-        
             
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
@@ -67,7 +71,9 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
             
             
             
+            
         })
+        
         
 
 

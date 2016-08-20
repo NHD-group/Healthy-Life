@@ -219,7 +219,7 @@
                                                 <rect key="frame" x="282" y="1" width="92" height="30"/>
                                                 <state key="normal" title="Result"/>
                                                 <connections>
-                                                    <segue destination="KbS-Ym-zXw" kind="push" id="G4C-EX-Iwq"/>
+                                                    <segue destination="KbS-Ym-zXw" kind="push" identifier="result" id="G4C-EX-Iwq"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKl-L8-x0G" customClass="NHDCustomSubmitButton" customModule="HealthyLife" customModuleProvider="target">
@@ -275,7 +275,7 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="Settings Filled-50"/>
                                         <connections>
-                                            <segue destination="Pga-bR-tBk" kind="modal" id="hX7-5o-S3K"/>
+                                            <segue destination="O5d-Uo-XbN" kind="push" id="9Td-5Z-iX2"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="followers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxN-Wh-bKv" customClass="NHDCustomItalicFontLabel" customModule="HealthyLife" customModuleProvider="target">
@@ -491,22 +491,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOz-h2-PoK">
-                                <rect key="frame" x="15" y="20" width="51" height="30"/>
-                                <state key="normal" title="camera"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOz-h2-PoK">
+                                <rect key="frame" x="34" y="137" width="25" height="25"/>
+                                <state key="normal" image="camera"/>
                                 <connections>
                                     <action selector="cameraAction:" destination="O5d-Uo-XbN" eventType="touchUpInside" id="GPo-zw-z3y"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxK-wn-QXN">
-                                <rect key="frame" x="321" y="20" width="30" height="30"/>
-                                <state key="normal" title="lib"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxK-wn-QXN">
+                                <rect key="frame" x="312" y="137" width="25" height="25"/>
+                                <state key="normal" image="lib"/>
                                 <connections>
                                     <action selector="photoLibAction:" destination="O5d-Uo-XbN" eventType="touchUpInside" id="fFO-a3-evN"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQd-Bp-7dX">
-                                <rect key="frame" x="137" y="58" width="100" height="100"/>
+                                <rect key="frame" x="137" y="62" width="100" height="100"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="your weight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="acv-FU-dMp">
                                 <rect key="frame" x="20" y="181" width="335" height="30"/>
@@ -514,29 +514,29 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DOB" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XNb-ZV-brH">
-                                <rect key="frame" x="20" y="248" width="335" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="height" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CpL-B7-fqX">
-                                <rect key="frame" x="20" y="319" width="335" height="30"/>
+                                <rect key="frame" x="20" y="268" width="335" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4R-QK-oL8">
-                                <rect key="frame" x="170" y="383" width="34" height="30"/>
+                                <rect key="frame" x="170" y="404" width="34" height="30"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveAction:" destination="O5d-Uo-XbN" eventType="touchUpInside" id="cGx-Zv-YNh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXN-2U-Xya">
-                                <rect key="frame" x="163" y="434" width="48" height="30"/>
+                                <rect key="frame" x="163" y="452" width="48" height="26"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelAction:" destination="O5d-Uo-XbN" eventType="touchUpInside" id="btL-nr-fMc"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="height" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CpL-B7-fqX">
+                                <rect key="frame" x="20" y="350" width="335" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -545,6 +545,7 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="EZN-Ok-KlN"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="DOBLabel" destination="XNb-ZV-brH" id="a9h-EN-4vH"/>
                         <outlet property="heightLabel" destination="CpL-B7-fqX" id="4GY-mP-Rfr"/>
@@ -559,7 +560,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1731.5" y="-612.5"/>
+            <point key="canvasLocation" x="1167.5" y="-603.5"/>
         </scene>
         <!--Workout Plan-->
         <scene sceneID="Pi9-Aa-i3M">
@@ -1200,7 +1201,7 @@
             </objects>
             <point key="canvasLocation" x="2055.5" y="1146.5"/>
         </scene>
-        <!--Newsfeed-->
+        <!--Newfeed View Controller-->
         <scene sceneID="iuf-4X-G4S">
             <objects>
                 <viewController id="TfU-wg-Ow2" customClass="NewfeedViewController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
@@ -1301,9 +1302,18 @@
                             <constraint firstItem="Ahu-gz-b5m" firstAttribute="top" secondItem="oiK-dG-CGT" secondAttribute="top" id="gKX-Dd-Etu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Newsfeed" id="697-pp-o7l"/>
+                    <navigationItem key="navigationItem" id="697-pp-o7l">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="4eD-0h-p2M">
+                            <rect key="frame" x="85" y="7" width="206" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="searchTextField" destination="4eD-0h-p2M" id="1ok-GU-8RB"/>
                         <outlet property="tableView" destination="Ahu-gz-b5m" id="k82-fF-HL4"/>
                     </connections>
                 </viewController>
@@ -1847,24 +1857,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VLo-hK-M13" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="372" y="2569"/>
-        </scene>
-        <!--Base Navigation Controller-->
-        <scene sceneID="5Qw-7X-Egz">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pga-bR-tBk" customClass="BaseNavigationController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yh3-GF-YME">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="O5d-Uo-XbN" kind="relationship" relationship="rootViewController" id="I1h-Tn-KNo"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aXa-Ob-gvv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1144.5" y="-612.5"/>
         </scene>
     </scenes>
     <resources>
