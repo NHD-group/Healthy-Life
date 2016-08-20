@@ -38,7 +38,7 @@ class FoodTableViewCell: UITableViewCell {
         
         self.food = food
         
-        desLabel.text = food.foodDes
+        desLabel.text = food.foodDes ?? ""
         timeLabel.text = "\(food.time.timeAgo())"
         loveCount.text = "\(food.love)"
         

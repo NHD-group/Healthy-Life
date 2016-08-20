@@ -54,11 +54,20 @@ class chatViewController: JSQMessagesViewController {
         collectionView!.collectionViewLayout.messageBubbleFont = NHDFontBucket.blackFontWithSize(15)
 
         // Do any additional setup after loading the view.
+        
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        button.setBackgroundImage(UIImage(named: "close-icon"), forState: UIControlState.Normal)
+        button.addTarget(self, action: #selector(self.onBack), forControlEvents: UIControlEvents.TouchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+    }
+    
+    
+    func onBack() {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func backAction(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-        
+        onBack()
     }
     //MARK: add message to firebase
     

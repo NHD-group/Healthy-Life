@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class SettingViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate   {
+class SettingViewController: BaseViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate   {
 
     @IBOutlet weak var imageView: UIImageView!
     

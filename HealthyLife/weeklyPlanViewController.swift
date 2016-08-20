@@ -55,9 +55,7 @@ class weeklyPlanViewController: BaseViewController, UITableViewDelegate, UITable
                 
             })
         
-        
-        showLoading()
-        FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("activities_planned")
+                FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("activities_planned")
             .child("sendedPlan").observeEventType(.Value, withBlock: { snapshot in
             
                 if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {

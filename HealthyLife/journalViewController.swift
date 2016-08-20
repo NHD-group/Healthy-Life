@@ -32,9 +32,13 @@ class journalViewController: BaseViewController, UITableViewDelegate, UITableVie
      var foods = [Food]()
     
     @IBAction func logOutAction(sender: AnyObject) {
-        try! FIRAuth.auth()!.signOut()
         
-        NSNotificationCenter.defaultCenter().postNotificationName(Configuration.NotificationKey.userDidLogout, object: nil)
+        Helper.showAlert("Warning", message: "Are you sure you want to log out?", okActionBlock: {
+            try! FIRAuth.auth()!.signOut()
+            
+            NSNotificationCenter.defaultCenter().postNotificationName(Configuration.NotificationKey.userDidLogout, object: nil)
+            }, cancelActionBlock: {}, inViewController: self)
+        
     }
     
     var currentUserID = DataService.currentUserID
