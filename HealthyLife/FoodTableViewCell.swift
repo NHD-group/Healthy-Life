@@ -26,6 +26,7 @@ class FoodTableViewCell: UITableViewCell {
     @IBOutlet weak var loveImage: UIImageView!
 
     
+    @IBOutlet weak var containerView: UIView!
     
     let storageRef = FIRStorage.storage().reference()
     var loveRef = FIRDatabaseReference()
@@ -108,6 +109,8 @@ class FoodTableViewCell: UITableViewCell {
         tap.numberOfTapsRequired = 1
         loveImage.addGestureRecognizer(tap)
         loveImage.userInteractionEnabled = true
+        
+        containerView.layer.cornerRadius = 4
     }
     
     

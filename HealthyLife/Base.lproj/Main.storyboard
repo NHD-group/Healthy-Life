@@ -150,9 +150,9 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="164" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dVR-JX-zIc">
                                 <rect key="frame" x="0.0" y="194" width="375" height="424"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.90252854390000004" blue="0.68318514630000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodCell" rowHeight="164" id="GHh-ZF-yjd" customClass="FoodTableViewCell" customModule="HealthyLife" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodCellOld" rowHeight="164" id="GHh-ZF-yjd" customClass="FoodTableViewCell" customModule="HealthyLife" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="164"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GHh-ZF-yjd" id="RIh-Wz-AkG">
@@ -191,6 +191,83 @@
                                             <outlet property="loveCount" destination="pGZ-sM-pve" id="1ji-bP-Jf8"/>
                                             <outlet property="loveImage" destination="BaR-gu-cHo" id="lVR-zX-7rL"/>
                                             <outlet property="timeLabel" destination="kZe-he-Htg" id="PmE-FU-gWz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodCell" id="uT2-kX-gi9" customClass="FoodTableViewCell" customModule="HealthyLife" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="192" width="375" height="164"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uT2-kX-gi9" id="nbI-rJ-96y">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="163.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CoH-zL-5DH">
+                                                    <rect key="frame" x="5" y="5" width="365" height="153.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sdp-y8-saa">
+                                                            <rect key="frame" x="8" y="12" width="130" height="130"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="130" id="bEV-iv-jRK"/>
+                                                                <constraint firstAttribute="height" constant="130" id="iFS-oU-ht9"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHJ-My-Rql">
+                                                            <rect key="frame" x="146" y="12" width="42" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0BC-P7-opC">
+                                                            <rect key="frame" x="146" y="118" width="24" height="24"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="24" id="MWB-6o-MHp"/>
+                                                                <constraint firstAttribute="width" constant="24" id="qwf-eZ-c0u"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6X-Bo-fZl">
+                                                            <rect key="frame" x="178" y="121" width="42" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Oj-0I-mjJ">
+                                                            <rect key="frame" x="146" y="41" width="42" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hHJ-My-Rql" secondAttribute="trailing" constant="8" id="1Gm-Dh-tao"/>
+                                                        <constraint firstItem="hHJ-My-Rql" firstAttribute="leading" secondItem="sdp-y8-saa" secondAttribute="trailing" constant="8" id="2HM-UW-n2i"/>
+                                                        <constraint firstItem="0BC-P7-opC" firstAttribute="leading" secondItem="hHJ-My-Rql" secondAttribute="leading" id="4o6-Qq-NFN"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5Oj-0I-mjJ" secondAttribute="trailing" constant="8" id="AVg-ug-lsc"/>
+                                                        <constraint firstItem="0BC-P7-opC" firstAttribute="bottom" secondItem="sdp-y8-saa" secondAttribute="bottom" id="H18-p0-rX4"/>
+                                                        <constraint firstItem="e6X-Bo-fZl" firstAttribute="bottom" secondItem="0BC-P7-opC" secondAttribute="bottom" id="LeQ-z0-wHf"/>
+                                                        <constraint firstItem="e6X-Bo-fZl" firstAttribute="leading" secondItem="0BC-P7-opC" secondAttribute="trailing" constant="8" id="Wl6-cZ-Tdn"/>
+                                                        <constraint firstItem="sdp-y8-saa" firstAttribute="leading" secondItem="CoH-zL-5DH" secondAttribute="leading" constant="8" id="djo-SI-Ais"/>
+                                                        <constraint firstItem="5Oj-0I-mjJ" firstAttribute="leading" secondItem="hHJ-My-Rql" secondAttribute="leading" id="fY8-v9-bKA"/>
+                                                        <constraint firstItem="hHJ-My-Rql" firstAttribute="top" secondItem="sdp-y8-saa" secondAttribute="top" id="kGR-km-oSN"/>
+                                                        <constraint firstItem="sdp-y8-saa" firstAttribute="centerY" secondItem="CoH-zL-5DH" secondAttribute="centerY" id="pC6-dS-BtP"/>
+                                                        <constraint firstItem="5Oj-0I-mjJ" firstAttribute="top" secondItem="hHJ-My-Rql" secondAttribute="bottom" constant="8" id="uhV-Ho-JeL"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="0.90252854390000004" blue="0.68318514630000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="CoH-zL-5DH" firstAttribute="top" secondItem="nbI-rJ-96y" secondAttribute="top" constant="5" id="K1H-4M-VKM"/>
+                                                <constraint firstItem="CoH-zL-5DH" firstAttribute="leading" secondItem="nbI-rJ-96y" secondAttribute="leading" constant="5" id="M6o-9I-eZR"/>
+                                                <constraint firstAttribute="bottom" secondItem="CoH-zL-5DH" secondAttribute="bottom" constant="5" id="aaJ-pk-CLh"/>
+                                                <constraint firstAttribute="trailing" secondItem="CoH-zL-5DH" secondAttribute="trailing" constant="5" id="h3l-H4-6NU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="containerView" destination="CoH-zL-5DH" id="a9g-ZN-VpY"/>
+                                            <outlet property="desLabel" destination="hHJ-My-Rql" id="FsN-5A-tfk"/>
+                                            <outlet property="foodImageView" destination="sdp-y8-saa" id="gaT-nb-mOU"/>
+                                            <outlet property="loveCount" destination="e6X-Bo-fZl" id="Srf-Ac-eVm"/>
+                                            <outlet property="loveImage" destination="0BC-P7-opC" id="4bk-mO-CRX"/>
+                                            <outlet property="timeLabel" destination="5Oj-0I-mjJ" id="tEk-Gk-5Y0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
