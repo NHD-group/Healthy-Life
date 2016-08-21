@@ -15,10 +15,21 @@ class commentCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var timeStampTextLabel: UILabel!
     
+    @IBOutlet weak var backView: UILabel!
+    
+    
     var comment: Comment? {
         didSet {
             commentTextLabel.text = comment?.text
             timeStampTextLabel.text = "\(comment!.time!.timeAgo())"
+            
+            contentView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+            
+            backView.layer.shadowColor = UIColor.blackColor().colorWithAlphaComponent(0.2).CGColor
+            
+            backView.layer.shadowOffset = CGSize(width: 0, height: 0)
+            backView.layer.shadowOpacity = 0.8
+
         }
     }
     

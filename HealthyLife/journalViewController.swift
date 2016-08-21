@@ -53,6 +53,9 @@ class journalViewController: BaseViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         
         
+        tableView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        
+        
         self.avaImage.layer.cornerRadius = 20
         self.avaImage.clipsToBounds = true
         
@@ -159,6 +162,20 @@ class journalViewController: BaseViewController, UITableViewDelegate, UITableVie
         
         // Do any additional setup after loading the view.
     }
+    
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        // 1. set the initial state of the cell
+        cell.alpha = 0
+        let transform = CATransform3DTranslate(CATransform3DIdentity, -250, 20, 0)
+        cell.layer.transform = transform
+        // 2. UIView Animation method to the final state of the cell
+        UIView.animateWithDuration(0.5) {
+            cell.alpha = 1.0
+            cell.layer.transform = CATransform3DIdentity
+        }
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

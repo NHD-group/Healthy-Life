@@ -25,12 +25,13 @@ class demoTableViewCell: UITableViewCell {
     @IBOutlet weak var commentCountButton: UIButton!
     //done
     
-    @IBOutlet weak var desTextView: UITextView!
-    //done
+    @IBOutlet weak var desLabel: UILabel!
+   
     
     @IBOutlet weak var usernameLabel: UILabel!
     //done
     
+    @IBOutlet weak var backview: UIView!
 
     
     @IBOutlet weak var talkButton: UIButton!
@@ -67,7 +68,19 @@ class demoTableViewCell: UITableViewCell {
         uid = trailer.uid!
         selectedUid = trailer.uid!
         
-        desTextView.text = trailer.des!
+        desLabel.text = trailer.des!
+        
+        contentView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        
+        backview.layer.shadowColor = UIColor.blackColor().colorWithAlphaComponent(0.2).CGColor
+        
+        backview.layer.shadowOffset = CGSize(width: 0, height: 0)
+        backview.layer.shadowOpacity = 0.8
+        
+        backview.layer.cornerRadius = 10
+        backview.clipsToBounds = true
+        
+
         
         
         // profile
@@ -150,12 +163,30 @@ class demoTableViewCell: UITableViewCell {
     
     
     @IBAction func getHealthyAction(sender: AnyObject) {
-        
-     DataService.dataService.baseRef.child("users").child(uid).child("trainee").child(currentUid).child("name").setValue( self.currentUserName)
-        
+        alertMessage()
+             
  
         
     }
+    
+    weak var navigationController: UINavigationController?
+    
+    
+    func alertMessage() {
+        let alert = UIAlertController(title: "Sign Up To This Trainer", message: "Pleas ask your trainers for new workoutplan", preferredStyle: .Alert)
+        let alertAction = UIAlertAction(title: "ok", style: .Default) { (UIAlertAction) in
+            DataService.dataService.baseRef.child("users").child(self.uid).child("trainee").child(self.currentUid).child("name").setValue( self.currentUserName)
+            
+        }
+        
+        let alertActionCancel = UIAlertAction(title: "cancel", style: .Default, handler: nil)
+        
+        alert.addAction(alertAction)
+        alert.addAction(alertActionCancel)
+        self.navigationController?.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+
     
     
     @IBAction func talkAction(sender: AnyObject) {

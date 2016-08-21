@@ -17,12 +17,24 @@ class TalksCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var recentChatLabel: UILabel!
     
+    @IBOutlet weak var backview: UIView!
+    
     let storageRef = FIRStorage.storage().reference()
     
     
     var chatter: Chatter? {
         didSet {
             usernameLabel.text = chatter?.chatterName as? String
+            
+            contentView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+            
+            backview.layer.shadowColor = UIColor.blackColor().colorWithAlphaComponent(0.2).CGColor
+            
+            backview.layer.shadowOffset = CGSize(width: 0, height: 0)
+            backview.layer.shadowOpacity = 0.8
+            
+            backview.layer.cornerRadius = 10
+            backview.clipsToBounds = true
             
             DataService.dataService.baseRef.child("users").child((chatter?.id)! as String).observeEventType(.Value, withBlock: { snapshot in
                 guard let value = snapshot.value as? NSDictionary else {

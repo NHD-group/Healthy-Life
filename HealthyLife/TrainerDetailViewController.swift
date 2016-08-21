@@ -46,8 +46,8 @@ class TrainerDetailViewController: UIViewController {
     @IBOutlet weak var commentCountButton: UIButton!
     //done
     
-    @IBOutlet weak var desTextView: UITextView!
-    //done
+    @IBOutlet weak var desLabel: UILabel!
+   
     
     @IBOutlet weak var usernameLabel: UILabel!
     //done
@@ -131,7 +131,7 @@ class TrainerDetailViewController: UIViewController {
         uid = trainerUid
         selectedUid = trainerUid
         
-        desTextView.text = Detailtrailer.des!
+        desLabel.text = Detailtrailer.des!
         
         
         // profile
@@ -210,10 +210,25 @@ class TrainerDetailViewController: UIViewController {
     
     @IBAction func getHealthyAction(sender: AnyObject) {
         
-        DataService.dataService.baseRef.child("users").child(uid).child("trainee").child(currentUid).child("name").setValue( self.currentUserName)
+        alertMessage()
         
         
+    }
+    
+    
+    
+    func alertMessage() {
+        let alert = UIAlertController(title: "Sign Up To This Trainer", message: "Pleas ask your trainers for new workoutplan", preferredStyle: .Alert)
+        let alertAction = UIAlertAction(title: "ok", style: .Default) { (UIAlertAction) in
+            DataService.dataService.baseRef.child("users").child(self.uid).child("trainee").child(self.currentUid).child("name").setValue( self.currentUserName)
+            
+        }
         
+        let alertActionCancel = UIAlertAction(title: "cancel", style: .Default, handler: nil)
+        
+        alert.addAction(alertAction)
+        alert.addAction(alertActionCancel)
+        self.navigationController?.presentViewController(alert, animated: true, completion: nil)
     }
     
     

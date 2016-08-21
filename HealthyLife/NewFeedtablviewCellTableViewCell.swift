@@ -37,6 +37,8 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var followerCountLabel: UILabel!
     
+    @IBOutlet weak var backview: UIView!
+    
     @IBOutlet weak var followImage: UIImageView!
     
     
@@ -53,6 +55,17 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         sellectedUsername = userProfile.username!
         
         trainerButton.hidden = true
+        
+        contentView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        
+        backview.layer.shadowColor = UIColor.blackColor().colorWithAlphaComponent(0.2).CGColor
+        
+        backview.layer.shadowOffset = CGSize(width: 0, height: 0)
+        backview.layer.shadowOpacity = 0.8
+        
+        backview.layer.cornerRadius = 10
+        backview.clipsToBounds = true
+
         
         
         
