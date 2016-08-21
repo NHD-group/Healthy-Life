@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseInstanceID
 
 class DataService {
     
@@ -91,6 +92,65 @@ class DataService {
         
         return (currentUser != nil)
     }
+    
+    static func updateToken() {
+        
+        #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
+            // don't save token in simulator
+            return
+        #endif
+        
+        if !isLoggedIn() {
+            return
+        }
+        
+        if let refreshedToken = FIRInstanceID.instanceID().token() {
+            DataService.dataService.userRef.child("token").setValue(refreshedToken)
+        }
+    }
 
+    static func sendPushNotification(message: String, to userid: String, badge: Int, type: String) {
+        
+        DataService.BaseRef.child("users").child(userid).child("token").observeEventType(.Value, withBlock: { snapshot in
+            
+            guard let token = snapshot.value as? String else {
+                return
+            }
+            
+            let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
+            let body = ["to" : token,
+                "notification" : [
+                    "body"  : message,
+                    "title" : "Healthy Life",
+                    "badge" : badge,
+                    "type"  : type
+                ]]
+            let jsonData = try! NSJSONSerialization.dataWithJSONObject(body, options: [])
+            
+            let request = NSMutableURLRequest(URL: url!)
+            request.HTTPMethod = "POST"
+            request.HTTPBody = jsonData
+            
+            let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+            configuration.HTTPAdditionalHeaders = ["Authorization": "key=AIzaSyCMD1sIRWpSnoZz-PdH6MErqJmuJyiTHUs", "Content-Type": "application/json"]
+            let session = NSURLSession(
+                configuration: configuration,
+                delegate:nil,
+                delegateQueue:NSOperationQueue.mainQueue()
+            )
+            
+            let task : NSURLSessionDataTask = session.dataTaskWithRequest(
+                request,
+                completionHandler: { (dataOrNil, response, error) in
+                    if error != nil {
+                        print(error.debugDescription)
+                    } else {
+                        
+                    }
+            });
+            task.resume()
+        })
+        
+    }
 }
 

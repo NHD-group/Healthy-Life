@@ -174,11 +174,11 @@ class SignInViewController: UIViewController {
     
     func getDetailsOfUser() {
         
+        DataService.updateToken()
         DataService.dataService.userRef.child("username").observeEventType(.Value, withBlock: { snapshot in
             if let userName = snapshot.value as? String {
                 DataService.currentUserName = userName
             }
-            
             NSNotificationCenter.defaultCenter().postNotificationName(Configuration.NotificationKey.userDidLogin, object: nil)
         })
     }

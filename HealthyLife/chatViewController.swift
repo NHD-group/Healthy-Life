@@ -9,6 +9,8 @@
 import UIKit
 import JSQMessagesViewController
 import Firebase
+import FirebaseMessaging
+import FirebaseInstanceID
 import Kingfisher
 import MobileCoreServices
 import MBProgressHUD
@@ -43,6 +45,12 @@ class chatViewController: JSQMessagesViewController {
         }
     }
     
+    var receiverid : String {
+        get {
+            return chatKey.stringByReplacingOccurrencesOfString(senderId, withString: "")
+        }
+    }
+    
     var usersTypingQuery: FIRDatabaseQuery!
     
     let imagePicker = UIImagePickerController()
@@ -66,7 +74,14 @@ class chatViewController: JSQMessagesViewController {
         observeTyping()
         
         // Do any additional setup after loading the view.
+        setupBackButton()
         
+        
+    }
+    
+
+    
+    func setupBackButton() {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         button.setBackgroundImage(UIImage(named: "close-icon"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(self.onBack), forControlEvents: UIControlEvents.TouchUpInside)
@@ -103,6 +118,8 @@ class chatViewController: JSQMessagesViewController {
         finishSendingMessage()
         
         isTyping = false
+        
+        DataService.sendPushNotification(senderDisplayName + ": " + text, to: receiverid, badge: 1, type: "chat")
     }
     
     func addTextMessage(id: String, text: String) {
@@ -166,12 +183,6 @@ class chatViewController: JSQMessagesViewController {
             self.finishReceivingMessage()
 
         }
-    }
-    
-    func getDocumentsDirectory() -> NSString {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
     }
     
     //********
@@ -316,6 +327,8 @@ extension chatViewController: UIImagePickerControllerDelegate, UINavigationContr
                         
                         self.finishSendingMessage()
                         MBProgressHUD.hideHUDForView(self.view, animated: true)
+                        
+                        DataService.sendPushNotification(self.senderDisplayName + " sent a video to you", to: self.receiverid, badge: 1, type: "chat")
                     }
                     
                 }
@@ -341,6 +354,8 @@ extension chatViewController: UIImagePickerControllerDelegate, UINavigationContr
             itemRef.setValue(messageItem)
             
             self.finishSendingMessage()
+            
+            DataService.sendPushNotification(self.senderDisplayName + " sent a photo to you", to: self.receiverid, badge: 1, type: "chat")
         }
         
         

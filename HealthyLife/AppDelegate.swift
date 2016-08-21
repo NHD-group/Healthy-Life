@@ -59,10 +59,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = vc
             }, completion: nil)
     }
+
     
     func tokenRefreshNotificaiton(notification: NSNotification) {
-        let refreshedToken = FIRInstanceID.instanceID().token()!
-        print("InstanceID token: \(refreshedToken)")
+        
+        DataService.updateToken()
         
         // Connect to FCM since connection may have failed when attempted before having a token.
         connectToFcm()
@@ -80,6 +81,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func application(application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Sandbox)
+        DataService.updateToken()
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -88,7 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         
         FIRMessaging.messaging().disconnect()
-        print("Disconnected from FCM.")
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -96,7 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        connectToFcm()
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -105,6 +112,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 1
+
         print(userInfo)
         
         print("MessageID: \(userInfo)")
