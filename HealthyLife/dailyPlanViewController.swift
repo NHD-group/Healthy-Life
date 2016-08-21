@@ -20,6 +20,16 @@ class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITabl
     var creatorID = String()
     var segue = String()
     
+    func alerMessage() {
+        let alert = UIAlertController(title: "your workout plan is expired ", message: "Pleas ask your trainers for new workoutplan", preferredStyle: .Alert)
+        let alertAction = UIAlertAction(title: "ok", style: .Default) { (UIAlertAction) in
+            self.navigationController?.popViewControllerAnimated(true)
+
+        }
+        alert.addAction(alertAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -29,6 +39,14 @@ class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITabl
         showLoading()
         DataService.dataService.activitiesPlannedRef.child(segue).child(key).child("activities").observeEventType(.Value, withBlock: { snapshot in
             self.activities = []
+            if let check = snapshot.value as? NSNull  {
+                
+                self.alerMessage()
+                DataService.dataService.activitiesPlannedRef.child(self.segue).child(self.key).removeValue()
+             
+
+            }
+            
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
                 for snap in snapshots {
@@ -44,6 +62,8 @@ class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITabl
                         // Items are returned chronologically, but it's more fun with the newest jokes first.
                         
                         self.activities.insert(activity, atIndex: 0)
+                        
+                        
                     }
                 }
                 
@@ -73,6 +93,10 @@ class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITabl
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("daily")
         cell?.textLabel?.text = activities[indexPath.row].name
+        if activities[indexPath.row].finsihCount == 3 {
+            DataService.dataService.activitiesPlannedRef.child(segue).child(key).child("activities").child(activities[indexPath.row].keyDaily).removeValue()
+        }
+
         return cell!
     }
     
@@ -86,6 +110,11 @@ class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITabl
         detailViewController.activity = activity
         detailViewController.creatorID = activity.creatorID
         detailViewController.nameOfPlan = key
+        detailViewController.segue = self.segue
+        
+  
+        
+        
         
     }
     

@@ -1304,16 +1304,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="697-pp-o7l">
                         <nil key="title"/>
-                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="4eD-0h-p2M">
-                            <rect key="frame" x="85" y="7" width="206" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="searchTextField" destination="4eD-0h-p2M" id="1ok-GU-8RB"/>
                         <outlet property="tableView" destination="Ahu-gz-b5m" id="k82-fF-HL4"/>
                     </connections>
                 </viewController>

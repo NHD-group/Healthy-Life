@@ -20,6 +20,9 @@ class DetailViewController: UIViewController {
     var nameOfPlan = String()
     var activityName = String()
     var trackingRef: FIRDatabaseReference!
+    var segue = String()
+    var finishCountRef: FIRDatabaseReference!
+    
 
     @IBOutlet weak var cancelButtonLabel: UIButton!
     @IBOutlet weak var playInstructionButton: UIButton!
@@ -75,9 +78,23 @@ class DetailViewController: UIViewController {
     
     
     @IBAction func finishAction(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+       
         trackingRef.child("workingOn").removeValue()
         trackingRef.child("activitiesDone").childByAutoId().setValue(["activityName": activity.name , "nameOfPlan": nameOfPlan, "time": FIRServerValue.timestamp()])
+        
+        let newFcount = activity.finsihCount + 1
+        
+        
+        if segue ==  "sendedPlan" {
+        finishCountRef.setValue(newFcount)
+        }
+        
+//        if activity.finsihCount == 3 {
+//            DataService.dataService.activitiesPlannedRef.child(segue).child(nameOfPlan).child("activities").child(activity.keyDaily).removeValue()
+//        }
+
+        
+         dismissViewControllerAnimated(true, completion: nil)
         
     }
     
@@ -87,6 +104,13 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         trackingRef = DataService.dataService.baseRef.child("users").child(creatorID).child("tracking").child((FIRAuth.auth()?.currentUser?.uid)!)
+        
+        finishCountRef =
+            DataService.dataService.activitiesPlannedRef.child(segue).child(nameOfPlan).child("activities").child(activity.keyDaily).child("finishCount")
+        
+        
+        
+        
         
         finishButtonLable.hidden = true
         amountView.hidden = true

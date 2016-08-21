@@ -20,6 +20,7 @@ class Activities {
     private var Rep : String!
     private var Set : String!
     private var CreatorID: String!
+    private var FinishCount: Int!
     
     
     
@@ -51,6 +52,12 @@ class Activities {
         return CreatorID
     }
     
+    var finsihCount: Int {
+        return FinishCount
+    }
+    
+    
+    
     
     init(key: String, dictionary: Dictionary<String, AnyObject>) {
         self.KeyActivities = key
@@ -76,6 +83,11 @@ class Activities {
         if let set = dictionary["set"] as? String {
             self.Set = set
         }
+        
+        if let fcount = dictionary["finishCount"] as? Int {
+            self.FinishCount = fcount
+        }
+        
         
         if let createrID = dictionary["creatorID"] as? String {
             self.CreatorID = createrID

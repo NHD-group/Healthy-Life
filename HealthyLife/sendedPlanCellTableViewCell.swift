@@ -23,7 +23,7 @@ class sendedPlanCellTableViewCell: UITableViewCell {
             planName.text = plan
             
              DataService.dataService.activitiesPlannedRef.child("sendedPlan").child(plan).child("senderID").observeEventType(.Value, withBlock: { snapshot in
-                self.keyUID = snapshot.value as! String
+                self.keyUID = snapshot.value as? String ?? ""
                 print(snapshot.value)
             })
         }

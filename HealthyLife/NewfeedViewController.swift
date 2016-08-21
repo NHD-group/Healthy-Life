@@ -9,17 +9,21 @@
 import UIKit
 import Firebase
 
-class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
+class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var searchTextField: UITextField!
-    
+   
+   
     
     var users = [UserProfile]()
+    var searchUser = [UserProfile]()
+    var nonSearchUser = [UserProfile]()
     var keys =  [String]()
     var chatKey = String()
-    let searchController = UISearchController(searchResultsController: nil)
+    let searchBar = UISearchBar()
+    
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +33,19 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
 //        tableView.estimatedRowHeight = 130
 //        tableView.rowHeight = UITableViewAutomaticDimension
         
+        searchBar.sizeToFit()
+        navigationItem.titleView = searchBar
+        searchBar.delegate = self
         
-        let ref = FIRDatabase.database().reference()
+        
+        
 
         showLoading()
         
         
-
+        let ref = FIRDatabase.database().reference()
+        
+        
         ref.child("users").queryOrderedByChild("followerCount").queryLimitedToFirst(20).observeEventType(.Value, withBlock: { snapshot in
             
             self.users = []
@@ -56,8 +66,8 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
                         let user = UserProfile(key: key, dictionary: postDictionary)
                         
                         
-                        self.users.insert(user, atIndex: 0)
-                        
+                        self.nonSearchUser.insert(user, atIndex: 0)
+                        self.users = self.nonSearchUser
                         
                     }
                 }
@@ -75,12 +85,108 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
         })
         
         
-
-
+        
+        
         // Do any additional setup after loading the view.
     }
     
-
+    
+//    func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+//        
+//       
+//        
+//        let ref = FIRDatabase.database().reference()
+//        
+//        if searchBar.text != nil {
+//        ref.child("users").queryOrderedByChild("username").queryEqualToValue(searchBar.text!).observeEventType(.Value, withBlock: { snapshot in
+//            
+//            self.users = []
+//            
+//            
+//            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+//                
+//                for snap in snapshots {
+//                    
+//                    
+//                    
+//                    // Make our jokes array for the tableView.
+//                    
+//                    if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
+//                        
+//                        self.users.removeAll(keepCapacity: false)
+//                        let key = snap.key
+//                        self.keys.insert(key, atIndex: 0)
+//                        
+//                        let user = UserProfile(key: key, dictionary: postDictionary)
+//                        
+//                        
+//                        self.searchUser.insert(user, atIndex: 0)
+//                        
+//                        self.users = self.searchUser
+//                        
+//                        
+//                    }
+//                }
+//                
+//            }
+//            
+//            // Be sure that the tableView updates when there is new data.
+//            
+//          
+//            self.tableView.reloadData()
+//            self.hideLoading()
+//            
+//            
+//            
+//        })
+//        } else {
+//        
+//            ref.child("users").queryOrderedByChild("followerCount").queryLimitedToFirst(20).observeEventType(.Value, withBlock: { snapshot in
+//                
+//                self.users = []
+//                
+//                
+//                if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+//                    
+//                    for snap in snapshots {
+//                        
+//                        
+//                        
+//                        // Make our jokes array for the tableView.
+//                        
+//                        if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
+//                             self.users.removeAll(keepCapacity: false)
+//                            let key = snap.key
+//                            self.keys.insert(key, atIndex: 0)
+//                            
+//                            let user = UserProfile(key: key, dictionary: postDictionary)
+//                            
+//                            
+//                            self.nonSearchUser.insert(user, atIndex: 0)
+//                            self.users = self.nonSearchUser
+//                            
+//                        }
+//                    }
+//                    
+//                }
+//                
+//                // Be sure that the tableView updates when there is new data.
+//                
+//                self.tableView.reloadData()
+//                self.hideLoading()
+//                
+//                
+//                
+//                
+//            })
+//        }
+//        
+//   
+//        
+//        return true
+//    }
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return users.count
     }

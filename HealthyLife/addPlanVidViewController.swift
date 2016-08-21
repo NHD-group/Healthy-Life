@@ -48,7 +48,7 @@ class addPlanVidViewController: BaseViewController, UITableViewDataSource, UITab
     
     
     @IBAction func addAction(sender: AnyObject) {
-        let activity = ["name": video.name!, "videoUrl": video.videoUrl!, "description": video.des!, "rep": repTextField.text!, "set": setTextField.text!, "creatorID": (FIRAuth.auth()?.currentUser?.uid)! ]
+        let activity = ["name": video.name!, "videoUrl": video.videoUrl!, "description": video.des!, "rep": repTextField.text!, "set": setTextField.text!, "creatorID": (FIRAuth.auth()?.currentUser?.uid)!, "finishCount": 0 ]
         
         planRef.child(nameOfPlanTextField.text!).child("activities").childByAutoId().setValue(activity)
         
