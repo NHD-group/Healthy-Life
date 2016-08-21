@@ -21,11 +21,24 @@ class sendedPlanCellTableViewCell: UITableViewCell {
     var plan: String! {
         didSet {
             planName.text = plan
+            let planRef =  DataService.dataService.activitiesPlannedRef.child("sendedPlan").child(plan)
             
-             DataService.dataService.activitiesPlannedRef.child("sendedPlan").child(plan).child("senderID").observeEventType(.Value, withBlock: { snapshot in
+            planRef.child("senderID").observeEventType(.Value, withBlock: { snapshot in
                 self.keyUID = snapshot.value as? String ?? ""
                 print(snapshot.value)
             })
+            
+            planRef.child("checkVote").observeEventType(.Value, withBlock: { snapshot in
+                if let check = snapshot.value as? NSNull {
+                    self.rateButton.hidden = false
+                } else {
+                    
+                    self.rateButton.hidden = true
+                }
+            })
+
+            
+            
         }
     }
     

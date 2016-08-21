@@ -13,9 +13,11 @@ class weeklyPlanViewController: BaseViewController, UITableViewDelegate, UITable
 
     @IBOutlet weak var tableView: UITableView!
     
+   
     
     var yourPlans = [String]()
     var sendedPlans = [String]()
+    
     
     let  HeaderViewIdentifier = "yourPlan"
     let  headerViewIdentifier = "sendedPlan"
@@ -67,6 +69,7 @@ class weeklyPlanViewController: BaseViewController, UITableViewDelegate, UITable
                         let key = snap.key
                         
                         self.sendedPlans.insert(key, atIndex: 0)
+                        
                     }
                     
                 }
@@ -167,7 +170,7 @@ class weeklyPlanViewController: BaseViewController, UITableViewDelegate, UITable
             
             let cell = tableView.dequeueReusableCellWithIdentifier("sendedPlan") as! sendedPlanCellTableViewCell
             cell.plan = sendedPlans[indexPath.row]
-            
+           
             return cell
             // Sort
             
@@ -205,6 +208,7 @@ class weeklyPlanViewController: BaseViewController, UITableViewDelegate, UITable
             if let button = sender as? UIButton {
                 let cell = button.superview?.superview as! sendedPlanCellTableViewCell
                 controller.KeyUID = cell.keyUID
+                controller.nameOfPlan = cell.plan
             }
         } else if segue.identifier == "yourPlan" {
             
@@ -227,6 +231,7 @@ class weeklyPlanViewController: BaseViewController, UITableViewDelegate, UITable
             let key = sendedPlans[(indexPath?.row)!]
             targetController.key = key
             targetController.segue = "sendedPlan"
+            
         }
     }
     

@@ -66,8 +66,8 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
                         let user = UserProfile(key: key, dictionary: postDictionary)
                         
                         
-                        self.nonSearchUser.insert(user, atIndex: 0)
-                        self.users = self.nonSearchUser
+                        self.users.insert(user, atIndex: 0)
+//                        self.users = self.nonSearchUser
                         
                     }
                 }

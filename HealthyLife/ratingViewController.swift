@@ -21,6 +21,7 @@ class ratingViewController: UIViewController {
     var totalPeopleVoted = Int()
     var totalRate = Int()
     var userCommentCount = Int()
+    var nameOfPlan = String()
     
     
     
@@ -78,7 +79,7 @@ class ratingViewController: UIViewController {
         trainerID.child("usersComment").childByAutoId().setValue(["text": commentTextField.text!, "time": FIRServerValue.timestamp() ])
         }
         
-        
+        FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("activities_planned").child("sendedPlan").child(nameOfPlan).child("checkVote").setValue(true)
         
         
         

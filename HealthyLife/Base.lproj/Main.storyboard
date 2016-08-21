@@ -605,11 +605,11 @@
                                             <segue destination="0Gs-X2-MaY" kind="push" identifier="yourPlan" id="de9-EU-rTg"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="sendedPlan" rowHeight="70" id="rqd-Cx-rSS" customClass="sendedPlanCellTableViewCell" customModule="HealthyLife" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="173" width="375" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="sendedPlan" rowHeight="97" id="rqd-Cx-rSS" customClass="sendedPlanCellTableViewCell" customModule="HealthyLife" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="173" width="375" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rqd-Cx-rSS" id="bdc-sT-L3U">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="96"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULQ-Ol-QwN" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
@@ -828,7 +828,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZP-7J-jDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1989.5" y="438.5"/>
+            <point key="canvasLocation" x="2321.5" y="342.5"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Z8F-hf-Zyb">

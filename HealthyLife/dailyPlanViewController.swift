@@ -19,6 +19,7 @@ class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITabl
     var key = String()
     var creatorID = String()
     var segue = String()
+    var activityRef: FIRDatabaseReference!
     
     func alerMessage() {
         let alert = UIAlertController(title: "your workout plan is expired ", message: "Pleas ask your trainers for new workoutplan", preferredStyle: .Alert)
@@ -36,8 +37,10 @@ class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         // Do any additional setup after loading the view.
         
+        activityRef = DataService.dataService.activitiesPlannedRef.child(segue).child(key).child("activities")
+        
         showLoading()
-        DataService.dataService.activitiesPlannedRef.child(segue).child(key).child("activities").observeEventType(.Value, withBlock: { snapshot in
+       activityRef.observeEventType(.Value, withBlock: { snapshot in
             self.activities = []
             if let check = snapshot.value as? NSNull  {
                 
@@ -76,7 +79,26 @@ class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITabl
         })
         
         
+        tableView.allowsMultipleSelectionDuringEditing = true
+        
+        
+        
     }
+    
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        print(indexPath.row)
+        
+        
+        activityRef.child(activities[indexPath.row].keyDaily as! String).removeValue()
+        
+        
+    }
+
     
     @IBAction func backAction(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)

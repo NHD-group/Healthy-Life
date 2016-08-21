@@ -505,7 +505,6 @@
 		84181DE01D47C99800686BAB /* HealthyLife */ = {
 			isa = PBXGroup;
 			children = (
-				8493714D1D6365230096CE4B /* addVideo */,
 				04426AE51D5DAA2C005B3621 /* Share */,
 				04426AC41D5D9B07005B3621 /* Modules */,
 				8448B1A51D58430500DBFFFB /* talkBox */,
@@ -657,6 +656,7 @@
 		84B343D51D485A970085F02E /* personal */ = {
 			isa = PBXGroup;
 			children = (
+				8493714D1D6365230096CE4B /* addVideo */,
 				846BFCC91D65AF18009333B1 /* results */,
 				84937EE31D5089BF00E9CBC0 /* setting */,
 				844902251D5630F800B8ADF3 /* tracking */,
