@@ -211,7 +211,7 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCellWithIdentifier("222", forIndexPath:  indexPath) as! NewFeedtablviewCellTableViewCell
         
         cell.configureCell(users[indexPath.row], setImage: keys[indexPath.row])
-        
+        cell.talkButton.tag = indexPath.row
         
         return cell
 
@@ -234,7 +234,7 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
 
 
             if let button = sender as? UIButton {
-                let cell = button.superview?.superview?.superview as! NewFeedtablviewCellTableViewCell
+                let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: button.tag, inSection: 0)) as! NewFeedtablviewCellTableViewCell
                 controller.senderId = cell.currentUID
                 controller.senderDisplayName = cell.currentUserName
                 controller.chatKey = cell.chatKey
