@@ -39,6 +39,9 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var followImage: UIImageView!
     
+    
+    @IBOutlet weak var containerView: UIView!
+    
     let ref = DataService.BaseRef
     var trainerUid = String()
     
@@ -216,6 +219,8 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         tap.numberOfTapsRequired = 1
         followImage.addGestureRecognizer(tap)
         followImage.userInteractionEnabled = true
+        
+        containerView.layer.cornerRadius = 4
         
         // Initialization code
     }

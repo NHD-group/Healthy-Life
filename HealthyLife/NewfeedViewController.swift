@@ -202,6 +202,9 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
 
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 170
+    }
  
     
 
@@ -232,7 +235,7 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
         } else if segue.identifier == "details" {
             let controller = segue.destinationViewController as! TrainerDetailViewController
             if let button = sender as? UIButton {
-                let cell = button.superview?.superview as! NewFeedtablviewCellTableViewCell
+                let cell = button.superview?.superview?.superview as! NewFeedtablviewCellTableViewCell
                 controller.trainerUid = cell.trainerUid
             }
         }
