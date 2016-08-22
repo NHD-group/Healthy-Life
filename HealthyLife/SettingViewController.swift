@@ -93,10 +93,11 @@ class SettingViewController: BaseViewController,UIImagePickerControllerDelegate,
                 // Metadata contains file metadata such as size, content-type, and download URL.
                 let downloadURL = metadata!.downloadURL
                 print(downloadURL)
+                 self.onBack()
             }
         }
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+       self.onBack()
     }
     
     

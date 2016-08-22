@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class uploadFoodViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class uploadFoodViewController:  BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     var ref =  FIRDatabase.database().reference()
     let currentUserID = FIRAuth.auth()?.currentUser?.uid
@@ -100,11 +100,14 @@ class uploadFoodViewController: UIViewController, UIImagePickerControllerDelegat
                 let downloadURL = metadata!.downloadURL
                 print(downloadURL)
                 print("does it work")
-                
+            
+                self.onBack()
             }
         }
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.onBack()
+        
+       
     }
     
      //******************************************************************************************************

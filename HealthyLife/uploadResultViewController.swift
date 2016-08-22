@@ -10,7 +10,7 @@ import UIKit
 import MobileCoreServices
 import Firebase
 
-class uploadResultViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class uploadResultViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     var ref =  FIRDatabase.database().reference()
     let currentUserID = FIRAuth.auth()?.currentUser?.uid
@@ -84,11 +84,11 @@ class uploadResultViewController: UIViewController, UIImagePickerControllerDeleg
                 let downloadURL = metadata!.downloadURL
                 print(downloadURL)
                 print("does it work")
-                
+                self.onBack()
             }
         }
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        onBack()
     }
     
     

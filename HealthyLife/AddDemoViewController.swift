@@ -23,7 +23,7 @@ class AddDemoViewController: BaseViewController , UIImagePickerControllerDelegat
     
     
     
-    @IBOutlet weak var uploadStatusLabel: UILabel!
+    
     @IBAction func uploadAction(sender: AnyObject) {
         
         showLoading()
@@ -75,22 +75,7 @@ class AddDemoViewController: BaseViewController , UIImagePickerControllerDelegat
                 
             }
         })
-        uploadTask.observeStatus(.Progress, handler: { (snapshot) in
-            print(snapshot)
-            if (snapshot.progress?.completedUnitCount) != nil{
-                self.uploadStatusLabel.text = "uploading"
-                //                    String(completedUnitCount)
-                
-            }
-            
-        })
-        
-        uploadTask.observeStatus(.Success, handler: { (snapshot) in
-            self.uploadStatusLabel.text = "done"
-            self.hideLoading()
-        })
-
-
+       
     
     }
     

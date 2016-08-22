@@ -21,6 +21,8 @@ class displayCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var backView: UIView!
     
+    @IBOutlet weak var weightView: UIView!
+    
     @IBOutlet weak var likeCountLabel: UILabel!
     
     let storageRef = FIRStorage.storage().reference()
@@ -40,6 +42,10 @@ class displayCellTableViewCell: UITableViewCell {
             
             backView.layer.cornerRadius = 10
             backView.clipsToBounds = true
+            
+            weightView.layer.cornerRadius = 10
+            weightView.clipsToBounds = true
+
 
             ref.child("users").child(currentUserID!).child("user_setting").observeEventType(.Value, withBlock: { snapshot in
                 if snapshot.value == nil {
@@ -52,8 +58,10 @@ class displayCellTableViewCell: UITableViewCell {
                     var weightChanged = Double(currentWeight!)! - Double(startingWeight)!
                     
                     if weightChanged > 0 {
+                        self.weightView.backgroundColor = UIColor.greenColor()
                         self.weightChangedLabel.text = "gain: \(abs(weightChanged)) kg"
                     } else {
+                        self.weightView.backgroundColor = UIColor.redColor()
                         self.weightChangedLabel.text = "lose: \(abs(weightChanged)) kg"
                     }
                     
