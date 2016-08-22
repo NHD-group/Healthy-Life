@@ -96,3 +96,12 @@ class NHDCustomSubmitButton: NHDCustomFontButton {
         layer.shadowRadius = 0.2
     }
 }
+
+class NHDCustomFontTextField: UITextField {
+    
+    override func awakeFromNib() {
+        
+        super.awakeFromNib()
+        font = NHDFontBucket.fontWithSize(font!.pointSize)
+    }
+}

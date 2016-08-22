@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Pjm-h4-Xl2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Pjm-h4-Xl2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -25,11 +25,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GIj-vl-I3W">
-                                            <rect key="frame" x="30" y="120" width="314" height="260"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GIj-vl-I3W">
+                                            <rect key="frame" x="30" y="174" width="315" height="260"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="beS-w2-Yqe">
-                                                    <rect key="frame" x="20" y="20" width="274" height="60"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="beS-w2-Yqe" customClass="NHDCustomFontTextField" customModule="HealthyLife" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="20" width="275" height="60"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="TsY-LC-CBT"/>
@@ -37,8 +37,8 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ulL-mf-dM7">
-                                                    <rect key="frame" x="20" y="99" width="274" height="60"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ulL-mf-dM7" customClass="NHDCustomFontTextField" customModule="HealthyLife" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="99" width="275" height="60"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="Vkd-Jc-NoL"/>
@@ -46,8 +46,8 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
-                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wro-63-tmF">
-                                                    <rect key="frame" x="61" y="164" width="192" height="54"/>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wro-63-tmF" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
+                                                    <rect key="frame" x="139" y="174" width="38" height="30"/>
                                                     <state key="normal" title="LogIn">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -55,8 +55,8 @@
                                                         <action selector="LoginButton:" destination="Pjm-h4-Xl2" eventType="touchUpInside" id="dCU-y9-0WV"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WT-yl-4TH">
-                                                    <rect key="frame" x="61" y="226" width="192" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WT-yl-4TH" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
+                                                    <rect key="frame" x="134" y="214" width="48" height="30"/>
                                                     <state key="normal" title="Cancel">
                                                         <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -80,11 +80,11 @@
                                                 <constraint firstItem="beS-w2-Yqe" firstAttribute="top" secondItem="GIj-vl-I3W" secondAttribute="top" constant="20" id="ztG-rA-ycV"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M6r-1e-DxK">
-                                            <rect key="frame" x="30" y="121" width="314" height="348"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6r-1e-DxK">
+                                            <rect key="frame" x="30" y="129" width="315" height="350"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w6o-sf-IMf">
-                                                    <rect key="frame" x="20" y="23" width="274" height="57"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w6o-sf-IMf" customClass="NHDCustomFontTextField" customModule="HealthyLife" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="20" width="275" height="60"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="bYM-ts-Dih"/>
@@ -92,8 +92,8 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jvl-H9-NNn">
-                                                    <rect key="frame" x="20" y="103" width="274" height="57"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jvl-H9-NNn" customClass="NHDCustomFontTextField" customModule="HealthyLife" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="100" width="275" height="60"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="jBQ-rP-w2t"/>
@@ -101,8 +101,8 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mzl-aJ-A1r">
-                                                    <rect key="frame" x="20" y="186" width="274" height="57"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mzl-aJ-A1r" customClass="NHDCustomFontTextField" customModule="HealthyLife" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="180" width="275" height="60"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="7lf-UE-qCe"/>
@@ -110,8 +110,8 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
-                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLd-R7-2FQ">
-                                                    <rect key="frame" x="61" y="251" width="192" height="54"/>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLd-R7-2FQ" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
+                                                    <rect key="frame" x="107" y="255" width="102" height="30"/>
                                                     <state key="normal" title="CreateAccount">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -119,8 +119,8 @@
                                                         <action selector="createAccountAction:" destination="Pjm-h4-Xl2" eventType="touchUpInside" id="kq4-NE-gxO"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXu-79-uYg">
-                                                    <rect key="frame" x="61" y="313" width="192" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXu-79-uYg" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
+                                                    <rect key="frame" x="134" y="295" width="48" height="30"/>
                                                     <state key="normal" title="Cancel">
                                                         <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -151,9 +151,9 @@
                                     <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstItem="GIj-vl-I3W" firstAttribute="leading" secondItem="eXM-H9-Zxi" secondAttribute="leading" constant="30" id="5pJ-nI-wil"/>
-                                        <constraint firstItem="M6r-1e-DxK" firstAttribute="centerY" secondItem="eXM-H9-Zxi" secondAttribute="centerY" id="AP8-Gk-UJe"/>
+                                        <constraint firstItem="M6r-1e-DxK" firstAttribute="centerY" secondItem="eXM-H9-Zxi" secondAttribute="centerY" constant="-30" id="AP8-Gk-UJe"/>
                                         <constraint firstAttribute="trailing" secondItem="M6r-1e-DxK" secondAttribute="trailing" constant="30" id="GeW-s0-W6w"/>
-                                        <constraint firstItem="GIj-vl-I3W" firstAttribute="centerY" secondItem="eXM-H9-Zxi" secondAttribute="centerY" id="HdD-Zh-LaL"/>
+                                        <constraint firstItem="GIj-vl-I3W" firstAttribute="centerY" secondItem="eXM-H9-Zxi" secondAttribute="centerY" constant="-30" id="HdD-Zh-LaL"/>
                                         <constraint firstItem="M6r-1e-DxK" firstAttribute="leading" secondItem="eXM-H9-Zxi" secondAttribute="leading" constant="30" id="YQS-GP-RF6"/>
                                         <constraint firstAttribute="trailing" secondItem="GIj-vl-I3W" secondAttribute="trailing" constant="30" id="cVi-ji-7Q3"/>
                                     </constraints>
@@ -163,8 +163,8 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HqD-Df-ugO">
-                                <rect key="frame" x="20" y="512" width="335" height="56"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HqD-Df-ugO" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
+                                <rect key="frame" x="20" y="505" width="335" height="56"/>
                                 <color key="backgroundColor" red="1" green="0.16049054099999999" blue="0.16447674509999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="hjt-PN-XXU"/>
@@ -176,8 +176,8 @@
                                     <action selector="displaySignInViewAction:" destination="Pjm-h4-Xl2" eventType="touchUpInside" id="pgn-hU-8v1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOd-QP-Fno">
-                                <rect key="frame" x="20" y="584" width="335" height="56"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOd-QP-Fno" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
+                                <rect key="frame" x="20" y="581" width="335" height="56"/>
                                 <color key="backgroundColor" red="1" green="0.16049054099999999" blue="0.16447674509999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Gki-OZ-evU"/>

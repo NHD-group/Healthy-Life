@@ -11,7 +11,7 @@ import Firebase
 import SnapKit
 
 
-class SignInViewController: UIViewController {
+class SignInViewController: BaseViewController {
     
     
     let animationDuration: CFTimeInterval = 0.5
@@ -142,6 +142,7 @@ class SignInViewController: UIViewController {
     
     
     func login() {
+        showLoading()
         if let email = emailTextField.text, let password = passwordTextField.text {
             FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
                 if error != nil {
@@ -158,6 +159,7 @@ class SignInViewController: UIViewController {
     }
     
     func createAccount() {
+        showLoading()
         if let email = createEmail.text, let password = createPassword.text, let username = createUsername.text {
             FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user, error) in
                 if error != nil {
@@ -190,6 +192,7 @@ class SignInViewController: UIViewController {
             if let userName = snapshot.value as? String {
                 DataService.currentUserName = userName
             }
+            self.hideLoading()
             NSNotificationCenter.defaultCenter().postNotificationName(Configuration.NotificationKey.userDidLogin, object: nil)
         })
     }
