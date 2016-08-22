@@ -99,7 +99,11 @@ class demoTableViewCell: UITableViewCell {
             
             //average Rate
             if userProfile.totalPeopleVoted != 0 {
-                self.averageVote.text = "\(Double(userProfile.totalStar!)/Double(userProfile.totalPeopleVoted!))"
+                
+                let AverageStar = Double(userProfile.totalStar!) / Double(userProfile.totalPeopleVoted!)
+                let averageStar = String(format: "%.2f", AverageStar)
+                print(AverageStar)
+                self.averageVote.text = averageStar
                 
             } else {
                 self.averageVote.text = "0"

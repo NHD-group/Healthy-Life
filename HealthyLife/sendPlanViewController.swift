@@ -37,8 +37,15 @@ class sendPlanViewController: UIViewController, UITableViewDelegate, UITableView
         sendPlanRef.child("note").setValue(noteTextField.text!)
         sendPlanRef.child("senderID").setValue((FIRAuth.auth()?.currentUser?.uid)!)
         
+        DataService.dataService.userRef.child("tracking").child(sendToID).observeEventType(.Value, withBlock: { snapshot in
+           
+            if let check = snapshot.value as? NSNull  {
+                
+               DataService.dataService.userRef.child("tracking").child(self.sendToID).setValue(["name" : self.selectedFollowerName])
+                
+        }
+        })
         
-        DataService.dataService.userRef.child("tracking").child(sendToID).setValue(["name" : selectedFollowerName])
         
         
         DataService.dataService.baseRef.child("users").child(sendToID).child("currentTrainer").child((FIRAuth.auth()?.currentUser?.uid)!).child("name").setValue(username)

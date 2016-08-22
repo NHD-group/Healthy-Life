@@ -122,7 +122,7 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         
         
         
-        HeightLabel.text = userProfile.userSetting?.height as? String
+        HeightLabel.text = userProfile.userSetting?.height as? String ?? "height"
         
         nameLabel.text = sellectedUsername
         let followerCount = userProfile.followerCount ?? 0

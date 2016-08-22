@@ -145,7 +145,11 @@ class TrainerDetailViewController: UIViewController {
             
             //average Rate
             if userProfile.totalPeopleVoted != 0 {
-                self.averageVote.text = "\(userProfile.totalStar!/userProfile.totalPeopleVoted!)"
+                let AverageStar = Double(userProfile.totalStar!) / Double(userProfile.totalPeopleVoted!)
+                let averageStar = String(format: "%.2f", AverageStar)
+                
+                self.averageVote.text = averageStar
+
                 
             } else {
                 self.averageVote.text = "0"

@@ -13,9 +13,7 @@ class trackingViewController: BaseViewController, UITableViewDelegate, UITableVi
 
     @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func backAction(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
+
     
     var trackUsers = [Tracking]()
     
