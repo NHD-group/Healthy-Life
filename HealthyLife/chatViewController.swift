@@ -76,10 +76,17 @@ class chatViewController: JSQMessagesViewController {
         // Do any additional setup after loading the view.
         setupBackButton()
         
-        
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        Configuration.selectedRoomKey = receiverid
+    }
 
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        Configuration.selectedRoomKey = ""
+    }
     
     func setupBackButton() {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
@@ -260,7 +267,7 @@ class chatViewController: JSQMessagesViewController {
             let imageView = UIImageView(frame: CGRectMake(message.senderId == senderId ? 105 : 10, 0, 200, 150))
             imageView.image = UIImage(named: "lightboxPlayIconW")
             imageView.contentMode = .ScaleAspectFit
-            imageView.alpha = 0.9
+            imageView.alpha = 0.7
             cell.addSubview(imageView)
 
         }

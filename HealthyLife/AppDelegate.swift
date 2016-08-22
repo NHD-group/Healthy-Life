@@ -113,12 +113,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         
-        var badge = UIApplication.sharedApplication().applicationIconBadgeNumber
+        var badge = 0
+        var senderId = ""
         if let type = userInfo["notification"]?["type"] as? String {
             switch type {
             case "chat":
                 badge += Int(userInfo["notification"]?["badge"] as! String)!
-                
+                senderId = userInfo["notification"]?["senderid"] as! String
             default:
                 badge += 1
                 break
@@ -129,7 +130,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(userInfo)
         
         if application.applicationState != .Inactive {
-            Helper.showAlert("New Message", message: userInfo["notification"]?["body"] as? String, inViewController: (window?.rootViewController)!)
+            var viewController = (window?.rootViewController)!
+            if let vc = viewController.presentedViewController {
+                viewController = vc
+            }
+            if Configuration.selectedRoomKey != senderId {
+                Helper.showAlert("New Message", message: userInfo["notification"]?["body"] as? String, inViewController: viewController)
+            }
         }
     }
 
