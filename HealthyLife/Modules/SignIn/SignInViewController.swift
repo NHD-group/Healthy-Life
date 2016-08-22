@@ -50,6 +50,17 @@ class SignInViewController: UIViewController {
         
         self.startingDisplay()
         
+        self.emailTextField.returnKeyType = .Next
+        self.createEmail.returnKeyType = .Next
+        self.createUsername.returnKeyType = .Next
+        self.passwordTextField.returnKeyType = .Done
+        self.createPassword.returnKeyType = .Done
+        
+        self.emailTextField.delegate = self
+        self.createEmail.delegate = self
+        self.createUsername.delegate = self
+        self.passwordTextField.delegate = self
+        self.createPassword.delegate = self
     }
     
     @IBAction func onTap(sender: UITapGestureRecognizer) {
@@ -187,4 +198,30 @@ class SignInViewController: UIViewController {
     
 }
 
+extension SignInViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        switch textField {
+        case emailTextField:
+            passwordTextField.becomeFirstResponder()
+            break
+        case passwordTextField:
+            login()
+            break
+        case createEmail:
+            createUsername.becomeFirstResponder()
+            break
+        case createUsername:
+            createPassword.becomeFirstResponder()
+            break
+        case createPassword:
+            createAccount()
+            break
+        default:
+            break
+        }
+        return true
+    }
+}
 
