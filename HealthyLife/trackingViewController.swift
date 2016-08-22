@@ -73,16 +73,33 @@ class trackingViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       
-            let cell = sender as! UITableViewCell
-            let indexPath = tableView.indexPathForCell(cell)
-            let uid = trackUsers[indexPath!.row].UserID as! String
-            let nameTitle = trackUsers[indexPath!.row].name as! String
+//            let cell = sender as! UITableViewCell
+//            let indexPath = tableView.indexPathForCell(cell)
+//            let uid = trackUsers[indexPath!.row].UserID as! String
+//            let nameTitle = trackUsers[indexPath!.row].name as! String
+//        
+//            let detailViewController = segue.destinationViewController as! DetailsActivitiesDoneViewController
+//            detailViewController.uid = uid
+//            detailViewController.titleName = nameTitle
+//
         
-            let detailViewController = segue.destinationViewController as! DetailsActivitiesDoneViewController
-            detailViewController.uid = uid
-            detailViewController.titleName = nameTitle
-
+        
+        
+        if segue.identifier == "journal" {
+            let controller = segue.destinationViewController as! journalViewController
+            if let button = sender as? UIButton {
+                let cell = button.superview?.superview as! TrackingCellTableViewCell
+                controller.currentUserID = cell.ID
+            }
             
+        } else if segue.identifier == "acitivitiesDone" {
+            let controller = segue.destinationViewController as! DetailsActivitiesDoneViewController
+            if let button = sender as? UIButton {
+                let cell = button.superview?.superview as! TrackingCellTableViewCell
+                controller.uid = cell.ID
+            }
+        }
+        
     }
     
     

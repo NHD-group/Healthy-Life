@@ -17,7 +17,7 @@ class TrackingCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var workImage: UIImageView!
     
-    
+    var ID = String()
     var tracking: Tracking! {
         didSet {
             usernameLabel.text = tracking.name as? String
@@ -29,6 +29,8 @@ class TrackingCellTableViewCell: UITableViewCell {
                 workImage.image = UIImage(named: "offline")
                 
             }
+            
+            ID = tracking.UserID as? String ?? ""
         }
     }
     
