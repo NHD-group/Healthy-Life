@@ -17,6 +17,8 @@ class displayResultViewController: BaseViewController, UITableViewDataSource, UI
     
     var results = [Result]()
     
+    var resultRef: FIRDatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +32,9 @@ class displayResultViewController: BaseViewController, UITableViewDataSource, UI
         
         
         showLoading()
-        ref.child("users").child(currentUserID).child("results_journal").queryLimitedToLast(10).observeEventType(.Value, withBlock: { snapshot in
+        
+        resultRef = ref.child("users").child(currentUserID).child("results_journal")
+        resultRef.queryLimitedToLast(10).observeEventType(.Value, withBlock: { snapshot in
             
             // The snapshot is a current look at our jokes data.
             
@@ -63,12 +67,28 @@ class displayResultViewController: BaseViewController, UITableViewDataSource, UI
             self.hideLoading()
         })
         
-        
+         tableView.allowsMultipleSelectionDuringEditing = true
         
         
         // Do any additional setup after loading the view.
     }
     
+    
+   
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        print(indexPath.row)
+        
+        
+            resultRef.child(results[indexPath.row].resultKey as! String).removeValue()
+        
+        
+    }
+
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         // 1. set the initial state of the cell
         cell.alpha = 0
