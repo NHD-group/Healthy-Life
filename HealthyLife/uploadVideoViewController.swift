@@ -104,7 +104,9 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
                     let videoInfo: [String: AnyObject] = ["videoUrl": videoUrl, "name": self.nameVideoTextField.text!, "description": self.desTextField.text!]
                     
                     DataService.dataService.userRef.child("yourVideo").child(key).setValue(videoInfo)
-                    Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
+                    self.hideLoading()
+                    self.onBack()
+                    
 
                 }
                 
@@ -112,8 +114,7 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
         })
         
         uploadTask.observeStatus(.Success, handler: { (snapshot) in
-            self.hideLoading()
-            self.onBack()
+      
         })
         
     }
