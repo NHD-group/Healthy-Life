@@ -48,6 +48,7 @@ class DetailsActivitiesDoneViewController: UIViewController, UITableViewDelegate
         
         navigationItem.title = titleName
        
+        tableView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
         
         DataService.dataService.userRef.child("tracking").child(uid).child("activitiesDone").observeEventType(.Value, withBlock: { snapshot in
             self.activitiesDone = []
@@ -78,6 +79,19 @@ class DetailsActivitiesDoneViewController: UIViewController, UITableViewDelegate
 
         })
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        // 1. set the initial state of the cell
+        cell.alpha = 0
+        let transform = CATransform3DTranslate(CATransform3DIdentity, -250, 20, 0)
+        cell.layer.transform = transform
+        // 2. UIView Animation method to the final state of the cell
+        UIView.animateWithDuration(0.3) {
+            cell.alpha = 1.0
+            cell.layer.transform = CATransform3DIdentity
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

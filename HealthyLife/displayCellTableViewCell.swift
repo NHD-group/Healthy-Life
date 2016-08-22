@@ -19,6 +19,8 @@ class displayCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var loveImage: UIImageView!
     
+    @IBOutlet weak var backView: UIView!
+    
     @IBOutlet weak var likeCountLabel: UILabel!
     
     let storageRef = FIRStorage.storage().reference()
@@ -29,6 +31,16 @@ class displayCellTableViewCell: UITableViewCell {
     
     var result: Result? {
         didSet {
+            contentView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+            
+            backView.layer.shadowColor = UIColor.blackColor().colorWithAlphaComponent(0.2).CGColor
+            
+            backView.layer.shadowOffset = CGSize(width: 0, height: 0)
+            backView.layer.shadowOpacity = 0.8
+            
+            backView.layer.cornerRadius = 10
+            backView.clipsToBounds = true
+
             ref.child("users").child(currentUserID!).child("user_setting").observeEventType(.Value, withBlock: { snapshot in
                 if snapshot.value == nil {
                     self.weightChangedLabel.text = "0 kg"

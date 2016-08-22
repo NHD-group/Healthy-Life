@@ -52,7 +52,10 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         
         self.userProfile = userProfile
         selectedUID = setImage
-        sellectedUsername = userProfile.username!
+        
+
+        sellectedUsername = userProfile.username ?? ""
+        
         
         trainerButton.hidden = true
         
