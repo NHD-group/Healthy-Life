@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
    
@@ -21,9 +21,6 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
     var keys =  [String]()
     var chatKey = String()
     let searchBar = UISearchBar()
-    
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,54 +37,16 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
         navigationItem.titleView = searchBar
         searchBar.delegate = self
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .Plain, target: self, action: #selector(self.onSearch))
         
-        
-
         showLoading()
-        
-        
         let ref = FIRDatabase.database().reference()
-        
-        
         ref.child("users").queryOrderedByChild("followerCount").queryLimitedToFirst(20).observeEventType(.Value, withBlock: { snapshot in
             
-            self.users = []
-            
-            
-            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                
-                for snap in snapshots {
-                    
-                    
-                    
-                    // Make our jokes array for the tableView.
-                    
-                    if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
-                        let key = snap.key
-                        self.keys.insert(key, atIndex: 0)
-                        
-                        let user = UserProfile(key: key, dictionary: postDictionary)
-                        
-                        
-                        self.users.insert(user, atIndex: 0)
-//                        self.users = self.nonSearchUser
-                        
-                    }
-                }
-                
-            }
-            
-            // Be sure that the tableView updates when there is new data.
-            
-            self.tableView.reloadData()
-            self.hideLoading()
-            
-            
-            
+           self.getDataWith(snapshot)
             
         })
-        
-        
         
         
         // Do any additional setup after loading the view.
@@ -104,9 +63,6 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
             cell.layer.transform = CATransform3DIdentity
         }
     }
-    
-    
-
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -169,6 +125,63 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
-    
 
+}
+
+extension NewfeedViewController: UISearchBarDelegate {
+    
+    func onSearch() {
+        filterContentForSearchText(searchBar.text ?? "")
+        dismissKeyboard()
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        onSearch()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        onSearch()
+    }
+    
+    func filterContentForSearchText(searchText: String) {
+        
+        let ref = FIRDatabase.database().reference()
+        ref.child("users").queryOrderedByChild("username").queryStartingAtValue(searchText.lowercaseString).queryEndingAtValue(searchText.lowercaseString + "\u{f8ff}").queryLimitedToFirst(20).observeEventType(.Value, withBlock: { snapshot in
+            
+            self.getDataWith(snapshot)
+        })
+        
+     
+    }
+    
+    func getDataWith(snapshot: FIRDataSnapshot) {
+        
+        self.users = []
+        guard let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] else {
+            return
+        }
+        
+        for snap in snapshots {
+            // Make our jokes array for the tableView.
+            
+            if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                let key = snap.key
+                self.keys.insert(key, atIndex: 0)
+                
+                let user = UserProfile(key: key, dictionary: postDictionary)
+                
+                self.users.insert(user, atIndex: 0)
+            }
+        }
+        
+        // Be sure that the tableView updates when there is new data.
+        
+        self.tableView.reloadData()
+        self.hideLoading()
+    }
+    
+    override func dismissKeyboard() {
+        
+        searchBar.resignFirstResponder()
+    }
 }
