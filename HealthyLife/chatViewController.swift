@@ -256,6 +256,13 @@ class chatViewController: JSQMessagesViewController {
             } else {
                 cell.textView!.textColor = UIColor.darkGrayColor()
             }
+        } else if message.type.isVideo() {
+            let imageView = UIImageView(frame: CGRectMake(message.senderId == senderId ? 105 : 10, 0, 200, 150))
+            imageView.image = UIImage(named: "lightboxPlayIconW")
+            imageView.contentMode = .ScaleAspectFit
+            imageView.alpha = 0.9
+            cell.addSubview(imageView)
+
         }
         return cell
     }
@@ -314,10 +321,10 @@ extension chatViewController: UIImagePickerControllerDelegate, UINavigationContr
                     if let videoUrl = metadata?.downloadURL()?.absoluteString {
 
                         let type = Message.MessageType.Video.rawValue
-                        var thumbnail = Helper.thumbnailForVideoAtURL(videoURL)
-                        let watermark = UIImage(named: "lightboxPlayIconW")!
-                        watermark.resizeImage(thumbnail!.size)
-                        thumbnail = thumbnail?.addWaterMark(UIImage(named: "lightboxPlayIconW")!)
+                        let thumbnail = Helper.thumbnailForVideoAtURL(videoURL)
+//                        let watermark = UIImage(named: "lightboxPlayIconW")!
+//                        watermark.resizeImage(thumbnail!.size)
+//                        thumbnail = thumbnail?.addWaterMark(UIImage(named: "lightboxPlayIconW")!)
 
                         let messageItem = [ // 2
                             "type": type,
