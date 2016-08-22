@@ -40,15 +40,8 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
         navigationItem.leftBarButtonItem = UIBarButtonItem()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .Plain, target: self, action: #selector(self.onSearch))
         
-        showLoading()
-        let ref = FIRDatabase.database().reference()
-        ref.child("users").queryOrderedByChild("followerCount").queryLimitedToFirst(20).observeEventType(.Value, withBlock: { snapshot in
-            
-           self.getDataWith(snapshot)
-            
-        })
         
-        
+        onSearch()
         // Do any additional setup after loading the view.
     }
     
@@ -146,7 +139,13 @@ extension NewfeedViewController: UISearchBarDelegate {
     func filterContentForSearchText(searchText: String) {
         
         let ref = FIRDatabase.database().reference()
-        ref.child("users").queryOrderedByChild("username").queryStartingAtValue(searchText.lowercaseString).queryEndingAtValue(searchText.lowercaseString + "\u{f8ff}").queryLimitedToFirst(20).observeEventType(.Value, withBlock: { snapshot in
+        
+        var query = ref.child("users").queryOrderedByChild("followerCount")
+        if searchText.characters.count > 0 {
+            query = ref.child("users").queryOrderedByChild("username").queryStartingAtValue(searchText.lowercaseString).queryEndingAtValue(searchText.lowercaseString + "\u{f8ff}")
+        }
+        
+        query.queryLimitedToFirst(20).observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             self.getDataWith(snapshot)
         })

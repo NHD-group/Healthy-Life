@@ -227,6 +227,8 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
                 
             }
             
+            let followerCount = self.userProfile.followerCount ?? 0
+            self.followerCountLabel.text = "\(followerCount) followers"
         })
         
     }
