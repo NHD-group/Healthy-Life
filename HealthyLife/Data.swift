@@ -109,7 +109,7 @@ class DataService {
         }
     }
 
-    static func sendPushNotification(message: String, to userid: String, badge: Int, type: String) {
+    static func sendPushNotification(message: String, from senderid: String, to userid: String, badge: Int, type: String) {
         
         DataService.BaseRef.child("users").child(userid).child("token").observeEventType(.Value, withBlock: { snapshot in
             
@@ -123,7 +123,8 @@ class DataService {
                     "body"  : message,
                     "title" : "Healthy Life",
                     "badge" : badge,
-                    "type"  : type
+                    "type"  : type,
+                    "senderid" : senderid
                 ]]
             let jsonData = try! NSJSONSerialization.dataWithJSONObject(body, options: [])
             

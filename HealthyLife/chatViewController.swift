@@ -119,7 +119,7 @@ class chatViewController: JSQMessagesViewController {
         
         isTyping = false
         
-        DataService.sendPushNotification(senderDisplayName + ": " + text, to: receiverid, badge: 1, type: "chat")
+        DataService.sendPushNotification(senderDisplayName + ": " + text, from: senderId, to: receiverid, badge: 1, type: "chat")
     }
     
     func addTextMessage(id: String, text: String) {
@@ -315,6 +315,8 @@ extension chatViewController: UIImagePickerControllerDelegate, UINavigationContr
 
                         let type = Message.MessageType.Video.rawValue
                         var thumbnail = Helper.thumbnailForVideoAtURL(videoURL)
+                        let watermark = UIImage(named: "lightboxPlayIconW")!
+                        watermark.resizeImage(thumbnail!.size)
                         thumbnail = thumbnail?.addWaterMark(UIImage(named: "lightboxPlayIconW")!)
 
                         let messageItem = [ // 2
@@ -328,7 +330,7 @@ extension chatViewController: UIImagePickerControllerDelegate, UINavigationContr
                         self.finishSendingMessage()
                         MBProgressHUD.hideHUDForView(self.view, animated: true)
                         
-                        DataService.sendPushNotification(self.senderDisplayName + " sent a video to you", to: self.receiverid, badge: 1, type: "chat")
+                        DataService.sendPushNotification(self.senderDisplayName + " sent a video to you", from: self.senderId, to: self.receiverid, badge: 1, type: "chat")
                     }
                     
                 }
@@ -355,7 +357,7 @@ extension chatViewController: UIImagePickerControllerDelegate, UINavigationContr
             
             self.finishSendingMessage()
             
-            DataService.sendPushNotification(self.senderDisplayName + " sent a photo to you", to: self.receiverid, badge: 1, type: "chat")
+            DataService.sendPushNotification(senderDisplayName + " sent a photo to you", from: senderId, to: receiverid, badge: 1, type: "chat")
         }
         
         

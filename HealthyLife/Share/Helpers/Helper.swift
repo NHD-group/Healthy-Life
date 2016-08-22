@@ -35,7 +35,11 @@ class Helper: NSObject {
     }
     
     static func showAlert(title: String, message: String?, inViewController nav: UIViewController) {
-        showAlert(title, message: message, okActionBlock: nil, cancelActionBlock: nil, inViewController: nav)
+        var viewController = nav
+        if let vc = viewController.presentedViewController {
+            viewController = vc
+        }
+        showAlert(title, message: message, okActionBlock: nil, cancelActionBlock: nil, inViewController: viewController)
     }
     
     static func getPresentationDateString(sinceDate: NSDate) -> String {
