@@ -115,6 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var badge = 0
         var senderId = ""
+        var shouldShowAlert = false
         if let type = userInfo["notification"]?["type"] as? String {
             switch type {
             case "chat":
@@ -122,12 +123,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 senderId = userInfo["notification"]?["senderid"] as! String
             default:
                 badge += 1
+                shouldShowAlert = true
                 break
             }
         }
-        UIApplication.sharedApplication().applicationIconBadgeNumber += badge
+        UIApplication.sharedApplication().applicationIconBadgeNumber = badge
 
         print(userInfo)
+        
+        if !shouldShowAlert {
+            return
+        }
         
         if application.applicationState != .Inactive {
             var viewController = (window?.rootViewController)!
