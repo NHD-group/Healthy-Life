@@ -69,8 +69,10 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         backview.layer.cornerRadius = 10
         backview.clipsToBounds = true
 
-        
-        
+        //Hide talk/follow for current user
+        let isCurrentUser = DataService.currentUserID == selectedUID
+        talkButton.hidden = isCurrentUser
+        followImage.hidden = isCurrentUser
         
         self.avaImage.layer.cornerRadius = self.avaImage.frame.size.width / 2
         self.avaImage.clipsToBounds = true
