@@ -18,13 +18,13 @@ class TalksCellTableViewCell: UITableViewCell {
     @IBOutlet weak var recentChatLabel: UILabel!
     
     @IBOutlet weak var backview: UIView!
-    
+    var badgeLabel: UILabel?
     let storageRef = FIRStorage.storage().reference()
     
     
     var chatter: Chatter? {
         didSet {
-            usernameLabel.text = chatter?.chatterName as? String
+            usernameLabel.text = chatter?.chatterName
             
             contentView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
             
@@ -36,14 +36,17 @@ class TalksCellTableViewCell: UITableViewCell {
             backview.layer.cornerRadius = 10
             backview.clipsToBounds = true
             
-            DataService.dataService.baseRef.child("users").child((chatter?.id)! as String).observeEventType(.Value, withBlock: { snapshot in
+            guard let chatterID = chatter?.id else {
+                return
+            }
+            DataService.dataService.baseRef.child("users").child(chatterID).observeEventType(.Value, withBlock: { snapshot in
                 guard let value = snapshot.value as? NSDictionary else {
                     return
                 }
                 self.usernameLabel.text = value["username"] as? String
                 if value["user_setting"] != nil {
                     
-                    let islandRef = self.storageRef.child("images/\(self.chatter?.id as! String)")
+                    let islandRef = self.storageRef.child("images/\(chatterID)")
                     self.avaImage.downloadImageWithImageReference(islandRef)
                     
                     
@@ -60,7 +63,7 @@ class TalksCellTableViewCell: UITableViewCell {
             self.avaImage.layer.borderWidth = 1.0
             self.avaImage.layer.borderColor = UIColor.blackColor().CGColor
             
-            DataService.dataService.chats.child(chatter?.chatRoomKey as! String).queryLimitedToLast(1).observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
+            DataService.dataService.chats.child((chatter?.chatRoomKey)!).queryLimitedToLast(1).observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
                 
                 guard let value = snapshot.value else {
                     return
@@ -80,6 +83,20 @@ class TalksCellTableViewCell: UITableViewCell {
                 
                 self.recentChatLabel.text = text
                 
+                DataService.dataService.baseRef.child("users").child(DataService.currentUserID).child("chatRoom").child((self.chatter?.chatterName)!).child("unreadMessage").observeEventType(.Value, withBlock: { snapshot in
+                    
+                    var count = 0
+                    if let value = snapshot.value as? Int {
+                        count = value
+                    }
+                    
+                    if count > 0 {
+                        self.badgeLabel?.hidden = false
+                        self.badgeLabel?.text = String(count)
+                    } else {
+                        self.badgeLabel?.hidden = true
+                    }
+                })
             }
         }
     }
@@ -91,6 +108,20 @@ class TalksCellTableViewCell: UITableViewCell {
 
         usernameLabel.font = NHDFontBucket.blackFontWithSize(usernameLabel.font.pointSize)
         recentChatLabel.font = NHDFontBucket.italicFontWithSize(10)
+        
+        
+        let label = UILabel(frame: CGRectMake(2, 2, 20, 20))
+        label.font = NHDFontBucket.boldFontWithSize(12)
+        label.hidden = true
+        label.text = "0"
+        label.layer.cornerRadius = label.frame.size.height / 2
+        label.layer.masksToBounds = true
+        label.backgroundColor = Configuration.Colors.primary
+        label.textColor = UIColor.whiteColor()
+        label.textAlignment = .Center
+        self.addSubview(label)
+        
+        self.badgeLabel = label
     }
 
 

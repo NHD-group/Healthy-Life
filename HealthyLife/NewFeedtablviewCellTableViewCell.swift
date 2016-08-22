@@ -125,7 +125,8 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         HeightLabel.text = userProfile.userSetting?.height as? String
         
         nameLabel.text = sellectedUsername
-        followerCountLabel.text = "\(userProfile.followerCount!) followers"
+        let followerCount = userProfile.followerCount ?? 0
+        followerCountLabel.text = "\(followerCount) followers"
         
         //MARK: Set up ava Image
         
@@ -182,7 +183,7 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
             if snapshot.value is NSNull {
                 
                 DataService.dataService.chatRoom.child(self.sellectedUsername).setValue(["chatRoomKey": self.chatKey, "id": self.selectedUID])
-                DataService.dataService.baseRef.child("users").child(self.selectedUID).child("chatRoom").child(self.currentUserName).setValue(["chatRoomKey": self.chatKey, "id": self.currentUID])
+                DataService.dataService.baseRef.child("users").child(self.selectedUID).child("chatRoom").child(self.currentUserName).setValue(["chatRoomKey": self.chatKey, "id": self.currentUID, "unreadMessage" : 0])
                 
             }
             

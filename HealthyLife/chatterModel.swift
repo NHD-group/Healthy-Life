@@ -10,20 +10,21 @@ import Foundation
 
 class Chatter: NSObject {
     
-    var chatterName: NSString?
-   
+    var chatterName: String?
     
-    var chatRoomKey: NSString?
     
-    var id: NSString?
+    var chatRoomKey: String!
+    
+    var id: String?
+    var unreadMessage : Int?
     
     init(key: String , dictionary: NSDictionary) {
         
-      chatterName = key
+        chatterName = key
         
-      chatRoomKey = dictionary["chatRoomKey"] as? String
-
-    id = dictionary["id"] as? String
+        chatRoomKey = dictionary["chatRoomKey"] as? String
+        id = dictionary["id"] as? String
+        unreadMessage = dictionary["unreadMessage"] as? Int
     }
     
 }

@@ -30,14 +30,17 @@ class Message: NSObject {
         }
     }
     
+    var key:String!
     var senderId:String!
     var senderDisplayName:String!
     var date:NSDate?
     var type:MessageType!
     var data:JSQMessage?
     var fileURL:String?
+    var status: String?
     
-    func initMessage(senderId: String!, senderDisplayName: String!, date: NSDate!, type: MessageType!, data: AnyObject!) {
+    func initMessage(key: String!, senderId: String!, senderDisplayName: String!, date: NSDate!, type: MessageType!, data: AnyObject!) {
+        self.key = key
         self.senderId = senderId
         self.senderDisplayName = senderDisplayName
         self.date = date
@@ -53,15 +56,15 @@ class Message: NSObject {
         }
     }
     
-    init(senderId: String!, senderDisplayName: String!, date: NSDate!, type: MessageType!, data: AnyObject!) {
+    init(key: String!, senderId: String!, senderDisplayName: String!, date: NSDate!, type: MessageType!, data: AnyObject!) {
         
         super.init()
-        self.initMessage(senderId, senderDisplayName: senderDisplayName, date: date, type: type, data: data)
+        self.initMessage(key, senderId: senderId, senderDisplayName: senderDisplayName, date: date, type: type, data: data)
     }
     
-    init(senderId: String!, senderDisplayName: String!, type: MessageType!, data: AnyObject!) {
+    init(key: String!, senderId: String!, senderDisplayName: String!, type: MessageType!, data: AnyObject!) {
         
         super.init()
-        self.initMessage(senderId, senderDisplayName: senderDisplayName, date: NSDate(), type: type, data: data)
+        self.initMessage(key, senderId: senderId, senderDisplayName: senderDisplayName, date: NSDate(), type: type, data: data)
     }
 }

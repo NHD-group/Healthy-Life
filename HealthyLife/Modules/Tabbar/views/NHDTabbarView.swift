@@ -19,6 +19,7 @@ class NHDTabbarView: UIView {
     var selectedIndex = 0
 
     @IBOutlet var containerView: UIView!
+    @IBOutlet var badgeLabel: UILabel!
 
     
     override init(frame: CGRect) {
@@ -41,6 +42,27 @@ class NHDTabbarView: UIView {
         
         containerView.frame = bounds
         addSubview(containerView)
+        
+        badgeLabel.hidden = false
+        badgeLabel.text = "10"
+        badgeLabel.layer.cornerRadius = badgeLabel.frame.size.width / 2
+        badgeLabel.layer.masksToBounds = true
+        
+        DataService.dataService.baseRef.child("users").child(DataService.currentUserID).child("totalUnread").observeEventType(.Value, withBlock: { snapshot in
+            
+            var count = 0
+            if let value = snapshot.value as? Int {
+                count = value
+            }
+            
+            if count > 0 {
+                self.badgeLabel.hidden = false
+                self.badgeLabel.text = String(count)
+            } else {
+                self.badgeLabel.hidden = true
+            }
+            UIApplication.sharedApplication().applicationIconBadgeNumber = count
+        })
     }
 
     @IBAction func onButtonTapped(button: UIButton) {

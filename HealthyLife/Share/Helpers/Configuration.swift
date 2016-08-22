@@ -23,6 +23,7 @@ class Configuration: NSObject {
         static let userDidLogout = "userDidLogoutNotificationKey"
         static let userDidLogin = "userDidLoginNotificationKey"
         static let uploadVideo = "kUploadVideoNotification"
+        static let updateBadge = "kupdateBadgeNotification"
     }
 
     static let animationDuration: CFTimeInterval = 0.3

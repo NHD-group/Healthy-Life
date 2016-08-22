@@ -99,8 +99,8 @@ class talksViewController: BaseViewController, UITableViewDelegate, UITableViewD
         {
             let cell = sender as! UITableViewCell
             let indexPath = tableView.indexPathForCell(cell)
-            let chatKey = chatters[indexPath!.row].chatRoomKey as! String
-            let chatRoomName = chatters[indexPath!.row].chatterName as? String
+            let chatKey = chatters[indexPath!.row].chatRoomKey
+            let chatRoomName = chatters[indexPath!.row].chatterName
             let DestViewController = segue.destinationViewController as! UINavigationController
             let controller = DestViewController.topViewController as! chatViewController
             controller.chatKey = chatKey

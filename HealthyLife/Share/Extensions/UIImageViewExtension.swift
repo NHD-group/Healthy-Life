@@ -14,6 +14,10 @@ extension UIImageView {
     
 
     func downloadImageWithImageReference(imageRef : FIRStorageReference) {
+        downloadImageWithImageReference(imageRef, complete: nil)
+    }
+    
+    func downloadImageWithImageReference(imageRef : FIRStorageReference, complete: ((image: UIImage) -> ())?) {
         
         let imageCache = ImageCache(name: "ImageCacheFolder")
         let key = imageRef.fullPath
@@ -21,6 +25,9 @@ extension UIImageView {
         imageCache.retrieveImageForKey(key, options: []) { (cachedImage, type) in
             if cachedImage != nil {
                 self.image = cachedImage
+                if complete != nil {
+                    complete!(image: cachedImage!)
+                }
             } else {
                 imageRef.dataWithMaxSize(Configuration.kMaxSize) { (data, error) -> Void in
                     
@@ -32,6 +39,9 @@ extension UIImageView {
                         imageCache.storeImage(responseImage, originalData: data, forKey: key, toDisk: true, completionHandler: nil)
                         
                         self.image = responseImage
+                        if complete != nil {
+                            complete!(image: responseImage)
+                        }
                     }
                 }
 

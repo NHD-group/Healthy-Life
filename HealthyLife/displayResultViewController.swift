@@ -84,7 +84,7 @@ class displayResultViewController: BaseViewController, UITableViewDataSource, UI
         print(indexPath.row)
         
         
-            resultRef.child(results[indexPath.row].resultKey as! String).removeValue()
+            resultRef.child(results[indexPath.row].resultKey).removeValue()
         
         
     }

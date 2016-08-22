@@ -76,6 +76,7 @@ class chatViewController: JSQMessagesViewController {
         // Do any additional setup after loading the view.
         setupBackButton()
         
+        resetUnreadMessage()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -127,16 +128,16 @@ class chatViewController: JSQMessagesViewController {
         isTyping = false
         
         DataService.sendPushNotification(senderDisplayName + ": " + text, from: senderId, to: receiverid, badge: 1, type: "chat")
+        updateUnreadMessage()
     }
     
-    func addTextMessage(id: String, text: String) {
-        //let message = JSQMessage(senderId: id, displayName: "", text: text)
-        let message = Message(senderId: id, senderDisplayName: "", type: .Text, data: text)
+    func addTextMessage(key: String!, id: String, text: String) {
+        let message = Message(key: key, senderId: id, senderDisplayName: "", type: .Text, data: text)
         messages.append(message)
     }
     
-    func addPhotoMessage(id: String, photo: UIImage, type: Message.MessageType?, fileURL: String?) {
-        let message = Message(senderId: id, senderDisplayName: "", type: type, data: photo)
+    func addPhotoMessage(key: String!, id: String, photo: UIImage, type: Message.MessageType?, fileURL: String?) {
+        let message = Message(key: key, senderId: id, senderDisplayName: "", type: type, data: photo)
         message.fileURL = fileURL
         messages.append(message)
     }
@@ -164,6 +165,7 @@ class chatViewController: JSQMessagesViewController {
                 return
             }
             // 3
+            let key = snapshot.key
             let id = value["senderId"] as! String
             let text = value["text"] as! String
             
@@ -175,17 +177,17 @@ class chatViewController: JSQMessagesViewController {
             if type == Message.MessageType.Photo.rawValue {
                
                     if let image = UIImage.getImageFromText(text) {
-                        self.addPhotoMessage(id, photo: image, type: Message.MessageType.Photo, fileURL: nil)
+                        self.addPhotoMessage(key, id: id, photo: image, type: Message.MessageType.Photo, fileURL: nil)
                     }
                 
             } else if type == Message.MessageType.Video.rawValue {
                 
                 if let image = UIImage.getImageFromText(text) {
-                    self.addPhotoMessage(id, photo: image, type: Message.MessageType.Video, fileURL: value["fileURL"] as? String)
+                    self.addPhotoMessage(key, id: id, photo: image, type: Message.MessageType.Video, fileURL: value["fileURL"] as? String)
                 }
                 
             } else {
-                self.addTextMessage(id, text: text)
+                self.addTextMessage(key, id: id, text: text)
             }
             self.finishReceivingMessage()
 
@@ -296,6 +298,58 @@ class chatViewController: JSQMessagesViewController {
             }
         }
     }
+    
+    
+    func updateUnreadMessage() {
+        
+        let ref = DataService.dataService.baseRef.child("users").child(receiverid).child("chatRoom").child(DataService.currentUserName).child("unreadMessage")
+        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            var count = 1
+            if let value = snapshot.value as? Int {
+                count += value
+            }
+            
+            ref.setValue(count)
+
+            DataService.dataService.baseRef.child("users").child(self.receiverid).child("totalUnread").observeSingleEventOfType(.Value, withBlock: { (snap) in
+                
+                var total = 1
+                if let val = snap.value as? Int {
+                    total += val
+                }
+                
+                snap.ref.setValue(total)
+            })
+        })
+        
+    }
+    
+    func resetUnreadMessage() {
+        
+        let ref = DataService.dataService.chatRoom.child(chatRoomTittle!).child("unreadMessage")
+        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            var count = 0
+            if let value = snapshot.value as? Int {
+                count += value
+            }
+            
+            ref.setValue(0)
+            
+            DataService.dataService.userRef.child("totalUnread").observeSingleEventOfType(.Value, withBlock: { (snap) in
+                
+                var total = 0
+                if let val = snap.value as? Int {
+                    total = val - count
+                }
+                
+                snap.ref.setValue(total)
+            })
+        })
+        
+    }
+
 }
 
 extension chatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -345,6 +399,7 @@ extension chatViewController: UIImagePickerControllerDelegate, UINavigationContr
                         MBProgressHUD.hideHUDForView(self.view, animated: true)
                         
                         DataService.sendPushNotification(self.senderDisplayName + " sent a video to you", from: self.senderId, to: self.receiverid, badge: 1, type: "chat")
+                        self.updateUnreadMessage()
                     }
                     
                 }
@@ -372,6 +427,7 @@ extension chatViewController: UIImagePickerControllerDelegate, UINavigationContr
             self.finishSendingMessage()
             
             DataService.sendPushNotification(senderDisplayName + " sent a photo to you", from: senderId, to: receiverid, badge: 1, type: "chat")
+            updateUnreadMessage()
         }
         
         

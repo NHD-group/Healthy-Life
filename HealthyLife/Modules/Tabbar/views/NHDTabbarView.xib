@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NHDTabbarView" customModule="HealthyLife" customModuleProvider="target">
             <connections>
+                <outlet property="badgeLabel" destination="fAO-K8-kOc" id="eHZ-Rv-67E"/>
                 <outlet property="containerView" destination="fwy-RX-u3n" id="cgt-LJ-uoe"/>
             </connections>
         </placeholder>
@@ -19,6 +20,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAO-K8-kOc" customClass="NHDCustomBoldFontLabel" customModule="HealthyLife" customModuleProvider="target">
+                    <rect key="frame" x="297" y="-5" width="18" height="19"/>
+                    <color key="backgroundColor" red="0.91764705879999997" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POA-RY-sfp">
                     <rect key="frame" x="133" y="-4" width="54" height="54"/>
                     <constraints>
