@@ -15,7 +15,13 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
    
    
     
-    var users = [UserProfile]()
+    var users = [UserProfile]() {
+        didSet {
+            
+            tableView.reloadData()
+        }
+    }
+    
     var searchUser = [UserProfile]()
     var nonSearchUser = [UserProfile]()
     var keys =  [String]()
@@ -147,17 +153,27 @@ extension NewfeedViewController: UISearchBarDelegate {
         
         query.queryLimitedToFirst(20).observeSingleEventOfType(.Value, withBlock: { snapshot in
             
-            self.getDataWith(snapshot)
+            let array = self.getDataWith(snapshot)
+
+            if searchText.characters.count > 0 {
+                ref.child("users").queryOrderedByChild("username").queryStartingAtValue(searchText.uppercaseString).queryEndingAtValue(searchText.uppercaseString + "\u{f8ff}").queryLimitedToFirst(20).observeSingleEventOfType(.Value, withBlock: { snap in
+                    
+                    let anotherArray = self.getDataWith(snap)
+                    self.users = array + anotherArray
+                })
+            } else {
+                self.users = array
+            }
         })
         
      
     }
     
-    func getDataWith(snapshot: FIRDataSnapshot) {
+    func getDataWith(snapshot: FIRDataSnapshot) -> [UserProfile] {
         
-        self.users = []
+        var users = [UserProfile]()
         guard let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] else {
-            return
+            return users
         }
         
         for snap in snapshots {
@@ -169,14 +185,11 @@ extension NewfeedViewController: UISearchBarDelegate {
                 
                 let user = UserProfile(key: key, dictionary: postDictionary)
                 
-                self.users.insert(user, atIndex: 0)
+                users.insert(user, atIndex: 0)
             }
         }
         
-        // Be sure that the tableView updates when there is new data.
-        
-        self.tableView.reloadData()
-        self.hideLoading()
+        return users
     }
     
     override func dismissKeyboard() {
