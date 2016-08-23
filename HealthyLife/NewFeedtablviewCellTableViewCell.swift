@@ -163,16 +163,19 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
             
         })
         
-        
-        DataService.dataService.chatRoom.child(sellectedUsername).observeSingleEventOfType(.Value, withBlock: { snapshot in
-            if let dictinary = snapshot.value as? NSDictionary {
-                self.chatKey = dictinary["chatRoomKey"] as? String ?? ""
-                print(self.chatKey)
-                print("check chatKey")
-            } else {
-                self.chatKey =  self.selectedUID + self.currentUID
-            }
-        })
+        if sellectedUsername.characters.count > 0 {
+            DataService.dataService.chatRoom.child(sellectedUsername).observeSingleEventOfType(.Value, withBlock: { snapshot in
+                if let dictinary = snapshot.value as? NSDictionary {
+                    self.chatKey = dictinary["chatRoomKey"] as? String ?? ""
+                    print(self.chatKey)
+                    print("check chatKey")
+                } else {
+                    self.chatKey =  self.selectedUID + self.currentUID
+                }
+            })
+        } else {
+            self.chatKey =  self.selectedUID + self.currentUID
+        }
         
     }
     
