@@ -24,7 +24,6 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
     
     var searchUser = [UserProfile]()
     var nonSearchUser = [UserProfile]()
-    var keys =  [String]()
     var chatKey = String()
     let searchBar = UISearchBar()
     
@@ -72,7 +71,8 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
         
         let cell = tableView.dequeueReusableCellWithIdentifier("222", forIndexPath:  indexPath) as! NewFeedtablviewCellTableViewCell
         
-        cell.configureCell(users[indexPath.row], setImage: keys[indexPath.row])
+        let user = users[indexPath.row]
+        cell.configureCell(user, setImage: user.UserKey)
         cell.talkButton.tag = indexPath.row
         
         return cell
@@ -105,8 +105,8 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
         } else if let vc = segue.destinationViewController as? journalViewController {
             
             if let indexPath = tableView.indexPathForSelectedRow {
-                vc.currentUserID = keys[indexPath.row]
                 let user = users[indexPath.row]
+                vc.currentUserID = user.UserKey
                 vc.currentUserName = user.username
             }
         } else if segue.identifier == "details" {
@@ -181,8 +181,6 @@ extension NewfeedViewController: UISearchBarDelegate {
             
             if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
                 let key = snap.key
-                self.keys.insert(key, atIndex: 0)
-                
                 let user = UserProfile(key: key, dictionary: postDictionary)
                 
                 users.insert(user, atIndex: 0)

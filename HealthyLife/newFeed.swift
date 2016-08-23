@@ -13,7 +13,7 @@ import Firebase
 
 class UserProfile: NSObject {
     private var FollowerCountRef: FIRDatabaseReference!
-    var UserKey: String?
+    var UserKey: String!
     var username: String?
     var followerCount: Int?
     var userSetting: UserSetting?
