@@ -35,6 +35,8 @@
 		04426B1B1D5DB4C9005B3621 /* SCWatermarkOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426B0F1D5DB4C9005B3621 /* SCWatermarkOverlayView.m */; };
 		04426B1F1D5DBA35005B3621 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04426B1D1D5DBA34005B3621 /* GoogleService-Info.plist */; };
 		04426B201D5DBA35005B3621 /* HealthyLife-40181a67534f.json in Resources */ = {isa = PBXBuildFile; fileRef = 04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */; };
+		04ABC9551D6BF5E800EF0339 /* NHDSplash.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ABC9541D6BF5E800EF0339 /* NHDSplash.xib */; };
+		04ABC9571D6BF7FD00EF0339 /* NHDSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ABC9561D6BF7FD00EF0339 /* NHDSplash.swift */; };
 		04D1AA781D66B3FF00106C27 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA771D66B3FF00106C27 /* UIColorExtension.swift */; };
 		04D1AA7A1D66E34D00106C27 /* uploadVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D1AA791D66E34D00106C27 /* uploadVideoViewController.xib */; };
 		04D1AA7C1D66FC4E00106C27 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA7B1D66FC4E00106C27 /* Helper.swift */; };
@@ -150,6 +152,8 @@
 		04426B1D1D5DBA34005B3621 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "HealthyLife-40181a67534f.json"; sourceTree = "<group>"; };
 		04426B221D5DBE5F005B3621 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		04ABC9541D6BF5E800EF0339 /* NHDSplash.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHDSplash.xib; sourceTree = "<group>"; };
+		04ABC9561D6BF7FD00EF0339 /* NHDSplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDSplash.swift; sourceTree = "<group>"; };
 		04D1AA771D66B3FF00106C27 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		04D1AA791D66E34D00106C27 /* uploadVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = uploadVideoViewController.xib; sourceTree = "<group>"; };
 		04D1AA7B1D66FC4E00106C27 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 		04426AC41D5D9B07005B3621 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				04ABC9531D6BF5B900EF0339 /* Splash */,
 				04426ACD1D5D9B07005B3621 /* Tabbar */,
 				04426AC51D5D9B07005B3621 /* Personal */,
 				04426ACB1D5D9B07005B3621 /* SignIn */,
@@ -470,6 +475,15 @@
 				04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		04ABC9531D6BF5B900EF0339 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				04ABC9541D6BF5E800EF0339 /* NHDSplash.xib */,
+				04ABC9561D6BF7FD00EF0339 /* NHDSplash.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		293FBAE7311AD53C884F0F93 /* Pods */ = {
@@ -784,7 +798,6 @@
 				TargetAttributes = {
 					84181DDD1D47C99800686BAB = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = J874R9NR62;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -837,6 +850,7 @@
 				04D1AA7A1D66E34D00106C27 /* uploadVideoViewController.xib in Resources */,
 				04426ADF1D5DA932005B3621 /* ChamsBold Italic.ttf in Resources */,
 				04426B131D5DB4C9005B3621 /* a_filter.cisf in Resources */,
+				04ABC9551D6BF5E800EF0339 /* NHDSplash.xib in Resources */,
 				04426AF71D5DB324005B3621 /* NHDTabbarView.xib in Resources */,
 				04426AE11D5DA932005B3621 /* ChamsItalic.ttf in Resources */,
 				04426AE21D5DA932005B3621 /* ChamsRegular.ttf in Resources */,
@@ -941,6 +955,7 @@
 				84181DE21D47C99800686BAB /* AppDelegate.swift in Sources */,
 				84B114E81D56416800916206 /* trackingModel.swift in Sources */,
 				84C367891D65680D0033AFC1 /* AddDemoViewController.swift in Sources */,
+				04ABC9571D6BF7FD00EF0339 /* NHDSplash.swift in Sources */,
 				847C45411D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift in Sources */,
 				844902241D56064900B8ADF3 /* Plan.swift in Sources */,
 				8493714F1D6365410096CE4B /* vidCellTableViewCell.swift in Sources */,
@@ -1132,6 +1147,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = HealthyLife/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nguyenbui.com.HealthyLife;
@@ -1145,6 +1161,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = HealthyLife/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nguyenbui.com.HealthyLife;

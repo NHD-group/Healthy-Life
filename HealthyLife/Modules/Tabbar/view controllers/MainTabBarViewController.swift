@@ -17,13 +17,12 @@ class MainTabBarViewController: UITabBarController  {
 
         // Do any additional setup after loading the view.
         
-        let tabbarView = NHDTabbarView(frame: self.tabBar.frame)
+        let tabbarView = NHDTabbarView(frame: tabBar.frame)
         view.addSubview(tabbarView)
         tabbarView.snp_makeConstraints { (make) in
             make.edges.equalTo(tabBar.snp_edges)
         }
         tabbarView.delegate = self
-        
         
         NSNotificationCenter.defaultCenter().addObserverForName(Configuration.NotificationKey.uploadVideo, object: nil, queue: NSOperationQueue.mainQueue()) { (notif) in
             
@@ -39,6 +38,11 @@ class MainTabBarViewController: UITabBarController  {
             }
         }
         
+        let splashView = NHDSplash(frame: view.frame)
+        view.addSubview(splashView)
+        splashView.snp_makeConstraints { (make) in
+            make.edges.equalTo(view.snp_edges)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

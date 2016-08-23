@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NSNotificationCenter.defaultCenter().addObserverForName(Configuration.NotificationKey.userDidLogin, object: nil, queue: NSOperationQueue.mainQueue()) { (notif) in
             
-            self.changeRootView(true, animated: true)
+            self.changeRootView(true, animated: false)
         }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.tokenRefreshNotificaiton),
