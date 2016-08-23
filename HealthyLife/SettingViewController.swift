@@ -74,30 +74,32 @@ class SettingViewController: BaseViewController,UIImagePickerControllerDelegate,
         
         //: Upload Image
         
-        var avatarImage = imageView.image
-        avatarImage = avatarImage?.resizeImage(CGSize(width: 100.0, height: 100.0))
-        
-        let imageData: NSData = UIImagePNGRepresentation(avatarImage!)!
-        
-        
-        // Create a reference to the file you want to upload
-        
-        let riversRef = storageRef.child("images/\(currentID)")
-        
-        // Upload the file to the path ""images/\(key)"
-        riversRef.putData(imageData, metadata: nil) { metadata, error in
-            if (error != nil) {
-                // Uh-oh, an error occurred!
-                Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
-            } else {
-                // Metadata contains file metadata such as size, content-type, and download URL.
-                let downloadURL = metadata!.downloadURL
-                print(downloadURL)
-                 self.onBack()
+        if var avatarImage = imageView.image {
+            
+            avatarImage = avatarImage.resizeImage(CGSize(width: 100.0, height: 100.0))
+            
+            let imageData: NSData = UIImagePNGRepresentation(avatarImage)!
+            
+            // Create a reference to the file you want to upload
+            
+            let riversRef = storageRef.child("images/\(currentID)")
+            
+            // Upload the file to the path ""images/\(key)"
+            riversRef.putData(imageData, metadata: nil) { metadata, error in
+                if (error != nil) {
+                    // Uh-oh, an error occurred!
+                    Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
+                } else {
+                    // Metadata contains file metadata such as size, content-type, and download URL.
+                    let downloadURL = metadata!.downloadURL
+                    print(downloadURL)
+                    self.onBack()
+                }
             }
+        } else {
+            onBack()
         }
         
-       self.onBack()
     }
     
     
