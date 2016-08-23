@@ -90,7 +90,7 @@ class DataService {
     
     static func isLoggedIn() -> Bool {
         
-        return (currentUser != nil && currentUserName.characters.count > 0)
+        return (currentUser != nil)
     }
     
     static func updateToken() {

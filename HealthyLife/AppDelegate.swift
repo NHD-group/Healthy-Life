@@ -50,6 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboardName = isLoggedIn ? "Main" : "SignIn"
         let storyBoard = UIStoryboard(name: storyboardName, bundle: nil)
         let vc = storyBoard.instantiateInitialViewController()
+        
+        if self.window?.rootViewController == vc {
+            return
+        }
         if animated == false {
             self.window?.rootViewController = vc
             return
