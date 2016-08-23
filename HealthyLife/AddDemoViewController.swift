@@ -59,6 +59,9 @@ class AddDemoViewController: BaseViewController , UIImagePickerControllerDelegat
                             trailerRef.child("thumbnail").setValue(downloadURL)
                             
                         }
+                        
+                        self.hideLoading()
+                        self.onBack()
                        
                         
                     }
