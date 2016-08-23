@@ -25,7 +25,7 @@ class displayResultViewController: BaseViewController, UITableViewDataSource, UI
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        tableView.backgroundColor = Configuration.Colors.lightGray
         
         let ref = DataService.BaseRef
        

@@ -26,15 +26,6 @@ class TalksCellTableViewCell: UITableViewCell {
         didSet {
             usernameLabel.text = chatter?.chatterName
             
-            contentView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
-            
-            backview.layer.shadowColor = UIColor.blackColor().colorWithAlphaComponent(0.2).CGColor
-            
-            backview.layer.shadowOffset = CGSize(width: 0, height: 0)
-            backview.layer.shadowOpacity = 0.8
-            
-            backview.layer.cornerRadius = 10
-            backview.clipsToBounds = true
             
             guard let chatterID = chatter?.id else {
                 return
@@ -110,6 +101,11 @@ class TalksCellTableViewCell: UITableViewCell {
         usernameLabel.font = NHDFontBucket.blackFontWithSize(usernameLabel.font.pointSize)
         recentChatLabel.font = NHDFontBucket.italicFontWithSize(10)
         
+        contentView.backgroundColor = Configuration.Colors.lightGray
+        backview.layer.cornerRadius = 10
+        backview.clipsToBounds = true
+//        backview.layer.shadowOpacity = 0.3
+//        backview.layer.shadowPath = UIBezierPath(rect: backview.layer.bounds).CGPath
         
         let label = UILabel(frame: CGRectMake(2, 2, 20, 20))
         label.font = NHDFontBucket.boldFontWithSize(12)

@@ -33,7 +33,7 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        tableView.backgroundColor = Configuration.Colors.lightGray
 
 //        tableView.estimatedRowHeight = 130
 //        tableView.rowHeight = UITableViewAutomaticDimension

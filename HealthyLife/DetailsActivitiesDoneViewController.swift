@@ -48,7 +48,7 @@ class DetailsActivitiesDoneViewController: UIViewController, UITableViewDelegate
         
         navigationItem.title = titleName
        
-        tableView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        tableView.backgroundColor = Configuration.Colors.lightGray
         
         DataService.dataService.userRef.child("tracking").child(uid).child("activitiesDone").observeEventType(.Value, withBlock: { snapshot in
             self.activitiesDone = []

@@ -35,7 +35,8 @@ class demoLibViewController: BaseViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        tableView.backgroundColor = Configuration.Colors.lightGray
+        tableView.separatorStyle = .None
         
         
 //        FIRDatabase.database().reference().child("videosTrailer").child(currentUid)

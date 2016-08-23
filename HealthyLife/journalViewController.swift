@@ -53,7 +53,7 @@ class journalViewController: BaseViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         
         
-        tableView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        tableView.backgroundColor = Configuration.Colors.lightGray
         
         
         self.avaImage.layer.cornerRadius = 20

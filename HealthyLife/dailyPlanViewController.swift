@@ -36,7 +36,7 @@ class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
-        tableView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        tableView.backgroundColor = Configuration.Colors.lightGray
 
         
         activityRef = DataService.dataService.activitiesPlannedRef.child(segue).child(key).child("activities")

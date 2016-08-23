@@ -43,7 +43,7 @@ class commentsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         
         
-        tableView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        tableView.backgroundColor = Configuration.Colors.lightGray
         DataService.BaseRef.child("users").child(KeyUid).child("usersComment").observeEventType(.Value, withBlock: { snapshot in
             
             self.comments = []
