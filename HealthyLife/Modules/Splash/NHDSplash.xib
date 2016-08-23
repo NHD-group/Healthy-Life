@@ -10,6 +10,7 @@
                 <outlet property="bottomView" destination="UUo-2r-Nvc" id="anG-YK-SqK"/>
                 <outlet property="containerView" destination="iN0-l3-epB" id="ss8-nS-I9h"/>
                 <outlet property="grayView" destination="70i-Yh-r2U" id="U5p-jL-l2p"/>
+                <outlet property="labelCopyright" destination="h4p-RX-QKB" id="g1e-kt-ED0"/>
                 <outlet property="midView" destination="4ZO-OG-qmJ" id="qgd-nJ-SJa"/>
                 <outlet property="redView" destination="B0v-DR-Y5f" id="tWh-p5-mrh"/>
                 <outlet property="textView" destination="nzs-wP-J4L" id="zfT-oH-iPP"/>
@@ -69,6 +70,13 @@
                             <rect key="frame" x="15" y="150" width="289" height="47"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NHD group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h4p-RX-QKB" customClass="NHDCustomBlackFontLabel" customModule="HealthyLife" customModuleProvider="target">
+                            <rect key="frame" x="100" y="477" width="119" height="38"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.91764705879999997" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="0.3500580658783784" colorSpace="calibratedRGB"/>
                 </view>

@@ -43,6 +43,7 @@ class MainTabBarViewController: UITabBarController  {
         splashView.snp_makeConstraints { (make) in
             make.edges.equalTo(view.snp_edges)
         }
+        splashView.delegate = self
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -86,3 +87,10 @@ extension MainTabBarViewController: NHDTabbarViewDelegate {
     }
 }
 
+
+extension MainTabBarViewController: NHDSplashDelegate {
+    
+    func onStop() {
+
+    }
+}

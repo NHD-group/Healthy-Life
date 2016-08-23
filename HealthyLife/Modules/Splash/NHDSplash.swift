@@ -8,6 +8,10 @@
 
 import UIKit
 
+@objc protocol NHDSplashDelegate: class {
+    
+    optional func onStop()
+}
 
 class NHDSplash : UIView {
     
@@ -20,7 +24,10 @@ class NHDSplash : UIView {
     @IBOutlet weak var midView: UIImageView!
     @IBOutlet weak var textView: UIImageView!
     @IBOutlet weak var appIcon: UIImageView!
+    @IBOutlet weak var labelCopyright: NHDCustomBlackFontLabel!
     
+    weak var delegate: NHDSplashDelegate?
+
     lazy var animator = UIDynamicAnimator()
     var gravity: UIGravityBehavior!
     var viewProperties: UIDynamicItemBehavior!
@@ -68,6 +75,7 @@ class NHDSplash : UIView {
             self.containerView.alpha = 0
             }, completion: { (bool) -> Void in
                 self.removeFromSuperview()
+                self.delegate?.onStop?()
         })
     }
     
@@ -102,6 +110,9 @@ class NHDSplash : UIView {
                     
                     self.redView.transform = CGAffineTransformMakeTranslation(-width, height - self.redView.frame.size.height)
                     self.redView.alpha = 0.5
+                    
+                    self.labelCopyright.transform = CGAffineTransformMakeTranslation(0, 100)
+                    
                     }, completion: { (bool) -> Void in
                 })
         })
