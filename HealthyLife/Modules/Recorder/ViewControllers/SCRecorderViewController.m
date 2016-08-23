@@ -122,6 +122,7 @@
     
     [self prepareSession];
     
+    self.recordButton.selected = NO;
 	self.navigationController.navigationBarHidden = YES;
 }
 
@@ -366,7 +367,11 @@
 
 - (IBAction)onTimerTap:(id)sender {
     
-    self.timerLabel.text = @"6";
+    if (self.recordButton.selected == YES) {
+        return;
+    }
+    
+    self.timerLabel.text = @"4";
     
     if (timer == nil) {
         timer = [NSTimer scheduledTimerWithTimeInterval:1.0
@@ -381,7 +386,7 @@
     
     self.timerLabel.hidden = NO;
     int value = self.timerLabel.text.intValue - 1;
-    self.timerLabel.text = [NSString stringWithFormat:@"%d", value];
+    self.timerLabel.text = value > 0 ? [NSString stringWithFormat:@"%d", value] : @"Action";
 
     self.timerLabel.transform = CGAffineTransformMakeScale(3.0, 3.0);
     [UIView animateWithDuration:0.5 animations:^{
@@ -389,7 +394,7 @@
     } completion:^(BOOL finished) {
     }];
 
-    if (value == 0) {
+    if (value == -1) {
         self.timerLabel.hidden = YES;
         [_recorder record];
         self.recordButton.selected = YES;

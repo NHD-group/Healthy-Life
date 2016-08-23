@@ -205,7 +205,7 @@
 - (IBAction)changeRenderingModeTapped:(id)sender {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Change video rendering mode" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [self _addActionToAlertController:alertController forType:SCContextTypeAuto withName:@"Auto"];
-    [self _addActionToAlertController:alertController forType:SCContextTypeMetal withName:@"Metal"];
+//    [self _addActionToAlertController:alertController forType:SCContextTypeMetal withName:@"Metal"];
     [self _addActionToAlertController:alertController forType:SCContextTypeEAGL withName:@"EAGL"];
     [self _addActionToAlertController:alertController forType:SCContextTypeCoreGraphics withName:@"Core Graphics"];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
