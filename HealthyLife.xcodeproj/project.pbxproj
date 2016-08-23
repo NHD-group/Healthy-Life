@@ -54,6 +54,7 @@
 		841DDAB51D5485BD007917E7 /* cellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DDAB41D5485BD007917E7 /* cellTableViewCell.swift */; };
 		841DDAB71D54917B007917E7 /* sendPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DDAB61D54917B007917E7 /* sendPlanViewController.swift */; };
 		841DDABB1D54CE34007917E7 /* followerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DDABA1D54CE34007917E7 /* followerModel.swift */; };
+		8420E2051D6BF85E00F3CBAE /* cellDailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420E2041D6BF85E00F3CBAE /* cellDailyTableViewCell.swift */; };
 		8448B1A71D58434500DBFFFB /* chatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448B1A61D58434500DBFFFB /* chatViewController.swift */; };
 		844902241D56064900B8ADF3 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844902231D56064900B8ADF3 /* Plan.swift */; };
 		844902271D56310C00B8ADF3 /* trackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844902261D56310C00B8ADF3 /* trackingViewController.swift */; };
@@ -176,6 +177,7 @@
 		841DDAB41D5485BD007917E7 /* cellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cellTableViewCell.swift; sourceTree = "<group>"; };
 		841DDAB61D54917B007917E7 /* sendPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sendPlanViewController.swift; sourceTree = "<group>"; };
 		841DDABA1D54CE34007917E7 /* followerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = followerModel.swift; sourceTree = "<group>"; };
+		8420E2041D6BF85E00F3CBAE /* cellDailyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cellDailyTableViewCell.swift; sourceTree = "<group>"; };
 		8448B1A61D58434500DBFFFB /* chatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatViewController.swift; sourceTree = "<group>"; };
 		844902231D56064900B8ADF3 /* Plan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		844902261D56310C00B8ADF3 /* trackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = trackingViewController.swift; sourceTree = "<group>"; };
@@ -576,6 +578,7 @@
 			isa = PBXGroup;
 			children = (
 				84FACCA11D4F021100E73FDC /* dailyPlanViewController.swift */,
+				8420E2041D6BF85E00F3CBAE /* cellDailyTableViewCell.swift */,
 			);
 			name = daily;
 			sourceTree = "<group>";
@@ -951,6 +954,7 @@
 				846BFCCB1D65AF31009333B1 /* displayResultViewController.swift in Sources */,
 				04426B141D5DB4C9005B3621 /* SCEditVideoViewController.m in Sources */,
 				846BFCCD1D65AF3D009333B1 /* uploadResultViewController.swift in Sources */,
+				8420E2051D6BF85E00F3CBAE /* cellDailyTableViewCell.swift in Sources */,
 				04426B1B1D5DB4C9005B3621 /* SCWatermarkOverlayView.m in Sources */,
 				84AB527D1D48877400CB99FE /* journalViewController.swift in Sources */,
 				840E47541D64D2AB0002790C /* ActivitiesDoneCellTableViewCell.swift in Sources */,

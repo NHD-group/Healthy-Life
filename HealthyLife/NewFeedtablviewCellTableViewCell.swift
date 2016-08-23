@@ -166,7 +166,7 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         
         DataService.dataService.chatRoom.child(sellectedUsername).observeSingleEventOfType(.Value, withBlock: { snapshot in
             if let dictinary = snapshot.value as? NSDictionary {
-                self.chatKey = dictinary["chatRoomKey"] as! String
+                self.chatKey = dictinary["chatRoomKey"] as? String ?? ""
                 print(self.chatKey)
                 print("check chatKey")
             } else {

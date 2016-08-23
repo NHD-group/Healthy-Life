@@ -36,6 +36,8 @@ class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
+        tableView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+
         
         activityRef = DataService.dataService.activitiesPlannedRef.child(segue).child(key).child("activities")
         
@@ -86,6 +88,7 @@ class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITabl
     }
     
     
+    
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
@@ -94,7 +97,7 @@ class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITabl
         print(indexPath.row)
         
         
-        activityRef.child(activities[indexPath.row].keyDaily as! String).removeValue()
+        activityRef.child(activities[indexPath.row].keyDaily ).removeValue()
         
         
     }
@@ -113,13 +116,15 @@ class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITabl
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("daily")
-        cell?.textLabel?.text = activities[indexPath.row].name
+        let cell = tableView.dequeueReusableCellWithIdentifier("daily") as! cellDailyTableViewCell
+        
+        cell.activity = activities[indexPath.row]
+        
         if activities[indexPath.row].finsihCount == 3 {
             DataService.dataService.activitiesPlannedRef.child(segue).child(key).child("activities").child(activities[indexPath.row].keyDaily).removeValue()
         }
 
-        return cell!
+        return cell
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -133,10 +138,6 @@ class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITabl
         detailViewController.creatorID = activity.creatorID
         detailViewController.nameOfPlan = key
         detailViewController.segue = self.segue
-        
-  
-        
-        
         
     }
     
