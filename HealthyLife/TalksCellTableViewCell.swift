@@ -63,6 +63,7 @@ class TalksCellTableViewCell: UITableViewCell {
             self.avaImage.layer.borderWidth = 1.0
             self.avaImage.layer.borderColor = UIColor.blackColor().CGColor
             
+            self.recentChatLabel.text = "<No Message. Start to chat now!>"
             DataService.dataService.chats.child((chatter?.chatRoomKey)!).queryLimitedToLast(1).observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
                 
                 guard let value = snapshot.value else {
