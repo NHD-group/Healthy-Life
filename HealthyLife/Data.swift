@@ -95,10 +95,7 @@ class DataService {
     
     static func updateToken() {
         
-        #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
-            // don't save token in simulator
-            return
-        #endif
+
         
         if !isLoggedIn() {
             return
