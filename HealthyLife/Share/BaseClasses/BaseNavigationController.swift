@@ -40,14 +40,14 @@ class BaseNavigationController: UINavigationController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        topView.transform = CGAffineTransformMakeScale(0.1, 0.2)
-        UIView.animateWithDuration(3.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: 0.3,
-                                   initialSpringVelocity: 5.0,
-                                   options: UIViewAnimationOptions.CurveLinear,
-                                   animations: {
-                                    self.topView.transform = CGAffineTransformIdentity
-            }, completion: nil)
+//        topView.transform = CGAffineTransformMakeScale(0.1, 0.2)
+//        UIView.animateWithDuration(3.0,
+//                                   delay: 0,
+//                                   usingSpringWithDamping: 0.3,
+//                                   initialSpringVelocity: 5.0,
+//                                   options: UIViewAnimationOptions.CurveLinear,
+//                                   animations: {
+//                                    self.topView.transform = CGAffineTransformIdentity
+//            }, completion: nil)
     }
 }
