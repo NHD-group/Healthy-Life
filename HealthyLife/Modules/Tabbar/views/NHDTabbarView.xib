@@ -20,9 +20,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAO-K8-kOc" customClass="NHDCustomBoldFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                    <rect key="frame" x="297" y="-5" width="18" height="19"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAO-K8-kOc" customClass="NHDCustomBoldFontLabel" customModule="HealthyLife" customModuleProvider="target">
+                    <rect key="frame" x="297" y="-5" width="18" height="18"/>
                     <color key="backgroundColor" red="0.91764705879999997" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="18" id="BRT-ds-Is9"/>
+                        <constraint firstAttribute="width" secondItem="fAO-K8-kOc" secondAttribute="height" id="ce1-zN-ERH"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -97,6 +101,7 @@
                 <constraint firstItem="tq2-rQ-tfL" firstAttribute="top" secondItem="fwy-RX-u3n" secondAttribute="top" id="Dgh-8p-UES"/>
                 <constraint firstAttribute="bottom" secondItem="tq2-rQ-tfL" secondAttribute="bottom" id="G5r-Lq-Ng9"/>
                 <constraint firstItem="tq2-rQ-tfL" firstAttribute="leading" secondItem="fwy-RX-u3n" secondAttribute="leading" id="Joc-X6-QTH"/>
+                <constraint firstAttribute="trailing" secondItem="fAO-K8-kOc" secondAttribute="trailing" constant="5" id="KOS-hn-YoG"/>
                 <constraint firstItem="9pe-kH-BlC" firstAttribute="top" secondItem="fwy-RX-u3n" secondAttribute="top" constant="5" id="RTY-cs-APc"/>
                 <constraint firstAttribute="bottom" secondItem="9pe-kH-BlC" secondAttribute="bottom" id="SOz-K8-l9S"/>
                 <constraint firstItem="yh9-xR-npy" firstAttribute="top" secondItem="fwy-RX-u3n" secondAttribute="top" constant="5" id="U74-Cl-mil"/>
@@ -109,6 +114,7 @@
                 <constraint firstItem="POA-RY-sfp" firstAttribute="centerX" secondItem="fwy-RX-u3n" secondAttribute="centerX" id="kCf-OV-WXm"/>
                 <constraint firstAttribute="bottom" secondItem="KO4-Ur-Znh" secondAttribute="bottom" id="lp8-lo-j6e"/>
                 <constraint firstAttribute="trailing" secondItem="tq2-rQ-tfL" secondAttribute="trailing" id="n3u-yt-y0k"/>
+                <constraint firstItem="fAO-K8-kOc" firstAttribute="top" secondItem="fwy-RX-u3n" secondAttribute="top" constant="-5" id="seB-kf-W9Z"/>
                 <constraint firstItem="KO4-Ur-Znh" firstAttribute="top" secondItem="fwy-RX-u3n" secondAttribute="top" constant="5" id="tia-tG-Yfg"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
