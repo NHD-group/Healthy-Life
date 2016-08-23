@@ -85,6 +85,7 @@ class DataService {
         
         FIRApp.configure()
         FIRDatabase.database().persistenceEnabled = true
+        FIRDatabase.database().persistenceEnabled = false
         FIRConfiguration.sharedInstance().logLevel = .Error
     }
     
