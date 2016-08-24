@@ -43,8 +43,8 @@ class NHDTabbarView: UIView {
         containerView.frame = bounds
         addSubview(containerView)
         
-        badgeLabel.hidden = false
-        badgeLabel.text = "10"
+        badgeLabel.hidden = true
+        badgeLabel.text = "0"
         badgeLabel.layer.cornerRadius = badgeLabel.frame.size.width / 2
         badgeLabel.layer.masksToBounds = true
         

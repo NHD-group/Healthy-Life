@@ -24,7 +24,6 @@ class commentCellTableViewCell: UITableViewCell {
             timeStampTextLabel.text = "\(comment!.time!.timeAgo())"
             
             contentView.backgroundColor = Configuration.Colors.lightGray
-            Configuration.Colors.lightGray
 
         }
     }

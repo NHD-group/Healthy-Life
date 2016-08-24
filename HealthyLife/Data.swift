@@ -106,17 +106,21 @@ class DataService {
         return (currentUser != nil)
     }
     
-    static func updateToken() {
-        
+    class func isSimulator() -> Bool {
         #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
-            // don't save token in simulator
-            return
+            return true
         #endif
-        
+        return false
+    }
+    
+    static func updateToken() {
         if !isLoggedIn() {
             return
         }
         
+        if isSimulator() {
+            return
+        }
         if let refreshedToken = FIRInstanceID.instanceID().token() {
             DataService.dataService.userRef.child("token").setValue(refreshedToken)
         }
