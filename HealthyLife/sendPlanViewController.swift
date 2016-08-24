@@ -50,7 +50,8 @@ class sendPlanViewController: UIViewController, UITableViewDelegate, UITableView
         
         DataService.dataService.baseRef.child("users").child(sendToID).child("currentTrainer").child((FIRAuth.auth()?.currentUser?.uid)!).child("name").setValue(username)
         
-  
+         DataService.sendPushNotification(username + " " + "sent you a new work out plan", from: (FIRAuth.auth()?.currentUser?.uid)!, to: sendToID, badge: 1, type: "chat")
+        
         dismissViewControllerAnimated(true, completion: nil)
         
         
