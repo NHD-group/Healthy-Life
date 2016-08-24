@@ -12,7 +12,7 @@ import FirebaseInstanceID
 
 class DataService {
     
-    static let dataService = DataService()
+    static var dataService = DataService()
     
     static var BaseRef = FIRDatabase.database().reference()
     static let storageRef = FIRStorage.storage().reference()
@@ -40,43 +40,50 @@ class DataService {
         }
     }
     
-    private var UserRef = DataService.BaseRef.child("users").child((FIRAuth.auth()?.currentUser?.uid)!)
+    private var UserRef = DataService.BaseRef.child("users").child(currentUserID)
     
     
-    private var FoodJournalRef = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("food_journal")
+    private var FoodJournalRef = DataService.BaseRef.child("users").child(currentUserID).child("food_journal")
     
-    private var ActivitiesJournalRef = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("activities_journal")
+    private var ActivitiesJournalRef = DataService.BaseRef.child("users").child(currentUserID).child("activities_journal")
     
-    private var ActivitiesPlannedRed = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("activities_planned")
+    private var ActivitiesPlannedRed = DataService.BaseRef.child("users").child(currentUserID).child("activities_planned")
     
-    private var ChatRoom = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("chatRoom")
-    private var Chats = FIRDatabase.database().reference().child("chats")
+    private var ChatRoom = DataService.BaseRef.child("users").child(currentUserID).child("chatRoom")
+    private var Chats = DataService.BaseRef.child("chats")
     
     var baseRef: FIRDatabaseReference {
+        DataService.BaseRef.keepSynced(true)
         return DataService.BaseRef
     }
     
     var userRef: FIRDatabaseReference{
+        UserRef.keepSynced(true)
         return UserRef
     }
     
     var foodJournalRef: FIRDatabaseReference{
+        FoodJournalRef.keepSynced(true)
         return FoodJournalRef
     }
     
     var activitiesJournalRef: FIRDatabaseReference {
+        ActivitiesJournalRef.keepSynced(true)
         return ActivitiesJournalRef
     }
     
     var activitiesPlannedRef: FIRDatabaseReference {
+        ActivitiesPlannedRed.keepSynced(true)
         return ActivitiesPlannedRed
     }
     
     var chatRoom: FIRDatabaseReference {
+        ChatRoom.keepSynced(true)
         return ChatRoom
     }
     
     var chats: FIRDatabaseReference {
+        Chats.keepSynced(true)
         return Chats
     }
     
@@ -84,9 +91,14 @@ class DataService {
     static func setup() {
         
         FIRApp.configure()
-        FIRDatabase.database().persistenceEnabled = true
         FIRDatabase.database().persistenceEnabled = false
         FIRConfiguration.sharedInstance().logLevel = .Error
+        
+        FIRAuth.auth()?.addAuthStateDidChangeListener({ (auth, user) in
+            if user != nil {
+                dataService = DataService()
+            }
+        })
     }
     
     static func isLoggedIn() -> Bool {
