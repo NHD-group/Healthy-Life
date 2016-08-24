@@ -18,6 +18,7 @@ target 'HealthyLife' do
     pod 'SnapKit', '~> 0.22.0'
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
+    pod 'TabPageViewController'
 
 end
 
