@@ -41,6 +41,7 @@
 		04D1AA7A1D66E34D00106C27 /* uploadVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D1AA791D66E34D00106C27 /* uploadVideoViewController.xib */; };
 		04D1AA7C1D66FC4E00106C27 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA7B1D66FC4E00106C27 /* Helper.swift */; };
 		04D1AA7E1D67046600106C27 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA7D1D67046600106C27 /* BaseViewController.swift */; };
+		04E7B6E61D6EA8E70088884A /* BaseTabPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7B6E51D6EA8E60088884A /* BaseTabPageViewController.swift */; };
 		3FEE3F4FA3D69AF73B170521 /* Pods_HealthyLife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */; };
 		746E341E1D67F80900E9C9A0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E341D1D67F80900E9C9A0 /* Message.swift */; };
 		8409619E1D533183008DE12D /* userSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409619D1D533183008DE12D /* userSettingModel.swift */; };
@@ -158,6 +159,7 @@
 		04D1AA791D66E34D00106C27 /* uploadVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = uploadVideoViewController.xib; sourceTree = "<group>"; };
 		04D1AA7B1D66FC4E00106C27 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		04D1AA7D1D67046600106C27 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		04E7B6E51D6EA8E60088884A /* BaseTabPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabPageViewController.swift; sourceTree = "<group>"; };
 		27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthyLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		746E341D1D67F80900E9C9A0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		7A91B12079A8F4C1D8E52CAC /* Pods-HealthyLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.release.xcconfig"; sourceTree = "<group>"; };
@@ -371,10 +373,10 @@
 		04426AE51D5DAA2C005B3621 /* Share */ = {
 			isa = PBXGroup;
 			children = (
-				04426B1C1D5DBA34005B3621 /* Firebase */,
 				04426AE61D5DAA2C005B3621 /* BaseClasses */,
 				04426AE81D5DAA2C005B3621 /* CustomUIs */,
 				04426AEA1D5DAA2C005B3621 /* Extensions */,
+				04426B1C1D5DBA34005B3621 /* Firebase */,
 				04426AED1D5DAA2C005B3621 /* Helpers */,
 			);
 			path = Share;
@@ -385,6 +387,7 @@
 			children = (
 				04426AE71D5DAA2C005B3621 /* BaseNavigationController.swift */,
 				04D1AA7D1D67046600106C27 /* BaseViewController.swift */,
+				04E7B6E51D6EA8E60088884A /* BaseTabPageViewController.swift */,
 			);
 			path = BaseClasses;
 			sourceTree = "<group>";
@@ -974,6 +977,7 @@
 				84AB527D1D48877400CB99FE /* journalViewController.swift in Sources */,
 				840E47541D64D2AB0002790C /* ActivitiesDoneCellTableViewCell.swift in Sources */,
 				844B8FF31D668B0800B42991 /* displayCellTableViewCell.swift in Sources */,
+				04E7B6E61D6EA8E70088884A /* BaseTabPageViewController.swift in Sources */,
 				84FACCA41D4F022200E73FDC /* DetailViewController.swift in Sources */,
 				04426B151D5DB4C9005B3621 /* SCImageDisplayerViewController.m in Sources */,
 				84FACCA81D4F048A00E73FDC /* Activities.swift in Sources */,

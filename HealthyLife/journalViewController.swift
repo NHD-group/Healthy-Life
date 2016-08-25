@@ -39,7 +39,7 @@ class journalViewController: BaseViewController, UITableViewDelegate, UITableVie
     var results = [Result]()
     var resultRef: FIRDatabaseReference!
     
-    let tc:TabPageViewController = TabPageViewController.create()
+    let tc = BaseTabPageViewController()
     let vc1 = UIViewController()
     let vc2 = UIViewController()
     
@@ -339,18 +339,6 @@ class journalViewController: BaseViewController, UITableViewDelegate, UITableVie
             }
         }
     }
-    
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
 
 }
+
