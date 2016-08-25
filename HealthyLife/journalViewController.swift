@@ -202,6 +202,7 @@ extension journalViewController: BaseScroolViewDelegate {
                     self.view.layoutIfNeeded()
                     self.topView.alpha = 1
                 })
+                displayLogoutButton()
             }
         } else if topView.tag != 2 {
             topView.tag = 2
@@ -212,8 +213,22 @@ extension journalViewController: BaseScroolViewDelegate {
                 self.view.layoutIfNeeded()
                 self.topView.alpha = 0
             })
-            
+            displaySettingButton()
         }
     }
 
+    
+    func displaySettingButton() {
+        
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        button.setBackgroundImage(UIImage(named: "icn_down"), forState: UIControlState.Normal)
+        button.tintColor = UIColor.whiteColor()
+        button.addTarget(self, action: #selector(self.showUserPanel), forControlEvents: UIControlEvents.TouchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+    }
+    
+    func showUserPanel() {
+        
+        pageViewControllerIsMoving(true)
+    }
 }
