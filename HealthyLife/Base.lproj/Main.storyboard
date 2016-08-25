@@ -235,48 +235,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhN-qx-hES">
-                                <rect key="frame" x="0.0" y="64" width="375" height="130"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="120"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fB3-fJ-ijH">
-                                        <rect key="frame" x="0.0" y="98" width="375" height="32"/>
+                                        <rect key="frame" x="0.0" y="90" width="375" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuC-vk-Uq0" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
-                                                <rect key="frame" x="1" y="1" width="124" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuC-vk-Uq0" customClass="NHDCustomSubmitButton" customModule="HealthyLife" customModuleProvider="target">
+                                                <rect key="frame" x="2" y="1" width="122" height="28"/>
                                                 <state key="normal" title="Plan"/>
                                                 <connections>
                                                     <segue destination="dXl-kM-6GR" kind="push" id="Dxp-xe-Vjn"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igw-bq-xlu" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
-                                                <rect key="frame" x="250" y="1" width="124" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igw-bq-xlu" customClass="NHDCustomSubmitButton" customModule="HealthyLife" customModuleProvider="target">
+                                                <rect key="frame" x="251" y="1" width="122" height="28"/>
                                                 <state key="normal" title="Upload Vid"/>
                                                 <connections>
                                                     <segue destination="Yue-Nz-GyF" kind="push" id="PXI-SI-9AB"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKl-L8-x0G" customClass="NHDCustomFontButton" customModule="HealthyLife" customModuleProvider="target">
-                                                <rect key="frame" x="126" y="1" width="123" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKl-L8-x0G" customClass="NHDCustomSubmitButton" customModule="HealthyLife" customModuleProvider="target">
+                                                <rect key="frame" x="126" y="1" width="123" height="28"/>
                                                 <state key="normal" title="Tracking"/>
                                                 <connections>
                                                     <segue destination="PrZ-0n-cGG" kind="modal" id="K5W-GF-n6s"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.7895162563" green="0.7895162563" blue="0.7895162563" alpha="0.69766152869999998" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="Igw-bq-xlu" firstAttribute="height" secondItem="YuC-vk-Uq0" secondAttribute="height" id="2hM-bo-AuF"/>
-                                            <constraint firstAttribute="height" constant="32" id="5S5-jx-Co5"/>
+                                            <constraint firstAttribute="height" constant="30" id="5S5-jx-Co5"/>
                                             <constraint firstItem="bKl-L8-x0G" firstAttribute="centerY" secondItem="YuC-vk-Uq0" secondAttribute="centerY" id="6bk-cu-d1Y"/>
                                             <constraint firstAttribute="bottom" secondItem="YuC-vk-Uq0" secondAttribute="bottom" constant="1" id="Cp5-wX-Jpq"/>
                                             <constraint firstItem="Igw-bq-xlu" firstAttribute="centerY" secondItem="YuC-vk-Uq0" secondAttribute="centerY" id="Jol-0M-ia1"/>
                                             <constraint firstItem="bKl-L8-x0G" firstAttribute="width" secondItem="YuC-vk-Uq0" secondAttribute="width" id="SR4-2a-QL8"/>
                                             <constraint firstItem="Igw-bq-xlu" firstAttribute="width" secondItem="YuC-vk-Uq0" secondAttribute="width" id="Z0i-U2-hL4"/>
                                             <constraint firstItem="bKl-L8-x0G" firstAttribute="height" secondItem="YuC-vk-Uq0" secondAttribute="height" id="bO4-pK-nzt"/>
-                                            <constraint firstItem="YuC-vk-Uq0" firstAttribute="leading" secondItem="fB3-fJ-ijH" secondAttribute="leading" constant="1" id="cyV-i3-xy2"/>
+                                            <constraint firstItem="YuC-vk-Uq0" firstAttribute="leading" secondItem="fB3-fJ-ijH" secondAttribute="leading" constant="2" id="cyV-i3-xy2"/>
                                             <constraint firstItem="YuC-vk-Uq0" firstAttribute="top" secondItem="fB3-fJ-ijH" secondAttribute="top" constant="1" id="i00-PC-OWj"/>
-                                            <constraint firstItem="bKl-L8-x0G" firstAttribute="leading" secondItem="YuC-vk-Uq0" secondAttribute="trailing" constant="1" id="jce-gh-lWN"/>
-                                            <constraint firstAttribute="trailing" secondItem="Igw-bq-xlu" secondAttribute="trailing" constant="1" id="qgi-qO-zef"/>
-                                            <constraint firstItem="Igw-bq-xlu" firstAttribute="leading" secondItem="bKl-L8-x0G" secondAttribute="trailing" constant="1" id="qmb-oM-z8k"/>
+                                            <constraint firstItem="bKl-L8-x0G" firstAttribute="leading" secondItem="YuC-vk-Uq0" secondAttribute="trailing" constant="2" id="jce-gh-lWN"/>
+                                            <constraint firstAttribute="trailing" secondItem="Igw-bq-xlu" secondAttribute="trailing" constant="2" id="qgi-qO-zef"/>
+                                            <constraint firstItem="Igw-bq-xlu" firstAttribute="leading" secondItem="bKl-L8-x0G" secondAttribute="trailing" constant="2" id="qmb-oM-z8k"/>
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="UIE-XC-Tpu">
@@ -332,7 +332,7 @@
                                     <constraint firstAttribute="trailing" secondItem="3kP-Jf-dbo" secondAttribute="trailing" constant="8" id="FnV-e2-NWF"/>
                                     <constraint firstItem="UIE-XC-Tpu" firstAttribute="leading" secondItem="ZhN-qx-hES" secondAttribute="leading" constant="8" id="K4U-zT-7hA"/>
                                     <constraint firstAttribute="bottom" secondItem="fB3-fJ-ijH" secondAttribute="bottom" id="MoI-nw-DH3"/>
-                                    <constraint firstAttribute="height" constant="130" id="PTJ-EF-fy8"/>
+                                    <constraint firstAttribute="height" constant="120" id="PTJ-EF-fy8"/>
                                     <constraint firstItem="FJ3-RR-Uu1" firstAttribute="leading" secondItem="nxV-hu-tSm" secondAttribute="leading" id="RvB-P4-pOT"/>
                                     <constraint firstItem="7Ta-fl-gNP" firstAttribute="top" secondItem="nxV-hu-tSm" secondAttribute="bottom" constant="8" id="V9e-na-Ojk"/>
                                     <constraint firstItem="7Ta-fl-gNP" firstAttribute="leading" secondItem="FJ3-RR-Uu1" secondAttribute="trailing" constant="24" id="Wkp-Un-GnJ"/>
@@ -347,7 +347,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EN4-hM-Wme">
-                                <rect key="frame" x="0.0" y="194" width="375" height="424"/>
+                                <rect key="frame" x="0.0" y="185" width="375" height="433"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -357,7 +357,7 @@
                             <constraint firstAttribute="trailing" secondItem="EN4-hM-Wme" secondAttribute="trailing" id="OOP-Mt-wka"/>
                             <constraint firstAttribute="trailing" secondItem="ZhN-qx-hES" secondAttribute="trailing" id="bUj-r8-VO7"/>
                             <constraint firstItem="EN4-hM-Wme" firstAttribute="leading" secondItem="nuc-lY-cRx" secondAttribute="leading" id="mim-1l-H6c"/>
-                            <constraint firstItem="EN4-hM-Wme" firstAttribute="top" secondItem="ZhN-qx-hES" secondAttribute="bottom" id="nch-Jb-h6S"/>
+                            <constraint firstItem="EN4-hM-Wme" firstAttribute="top" secondItem="ZhN-qx-hES" secondAttribute="bottom" constant="1" id="nch-Jb-h6S"/>
                             <constraint firstItem="E27-b1-Y7W" firstAttribute="top" secondItem="EN4-hM-Wme" secondAttribute="bottom" id="p3e-l3-Nnh"/>
                             <constraint firstItem="ZhN-qx-hES" firstAttribute="leading" secondItem="nuc-lY-cRx" secondAttribute="leading" id="wU9-kL-5xN"/>
                         </constraints>
@@ -376,6 +376,7 @@
                         <outlet property="containView" destination="EN4-hM-Wme" id="PV9-Jm-4do"/>
                         <outlet property="followerCountLabel" destination="DxN-Wh-bKv" id="VXe-F4-w3Q"/>
                         <outlet property="heightLabel" destination="FJ3-RR-Uu1" id="5Ck-UB-bay"/>
+                        <outlet property="heightOfTopView" destination="PTJ-EF-fy8" id="xY8-17-R6h"/>
                         <outlet property="name" destination="nxV-hu-tSm" id="3bU-lx-ase"/>
                         <outlet property="planButton" destination="YuC-vk-Uq0" id="Zsy-On-I0C"/>
                         <outlet property="settingButton" destination="3kP-Jf-dbo" id="eEg-QN-7Rt"/>
@@ -2115,8 +2116,8 @@
         <segue reference="p7o-h6-Snf"/>
         <segue reference="qHN-1s-BfY"/>
         <segue reference="H2p-Yh-2tL"/>
+        <segue reference="C9e-nW-Kc2"/>
         <segue reference="de9-EU-rTg"/>
-        <segue reference="6Io-V1-e1J"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

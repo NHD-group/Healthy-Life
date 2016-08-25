@@ -21,6 +21,7 @@ class journalViewController: BaseViewController {
     @IBOutlet weak var addIcon: UIBarButtonItem!
     
     @IBOutlet weak var containView: UIView!
+    @IBOutlet weak var heightOfTopView: NSLayoutConstraint!
     @IBOutlet weak var trackingButton: NHDCustomSubmitButton!
     
     @IBOutlet weak var uploadButton: NHDCustomSubmitButton!
@@ -55,12 +56,15 @@ class journalViewController: BaseViewController {
     func loadUser() {
         self.avaImage.layer.cornerRadius = 20
         self.avaImage.clipsToBounds = true
+        heightOfTopView.constant = 130
         
         if currentUserID != DataService.currentUserID {
             settingButton.hidden = true
             planButton.hidden = true
             trackingButton.hidden = true
             uploadButton.hidden = true
+            heightOfTopView.constant = 100
+            addIcon.title = ""
         }
     }
     
@@ -173,12 +177,12 @@ extension journalViewController: BaseTabPageViewControllerDelegate {
     func pageViewControllerWasSelected(index: Int) {
         switch index {
         case 0:
-            addIcon.title = "Add Food"
+            addIcon.title = (currentUserID == DataService.currentUserID ? "Add Food" : "")
             vc1.collectionView.reloadData()
             break
         case 1:
-            addIcon.title = "Add Result"
-            vc2.tableView.contentInset = UIEdgeInsetsMake(50, 10, 100, 10)
+            addIcon.title = (currentUserID == DataService.currentUserID ? "Add Result" : "")
+            vc2.tableView.contentInset = UIEdgeInsetsMake(50, 0, 100, 0)
             vc2.tableView.reloadData()
 
             break
