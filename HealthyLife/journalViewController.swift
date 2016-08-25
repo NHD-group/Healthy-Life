@@ -22,6 +22,7 @@ class journalViewController: BaseViewController {
     
     @IBOutlet weak var containView: UIView!
     @IBOutlet weak var heightOfTopView: NSLayoutConstraint!
+    
     @IBOutlet weak var trackingButton: NHDCustomSubmitButton!
     
     @IBOutlet weak var uploadButton: NHDCustomSubmitButton!
@@ -38,34 +39,36 @@ class journalViewController: BaseViewController {
     let tc = BaseTabPageViewController()
     var vc1 = displayFoodViewController()
     var vc2 = displayResultViewController()
-    
-    
-    @IBAction func logOutAction(sender: AnyObject) {
-        
-        Helper.showAlert("Warning", message: "Are you sure you want to log out?", okActionBlock: {
-            try! FIRAuth.auth()!.signOut()
-            
-            NSNotificationCenter.defaultCenter().postNotificationName(Configuration.NotificationKey.userDidLogout, object: nil)
-            }, cancelActionBlock: {}, inViewController: self)
-        
-    }
+    var constantHeightOfTopView: CGFloat = 130
     
     var currentUserID = DataService.currentUserID
     var currentUserName = DataService.currentUserName
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        loadUser()
+        
+        setupProfile()
+        initTabPageView()
+    }
+    
     func loadUser() {
+        
+//        view.backgroundColor = Configuration.Colors.l
         self.avaImage.layer.cornerRadius = 20
         self.avaImage.clipsToBounds = true
-        heightOfTopView.constant = 130
         
         if currentUserID != DataService.currentUserID {
             settingButton.hidden = true
             planButton.hidden = true
             trackingButton.hidden = true
             uploadButton.hidden = true
-            heightOfTopView.constant = 100
+            constantHeightOfTopView = 100
             addIcon.title = ""
         }
+        heightOfTopView.constant = constantHeightOfTopView
     }
     
     func setupProfile() {
@@ -142,18 +145,10 @@ class journalViewController: BaseViewController {
         tc.view.snp_makeConstraints { (make) in
             make.edges.equalTo(containView.snp_edges)
         }
-
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         
-        loadUser()
-        
-        setupProfile()
-        initTabPageView()
+        vc1.delegate = self
+        vc2.delegate = self
     }
-    
     
     @IBAction func onAddButtonPressed(sender: UIBarButtonItem) {
         if let index = tc.currentIndex {
@@ -185,6 +180,7 @@ extension journalViewController: BaseTabPageViewControllerDelegate {
             vc2.tableView.contentInset = UIEdgeInsetsMake(50, 0, 100, 0)
             vc2.tableView.reloadData()
 
+
             break
         default:
             break
@@ -192,3 +188,32 @@ extension journalViewController: BaseTabPageViewControllerDelegate {
     }
 }
 
+extension journalViewController: BaseScroolViewDelegate {
+    
+    func pageViewControllerIsMoving(isUp: Bool) {
+        
+        if isUp {
+            if topView.tag != 1 {
+                topView.tag = 1
+                topView.alpha = 0
+                view.layoutIfNeeded()
+                UIView.animateWithDuration(Configuration.animationDuration, animations: {
+                    self.heightOfTopView.constant = self.constantHeightOfTopView
+                    self.view.layoutIfNeeded()
+                    self.topView.alpha = 1
+                })
+            }
+        } else if topView.tag != 2 {
+            topView.tag = 2
+            view.layoutIfNeeded()
+            topView.alpha = 1
+            UIView.animateWithDuration(Configuration.animationDuration, animations: {
+                self.heightOfTopView.constant = 0;
+                self.view.layoutIfNeeded()
+                self.topView.alpha = 0
+            })
+            
+        }
+    }
+
+}

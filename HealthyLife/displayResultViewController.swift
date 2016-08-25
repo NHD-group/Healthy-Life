@@ -12,7 +12,9 @@ import Firebase
 class displayResultViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-        
+    
+    weak var delegate: BaseScroolViewDelegate?
+
     var currentUserID = DataService.currentUserID
     
     var results = [Result]()
@@ -113,22 +115,12 @@ class displayResultViewController: BaseViewController, UITableViewDataSource, UI
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
         
-        
-        // Dispose of any resources that can be recreated.
+        let isUp = (scrollView.panGestureRecognizer.translationInView(scrollView.superview).y > 0)
+        delegate?.pageViewControllerIsMoving(isUp)
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

@@ -11,9 +11,11 @@ import CollectionViewWaterfallLayout
 import SnapKit
 import Firebase
 
+
 class displayFoodViewController: BaseViewController {
     
     var collectionView: UICollectionView!
+    weak var delegate: BaseScroolViewDelegate?
     
     var foods = [Food]()
     var currentUserID = DataService.currentUserID
@@ -38,6 +40,7 @@ class displayFoodViewController: BaseViewController {
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         collectionView.backgroundColor = Configuration.Colors.lightGray
         view.addSubview(collectionView)
         collectionView.snp_makeConstraints { (make) in
@@ -140,5 +143,11 @@ extension displayFoodViewController: UICollectionViewDataSource, CollectionViewW
     
     func collectionView(collectionView: UICollectionView, layout: UICollectionViewLayout, heightForFooterInSection section: Int) -> Float {
         return 100
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        let isUp = (scrollView.panGestureRecognizer.translationInView(scrollView.superview).y > 0)
+        delegate?.pageViewControllerIsMoving(isUp)
     }
 }

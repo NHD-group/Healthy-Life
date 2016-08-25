@@ -35,9 +35,7 @@ class FoodCollectionViewCell: UICollectionViewCell {
     func configureCell(food : Food) {
         
         self.food = food
-        
-        contentView.backgroundColor = Configuration.Colors.lightGray
-        
+                
         backview.layer.cornerRadius = 10
         backview.clipsToBounds = true
         

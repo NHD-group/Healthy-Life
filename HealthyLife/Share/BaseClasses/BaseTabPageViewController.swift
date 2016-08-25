@@ -14,6 +14,13 @@ protocol BaseTabPageViewControllerDelegate: class {
     func pageViewControllerWasSelected(index: Int)
 }
 
+
+protocol BaseScroolViewDelegate: class {
+    
+    func pageViewControllerIsMoving(isUp: Bool)
+}
+
+
 class BaseTabPageViewController: TabPageViewController {
 
     weak var actionDelegate: BaseTabPageViewControllerDelegate?
@@ -42,6 +49,7 @@ class BaseTabPageViewController: TabPageViewController {
         option.currentColor = Configuration.Colors.primary
         option.tabWidth = view.frame.width / CGFloat(self.tabItems.count)
         self.option = option
+        delegate = self
     }
 }
 
@@ -54,4 +62,5 @@ extension BaseTabPageViewController {
         
         actionDelegate?.pageViewControllerWasSelected(index)
     }
+    
 }
