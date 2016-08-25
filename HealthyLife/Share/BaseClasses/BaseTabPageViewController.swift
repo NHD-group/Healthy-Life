@@ -25,6 +25,14 @@ class BaseTabPageViewController: TabPageViewController {
         return tabItems.map{ $0.viewController }.indexOf(viewController)
     }
 
+    override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : AnyObject]?) {
+        super.init(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: options)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
