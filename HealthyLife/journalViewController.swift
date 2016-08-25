@@ -56,7 +56,6 @@ class journalViewController: BaseViewController {
     
     func loadUser() {
         
-//        view.backgroundColor = Configuration.Colors.l
         self.avaImage.layer.cornerRadius = 20
         self.avaImage.clipsToBounds = true
         
@@ -67,6 +66,7 @@ class journalViewController: BaseViewController {
             uploadButton.hidden = true
             constantHeightOfTopView = 100
             addIcon.title = ""
+            title = currentUserName
         }
         heightOfTopView.constant = constantHeightOfTopView
     }
@@ -102,7 +102,11 @@ class journalViewController: BaseViewController {
                 }
                 
                 self.heightLabel.text = postDictionary["height"] as? String
-                self.followerCountLabel.text = "\(postDictionary["followerCount"] as? Int) followers"
+                var followerCount = 0
+                if let count = postDictionary["followerCount"] as? Int {
+                    followerCount = count
+                }
+                self.followerCountLabel.text = "\(followerCount) followers"
                 
             } else {
                 
