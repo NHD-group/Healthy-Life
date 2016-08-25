@@ -1,4 +1,5 @@
 PODS:
+  - CollectionViewWaterfallLayout (0.2.2)
   - Firebase (3.5.1):
     - Firebase/Core (= 3.5.1)
   - Firebase/Analytics (3.5.1):
@@ -72,6 +73,7 @@ PODS:
   - TabPageViewController (0.2.1)
 
 DEPENDENCIES:
+  - CollectionViewWaterfallLayout (~> 0.2)
   - Firebase
   - Firebase/Auth
   - Firebase/Core
@@ -88,6 +90,7 @@ DEPENDENCIES:
   - TabPageViewController
 
 SPEC CHECKSUMS:
+  CollectionViewWaterfallLayout: b4f9aabad89609696ea3f6dceff956dd58e2bae4
   Firebase: 9b3edeffaf60d56e377dc5281e91c4ba935a5ad9
   FirebaseAnalytics: d968d4d5f6aeb795cd64144337bcd233e530efc6
   FirebaseAuth: 26fd291c3b552fc9658420b867520d5ae080421c

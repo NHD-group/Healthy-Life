@@ -10,17 +10,17 @@ import UIKit
 import Firebase
 import TabPageViewController
 
-class journalViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-
-    @IBOutlet weak var tableView: UITableView!
+class journalViewController: BaseViewController {
     
     @IBOutlet weak var avaImage: UIImageView!
     
     @IBOutlet weak var weightChangeLabel: UILabel!
     
     @IBOutlet weak var planButton: UIButton!
- 
     
+    @IBOutlet weak var addIcon: UIBarButtonItem!
+    
+    @IBOutlet weak var containView: UIView!
     @IBOutlet weak var trackingButton: NHDCustomSubmitButton!
     
     @IBOutlet weak var uploadButton: NHDCustomSubmitButton!
@@ -33,15 +33,10 @@ class journalViewController: BaseViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var settingButton: UIButton!
     
     @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var tableViewResult: UITableView!
-    
-    var foods = [Food]()
-    var results = [Result]()
-    var resultRef: FIRDatabaseReference!
     
     let tc = BaseTabPageViewController()
-    let vc1 = UIViewController()
-    let vc2 = UIViewController()
+    var vc1 = displayFoodViewController()
+    var vc2 = displayResultViewController()
     
     
     @IBAction func logOutAction(sender: AnyObject) {
@@ -56,20 +51,6 @@ class journalViewController: BaseViewController, UITableViewDelegate, UITableVie
     
     var currentUserID = DataService.currentUserID
     var currentUserName = DataService.currentUserName
-    
-    func initTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        tableView.backgroundColor = Configuration.Colors.lightGray
-    }
-    
-    func initTableViewResult() {
-        tableViewResult.delegate = self
-        tableViewResult.dataSource = self
-        
-        tableViewResult.backgroundColor = Configuration.Colors.lightGray
-    }
     
     func loadUser() {
         self.avaImage.layer.cornerRadius = 20
@@ -111,11 +92,7 @@ class journalViewController: BaseViewController, UITableViewDelegate, UITableVie
                     } else {
                         self.weightChangeLabel.text = "lose: \(abs(weightChanged)) kg"
                     }
-                    
-                    
-                    
                 }
-                
                 
                 self.heightLabel.text = postDictionary["height"] as? String
                 self.followerCountLabel.text = "\(postDictionary["followerCount"] as? Int) followers"
@@ -140,188 +117,37 @@ class journalViewController: BaseViewController, UITableViewDelegate, UITableVie
         
     }
     
-    func setupTableViewData() {
-        //MARK: Set Up table data
-        showLoading()
-        let ref = DataService.BaseRef
-        ref.child("users").child(currentUserID).child("food_journal").queryLimitedToLast(10).observeEventType(.Value, withBlock: { snapshot in
-            
-            // The snapshot is a current look at our jokes data.
-            
-            print(snapshot.value)
-            
-            self.foods = []
-            
-            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                
-                for snap in snapshots {
-                    
-                    // Make our jokes array for the tableView.
-                    
-                    if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
-                        let key = snap.key
-                        let food = Food(key: key, dictionary: postDictionary)
-                        food.currentID = self.currentUserID
-                        
-                        // Items are returned chronologically, but it's more fun with the newest jokes first.
-                        
-                        self.foods.insert(food, atIndex: 0)
-                    }
-                }
-                
-            }
-            
-            // Be sure that the tableView updates when there is new data.
-            
-            self.tableView.reloadData()
-            self.hideLoading()
-            self.vc1.view.addSubview(self.tableView)
-            let tableViewHeight = UIScreen.mainScreen().bounds.height - (self.topView.frame.origin.y + self.topView.bounds.height) - (self.tabBarController?.tabBar.frame.height)! - 30
-            self.tableView.frame = CGRect(x: 0, y: self.tc.option.tabHeight, width: UIScreen.mainScreen().bounds.width, height: tableViewHeight)
-        })
-        
-    }
-    
-    func setupTableViewResultData() {
-        let ref = DataService.BaseRef
-        
-        
-        
-        //showLoading()
-        
-        resultRef = ref.child("users").child(currentUserID).child("results_journal")
-        resultRef.queryLimitedToLast(10).observeEventType(.Value, withBlock: { snapshot in
-            
-            // The snapshot is a current look at our jokes data.
-            
-            print(snapshot.value)
-            
-            self.results = []
-            
-            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                
-                for snap in snapshots {
-                    
-                    // Make our jokes array for the tableView.
-                    
-                    if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
-                        let key = snap.key
-                        let result = Result(key: key, dictionary: postDictionary)
-                        
-                        
-                        // Items are returned chronologically, but it's more fun with the newest jokes first.
-                        
-                        self.results.insert(result, atIndex: 0)
-                    }
-                }
-                
-            }
-            
-            // Be sure that the tableView updates when there is new data.
-            
-            self.tableViewResult.reloadData()
-            //self.hideLoading()
-            self.vc2.view.addSubview(self.tableViewResult)
-            let tableViewHeight = UIScreen.mainScreen().bounds.height - (self.topView.frame.origin.y + self.topView.bounds.height) - (self.tabBarController?.tabBar.frame.height)! - 30
-            self.tableViewResult.frame = CGRect(x: 0, y: self.tc.option.tabHeight, width: UIScreen.mainScreen().bounds.width, height: tableViewHeight)
-        })
-        
-        tableViewResult.allowsMultipleSelectionDuringEditing = true
-    }
-    
     func initTabPageView() {
-        tc.tabItems = [(vc1, "Food"), (vc2, "Result")]
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewControllerWithIdentifier(String(displayResultViewController)) as? displayResultViewController {
+            vc2 = vc
+        }
+        vc1.currentUserID = currentUserID
+        vc2.currentUserID = currentUserID
+        
+        tc.tabItems = [(vc1, "Food"), (vc2, "Result")]
+        tc.actionDelegate = self
         
         var option = TabPageOption()
         option.currentColor = Configuration.Colors.primary
         option.tabWidth = view.frame.width / CGFloat(tc.tabItems.count)
         tc.option = option
         
-        tc.view.frame = CGRect(x: 0, y: topView.frame.origin.y + topView.bounds.height, width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height - 130)
-        
-        self.view.addSubview(tc.view)
+        containView.addSubview(tc.view)
+        tc.view.snp_makeConstraints { (make) in
+            make.edges.equalTo(containView.snp_edges)
+        }
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initTableView()
-        initTableViewResult()
         loadUser()
         
         setupProfile()
-        
-        
-        setupTableViewData()
-        setupTableViewResultData()
-        
         initTabPageView()
-    }
-    
-    
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        // 1. set the initial state of the cell
-        cell.alpha = 0
-        let transform = CATransform3DTranslate(CATransform3DIdentity, -250, 20, 0)
-        cell.layer.transform = transform
-        // 2. UIView Animation method to the final state of the cell
-        UIView.animateWithDuration(0.5) {
-            cell.alpha = 1.0
-            cell.layer.transform = CATransform3DIdentity
-        }
-    }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if tableView == self.tableViewResult {
-            return true
-        }
-        return false
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if tableView == self.tableViewResult {
-            resultRef.child(results[indexPath.row].resultKey).removeValue()
-        }
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == self.tableView {
-            return foods.count
-        } else if tableView == self.tableViewResult {
-            return results.count
-        }
-        return 0
-    }
-    
-    
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if tableView == self.tableView {
-            if let cell = tableView.dequeueReusableCellWithIdentifier("foodCell") as? FoodTableViewCell {
-                
-                // Send the single joke to configureCell() in JokeCellTableViewCell.
-                
-                cell.configureCell(foods[indexPath.row])
-                
-                return cell
-                
-            } else {
-                
-                return FoodTableViewCell()
-                
-            }
-        } else if tableView == self.tableViewResult {
-            let cell = tableView.dequeueReusableCellWithIdentifier("result") as! displayCellTableViewCell
-            cell.result = results[indexPath.row]
-            return cell
-            
-        }
-        return UITableViewCell()
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     
@@ -339,6 +165,26 @@ class journalViewController: BaseViewController, UITableViewDelegate, UITableVie
             }
         }
     }
+    
+}
 
+extension journalViewController: BaseTabPageViewControllerDelegate {
+    
+    func pageViewControllerWasSelected(index: Int) {
+        switch index {
+        case 0:
+            addIcon.title = "Add Food"
+            vc1.collectionView.reloadData()
+            break
+        case 1:
+            addIcon.title = "Add Result"
+            vc2.tableView.contentInset = UIEdgeInsetsMake(50, 10, 100, 10)
+            vc2.tableView.reloadData()
+
+            break
+        default:
+            break
+        }
+    }
 }
 

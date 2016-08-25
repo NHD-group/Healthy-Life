@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04178D801D6ED67100DCE8CA /* uploadFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04178D7F1D6ED67100DCE8CA /* uploadFoodViewController.swift */; };
+		04178D821D6ED68F00DCE8CA /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04178D811D6ED68F00DCE8CA /* FoodCollectionViewCell.swift */; };
+		04178D841D6ED6A000DCE8CA /* FoodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04178D831D6ED6A000DCE8CA /* FoodCollectionViewCell.xib */; };
+		04178D861D6ED96F00DCE8CA /* displayFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04178D851D6ED96F00DCE8CA /* displayFoodViewController.swift */; };
 		04426AD11D5D9B07005B3621 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426ACC1D5D9B07005B3621 /* SignInViewController.swift */; };
 		04426AD21D5D9B07005B3621 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426ACF1D5D9B07005B3621 /* MainTabBarViewController.swift */; };
 		04426AD41D5D9B22005B3621 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04426AD31D5D9B22005B3621 /* SignIn.storyboard */; };
@@ -42,6 +46,7 @@
 		04D1AA7C1D66FC4E00106C27 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA7B1D66FC4E00106C27 /* Helper.swift */; };
 		04D1AA7E1D67046600106C27 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA7D1D67046600106C27 /* BaseViewController.swift */; };
 		04E7B6E61D6EA8E70088884A /* BaseTabPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7B6E51D6EA8E60088884A /* BaseTabPageViewController.swift */; };
+		04E7B6E81D6EC0E90088884A /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7B6E71D6EC0E90088884A /* BaseTableViewController.swift */; };
 		3FEE3F4FA3D69AF73B170521 /* Pods_HealthyLife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */; };
 		746E341E1D67F80900E9C9A0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E341D1D67F80900E9C9A0 /* Message.swift */; };
 		8409619E1D533183008DE12D /* userSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409619D1D533183008DE12D /* userSettingModel.swift */; };
@@ -83,7 +88,6 @@
 		84AB52801D48881F00CB99FE /* foodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB527F1D48881F00CB99FE /* foodModel.swift */; };
 		84AB52821D488A6000CB99FE /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB52811D488A6000CB99FE /* FoodTableViewCell.swift */; };
 		84B114E81D56416800916206 /* trackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B114E71D56416800916206 /* trackingModel.swift */; };
-		84B343D91D485AC80085F02E /* uploadFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B343D81D485AC80085F02E /* uploadFoodViewController.swift */; };
 		84BD7C7F1D63FF5D006A868E /* ratingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD7C7E1D63FF5D006A868E /* ratingViewController.swift */; };
 		84C367891D65680D0033AFC1 /* AddDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C367881D65680D0033AFC1 /* AddDemoViewController.swift */; };
 		84C8920C1D63450700DA1F2B /* TalksCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8920B1D63450700DA1F2B /* TalksCellTableViewCell.swift */; };
@@ -114,6 +118,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04178D7F1D6ED67100DCE8CA /* uploadFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uploadFoodViewController.swift; sourceTree = "<group>"; };
+		04178D811D6ED68F00DCE8CA /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
+		04178D831D6ED6A000DCE8CA /* FoodCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCollectionViewCell.xib; sourceTree = "<group>"; };
+		04178D851D6ED96F00DCE8CA /* displayFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = displayFoodViewController.swift; sourceTree = "<group>"; };
 		04426ACC1D5D9B07005B3621 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		04426ACF1D5D9B07005B3621 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		04426AD31D5D9B22005B3621 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
@@ -160,6 +168,7 @@
 		04D1AA7B1D66FC4E00106C27 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		04D1AA7D1D67046600106C27 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		04E7B6E51D6EA8E60088884A /* BaseTabPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabPageViewController.swift; sourceTree = "<group>"; };
+		04E7B6E71D6EC0E90088884A /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthyLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		746E341D1D67F80900E9C9A0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		7A91B12079A8F4C1D8E52CAC /* Pods-HealthyLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.release.xcconfig"; sourceTree = "<group>"; };
@@ -209,7 +218,6 @@
 		84AB527F1D48881F00CB99FE /* foodModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = foodModel.swift; sourceTree = "<group>"; };
 		84AB52811D488A6000CB99FE /* FoodTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
 		84B114E71D56416800916206 /* trackingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = trackingModel.swift; sourceTree = "<group>"; };
-		84B343D81D485AC80085F02E /* uploadFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uploadFoodViewController.swift; sourceTree = "<group>"; };
 		84BD7C7E1D63FF5D006A868E /* ratingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ratingViewController.swift; sourceTree = "<group>"; };
 		84C367881D65680D0033AFC1 /* AddDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDemoViewController.swift; sourceTree = "<group>"; };
 		84C8920B1D63450700DA1F2B /* TalksCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalksCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -248,6 +256,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04178D7E1D6ED65000DCE8CA /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				04178D851D6ED96F00DCE8CA /* displayFoodViewController.swift */,
+				04178D7F1D6ED67100DCE8CA /* uploadFoodViewController.swift */,
+				04178D811D6ED68F00DCE8CA /* FoodCollectionViewCell.swift */,
+				04178D831D6ED6A000DCE8CA /* FoodCollectionViewCell.xib */,
+			);
+			path = Food;
+			sourceTree = "<group>";
+		};
 		04426AB61D5D9294005B3621 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +286,7 @@
 		04426AC41D5D9B07005B3621 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				04178D7E1D6ED65000DCE8CA /* Food */,
 				04ABC9531D6BF5B900EF0339 /* Splash */,
 				04426ACD1D5D9B07005B3621 /* Tabbar */,
 				04426AC51D5D9B07005B3621 /* Personal */,
@@ -388,6 +408,7 @@
 				04426AE71D5DAA2C005B3621 /* BaseNavigationController.swift */,
 				04D1AA7D1D67046600106C27 /* BaseViewController.swift */,
 				04E7B6E51D6EA8E60088884A /* BaseTabPageViewController.swift */,
+				04E7B6E71D6EC0E90088884A /* BaseTableViewController.swift */,
 			);
 			path = BaseClasses;
 			sourceTree = "<group>";
@@ -689,7 +710,6 @@
 		84FACC9C1D4F016600E73FDC /* food */ = {
 			isa = PBXGroup;
 			children = (
-				84B343D81D485AC80085F02E /* uploadFoodViewController.swift */,
 				84AB527C1D48877400CB99FE /* journalViewController.swift */,
 				84AB52811D488A6000CB99FE /* FoodTableViewCell.swift */,
 			);
@@ -855,6 +875,7 @@
 				04426B131D5DB4C9005B3621 /* a_filter.cisf in Resources */,
 				04ABC9551D6BF5E800EF0339 /* NHDSplash.xib in Resources */,
 				04426AF71D5DB324005B3621 /* NHDTabbarView.xib in Resources */,
+				04178D841D6ED6A000DCE8CA /* FoodCollectionViewCell.xib in Resources */,
 				04426AE11D5DA932005B3621 /* ChamsItalic.ttf in Resources */,
 				04426AE21D5DA932005B3621 /* ChamsRegular.ttf in Resources */,
 				84181DEC1D47C99800686BAB /* Assets.xcassets in Resources */,
@@ -963,7 +984,6 @@
 				844902241D56064900B8ADF3 /* Plan.swift in Sources */,
 				8493714F1D6365410096CE4B /* vidCellTableViewCell.swift in Sources */,
 				84FACCA21D4F021100E73FDC /* dailyPlanViewController.swift in Sources */,
-				84B343D91D485AC80085F02E /* uploadFoodViewController.swift in Sources */,
 				84FACCA01D4F01FD00E73FDC /* weeklyPlanViewController.swift in Sources */,
 				04426AF01D5DAA2C005B3621 /* NHDFontBucket.swift in Sources */,
 				841DDAB71D54917B007917E7 /* sendPlanViewController.swift in Sources */,
@@ -974,8 +994,10 @@
 				846BFCCD1D65AF3D009333B1 /* uploadResultViewController.swift in Sources */,
 				8420E2051D6BF85E00F3CBAE /* cellDailyTableViewCell.swift in Sources */,
 				04426B1B1D5DB4C9005B3621 /* SCWatermarkOverlayView.m in Sources */,
+				04178D801D6ED67100DCE8CA /* uploadFoodViewController.swift in Sources */,
 				84AB527D1D48877400CB99FE /* journalViewController.swift in Sources */,
 				840E47541D64D2AB0002790C /* ActivitiesDoneCellTableViewCell.swift in Sources */,
+				04178D861D6ED96F00DCE8CA /* displayFoodViewController.swift in Sources */,
 				844B8FF31D668B0800B42991 /* displayCellTableViewCell.swift in Sources */,
 				04E7B6E61D6EA8E70088884A /* BaseTabPageViewController.swift in Sources */,
 				84FACCA41D4F022200E73FDC /* DetailViewController.swift in Sources */,
@@ -997,6 +1019,7 @@
 				04426AF11D5DAA2C005B3621 /* UIImageExtension.swift in Sources */,
 				840E474C1D64B0D80002790C /* commentsViewController.swift in Sources */,
 				848225711D4E42CB00750118 /* demoLibViewController.swift in Sources */,
+				04E7B6E81D6EC0E90088884A /* BaseTableViewController.swift in Sources */,
 				84FACC9B1D4EF86700E73FDC /* Data.swift in Sources */,
 				04426B191D5DB4C9005B3621 /* SCTouchDetector.m in Sources */,
 				8482256F1D4E414500750118 /* demoModel.swift in Sources */,
@@ -1013,6 +1036,7 @@
 				04426AF61D5DB324005B3621 /* NHDTabbarView.swift in Sources */,
 				844A87291D586E7100DEC697 /* talksViewController.swift in Sources */,
 				840E474E1D64B7CE0002790C /* commentCellTableViewCell.swift in Sources */,
+				04178D821D6ED68F00DCE8CA /* FoodCollectionViewCell.swift in Sources */,
 				849371531D6365780096CE4B /* yourVideosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

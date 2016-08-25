@@ -13,7 +13,7 @@ class displayResultViewController: BaseViewController, UITableViewDataSource, UI
 
     @IBOutlet weak var tableView: UITableView!
         
-    var currentUserID = String()
+    var currentUserID = DataService.currentUserID
     
     var results = [Result]()
     
@@ -26,6 +26,7 @@ class displayResultViewController: BaseViewController, UITableViewDataSource, UI
         tableView.dataSource = self
         
         tableView.backgroundColor = Configuration.Colors.lightGray
+        tableView.separatorStyle = .None
         
         let ref = DataService.BaseRef
        
@@ -72,8 +73,6 @@ class displayResultViewController: BaseViewController, UITableViewDataSource, UI
         
         // Do any additional setup after loading the view.
     }
-    
-    
    
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

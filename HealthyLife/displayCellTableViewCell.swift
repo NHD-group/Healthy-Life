@@ -17,13 +17,13 @@ class displayCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var weightChangedLabel: UILabel!
     
-    @IBOutlet weak var loveImage: UIImageView!
-    
     @IBOutlet weak var backView: UIView!
     
     @IBOutlet weak var weightView: UIView!
     
     @IBOutlet weak var likeCountLabel: UILabel!
+    
+    @IBOutlet weak var loveImage: UIImageView!
     
     let storageRef = FIRStorage.storage().reference()
     var loveRef = FIRDatabaseReference()
@@ -51,7 +51,7 @@ class displayCellTableViewCell: UITableViewCell {
                     
                     let startingWeight = dictionary["weight changed"] as! String
                     let currentWeight = self.result?.currentWeight
-                    var weightChanged = Double(currentWeight!)! - Double(startingWeight)!
+                    let weightChanged = Double(currentWeight!)! - Double(startingWeight)!
                     
                     if weightChanged > 0 {
                         self.weightView.backgroundColor = UIColor.greenColor()

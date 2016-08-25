@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseInstanceID
+import FirebaseMessaging
 
 class DataService {
     
@@ -118,9 +119,12 @@ class DataService {
             return
         }
         
+        FIRMessaging.messaging().subscribeToTopic("/topics/user_" + currentUserID);
+
         if isSimulator() {
             return
         }
+
         if let refreshedToken = FIRInstanceID.instanceID().token() {
             DataService.dataService.userRef.child("token").setValue(refreshedToken)
         }
@@ -132,45 +136,58 @@ class DataService {
             return
         }
         
+        
         DataService.BaseRef.child("users").child(userid).child("token").observeEventType(.Value, withBlock: { snapshot in
             
-            guard let token = snapshot.value as? String else {
-                return
+            var list = [String]()
+
+            if let token = snapshot.value as? String {
+                list.append(token)
             }
+            list.append("/topics/user_" + senderid)
+            list.append("/topics/user_" + userid)
             
-            let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
-            let body = ["to" : token,
-                "notification" : [
-                    "body"  : message,
-                    "title" : "Healthy Life",
-                    "badge" : badge,
-                    "type"  : type,
-                    "senderid" : senderid
-                ]]
-            let jsonData = try! NSJSONSerialization.dataWithJSONObject(body, options: [])
-            
-            let request = NSMutableURLRequest(URL: url!)
-            request.HTTPMethod = "POST"
-            request.HTTPBody = jsonData
-            
-            let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-            configuration.HTTPAdditionalHeaders = ["Authorization": "key=AIzaSyCMD1sIRWpSnoZz-PdH6MErqJmuJyiTHUs", "Content-Type": "application/json"]
-            let session = NSURLSession(
-                configuration: configuration,
-                delegate:nil,
-                delegateQueue:NSOperationQueue.mainQueue()
-            )
-            
-            let task : NSURLSessionDataTask = session.dataTaskWithRequest(
-                request,
-                completionHandler: { (dataOrNil, response, error) in
-                    if error != nil {
-                        print(error.debugDescription)
-                    } else {
-                        
-                    }
-            });
-            task.resume()
+            for address in list {
+                let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
+                let body = ["to" : address,
+                    "notification" : [
+                        "body"  : message,
+                        "title" : "Healthy Life",
+                        "badge" : badge,
+                        "type"  : type,
+                        "senderid" : senderid ?? ""
+                    ]]
+                let jsonData = try! NSJSONSerialization.dataWithJSONObject(body, options: [])
+                
+                let request = NSMutableURLRequest(URL: url!)
+                request.HTTPMethod = "POST"
+                request.HTTPBody = jsonData
+                
+                let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+                // get key at https://console.firebase.google.com/project/healthylife-d0cfe/settings/cloudmessaging
+                configuration.HTTPAdditionalHeaders = [
+                    "Authorization": "key=AIzaSyCMD1sIRWpSnoZz-PdH6MErqJmuJyiTHUs",
+                    "Content-Type": "application/json"]
+                let session = NSURLSession(
+                    configuration: configuration,
+                    delegate:nil,
+                    delegateQueue:NSOperationQueue.mainQueue()
+                )
+                
+                let task : NSURLSessionDataTask = session.dataTaskWithRequest(
+                    request,
+                    completionHandler: { (dataOrNil, response, error) in
+                        if error != nil {
+                            print(error.debugDescription)
+                        } else {
+                            
+                        }
+                });
+                task.resume()
+                
+                sleep(0)
+            }
+           
         })
         
     }

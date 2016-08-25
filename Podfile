@@ -19,6 +19,7 @@ target 'HealthyLife' do
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
     pod 'TabPageViewController'
+    pod 'CollectionViewWaterfallLayout', '~> 0.2'
 
 end
 

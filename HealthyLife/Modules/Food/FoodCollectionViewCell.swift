@@ -1,34 +1,30 @@
 //
-//  FoodTableViewCell.swift
+//  FoodCollectionViewCell.swift
 //  HealthyLife
 //
-//  Created by admin on 7/27/16.
-//  Copyright © 2016 NguyenBui. All rights reserved.
+//  Created by Duy Nguyen on 25/8/16.
+//  Copyright © 2016 NHD Group. All rights reserved.
 //
 
 import UIKit
 import Firebase
 import NSDate_TimeAgo
 
-class FoodTableViewCell: UITableViewCell {
-
+class FoodCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var foodImageView: UIImageView!
     
-   
     @IBOutlet weak var desLabel: UILabel!
     
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBOutlet weak var loveCount: UILabel!
     
-    
     @IBOutlet weak var backview: UIView!
     
     @IBOutlet weak var loveImage: UIImageView!
+    
 
-    
-    @IBOutlet weak var containerView: UIView!
-    
     let storageRef = FIRStorage.storage().reference()
     var loveRef = FIRDatabaseReference()
     var ref =  FIRDatabase.database().reference()
@@ -40,9 +36,11 @@ class FoodTableViewCell: UITableViewCell {
         
         self.food = food
         
+        contentView.backgroundColor = Configuration.Colors.lightGray
+        
         backview.layer.cornerRadius = 10
         backview.clipsToBounds = true
-
+        
         
         desLabel.text = food.foodDes ?? ""
         if let time = food.time {
@@ -115,10 +113,7 @@ class FoodTableViewCell: UITableViewCell {
         loveImage.addGestureRecognizer(tap)
         loveImage.userInteractionEnabled = true
         
-        containerView.layer.cornerRadius = 4
     }
-    
-    
     
     
 }

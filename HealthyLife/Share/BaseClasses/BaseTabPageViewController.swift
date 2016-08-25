@@ -9,7 +9,14 @@
 import UIKit
 import TabPageViewController
 
+protocol BaseTabPageViewControllerDelegate: class {
+    
+    func pageViewControllerWasSelected(index: Int)
+}
+
 class BaseTabPageViewController: TabPageViewController {
+
+    weak var actionDelegate: BaseTabPageViewControllerDelegate?
 
     var currentIndex: Int? {
         guard let viewController = viewControllers?.first else {
@@ -33,10 +40,10 @@ class BaseTabPageViewController: TabPageViewController {
 
 extension BaseTabPageViewController {
     
-    internal override func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    override func displayControllerWithIndex(index: Int, direction: UIPageViewControllerNavigationDirection, animated: Bool) {
+
+        super.displayControllerWithIndex(index, direction: direction, animated: animated)
         
-        super.pageViewController(pageViewController, didFinishAnimating: finished, previousViewControllers: previousViewControllers, transitionCompleted: completed)
-        
-        
+        actionDelegate?.pageViewControllerWasSelected(index)
     }
 }
