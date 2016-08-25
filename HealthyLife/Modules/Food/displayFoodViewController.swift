@@ -98,18 +98,13 @@ extension displayFoodViewController: UICollectionViewDataSource, CollectionViewW
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return foods.count + 1
+        return foods.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
   
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(FoodCollectionViewCell), forIndexPath: indexPath) as! FoodCollectionViewCell
-        cell.hidden = false
-        if indexPath.row  == 0 {
-            cell.hidden = true
-        } else if indexPath.row <= foods.count {
-            cell.configureCell(foods[indexPath.row - 1])
-        }
+        cell.configureCell(foods[indexPath.row])
         
         return cell
     }
@@ -131,10 +126,11 @@ extension displayFoodViewController: UICollectionViewDataSource, CollectionViewW
     
     func collectionView(collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let width = UIScreen.mainScreen().bounds.width / 2.1
+        var h: CGFloat = 250
         if indexPath.row == 0 {
-            return CGSize(width: width, height: 20)
+            h -= 20
         }
-        return CGSize(width: width, height: 220)
+        return CGSizeMake(width, h)
     }
 
     func collectionView(collectionView: UICollectionView, layout: UICollectionViewLayout, heightForHeaderInSection section: Int) -> Float {
