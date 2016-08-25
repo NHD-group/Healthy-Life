@@ -119,7 +119,7 @@ class DataService {
             return
         }
         
-        FIRMessaging.messaging().subscribeToTopic("/topics/user_" + currentUserID);
+//        FIRMessaging.messaging().subscribeToTopic("/topics/user_" + currentUserID);
 
         if isSimulator() {
             return
@@ -144,8 +144,8 @@ class DataService {
             if let token = snapshot.value as? String {
                 list.append(token)
             }
-            list.append("/topics/user_" + senderid)
-            list.append("/topics/user_" + userid)
+//            list.append("/topics/user_" + senderid)
+//            list.append("/topics/user_" + userid)
             
             for address in list {
                 let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
@@ -185,7 +185,6 @@ class DataService {
                 });
                 task.resume()
                 
-                sleep(0)
             }
            
         })
