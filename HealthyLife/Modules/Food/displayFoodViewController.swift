@@ -126,9 +126,11 @@ extension displayFoodViewController: UICollectionViewDataSource, CollectionViewW
     
     func collectionView(collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let width = UIScreen.mainScreen().bounds.width / 2.1
-        var h: CGFloat = 250
+        var h: CGFloat = 240
         if indexPath.row == 0 {
-            h -= 20
+            h -= 10
+        } else if indexPath.row == 1 {
+            h += 10
         }
         return CGSizeMake(width, h)
     }
