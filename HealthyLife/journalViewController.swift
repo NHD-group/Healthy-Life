@@ -39,6 +39,7 @@ class journalViewController: BaseViewController {
     let tc = BaseTabPageViewController()
     var vc1 = displayFoodViewController()
     var vc2 = displayResultViewController()
+    var vc3 = ChartViewController()
     var constantHeightOfTopView: CGFloat = 130
     
     var currentUserID = DataService.currentUserID
@@ -137,7 +138,7 @@ class journalViewController: BaseViewController {
         vc1.currentUserID = currentUserID
         vc2.currentUserID = currentUserID
         
-        tc.tabItems = [(vc1, "Food"), (vc2, "Result")]
+        tc.tabItems = [(vc1, "Food"), (vc2, "Result"), (vc3, "Graph")]
         tc.actionDelegate = self
         
         var option = TabPageOption()
@@ -183,8 +184,10 @@ extension journalViewController: BaseTabPageViewControllerDelegate {
             addIcon.title = (currentUserID == DataService.currentUserID ? "Add Result" : "")
             vc2.tableView.contentInset = UIEdgeInsetsMake(50, 0, 100, 0)
             vc2.tableView.reloadData()
-
-
+        case 2:
+            addIcon.title = ""
+            vc3.results = vc2.results
+            
             break
         default:
             break

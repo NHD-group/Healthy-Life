@@ -49,6 +49,7 @@
 		04E7B6E61D6EA8E70088884A /* BaseTabPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7B6E51D6EA8E60088884A /* BaseTabPageViewController.swift */; };
 		04E7B6E81D6EC0E90088884A /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7B6E71D6EC0E90088884A /* BaseTableViewController.swift */; };
 		3FEE3F4FA3D69AF73B170521 /* Pods_HealthyLife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */; };
+		744BC7B21D709F2200DE9BD5 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744BC7B11D709F2200DE9BD5 /* ChartViewController.swift */; };
 		746E341E1D67F80900E9C9A0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E341D1D67F80900E9C9A0 /* Message.swift */; };
 		8409619E1D533183008DE12D /* userSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409619D1D533183008DE12D /* userSettingModel.swift */; };
 		840E474C1D64B0D80002790C /* commentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E474B1D64B0D80002790C /* commentsViewController.swift */; };
@@ -172,6 +173,7 @@
 		04E7B6E51D6EA8E60088884A /* BaseTabPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabPageViewController.swift; sourceTree = "<group>"; };
 		04E7B6E71D6EC0E90088884A /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthyLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		744BC7B11D709F2200DE9BD5 /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		746E341D1D67F80900E9C9A0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		7A91B12079A8F4C1D8E52CAC /* Pods-HealthyLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.release.xcconfig"; sourceTree = "<group>"; };
 		8139B3732A6950CCA938866A /* Pods-HealthyLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyLife.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyLife/Pods-HealthyLife.debug.xcconfig"; sourceTree = "<group>"; };
@@ -706,6 +708,7 @@
 				844902251D5630F800B8ADF3 /* tracking */,
 				84FACC9E1D4F017D00E73FDC /* activitiesPlanned */,
 				84FACC9C1D4F016600E73FDC /* food */,
+				744BC7B11D709F2200DE9BD5 /* ChartViewController.swift */,
 			);
 			name = personal;
 			sourceTree = "<group>";
@@ -975,6 +978,7 @@
 				8470B3EC1D66D249000D7638 /* TrainerDetailViewController.swift in Sources */,
 				844902271D56310C00B8ADF3 /* trackingViewController.swift in Sources */,
 				04426B121D5DB4C9005B3621 /* SCRecorderViewController.m in Sources */,
+				744BC7B21D709F2200DE9BD5 /* ChartViewController.swift in Sources */,
 				840E47521D64CF4E0002790C /* DetailsActivitiesDoneViewController.swift in Sources */,
 				849371511D6365690096CE4B /* uploadVideoViewController.swift in Sources */,
 				04426AD21D5D9B07005B3621 /* MainTabBarViewController.swift in Sources */,
