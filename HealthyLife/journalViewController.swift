@@ -66,6 +66,7 @@ class journalViewController: BaseViewController {
             trackingButton.hidden = true
             uploadButton.hidden = true
             constantHeightOfTopView = 100
+            addIcon.title = ""
         }
         heightOfTopView.constant = constantHeightOfTopView
     }
@@ -175,11 +176,11 @@ extension journalViewController: BaseTabPageViewControllerDelegate {
     func pageViewControllerWasSelected(index: Int) {
         switch index {
         case 0:
-            addIcon.title = "Add Food"
+            addIcon.title = (currentUserID == DataService.currentUserID ? "Add Food" : "")
             vc1.collectionView.reloadData()
             break
         case 1:
-            addIcon.title = "Add Result"
+            addIcon.title = (currentUserID == DataService.currentUserID ? "Add Result" : "")
             vc2.tableView.contentInset = UIEdgeInsetsMake(50, 0, 100, 0)
             vc2.tableView.reloadData()
 
