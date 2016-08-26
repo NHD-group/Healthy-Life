@@ -13,10 +13,10 @@ import AVKit
 
 class Video: NSObject {
     
-    var key: NSString?
-    var name: NSString?
-    var des: NSString?
-    var videoUrl: NSString?
+    var key: String!
+    var name: String?
+    var des: String?
+    var videoUrl: String?
     var vidDict: NSDictionary?
     
     
@@ -123,10 +123,10 @@ class yourVideosViewController: UIViewController, UITableViewDelegate, UITableVi
         {
             let cell = sender as! UITableViewCell
             let indexPath = tableView.indexPathForCell(cell)
-            let videoUrl = videos[indexPath!.row].videoUrl as! String
+            let videoUrl = videos[indexPath!.row].videoUrl
             let destination = segue.destinationViewController as! AVPlayerViewController
             
-            let url = NSURL(string: videoUrl )
+            let url = NSURL(string: videoUrl! )
             destination.player = AVPlayer(URL: url!)
             destination.player?.play()
 

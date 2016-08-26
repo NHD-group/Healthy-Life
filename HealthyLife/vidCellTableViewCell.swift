@@ -13,6 +13,9 @@ class vidCellTableViewCell: UITableViewCell {
     @IBOutlet weak var nameVidLabel: UILabel!
     
     @IBOutlet weak var desVidLabel: UILabel!
+    
+    @IBOutlet weak var photoView: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,13 +23,9 @@ class vidCellTableViewCell: UITableViewCell {
 
     var video: Video! {
         didSet {
-            nameVidLabel.text = video.name as? String
-            desVidLabel.text = video.des as? String
-            
-            print(video)
-            print("checkVideos")
-            
-            
+            nameVidLabel.text = video.name
+            desVidLabel.text = video.des
+            photoView.downloadImageWithKey(video.key)
         }
     }
 

@@ -190,5 +190,25 @@ class DataService {
         })
         
     }
+    
+    
+    class func uploadImage(image: UIImage, key: String, complete: (downloadURL: NSURL?) -> (), errorBlock: (error: NSError) -> ()) {
+        
+        let resizedImage = image.resizeImage(CGSize(width: 500.0, height: 500.0))
+        let imageData: NSData = UIImagePNGRepresentation(resizedImage)!
+        let riversRef = FIRStorage.storage().reference().child("images/\(key)")
+        
+        // Upload the file to the path ""images/\(key)"
+        riversRef.putData(imageData, metadata: nil) { metadata, error in
+            if (error != nil) {
+                // Uh-oh, an error occurred!
+                errorBlock(error: error!)
+            } else {
+                // Metadata contains file metadata such as size, content-type, and download URL.
+                let url = metadata!.downloadURL
+                complete(downloadURL: url())
+            }
+        }
+    }
 }
 

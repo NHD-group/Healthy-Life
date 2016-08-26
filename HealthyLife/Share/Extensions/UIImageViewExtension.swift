@@ -13,6 +13,11 @@ import Firebase
 extension UIImageView {
     
 
+    func downloadImageWithKey(key: String) {
+        let imageRef = FIRStorage.storage().reference().child("images/\(key)")
+        downloadImageWithImageReference(imageRef, complete: nil)
+    }
+    
     func downloadImageWithImageReference(imageRef : FIRStorageReference) {
         downloadImageWithImageReference(imageRef, complete: nil)
     }

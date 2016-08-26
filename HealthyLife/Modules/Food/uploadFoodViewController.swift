@@ -14,8 +14,6 @@ class uploadFoodViewController:  BaseViewController, UIImagePickerControllerDele
     var ref =  FIRDatabase.database().reference()
     let currentUserID = FIRAuth.auth()?.currentUser?.uid
     var key = ""
-    let storageRef = FIRStorage.storage().reference()
-    
     
     @IBOutlet weak var FoodImageView: UIImageView!
     
@@ -75,39 +73,13 @@ class uploadFoodViewController:  BaseViewController, UIImagePickerControllerDele
 
         ref.child("users").child(currentUserID!).child("food_journal").child(key).setValue(newPost)
         
-        
-        
-        //: Upload Image 
-
-        foodImage = foodImage.resizeImage(CGSize(width: 500.0, height: 500.0))
-        
-        let imageData: NSData = UIImagePNGRepresentation(foodImage)!
-
-        
-        
-        
-        // Create a reference to the file you want to upload
-        
-        let riversRef = storageRef.child("images/\(key)")
-        
-        // Upload the file to the path ""images/\(key)"
-        riversRef.putData(imageData, metadata: nil) { metadata, error in
-            if (error != nil) {
-                // Uh-oh, an error occurred!
-                Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
-            } else {
-                // Metadata contains file metadata such as size, content-type, and download URL.
-                let downloadURL = metadata!.downloadURL
-                print(downloadURL)
-                print("does it work")
-            
-                self.onBack()
-            }
+        DataService.uploadImage(foodImage, key: key, complete: { (downloadURL) in
+            self.onBack()
+            }) { (error) in
+                Helper.showAlert("Error", message: error.localizedDescription, inViewController: self)
         }
+    
         
-        self.onBack()
-        
-       
     }
     
      //******************************************************************************************************
@@ -119,27 +91,5 @@ class uploadFoodViewController:  BaseViewController, UIImagePickerControllerDele
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -117,6 +117,13 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
       
         })
         
+        if let image = resultImage.image {
+            DataService.uploadImage(image, key: key, complete: { (downloadURL) in
+            }) { (error) in
+                Helper.showAlert("Error", message: error.localizedDescription, inViewController: self)
+            }
+        }
+        
     }
 }
 
