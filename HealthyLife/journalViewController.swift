@@ -56,17 +56,16 @@ class journalViewController: BaseViewController {
     
     func loadUser() {
         
-        self.avaImage.layer.cornerRadius = 20
-        self.avaImage.clipsToBounds = true
-        
+        avaImage.layer.cornerRadius = 20
+        avaImage.clipsToBounds = true
+        addIcon.title = "Add Food"
+
         if currentUserID != DataService.currentUserID {
             settingButton.hidden = true
             planButton.hidden = true
             trackingButton.hidden = true
             uploadButton.hidden = true
             constantHeightOfTopView = 100
-            addIcon.title = ""
-            title = currentUserName
         }
         heightOfTopView.constant = constantHeightOfTopView
     }
@@ -176,11 +175,11 @@ extension journalViewController: BaseTabPageViewControllerDelegate {
     func pageViewControllerWasSelected(index: Int) {
         switch index {
         case 0:
-            addIcon.title = (currentUserID == DataService.currentUserID ? "Add Food" : "")
+            addIcon.title = "Add Food"
             vc1.collectionView.reloadData()
             break
         case 1:
-            addIcon.title = (currentUserID == DataService.currentUserID ? "Add Result" : "")
+            addIcon.title = "Add Result"
             vc2.tableView.contentInset = UIEdgeInsetsMake(50, 0, 100, 0)
             vc2.tableView.reloadData()
 
@@ -206,7 +205,7 @@ extension journalViewController: BaseScroolViewDelegate {
                     self.view.layoutIfNeeded()
                     self.topView.alpha = 1
                 })
-                displayLogoutButton()
+//                displayLogoutButton()
             }
         } else if topView.tag != 2 {
             topView.tag = 2
@@ -217,7 +216,7 @@ extension journalViewController: BaseScroolViewDelegate {
                 self.view.layoutIfNeeded()
                 self.topView.alpha = 0
             })
-            displaySettingButton()
+//            displaySettingButton()
         }
     }
 

@@ -17,7 +17,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.presentingViewController != nil {
+        if self.presentingViewController != nil && navigationItem.rightBarButtonItem == nil {
             
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
             button.setBackgroundImage(UIImage(named: "close-icon"), forState: UIControlState.Normal)

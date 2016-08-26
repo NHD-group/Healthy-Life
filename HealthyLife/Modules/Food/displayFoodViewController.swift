@@ -151,6 +151,10 @@ extension displayFoodViewController: UICollectionViewDataSource, CollectionViewW
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
+        if foods.count < 3 {
+            return
+        }
+        
         let isUp = (scrollView.panGestureRecognizer.translationInView(scrollView.superview).y > 0)
         delegate?.pageViewControllerIsMoving(isUp)
     }

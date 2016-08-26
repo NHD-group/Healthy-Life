@@ -119,6 +119,10 @@ class displayResultViewController: BaseViewController, UITableViewDataSource, UI
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
+        if results.count < 3 {
+            return
+        }
+        
         let isUp = (scrollView.panGestureRecognizer.translationInView(scrollView.superview).y > 0)
         delegate?.pageViewControllerIsMoving(isUp)
     }
