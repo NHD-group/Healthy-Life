@@ -60,7 +60,14 @@
 
 - (void)updateWithVideoTime:(NSTimeInterval)time {
     NSDate *currentDate = [self.date dateByAddingTimeInterval:time];
-    _timeLabel.text = [NSString stringWithFormat:@"%@", currentDate];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
+    [dateFormatter setDateFormat:@"dd MMM, yyyy HH:mm:ss"];
+    NSString *dateString = [dateFormatter stringFromDate:currentDate];
+    
+    _timeLabel.text = dateString;
+    [_timeLabel sizeToFit];
 }
 
 @end
