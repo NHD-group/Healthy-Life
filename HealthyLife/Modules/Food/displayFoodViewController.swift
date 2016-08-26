@@ -126,13 +126,19 @@ extension displayFoodViewController: UICollectionViewDataSource, CollectionViewW
     
     func collectionView(collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let width = UIScreen.mainScreen().bounds.width / 2.1
-        var h: CGFloat = 240
-        if indexPath.row == 0 {
-            h -= 10
-        } else if indexPath.row == 1 {
-            h += 10
+        var height: CGFloat = 220
+        
+        let food = foods[indexPath.row]
+        if let text = food.foodDes {
+             height += NHDFontBucket.blackFontWithSize(16).heightOfString(text, constrainedToWidth: Double(width) - 16)
         }
-        return CGSizeMake(width, h)
+
+        if indexPath.row == 0 {
+            height -= 10
+        } else if indexPath.row == 1 {
+            height += 10
+        }
+        return CGSizeMake(width, height)
     }
 
     func collectionView(collectionView: UICollectionView, layout: UICollectionViewLayout, heightForHeaderInSection section: Int) -> Float {

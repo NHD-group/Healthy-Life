@@ -41,6 +41,7 @@
 		04426B201D5DBA35005B3621 /* HealthyLife-40181a67534f.json in Resources */ = {isa = PBXBuildFile; fileRef = 04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */; };
 		04ABC9551D6BF5E800EF0339 /* NHDSplash.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ABC9541D6BF5E800EF0339 /* NHDSplash.xib */; };
 		04ABC9571D6BF7FD00EF0339 /* NHDSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ABC9561D6BF7FD00EF0339 /* NHDSplash.swift */; };
+		04C8F3741D6FF84E004639E8 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8F3731D6FF84E004639E8 /* UIFontExtension.swift */; };
 		04D1AA781D66B3FF00106C27 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA771D66B3FF00106C27 /* UIColorExtension.swift */; };
 		04D1AA7A1D66E34D00106C27 /* uploadVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D1AA791D66E34D00106C27 /* uploadVideoViewController.xib */; };
 		04D1AA7C1D66FC4E00106C27 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA7B1D66FC4E00106C27 /* Helper.swift */; };
@@ -163,6 +164,7 @@
 		04426B221D5DBE5F005B3621 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		04ABC9541D6BF5E800EF0339 /* NHDSplash.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHDSplash.xib; sourceTree = "<group>"; };
 		04ABC9561D6BF7FD00EF0339 /* NHDSplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDSplash.swift; sourceTree = "<group>"; };
+		04C8F3731D6FF84E004639E8 /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		04D1AA771D66B3FF00106C27 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		04D1AA791D66E34D00106C27 /* uploadVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = uploadVideoViewController.xib; sourceTree = "<group>"; };
 		04D1AA7B1D66FC4E00106C27 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 				04426AEB1D5DAA2C005B3621 /* UIImageExtension.swift */,
 				04426AEC1D5DAA2C005B3621 /* UIImageViewExtension.swift */,
 				04D1AA771D66B3FF00106C27 /* UIColorExtension.swift */,
+				04C8F3731D6FF84E004639E8 /* UIFontExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1001,6 +1004,7 @@
 				844B8FF31D668B0800B42991 /* displayCellTableViewCell.swift in Sources */,
 				04E7B6E61D6EA8E70088884A /* BaseTabPageViewController.swift in Sources */,
 				84FACCA41D4F022200E73FDC /* DetailViewController.swift in Sources */,
+				04C8F3741D6FF84E004639E8 /* UIFontExtension.swift in Sources */,
 				04426B151D5DB4C9005B3621 /* SCImageDisplayerViewController.m in Sources */,
 				84FACCA81D4F048A00E73FDC /* Activities.swift in Sources */,
 				8409619E1D533183008DE12D /* userSettingModel.swift in Sources */,
