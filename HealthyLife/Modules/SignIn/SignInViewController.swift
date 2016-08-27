@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 import SnapKit
-
+import LocalAuthentication
 
 class SignInViewController: BaseViewController {
     
@@ -100,6 +100,50 @@ class SignInViewController: BaseViewController {
         
     }
     
+    @IBAction func touchIDLoginAction(sender: AnyObject) {
+        let email = defaults.valueForKey("email") as? String
+        let password = defaults.valueForKey("password") as? String
+        if email != "" && password != "" {
+            TouchIDCall(email!, password: password!)
+            
+            
+        }
+        print(email)
+        print(password)
+        
+    }
+    
+    func TouchIDCall(email: String, password: String) {
+        let authContext: LAContext = LAContext()
+        var error: NSError?
+        if authContext.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &error) {
+            authContext.evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: "LogIn With TouchID", reply: { (sucessed, error) in
+                if sucessed {
+                        print("works")
+                    
+                //handle Sucess
+                    
+                        FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
+                            if error != nil {
+                                print(error?.localizedDescription)
+                                
+                            } else {
+                                self.getDetailsOfUser()
+                              print("work work work")
+                            }
+                        })
+
+                    
+                } else {
+                    
+                }
+            })
+        } else {
+            
+        }
+    }
+    
+    
     func startingDisplay() {
         viewEffect.alpha = 0
         logInView.alpha = 0
@@ -150,12 +194,18 @@ class SignInViewController: BaseViewController {
 
                 } else {
                     self.getDetailsOfUser()
+                   
                 }
             })
         } else {
             Helper.showAlert("Oops", message: "Please fill in all the fields", inViewController: self)
         }
         
+    }
+    
+    func saveDataUser(email: String, password: String) {
+        defaults.setValue(email, forKey: "email")
+        defaults.setValue(password, forKey: "password")
     }
     
     func createAccount() {
@@ -173,6 +223,7 @@ class SignInViewController: BaseViewController {
                             ref.child("users").child(user!.uid).setValue(["username" : username ,  "followerCount" : 0, "totalRate": 0, "totalPeoleVoted": 0, "userCommentsCount": 0  ])
                             
                             self.getDetailsOfUser()
+                            self.saveDataUser(email, password: password)
                         }
                     })
                 }
