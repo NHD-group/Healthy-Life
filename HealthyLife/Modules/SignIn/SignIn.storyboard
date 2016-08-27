@@ -230,6 +230,7 @@
                         <outlet property="logInView" destination="GIj-vl-I3W" id="ce1-F4-YwI"/>
                         <outlet property="loginButton" destination="wro-63-tmF" id="L4V-fc-Qwb"/>
                         <outlet property="passwordTextField" destination="ulL-mf-dM7" id="ssP-io-kcl"/>
+                        <outlet property="touchIDButton" destination="aoY-Py-XLJ" id="sqv-zf-sjZ"/>
                         <outlet property="viewEffect" destination="EiT-L4-86D" id="7Bo-K7-KjZ"/>
                     </connections>
                 </viewController>
