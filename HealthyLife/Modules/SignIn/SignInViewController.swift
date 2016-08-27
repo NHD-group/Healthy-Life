@@ -23,6 +23,7 @@ class SignInViewController: BaseViewController {
     
     @IBOutlet weak var createUsername: UITextField!
     
+    @IBOutlet weak var touchIDButton: UIButton!
     @IBOutlet weak var createPassword: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
@@ -49,6 +50,15 @@ class SignInViewController: BaseViewController {
         super.viewDidLoad()
         
         self.startingDisplay()
+        
+        let email = defaults.valueForKey("email")
+        let password = defaults.valueForKey("password")
+        
+        if email == nil && password == nil {
+            touchIDButton.hidden = true
+        } else {
+            touchIDButton.hidden = false
+        }
         
         self.emailTextField.returnKeyType = .Next
         self.createEmail.returnKeyType = .Next
@@ -103,11 +113,13 @@ class SignInViewController: BaseViewController {
     @IBAction func touchIDLoginAction(sender: AnyObject) {
         let email = defaults.valueForKey("email") as? String
         let password = defaults.valueForKey("password") as? String
-        if email != "" && password != "" {
-            TouchIDCall(email!, password: password!)
-            
-            
-        }
+//        if email != "" && password != "" {
+//            
+//            
+//            TouchIDCall(email!, password: password!)
+//            
+//            
+//        }
         print(email)
         print(password)
         
@@ -122,7 +134,7 @@ class SignInViewController: BaseViewController {
                         print("works")
                     
                 //handle Sucess
-                    
+                
                         FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
                             if error != nil {
                                 print(error?.localizedDescription)
@@ -194,7 +206,7 @@ class SignInViewController: BaseViewController {
 
                 } else {
                     self.getDetailsOfUser()
-                   
+                    self.saveDataUser(email, password: password)
                 }
             })
         } else {
