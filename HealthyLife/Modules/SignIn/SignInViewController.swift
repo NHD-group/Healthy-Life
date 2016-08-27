@@ -117,7 +117,7 @@ class SignInViewController: BaseViewController {
             
             
             TouchIDCall(email!, password: password!)
-            
+            showLoading()
             
         }
         print(email)
