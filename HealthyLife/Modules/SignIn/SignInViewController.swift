@@ -113,13 +113,13 @@ class SignInViewController: BaseViewController {
     @IBAction func touchIDLoginAction(sender: AnyObject) {
         let email = defaults.valueForKey("email") as? String
         let password = defaults.valueForKey("password") as? String
-//        if email != "" && password != "" {
-//            
-//            
-//            TouchIDCall(email!, password: password!)
-//            
-//            
-//        }
+        if email != "" && password != "" {
+            
+            
+            TouchIDCall(email!, password: password!)
+            
+            
+        }
         print(email)
         print(password)
         
