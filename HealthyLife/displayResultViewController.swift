@@ -20,9 +20,15 @@ class displayResultViewController: BaseViewController, UITableViewDataSource, UI
     var results = [Result]()
     
     var resultRef: FIRDatabaseReference!
+    var isAlreadyLoaded = false
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if isAlreadyLoaded {
+            return
+        }
+        isAlreadyLoaded = true
         
         tableView.delegate = self
         tableView.dataSource = self
