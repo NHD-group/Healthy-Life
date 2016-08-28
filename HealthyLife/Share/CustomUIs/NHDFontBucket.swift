@@ -97,6 +97,16 @@ class NHDCustomSubmitButton: NHDCustomFontButton {
     }
 }
 
+class NHDCustomSubmitGreenButton: NHDCustomSubmitButton {
+    
+    override func awakeFromNib() {
+        
+        super.awakeFromNib()
+        
+        backgroundColor = Configuration.Colors.softCyan
+    }
+}
+
 class NHDCustomFontTextField: UITextField {
     
     override func awakeFromNib() {

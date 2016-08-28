@@ -10,6 +10,10 @@ import UIKit
 import Firebase
 import NSDate_TimeAgo
 
+protocol FoodCollectionViewCellDelegate: class {
+    func buyItem(food: Food, price: Int)
+}
+
 class FoodCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var foodImageView: UIImageView!
@@ -24,6 +28,9 @@ class FoodCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var loveImage: UIImageView!
     
+    @IBOutlet weak var buyButton: NHDCustomSubmitGreenButton!
+    
+    weak var delegate: FoodCollectionViewCellDelegate?
 
     let storageRef = FIRStorage.storage().reference()
     var loveRef = FIRDatabaseReference()
@@ -100,7 +107,6 @@ class FoodCollectionViewCell: UICollectionViewCell {
     }
     
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -111,7 +117,16 @@ class FoodCollectionViewCell: UICollectionViewCell {
         loveImage.addGestureRecognizer(tap)
         loveImage.userInteractionEnabled = true
         
+        let price = rand() % 300 + 50
+        buyButton.tag = Int(price)
+        buyButton.setTitle(String.localizedStringWithFormat(" Buy $%0.02f ", Double(price)/100.0), forState: .Normal)
     }
     
+    @IBAction func onBuy(button: UIButton) {
+        
+        let price = button.tag
+        
+        delegate?.buyItem(food, price: price)
+    }
     
 }

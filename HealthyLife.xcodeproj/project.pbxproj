@@ -11,6 +11,8 @@
 		04178D821D6ED68F00DCE8CA /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04178D811D6ED68F00DCE8CA /* FoodCollectionViewCell.swift */; };
 		04178D841D6ED6A000DCE8CA /* FoodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04178D831D6ED6A000DCE8CA /* FoodCollectionViewCell.xib */; };
 		04178D861D6ED96F00DCE8CA /* displayFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04178D851D6ED96F00DCE8CA /* displayFoodViewController.swift */; };
+		042E385C1D72A82300BF8D74 /* NHDPayPalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E385B1D72A82300BF8D74 /* NHDPayPalViewController.swift */; };
+		042E385E1D72ADAA00BF8D74 /* NHDPayPalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042E385D1D72ADAA00BF8D74 /* NHDPayPalViewController.xib */; };
 		04426AD11D5D9B07005B3621 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426ACC1D5D9B07005B3621 /* SignInViewController.swift */; };
 		04426AD21D5D9B07005B3621 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426ACF1D5D9B07005B3621 /* MainTabBarViewController.swift */; };
 		04426AD41D5D9B22005B3621 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04426AD31D5D9B22005B3621 /* SignIn.storyboard */; };
@@ -127,6 +129,8 @@
 		04178D831D6ED6A000DCE8CA /* FoodCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCollectionViewCell.xib; sourceTree = "<group>"; };
 		04178D851D6ED96F00DCE8CA /* displayFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = displayFoodViewController.swift; sourceTree = "<group>"; };
 		042E38591D729A3600BF8D74 /* HealthyLife-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HealthyLife-Bridging-Header.h"; sourceTree = "<group>"; };
+		042E385B1D72A82300BF8D74 /* NHDPayPalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDPayPalViewController.swift; sourceTree = "<group>"; };
+		042E385D1D72ADAA00BF8D74 /* NHDPayPalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHDPayPalViewController.xib; sourceTree = "<group>"; };
 		04426ACC1D5D9B07005B3621 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		04426ACF1D5D9B07005B3621 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		04426AD31D5D9B22005B3621 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
@@ -285,6 +289,15 @@
 			path = "Bridging-Header";
 			sourceTree = "<group>";
 		};
+		042E385A1D72A7F900BF8D74 /* Paypal */ = {
+			isa = PBXGroup;
+			children = (
+				042E385B1D72A82300BF8D74 /* NHDPayPalViewController.swift */,
+				042E385D1D72ADAA00BF8D74 /* NHDPayPalViewController.xib */,
+			);
+			path = Paypal;
+			sourceTree = "<group>";
+		};
 		04426AB61D5D9294005B3621 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +317,7 @@
 		04426AC41D5D9B07005B3621 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				042E385A1D72A7F900BF8D74 /* Paypal */,
 				04178D7E1D6ED65000DCE8CA /* Food */,
 				04ABC9531D6BF5B900EF0339 /* Splash */,
 				04426ACD1D5D9B07005B3621 /* Tabbar */,
@@ -900,6 +914,7 @@
 				04426B1F1D5DBA35005B3621 /* GoogleService-Info.plist in Resources */,
 				04426AE01D5DA932005B3621 /* ChamsBold.ttf in Resources */,
 				04426AD41D5D9B22005B3621 /* SignIn.storyboard in Resources */,
+				042E385E1D72ADAA00BF8D74 /* NHDPayPalViewController.xib in Resources */,
 				04426ADE1D5DA932005B3621 /* ChamsBlack.ttf in Resources */,
 				04426B111D5DB4C9005B3621 /* Recorder.storyboard in Resources */,
 				04D1AA7A1D66E34D00106C27 /* uploadVideoViewController.xib in Resources */,
@@ -1040,6 +1055,7 @@
 				04426B151D5DB4C9005B3621 /* SCImageDisplayerViewController.m in Sources */,
 				84FACCA81D4F048A00E73FDC /* Activities.swift in Sources */,
 				8409619E1D533183008DE12D /* userSettingModel.swift in Sources */,
+				042E385C1D72A82300BF8D74 /* NHDPayPalViewController.swift in Sources */,
 				8448B1A71D58434500DBFFFB /* chatViewController.swift in Sources */,
 				04426AF31D5DAA2C005B3621 /* Configuration.swift in Sources */,
 				84C8920C1D63450700DA1F2B /* TalksCellTableViewCell.swift in Sources */,
