@@ -4,3 +4,5 @@
 
 #import "JBChartHeaderView.h"
 #import "JBLinechartFooterView.h"
+
+#import "PayPalMobile.h"

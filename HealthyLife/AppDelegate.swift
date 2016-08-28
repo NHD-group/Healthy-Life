@@ -43,6 +43,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.tokenRefreshNotificaiton),
                                                          name: kFIRInstanceIDTokenRefreshNotification, object: nil)
         
+        
+        //TODO: - Enter your credentials
+        PayPalMobile.initializeWithClientIdsForEnvironments([
+            PayPalEnvironmentProduction: "AX8p3N-96A-O7vQ1RcbgGBJEY658IQRRSq4JQXWtdd6tnF5dJsOoKVA41KJ_cxAkId_dlcJtO66GDFrC",
+            PayPalEnvironmentSandbox: "AYSLFRcRD3krd7Zp4uFyUkihz9izLDezjKwkQpxSjvndhf0u-p2kCrkcGNk3I7Xfe-BhWsdGKwaSzHfs"
+            ])
+        
+        PayPalMobile.preconnectWithEnvironment(PayPalEnvironmentSandbox)
+        
         return true
     }
 

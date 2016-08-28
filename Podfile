@@ -21,6 +21,8 @@ target 'HealthyLife' do
     pod 'TabPageViewController'
     pod 'CollectionViewWaterfallLayout', '~> 0.2'
     pod 'JBChartView'
+    pod 'PayPal-iOS-SDK'
+
 
 end
 

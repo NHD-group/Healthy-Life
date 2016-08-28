@@ -126,6 +126,7 @@
 		04178D811D6ED68F00DCE8CA /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		04178D831D6ED6A000DCE8CA /* FoodCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCollectionViewCell.xib; sourceTree = "<group>"; };
 		04178D851D6ED96F00DCE8CA /* displayFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = displayFoodViewController.swift; sourceTree = "<group>"; };
+		042E38591D729A3600BF8D74 /* HealthyLife-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HealthyLife-Bridging-Header.h"; sourceTree = "<group>"; };
 		04426ACC1D5D9B07005B3621 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		04426ACF1D5D9B07005B3621 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		04426AD31D5D9B22005B3621 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
@@ -141,7 +142,6 @@
 		04426AEE1D5DAA2C005B3621 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		04426AF41D5DB324005B3621 /* NHDTabbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDTabbarView.swift; sourceTree = "<group>"; };
 		04426AF51D5DB324005B3621 /* NHDTabbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHDTabbarView.xib; sourceTree = "<group>"; };
-		04426AFA1D5DB4C9005B3621 /* HealthyLife-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HealthyLife-Bridging-Header.h"; sourceTree = "<group>"; };
 		04426AFB1D5DB4C9005B3621 /* Recorder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Recorder.storyboard; sourceTree = "<group>"; };
 		04426AFC1D5DB4C9005B3621 /* SCRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRecorderViewController.h; sourceTree = "<group>"; };
 		04426AFD1D5DB4C9005B3621 /* SCRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRecorderViewController.m; sourceTree = "<group>"; };
@@ -277,6 +277,14 @@
 			path = Food;
 			sourceTree = "<group>";
 		};
+		042E38581D729A3600BF8D74 /* Bridging-Header */ = {
+			isa = PBXGroup;
+			children = (
+				042E38591D729A3600BF8D74 /* HealthyLife-Bridging-Header.h */,
+			);
+			path = "Bridging-Header";
+			sourceTree = "<group>";
+		};
 		04426AB61D5D9294005B3621 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +411,7 @@
 		04426AE51D5DAA2C005B3621 /* Share */ = {
 			isa = PBXGroup;
 			children = (
+				042E38581D729A3600BF8D74 /* Bridging-Header */,
 				04426AE61D5DAA2C005B3621 /* BaseClasses */,
 				04426AE81D5DAA2C005B3621 /* CustomUIs */,
 				04426AEA1D5DAA2C005B3621 /* Extensions */,
@@ -463,7 +472,6 @@
 		04426AF91D5DB4C9005B3621 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				04426AFA1D5DB4C9005B3621 /* HealthyLife-Bridging-Header.h */,
 				04426AFB1D5DB4C9005B3621 /* Recorder.storyboard */,
 				04426AFC1D5DB4C9005B3621 /* SCRecorderViewController.h */,
 				04426AFD1D5DB4C9005B3621 /* SCRecorderViewController.m */,
@@ -1154,7 +1162,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "HealthyLife/Modules/Recorder/ViewControllers/HealthyLife-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "HealthyLife/Share/Bridging-Header/HealthyLife-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1193,7 +1201,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "HealthyLife/Modules/Recorder/ViewControllers/HealthyLife-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "HealthyLife/Share/Bridging-Header/HealthyLife-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
