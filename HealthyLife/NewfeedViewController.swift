@@ -9,34 +9,19 @@
 import UIKit
 import Firebase
 
-class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
-
-    @IBOutlet weak var tableView: UITableView!
-   
-   
+class NewfeedViewController: BaseTableViewController {
     
-    var users = [UserProfile]() {
-        didSet {
-            
-            tableView.reloadData()
-        }
-    }
-    
-    var searchUser = [UserProfile]()
-    var nonSearchUser = [UserProfile]()
     var chatKey = String()
     let searchBar = UISearchBar()
+    var isAlreadyLoaded = false
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        tableView.backgroundColor = Configuration.Colors.lightGray
-
-//        tableView.estimatedRowHeight = 130
-//        tableView.rowHeight = UITableViewAutomaticDimension
+        if isAlreadyLoaded {
+            return
+        }
+        isAlreadyLoaded = true
         
         searchBar.sizeToFit()
         navigationItem.titleView = searchBar
@@ -50,28 +35,11 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
         // Do any additional setup after loading the view.
     }
     
-       func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        // 1. set the initial state of the cell
-        cell.alpha = 0
-        let transform = CATransform3DTranslate(CATransform3DIdentity, -250, 20, 0)
-        cell.layer.transform = transform
-        // 2. UIView Animation method to the final state of the cell
-        UIView.animateWithDuration(0.5) {
-            cell.alpha = 1.0
-            cell.layer.transform = CATransform3DIdentity
-        }
-    }
-    
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return users.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("222", forIndexPath:  indexPath) as! NewFeedtablviewCellTableViewCell
         
-        let user = users[indexPath.row]
+        let user = dataArray[indexPath.row] as! UserProfile
         cell.configureCell(user, setImage: user.UserKey)
         cell.talkButton.tag = indexPath.row
         
@@ -105,7 +73,7 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
         } else if let vc = segue.destinationViewController as? journalViewController {
             
             if let indexPath = tableView.indexPathForSelectedRow {
-                let user = users[indexPath.row]
+                let user = dataArray[indexPath.row] as! UserProfile
                 vc.currentUserID = user.UserKey
                 vc.currentUserName = user.username
             }
@@ -118,12 +86,6 @@ class NewfeedViewController: BaseViewController, UITableViewDataSource, UITableV
         }
         
     }
-
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
-
 
 }
 
@@ -159,10 +121,10 @@ extension NewfeedViewController: UISearchBarDelegate {
                 ref.child("users").queryOrderedByChild("username").queryStartingAtValue(searchText.uppercaseString).queryEndingAtValue(searchText.uppercaseString + "\u{f8ff}").queryLimitedToFirst(20).observeSingleEventOfType(.Value, withBlock: { snap in
                     
                     let anotherArray = self.getDataWith(snap)
-                    self.users = array + anotherArray
+                    self.dataArray = array + anotherArray
                 })
             } else {
-                self.users = array
+                self.dataArray = array
             }
         })
         

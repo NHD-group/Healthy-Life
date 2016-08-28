@@ -9,9 +9,7 @@
 import UIKit
 import Firebase 
 
-class displayResultViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
-
-    @IBOutlet weak var tableView: UITableView!
+class displayResultViewController: BaseTableViewController {
     
     weak var delegate: BaseScroolViewDelegate?
 
@@ -30,15 +28,7 @@ class displayResultViewController: BaseViewController, UITableViewDataSource, UI
         }
         isAlreadyLoaded = true
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        tableView.backgroundColor = Configuration.Colors.lightGray
-        tableView.separatorStyle = .None
-        
         let ref = DataService.BaseRef
-       
-        
         
         showLoading()
         
@@ -72,8 +62,7 @@ class displayResultViewController: BaseViewController, UITableViewDataSource, UI
             
             // Be sure that the tableView updates when there is new data.
             
-            self.tableView.reloadData()
-            self.hideLoading()
+            self.dataArray = self.results
         })
         
          tableView.allowsMultipleSelectionDuringEditing = true
@@ -95,33 +84,14 @@ class displayResultViewController: BaseViewController, UITableViewDataSource, UI
         
         
     }
-
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        // 1. set the initial state of the cell
-        cell.alpha = 0
-        let transform = CATransform3DTranslate(CATransform3DIdentity, -250, 20, 0)
-        cell.layer.transform = transform
-        // 2. UIView Animation method to the final state of the cell
-        UIView.animateWithDuration(1.0) {
-            cell.alpha = 1.0
-            cell.layer.transform = CATransform3DIdentity
-        }
-    }    
-
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return results.count
-    }
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("result") as! displayCellTableViewCell
         cell.result = results[indexPath.row]
         return cell
         
     }
-    
-    
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         

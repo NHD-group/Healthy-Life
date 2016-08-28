@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import Firebase
 
-class BaseTableViewController: UITableViewController {
+class BaseTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
 
     var dataArray = [] {
         didSet {
             tableView.reloadData()
+            hideLoading()
         }
     }
+    
+    var shownIndexes = [NSIndexPath]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +29,36 @@ class BaseTableViewController: UITableViewController {
         tableView.dataSource = self
         
         tableView.backgroundColor = Configuration.Colors.lightGray
+        tableView.separatorStyle = .None
+        
+        
+//       tableView.estimatedRowHeight = 130
+//       tableView.rowHeight = UITableViewAutomaticDimension
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        return dataArray.count
+    }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        return UITableViewCell()
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if !shownIndexes.contains(indexPath) {
+            
+            shownIndexes.append(indexPath)
+        } else {
+            return
+        }
+        
         // 1. set the initial state of the cell
         cell.alpha = 0
         let transform = CATransform3DTranslate(CATransform3DIdentity, -250, 20, 0)
@@ -38,20 +70,4 @@ class BaseTableViewController: UITableViewController {
         }
     }
     
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return dataArray.count
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        return UITableViewCell()
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
-    
-
 }
