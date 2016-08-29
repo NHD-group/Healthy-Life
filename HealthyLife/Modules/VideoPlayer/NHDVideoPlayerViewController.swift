@@ -41,6 +41,8 @@ class NHDVideoPlayerViewController: BaseViewController {
     var avPlayer : AVPlayer!
     var defaultRate: Float = 1
     var duration: NSTimeInterval = 0
+    var tapGesture: UITapGestureRecognizer?
+    var scheduledToHideControlsTimer: NSTimer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,10 @@ class NHDVideoPlayerViewController: BaseViewController {
         view.backgroundColor = Configuration.Colors.lightGray
         titleLabel.text = titleText
         slider.value = 0
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapOnContent(_:)))
+        movieContainer.addGestureRecognizer(tapGesture!)
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -89,16 +95,23 @@ class NHDVideoPlayerViewController: BaseViewController {
 
     }
     
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         
         avPlayer.removeObserver(self, forKeyPath: "status")
 //        avPlayer.removeTimeObserver(self)
+        if let tapGesture = tapGesture {
+            movieContainer.removeGestureRecognizer(tapGesture)
+        }
     }
     
+    func hideOrShowControlBar() {
+        tapOnContent(tapGesture)
+
+    }
     func updateCurrentTime() {
         
-        guard let currentItem = avPlayer.currentItem else {
+        guard let currentItem = avPlayer?.currentItem else {
             return
         }
         
@@ -109,11 +122,32 @@ class NHDVideoPlayerViewController: BaseViewController {
         }
     }
     
+    func tapOnContent(gesture: UITapGestureRecognizer?) {
+        
+        let alpha = 1.0 - topBar.alpha
+        
+        
+        UIView.animateWithDuration(Configuration.animationDuration) {
+            self.topBar.alpha = alpha
+            self.bottomBar.alpha = alpha
+        }
+    }
+    
+    func scheduledToHideControls() {
+        UIView.animateWithDuration(Configuration.animationDuration) {
+            self.topBar.alpha = 0.0
+            self.bottomBar.alpha = 0.0
+        }
+        scheduledToHideControlsTimer?.invalidate()
+    }
+    
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "status" {
             if let status = change?[NSKeyValueChangeNewKey] as? Int {
                 if status == 1 {
                     playButton.selected = true
+                
+                    scheduledToHideControlsTimer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(self.scheduledToHideControls), userInfo: nil, repeats: false)
                 }
             }
         }
