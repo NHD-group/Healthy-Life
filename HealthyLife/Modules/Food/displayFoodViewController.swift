@@ -59,17 +59,12 @@ class displayFoodViewController: BaseViewController {
         let ref = DataService.BaseRef
         ref.child("users").child(currentUserID).child("food_journal").queryLimitedToLast(10).observeEventType(.Value, withBlock: { snapshot in
             
-            // The snapshot is a current look at our jokes data.
-            
-            print(snapshot.value)
-            
             self.foods = []
             
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
                 for snap in snapshots {
                     
-                    // Make our jokes array for the tableView.
                     
                     if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
@@ -169,6 +164,6 @@ extension displayFoodViewController: FoodCollectionViewCellDelegate {
         vc.item = food
         vc.price = price
         let navVC = BaseNavigationController(rootViewController: vc)
-        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(navVC, animated: true, completion: nil)
+        Helper.getRootViewController()?.presentViewController(navVC, animated: true, completion: nil)
     }
 }

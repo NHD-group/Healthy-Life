@@ -50,4 +50,13 @@ class BaseNavigationController: UINavigationController {
 //                                    self.topView.transform = CGAffineTransformIdentity
 //            }, completion: nil)
     }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        
+        return .Portrait
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
 }

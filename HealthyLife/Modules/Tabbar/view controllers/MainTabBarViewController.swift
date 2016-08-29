@@ -56,6 +56,14 @@ class MainTabBarViewController: UITabBarController  {
         }
     }
 
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+  
+        return .Portrait
+    }
+
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
 }
 
 extension MainTabBarViewController: NHDTabbarViewDelegate {

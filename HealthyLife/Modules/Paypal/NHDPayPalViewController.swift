@@ -77,6 +77,7 @@ class NHDPayPalViewController: BaseViewController {
             // to handle that here.
             print("Payment not processalbe: \(payment)")
             hideLoading()
+            navigationController?.dismissViewControllerAnimated(true, completion: nil)
         }
     }
 

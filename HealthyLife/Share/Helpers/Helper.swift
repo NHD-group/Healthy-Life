@@ -68,4 +68,8 @@ class Helper: NSObject {
         }
         return nil
     }
+    
+    class func getRootViewController() -> UIViewController? {
+        return UIApplication.sharedApplication().keyWindow?.rootViewController
+    }
 }

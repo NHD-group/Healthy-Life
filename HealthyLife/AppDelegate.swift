@@ -150,5 +150,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask {
+        
+        if self.window?.rootViewController?.presentedViewController is NHDVideoPlayerViewController {
+            
+            return .AllButUpsideDown
+            
+        }
+        return .Portrait
+    }
 }
 

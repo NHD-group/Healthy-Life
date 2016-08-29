@@ -83,4 +83,13 @@ class BaseViewController: UIViewController {
     func hideLoading() {
         MBProgressHUD.hideHUDForView(self.view, animated: true)
     }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        
+        return .Portrait
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
 }
