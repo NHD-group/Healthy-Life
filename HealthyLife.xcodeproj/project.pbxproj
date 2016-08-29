@@ -71,6 +71,7 @@
 		841DDAB71D54917B007917E7 /* sendPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DDAB61D54917B007917E7 /* sendPlanViewController.swift */; };
 		841DDABB1D54CE34007917E7 /* followerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DDABA1D54CE34007917E7 /* followerModel.swift */; };
 		8420E2051D6BF85E00F3CBAE /* cellDailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420E2041D6BF85E00F3CBAE /* cellDailyTableViewCell.swift */; };
+		842476E71D743884002E796A /* PrictListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842476E61D743884002E796A /* PrictListViewController.swift */; };
 		8448B1A71D58434500DBFFFB /* chatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448B1A61D58434500DBFFFB /* chatViewController.swift */; };
 		844902241D56064900B8ADF3 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844902231D56064900B8ADF3 /* Plan.swift */; };
 		844902271D56310C00B8ADF3 /* trackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844902261D56310C00B8ADF3 /* trackingViewController.swift */; };
@@ -213,6 +214,7 @@
 		841DDAB61D54917B007917E7 /* sendPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sendPlanViewController.swift; sourceTree = "<group>"; };
 		841DDABA1D54CE34007917E7 /* followerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = followerModel.swift; sourceTree = "<group>"; };
 		8420E2041D6BF85E00F3CBAE /* cellDailyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cellDailyTableViewCell.swift; sourceTree = "<group>"; };
+		842476E61D743884002E796A /* PrictListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrictListViewController.swift; sourceTree = "<group>"; };
 		8448B1A61D58434500DBFFFB /* chatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatViewController.swift; sourceTree = "<group>"; };
 		844902231D56064900B8ADF3 /* Plan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		844902261D56310C00B8ADF3 /* trackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = trackingViewController.swift; sourceTree = "<group>"; };
@@ -709,6 +711,7 @@
 				848225721D4E430D00750118 /* demoTableViewCell.swift */,
 				84C367881D65680D0033AFC1 /* AddDemoViewController.swift */,
 				84EB16A51D74259B0055BC8A /* editViewController.swift */,
+				842476E61D743884002E796A /* PrictListViewController.swift */,
 			);
 			name = demo;
 			sourceTree = "<group>";
@@ -1077,6 +1080,7 @@
 				04C8F3741D6FF84E004639E8 /* UIFontExtension.swift in Sources */,
 				04426B151D5DB4C9005B3621 /* SCImageDisplayerViewController.m in Sources */,
 				84FACCA81D4F048A00E73FDC /* Activities.swift in Sources */,
+				842476E71D743884002E796A /* PrictListViewController.swift in Sources */,
 				8409619E1D533183008DE12D /* userSettingModel.swift in Sources */,
 				042E385C1D72A82300BF8D74 /* NHDPayPalViewController.swift in Sources */,
 				8448B1A71D58434500DBFFFB /* chatViewController.swift in Sources */,
