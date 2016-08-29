@@ -193,6 +193,13 @@ class NHDVideoPlayerViewController: BaseViewController {
     
     @IBAction func sliderChangeValue(slider: UISlider) {
         
+        avPlayer.pause()
+        let sliderValue = NSTimeInterval(Double(slider.value) * duration)
+        let timeScale = avPlayer.currentItem?.asset.duration.timescale ?? 0
+
+        avPlayer.seekToTime(CMTimeMakeWithSeconds(sliderValue, timeScale), toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero) { (bool) in
+            self.avPlayer.play()
+        }
         
     }
     
