@@ -74,8 +74,6 @@ class NHDVideoPlayerViewController: BaseViewController {
             self.asset = AVAsset(URL: videoURL)
         })
         
-//        showLoading()
-        
         avPlayer = AVPlayer(URL: videoURL)
         avPlayer.play()
         avPlayer.allowsExternalPlayback = true
@@ -100,6 +98,7 @@ class NHDVideoPlayerViewController: BaseViewController {
         if let tapGesture = tapGesture {
             movieContainer.removeGestureRecognizer(tapGesture)
         }
+        avPlayer.pause()
     }
     
     func hideOrShowControlBar() {
@@ -251,10 +250,10 @@ extension NHDVideoPlayerViewController {
         brightnessTuner.completeColor = UIColor.whiteColor()
         brightnessTuner.progress = Float(UIScreen.mainScreen().brightness)
         
+        volumeTuner.flipped = true
         volumeTuner.image = UIImage(named: "ic_volume")
         volumeTuner.incompleteColor = Configuration.Colors.lightGray
         volumeTuner.completeColor = UIColor.whiteColor()
-        volumeTuner.flipped = true
         
         volumeSlider = volumeView.volumeSlider
         let defaults = NSUserDefaults.standardUserDefaults()

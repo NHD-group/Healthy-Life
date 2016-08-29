@@ -22,6 +22,7 @@ class NHDCircularTuner: UIControl {
     var image: UIImage? {
         didSet {
             setupImageView()
+            setupLines()
         }
     }
     var flipped = false
@@ -124,7 +125,9 @@ class NHDCircularTuner: UIControl {
     
     override func drawRect(rect: CGRect) {
         
-        setupLines()
+        if lines.count == 0 {
+            return
+        }
         
         for i in 0...lineCount {
             let incomplete: Float = 1.0 - progress
