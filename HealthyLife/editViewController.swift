@@ -1,8 +1,8 @@
 //
-//  AddDemoViewController.swift
+//  editViewController.swift
 //  HealthyLife
 //
-//  Created by admin on 8/18/16.
+//  Created by admin on 8/29/16.
 //  Copyright © 2016 NHD Group. All rights reserved.
 //
 
@@ -11,25 +11,53 @@ import Firebase
 import MobileCoreServices
 import AVFoundation
 
-class AddDemoViewController: BaseViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
-
-    @IBOutlet weak var desTextView: UITextView!
+class editViewController: BaseViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var thumbnailImage: UIImageView!
-    
-    
-    var currentUid = (FIRAuth.auth()?.currentUser?.uid)!
     var videoUrl = NSURL()
+    var currentUid = (FIRAuth.auth()?.currentUser?.uid)!
+    var trailerRef = FIRDatabaseReference()
     
+    @IBOutlet weak var desTextField: UITextField!
     
-    @IBOutlet weak var priceTextField: UITextField!
+    @IBOutlet weak var chooseVideoButton: UIButton!
     
-    
-    @IBAction func uploadAction(sender: AnyObject) {
-        
-        showLoading()
+    @IBAction func editDesAction(sender: AnyObject) {
+        if desTextField.text !=  "" {
+        trailerRef.child("description").setValue(desTextField.text!)
+        }
 
-        let trailerRef = FIRDatabase.database().reference().child("videosTrailer").child(currentUid)
+    }
+    
+    
+    @IBAction func chooseVideoAction(sender: AnyObject) {
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.allowsEditing = true
+        imagePickerController.delegate = self
+        imagePickerController.mediaTypes = [kUTTypeImage as String , kUTTypeMovie as String]
+        
+        presentViewController(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let videoUrl = info[UIImagePickerControllerMediaURL] as? NSURL {
+            // we selected a video
+            
+            self.videoUrl = videoUrl
+            thumbNailImage.thumbnailForVideoAtURL(videoUrl)
+            chooseVideoButton.hidden = true
+            thumbNailImage.hidden = false
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+
+    
+    @IBAction func editTrailer(sender: AnyObject) {
+        showLoading()
+        
+       
         
         let uploadTask = FIRStorage.storage().reference().child("videosTrailer").child(currentUid).putFile(videoUrl, metadata: nil, completion: { (metadata, error) in
             if error  != nil {
@@ -37,7 +65,7 @@ class AddDemoViewController: BaseViewController , UIImagePickerControllerDelegat
                 Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
                 return
             } else {
-                var thumbNail = self.thumbnailImage.image
+                var thumbNail = self.thumbNailImage.image
                 thumbNail = thumbNail!.resizeImage(CGSize(width: 500.0, height: 500.0))
                 
                 let imageData: NSData = UIImagePNGRepresentation(thumbNail!)!
@@ -57,13 +85,13 @@ class AddDemoViewController: BaseViewController , UIImagePickerControllerDelegat
                     } else {
                         // Metadata contains file metadata such as size, content-type, and download URL.
                         if let downloadURL = metadata?.downloadURL()?.absoluteString {
-                            trailerRef.child("thumbnail").setValue(downloadURL)
+                            self.trailerRef.child("thumbnail").setValue(downloadURL)
                             
                         }
                         
                         self.hideLoading()
                         self.onBack()
-                       
+                        
                         
                     }
                 }
@@ -72,47 +100,28 @@ class AddDemoViewController: BaseViewController , UIImagePickerControllerDelegat
                     
                     
                     
-                    let videoInfo: [String: AnyObject] = ["videoUrl": videoUrl, "description": self.desTextView.text!, "pricePerWeek": self.priceTextField.text!]
-                    
-                    trailerRef.setValue(videoInfo)
-                    FIRDatabase.database().reference().child("users").child(self.currentUid).child("demo").setValue(true)
                     
                     
+                    self.trailerRef.child("videoUrl").setValue(videoUrl)
                 }
                 
             }
         })
-       
-    
-    }
-    
-   
-    
-    @IBAction func chooseVideoAction(sender: AnyObject) {
-        
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.allowsEditing = true
-        imagePickerController.delegate = self
-        imagePickerController.mediaTypes = [kUTTypeImage as String , kUTTypeMovie as String]
-        
-        presentViewController(imagePickerController, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let videoUrl = info[UIImagePickerControllerMediaURL] as? NSURL {
-            // we selected a video
-            
-            self.videoUrl = videoUrl
-              thumbnailImage.thumbnailForVideoAtURL(videoUrl)
-        }
-        
-        dismissViewControllerAnimated(true, completion: nil)
         
     }
-
+    
+    @IBOutlet weak var thumbNailImage: UIImageView!
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         trailerRef = FIRDatabase.database().reference().child("videosTrailer").child(currentUid)
+
+        chooseVideoButton.hidden = false
+        
+        thumbNailImage.hidden = true
 
         // Do any additional setup after loading the view.
     }
@@ -121,9 +130,6 @@ class AddDemoViewController: BaseViewController , UIImagePickerControllerDelegat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    
     
 
     /*

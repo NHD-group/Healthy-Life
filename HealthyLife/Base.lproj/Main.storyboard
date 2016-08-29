@@ -1252,6 +1252,7 @@
                                                             <state key="normal" title="60$/ a week"/>
                                                             <connections>
                                                                 <action selector="talkAction:" destination="lGX-lZ-Il6" eventType="touchUpInside" id="9gJ-5g-kay"/>
+                                                                <segue destination="qIW-Tt-GHE" kind="push" id="zKI-lu-aPT"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilC-Da-7rr">
@@ -1311,24 +1312,67 @@
             </objects>
             <point key="canvasLocation" x="1426.5" y="706.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit View Controller-->
         <scene sceneID="KL9-AV-x3c">
             <objects>
-                <viewController id="ooe-SE-3Zg" sceneMemberID="viewController">
+                <viewController id="ooe-SE-3Zg" customClass="editViewController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y68-75-dx5"/>
                         <viewControllerLayoutGuide type="bottom" id="qdV-yL-bzv"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DAE-y4-8TP">
+                    <view key="view" contentMode="scaleToFill" id="DAE-y4-8TP" customClass="edit">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZW-PE-phZ">
+                                <rect key="frame" x="312" y="106" width="30" height="30"/>
+                                <state key="normal" title="edit"/>
+                                <connections>
+                                    <action selector="editDesAction:" destination="ooe-SE-3Zg" eventType="touchUpInside" id="NZw-AV-Cdn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xu9-Mo-M2Z">
+                                <rect key="frame" x="20" y="174" width="88" height="88"/>
+                                <state key="normal" title="Button" image="clipper"/>
+                                <connections>
+                                    <action selector="chooseVideoAction:" destination="ooe-SE-3Zg" eventType="touchUpInside" id="cUk-sN-c8X"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="desciption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CFY-zq-Czc">
+                                <rect key="frame" x="20" y="100" width="284" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPB-IK-TkG">
+                                <rect key="frame" x="312" y="221" width="30" height="30"/>
+                                <state key="normal" title="edit"/>
+                                <connections>
+                                    <action selector="editTrailer:" destination="ooe-SE-3Zg" eventType="touchUpInside" id="187-Kh-mRi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4B-sK-o8j">
+                                <rect key="frame" x="20" y="298" width="66" height="30"/>
+                                <state key="normal" title="Edit Price"/>
+                                <connections>
+                                    <segue destination="qIW-Tt-GHE" kind="push" id="RYf-z3-vj3"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5SC-kg-rzI">
+                                <rect key="frame" x="20" y="174" width="88" height="88"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="r8W-iJ-m4Z"/>
+                    <connections>
+                        <outlet property="chooseVideoButton" destination="xu9-Mo-M2Z" id="d0f-mn-foC"/>
+                        <outlet property="desTextField" destination="CFY-zq-Czc" id="zKN-U2-ERY"/>
+                        <outlet property="thumbNailImage" destination="5SC-kg-rzI" id="xlm-yC-ScK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wky-7A-ph3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1965" y="627"/>
+            <point key="canvasLocation" x="1930.5" y="716.5"/>
         </scene>
         <!--Add Demo View Controller-->
         <scene sceneID="jV9-KH-YgR">
@@ -1355,13 +1399,6 @@
                                     <action selector="uploadAction:" destination="zgl-1x-sw1" eventType="touchUpInside" id="gz9-eX-mwH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBp-Ic-iqc">
-                                <rect key="frame" x="175" y="244" width="25" height="25"/>
-                                <state key="normal" image="lib"/>
-                                <connections>
-                                    <action selector="chooseVideoAction:" destination="zgl-1x-sw1" eventType="touchUpInside" id="oTW-n5-V34"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wy1-Og-pb6">
                                 <rect key="frame" x="20" y="384" width="335" height="187"/>
                             </imageView>
@@ -1376,6 +1413,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBp-Ic-iqc">
+                                <rect key="frame" x="20" y="244" width="25" height="25"/>
+                                <state key="normal" image="lib"/>
+                                <connections>
+                                    <action selector="chooseVideoAction:" destination="zgl-1x-sw1" eventType="touchUpInside" id="oTW-n5-V34"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1806,6 +1850,25 @@
             </objects>
             <point key="canvasLocation" x="1945.5" y="1853.5"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="1gZ-yQ-0Hd">
+            <objects>
+                <viewController id="qIW-Tt-GHE" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YWl-oj-5E5"/>
+                        <viewControllerLayoutGuide type="bottom" id="0u2-e8-Ftv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6nT-Iq-wrk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="S9V-UA-3WS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VPB-xN-yVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2482.5" y="1151.5"/>
+        </scene>
         <!--Chat View Controller-->
         <scene sceneID="R4y-3C-2ym">
             <objects>
@@ -2218,6 +2281,7 @@
         <image name="Star" width="25" height="25"/>
         <image name="addToPlan" width="25" height="25"/>
         <image name="camera" width="25" height="25"/>
+        <image name="clipper" width="176" height="176"/>
         <image name="finishButton" width="100" height="100"/>
         <image name="lib" width="25" height="25"/>
         <image name="placeholder" width="570" height="380"/>
@@ -2225,11 +2289,12 @@
         <image name="startButton" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ufo-Uh-4J7"/>
-        <segue reference="Ma2-Lr-V81"/>
-        <segue reference="8Xa-GN-A15"/>
-        <segue reference="Ilp-x2-K6i"/>
         <segue reference="de9-EU-rTg"/>
+        <segue reference="ufo-Uh-4J7"/>
+        <segue reference="8Xa-GN-A15"/>
+        <segue reference="zKI-lu-aPT"/>
+        <segue reference="Ma2-Lr-V81"/>
+        <segue reference="Ilp-x2-K6i"/>
         <segue reference="P32-pf-mmX"/>
         <segue reference="6Io-V1-e1J"/>
     </inferredMetricsTieBreakers>

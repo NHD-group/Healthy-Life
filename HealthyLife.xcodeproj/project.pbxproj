@@ -99,6 +99,7 @@
 		84BD7C7F1D63FF5D006A868E /* ratingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD7C7E1D63FF5D006A868E /* ratingViewController.swift */; };
 		84C367891D65680D0033AFC1 /* AddDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C367881D65680D0033AFC1 /* AddDemoViewController.swift */; };
 		84C8920C1D63450700DA1F2B /* TalksCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8920B1D63450700DA1F2B /* TalksCellTableViewCell.swift */; };
+		84EB16A61D74259B0055BC8A /* editViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB16A51D74259B0055BC8A /* editViewController.swift */; };
 		84F686BF1D73E7DD008A30EF /* SchedulePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F686BE1D73E7DD008A30EF /* SchedulePlanViewController.swift */; };
 		84FACC9B1D4EF86700E73FDC /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACC9A1D4EF86700E73FDC /* Data.swift */; };
 		84FACCA01D4F01FD00E73FDC /* weeklyPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACC9F1D4F01FD00E73FDC /* weeklyPlanViewController.swift */; };
@@ -240,6 +241,7 @@
 		84BD7C7E1D63FF5D006A868E /* ratingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ratingViewController.swift; sourceTree = "<group>"; };
 		84C367881D65680D0033AFC1 /* AddDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDemoViewController.swift; sourceTree = "<group>"; };
 		84C8920B1D63450700DA1F2B /* TalksCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalksCellTableViewCell.swift; sourceTree = "<group>"; };
+		84EB16A51D74259B0055BC8A /* editViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = editViewController.swift; sourceTree = "<group>"; };
 		84F686BE1D73E7DD008A30EF /* SchedulePlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulePlanViewController.swift; sourceTree = "<group>"; };
 		84FACC9A1D4EF86700E73FDC /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		84FACC9F1D4F01FD00E73FDC /* weeklyPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weeklyPlanViewController.swift; sourceTree = "<group>"; };
@@ -706,6 +708,7 @@
 				848225701D4E42CB00750118 /* demoLibViewController.swift */,
 				848225721D4E430D00750118 /* demoTableViewCell.swift */,
 				84C367881D65680D0033AFC1 /* AddDemoViewController.swift */,
+				84EB16A51D74259B0055BC8A /* editViewController.swift */,
 			);
 			name = demo;
 			sourceTree = "<group>";
@@ -1040,6 +1043,7 @@
 				744BC7B21D709F2200DE9BD5 /* ChartViewController.swift in Sources */,
 				840E47521D64CF4E0002790C /* DetailsActivitiesDoneViewController.swift in Sources */,
 				849371511D6365690096CE4B /* uploadVideoViewController.swift in Sources */,
+				84EB16A61D74259B0055BC8A /* editViewController.swift in Sources */,
 				04426AD21D5D9B07005B3621 /* MainTabBarViewController.swift in Sources */,
 				04D1AA7C1D66FC4E00106C27 /* Helper.swift in Sources */,
 				84F686BF1D73E7DD008A30EF /* SchedulePlanViewController.swift in Sources */,
