@@ -22,6 +22,7 @@ class AddDemoViewController: BaseViewController , UIImagePickerControllerDelegat
     var videoUrl = NSURL()
     
     
+    @IBOutlet weak var priceTextField: UITextField!
     
     
     @IBAction func uploadAction(sender: AnyObject) {
@@ -71,7 +72,7 @@ class AddDemoViewController: BaseViewController , UIImagePickerControllerDelegat
                     
                     
                     
-                    let videoInfo: [String: AnyObject] = ["videoUrl": videoUrl, "description": self.desTextView.text!]
+                    let videoInfo: [String: AnyObject] = ["videoUrl": videoUrl, "description": self.desTextView.text!, "pricePerWeek": self.priceTextField.text!]
                     
                     trailerRef.setValue(videoInfo)
                 }

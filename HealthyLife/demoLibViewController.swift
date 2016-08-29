@@ -14,11 +14,13 @@ import AVKit
 class Trailer: NSObject {
     var uid: String?
     var videoUrl: String?
+    var pricePerWeek: String?
     var des: String?
     init(key: String, dictionary: NSDictionary ) {
         uid = key
         videoUrl = dictionary["videoUrl"] as? String
         des = dictionary["description"] as? String
+        pricePerWeek = dictionary["pricePerWeek"] as? String
         
     }
 }
@@ -26,6 +28,8 @@ class Trailer: NSObject {
 class demoLibViewController: BaseTableViewController {
     
     var trailers = [Trailer]()
+    
+    @IBOutlet weak var addEditButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +70,28 @@ class demoLibViewController: BaseTableViewController {
             
         })
         
+        ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("demo").observeEventType(.Value, withBlock: { snapshot in
+            
+            if let check = snapshot.value as? NSNull {
+                self.addEditButton.title = "add"
+            } else {
+                self.addEditButton.title = "edit"
+            }
+            
+        })
+
+        
     }
+    
+    @IBAction func addEditAction(sender: AnyObject) {
+        if self.addEditButton.title == "add" {
+            performSegueWithIdentifier("add", sender: self)
+        } else if self.addEditButton.title == "edit" {
+            performSegueWithIdentifier("edit", sender: self)
+        }
+
+    }
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         

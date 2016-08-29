@@ -40,6 +40,7 @@ class demoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var backview: UIView!
 
+    @IBOutlet weak var priceButton: UIButton!
     
     @IBOutlet weak var talkButton: UIButton!
     
@@ -68,6 +69,7 @@ class demoTableViewCell: UITableViewCell {
     func configureCell(demo : Trailer ) {
         trailer = demo
         
+        priceButton.setTitle("\(trailer.pricePerWeek ?? "undisclosure")$/ a week", forState: .Normal)
         currentUserName = NSUserDefaults.standardUserDefaults().valueForKey("currentUserName") as! String
         
         let url = NSURL(string: trailer.videoUrl!)

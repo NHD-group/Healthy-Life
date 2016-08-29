@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="uuG-VB-6K1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="uuG-VB-6K1">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -1231,20 +1231,11 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyM-i3-VzB">
-                                                            <rect key="frame" x="8" y="110" width="166" height="30"/>
+                                                            <rect key="frame" x="8" y="110" width="104" height="30"/>
                                                             <color key="backgroundColor" red="0.98925497165873222" green="1" blue="0.56829516990861761" alpha="1" colorSpace="calibratedRGB"/>
                                                             <state key="normal" title="Get Healthy"/>
                                                             <connections>
                                                                 <action selector="getHealthyAction:" destination="lGX-lZ-Il6" eventType="touchUpInside" id="kVc-gR-Yfr"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilC-Da-7rr">
-                                                            <rect key="frame" x="181" y="110" width="170" height="30"/>
-                                                            <color key="backgroundColor" red="0.73403336374525241" green="1" blue="0.74783457241007767" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <state key="normal" title="Talk"/>
-                                                            <connections>
-                                                                <action selector="talkAction:" destination="lGX-lZ-Il6" eventType="touchUpInside" id="ZPC-cM-y1O"/>
-                                                                <segue destination="HWd-8e-FEQ" kind="modal" identifier="chattrainer" id="Ma2-Lr-V81"/>
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3.33" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6d-Mj-hYP">
@@ -1255,6 +1246,23 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="1VR-FN-y3y">
                                                             <rect key="frame" x="105" y="23" width="18" height="18"/>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxp-U5-uYF">
+                                                            <rect key="frame" x="248" y="110" width="111" height="30"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <state key="normal" title="60$/ a week"/>
+                                                            <connections>
+                                                                <action selector="talkAction:" destination="lGX-lZ-Il6" eventType="touchUpInside" id="9gJ-5g-kay"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilC-Da-7rr">
+                                                            <rect key="frame" x="124" y="110" width="111" height="30"/>
+                                                            <color key="backgroundColor" red="0.73403336374525241" green="1" blue="0.74783457241007767" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <state key="normal" title="Talk"/>
+                                                            <connections>
+                                                                <action selector="talkAction:" destination="lGX-lZ-Il6" eventType="touchUpInside" id="ZPC-cM-y1O"/>
+                                                                <segue destination="HWd-8e-FEQ" kind="modal" identifier="chattrainer" id="Ma2-Lr-V81"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1268,6 +1276,7 @@
                                             <outlet property="commentCountButton" destination="l0W-iH-MAC" id="mlW-vM-7yk"/>
                                             <outlet property="desLabel" destination="tDm-Kk-G1Z" id="61c-QF-v0y"/>
                                             <outlet property="getHealthyButton" destination="vyM-i3-VzB" id="zeh-Ag-uTP"/>
+                                            <outlet property="priceButton" destination="gxp-U5-uYF" id="RjM-yE-8wf"/>
                                             <outlet property="talkButton" destination="ilC-Da-7rr" id="xnP-nc-DbF"/>
                                             <outlet property="usernameLabel" destination="Jfa-G5-15n" id="lTa-Ww-cfM"/>
                                         </connections>
@@ -1286,18 +1295,40 @@
                     <navigationItem key="navigationItem" title="Demo Lib" id="7yr-XT-ogY">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="erW-zB-HLi">
                             <connections>
-                                <segue destination="zgl-1x-sw1" kind="push" id="O7b-S5-5od"/>
+                                <action selector="addEditAction:" destination="0qr-aP-dj1" id="Qfd-U6-Tr5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="addEditButton" destination="erW-zB-HLi" id="qI4-Ov-tYC"/>
                         <outlet property="tableView" destination="GX7-Pm-qZ2" id="Nca-tz-Y0c"/>
+                        <segue destination="zgl-1x-sw1" kind="push" identifier="add" id="kSu-cb-9js"/>
+                        <segue destination="ooe-SE-3Zg" kind="push" identifier="edit" id="1dE-ZG-XXr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKo-iq-dIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1426.5" y="706.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="KL9-AV-x3c">
+            <objects>
+                <viewController id="ooe-SE-3Zg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y68-75-dx5"/>
+                        <viewControllerLayoutGuide type="bottom" id="qdV-yL-bzv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DAE-y4-8TP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="r8W-iJ-m4Z"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wky-7A-ph3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1965" y="627"/>
         </scene>
         <!--Add Demo View Controller-->
         <scene sceneID="jV9-KH-YgR">
@@ -1312,7 +1343,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Decription" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ckK-SF-33z">
-                                <rect key="frame" x="20" y="88" width="335" height="126"/>
+                                <rect key="frame" x="20" y="88" width="335" height="83"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1334,18 +1365,30 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wy1-Og-pb6">
                                 <rect key="frame" x="20" y="384" width="335" height="187"/>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="price " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4II-cz-8iO">
+                                <rect key="frame" x="103" y="191" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="/ a week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85A-0I-3qN">
+                                <rect key="frame" x="208" y="195" width="64" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ibU-wg-bWf"/>
                     <connections>
                         <outlet property="desTextView" destination="ckK-SF-33z" id="v86-rF-NK3"/>
+                        <outlet property="priceTextField" destination="4II-cz-8iO" id="KzX-l7-2md"/>
                         <outlet property="thumbnailImage" destination="wy1-Og-pb6" id="WfI-n6-FZ3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vN4-lI-7P6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2055.5" y="1146.5"/>
+            <point key="canvasLocation" x="886.5" y="564.5"/>
         </scene>
         <!--Newfeed View Controller-->
         <scene sceneID="iuf-4X-G4S">
@@ -2183,9 +2226,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ufo-Uh-4J7"/>
+        <segue reference="Ma2-Lr-V81"/>
+        <segue reference="8Xa-GN-A15"/>
         <segue reference="Ilp-x2-K6i"/>
-        <segue reference="H2p-Yh-2tL"/>
-        <segue reference="qHN-1s-BfY"/>
         <segue reference="de9-EU-rTg"/>
         <segue reference="P32-pf-mmX"/>
         <segue reference="6Io-V1-e1J"/>
