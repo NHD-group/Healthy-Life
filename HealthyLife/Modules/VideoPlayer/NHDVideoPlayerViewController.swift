@@ -9,11 +9,13 @@
 import UIKit
 import AVKit
 import AVFoundation
+import MediaPlayer
 
 class NHDVideoPlayerViewController: BaseViewController {
 
     @IBOutlet weak var topBar: UIView!
     @IBOutlet weak var bottomBar: UIView!
+    @IBOutlet weak var midBar: UIView!
     @IBOutlet weak var movieContainer: UIView!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     @IBOutlet weak var rateLabel: UILabel!
@@ -23,6 +25,11 @@ class NHDVideoPlayerViewController: BaseViewController {
     @IBOutlet weak var totalTimeLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var playButton: UIButton!
+    
+    @IBOutlet weak var brightnessTuner : NHDCircularTuner!
+    @IBOutlet weak var volumeTuner     : NHDCircularTuner!
+    var volumeView = MPVolumeView(frame: CGRectZero)
+    weak var volumeSlider : UISlider!
     
     var asset: AVAsset? {
         didSet {
@@ -42,7 +49,6 @@ class NHDVideoPlayerViewController: BaseViewController {
     var defaultRate: Float = 1
     var duration: NSTimeInterval = 0
     var tapGesture: UITapGestureRecognizer?
-    var scheduledToHideControlsTimer: NSTimer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +58,8 @@ class NHDVideoPlayerViewController: BaseViewController {
         slider.value = 0
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapOnContent(_:)))
-        movieContainer.addGestureRecognizer(tapGesture!)
-
+        view.addGestureRecognizer(tapGesture!)
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -67,7 +73,6 @@ class NHDVideoPlayerViewController: BaseViewController {
         dispatch_async(dispatch_get_main_queue(), {
             self.asset = AVAsset(URL: videoURL)
         })
-        
         
 //        showLoading()
         
@@ -83,23 +88,15 @@ class NHDVideoPlayerViewController: BaseViewController {
         
         avPlayer.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.New, context: nil)
         
-//        avPlayer.addPeriodicTimeObserverForInterval(CMTime(seconds: 1, preferredTimescale: 0), queue: dispatch_get_main_queue()) { (time) in
-//            let currentTime = CMTimeGetSeconds(time)
-//            self.currentTimeLabel.text = currentTime.readableDurationString()
-//            if self.duration > 0 {
-//                self.slider.value = Float(currentTime / self.duration)
-//            }
-//        }
-        
         NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(self.updateCurrentTime), userInfo: nil, repeats: true)
 
+        setupUI()
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
         avPlayer.removeObserver(self, forKeyPath: "status")
-//        avPlayer.removeTimeObserver(self)
         if let tapGesture = tapGesture {
             movieContainer.removeGestureRecognizer(tapGesture)
         }
@@ -130,6 +127,7 @@ class NHDVideoPlayerViewController: BaseViewController {
         UIView.animateWithDuration(Configuration.animationDuration) {
             self.topBar.alpha = alpha
             self.bottomBar.alpha = alpha
+            self.midBar.alpha = alpha
         }
     }
     
@@ -137,8 +135,8 @@ class NHDVideoPlayerViewController: BaseViewController {
         UIView.animateWithDuration(Configuration.animationDuration) {
             self.topBar.alpha = 0.0
             self.bottomBar.alpha = 0.0
+            self.midBar.alpha = 0.0
         }
-        scheduledToHideControlsTimer?.invalidate()
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
@@ -147,7 +145,7 @@ class NHDVideoPlayerViewController: BaseViewController {
                 if status == 1 {
                     playButton.selected = true
                 
-                    scheduledToHideControlsTimer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(self.scheduledToHideControls), userInfo: nil, repeats: false)
+                    NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(self.scheduledToHideControls), userInfo: nil, repeats: false)
                 }
             }
         }
@@ -216,6 +214,7 @@ class NHDVideoPlayerViewController: BaseViewController {
         defaultRate -= 0.1
         avPlayer.rate = defaultRate
         rateLabel.text = String.localizedStringWithFormat("%0.1fx", defaultRate)
+        playButton.selected = true
     }
     
     @IBAction func onNextTapped(sender: AnyObject) {
@@ -223,6 +222,7 @@ class NHDVideoPlayerViewController: BaseViewController {
         defaultRate += 0.1
         avPlayer.rate = defaultRate
         rateLabel.text = String.localizedStringWithFormat("%0.1fx", defaultRate)
+        playButton.selected = true
     }
     
     @IBAction func sliderChangeValue(slider: UISlider) {
@@ -240,5 +240,70 @@ class NHDVideoPlayerViewController: BaseViewController {
     @IBAction func onClose(sender: AnyObject) {
         
         dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+extension NHDVideoPlayerViewController {
+    
+    func setupUI() {
+        brightnessTuner.image = UIImage(named: "ic_brightness")
+        brightnessTuner.incompleteColor = Configuration.Colors.lightGray
+        brightnessTuner.completeColor = UIColor.whiteColor()
+        brightnessTuner.progress = Float(UIScreen.mainScreen().brightness)
+        
+        volumeTuner.image = UIImage(named: "ic_volume")
+        volumeTuner.incompleteColor = Configuration.Colors.lightGray
+        volumeTuner.completeColor = UIColor.whiteColor()
+        volumeTuner.flipped = true
+        
+        volumeSlider = volumeView.volumeSlider
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let volume = defaults.valueForKey("kVolumeKey") as? NSNumber {
+            volumeTuner.progress = volume.floatValue
+            volumeSlider.value = volume.floatValue
+        }
+    }
+    
+    @IBAction func brightnessTunerInteractionBegin(tuner : NHDCircularTuner) {
+    }
+    
+    @IBAction func brightnessTunerInteractionEnd(tuner : NHDCircularTuner) {
+    }
+    
+    @IBAction func brightnessDidChanged(tuner : NHDCircularTuner) {
+        let brightnessValue = tuner.progress
+        UIScreen.mainScreen().brightness = CGFloat(brightnessValue)
+
+    }
+    
+    @IBAction func volumeDidChanged(tuner : NHDCircularTuner) {
+        let volume = tuner.progress
+        volumeSlider.value = volume
+        avPlayer.volume = volume
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setValue(NSNumber(float: volume), forKey: "kVolumeKey")
+    }
+    
+    @IBAction func volumeTunerInteractionBegin(tuner : NHDCircularTuner) {
+    }
+    
+    @IBAction func volumeTunerInteractionEnd(tuner : NHDCircularTuner) {
+    }
+    
+
+}
+
+
+extension MPVolumeView {
+    var volumeSlider:UISlider {
+        var slider = UISlider()
+        for subview in self.subviews {
+            if subview.isKindOfClass(UISlider){
+                slider = subview as! UISlider
+                return slider
+            }
+        }
+        return slider
     }
 }
