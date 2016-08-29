@@ -62,7 +62,7 @@ extension MainTabBarViewController: NHDTabbarViewDelegate {
     
     func tabWasSelected(index: Int) {
         
-        if index == 2 {
+        if index < 4 {
             
             if let navVC = selectedViewController as? UINavigationController {
                 navVC.popViewControllerAnimated(true)

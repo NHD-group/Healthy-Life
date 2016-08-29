@@ -43,6 +43,8 @@
 		04426B201D5DBA35005B3621 /* HealthyLife-40181a67534f.json in Resources */ = {isa = PBXBuildFile; fileRef = 04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */; };
 		04ABC9551D6BF5E800EF0339 /* NHDSplash.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ABC9541D6BF5E800EF0339 /* NHDSplash.xib */; };
 		04ABC9571D6BF7FD00EF0339 /* NHDSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ABC9561D6BF7FD00EF0339 /* NHDSplash.swift */; };
+		04B8C4261D73E8BE001D5839 /* NHDVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8C4241D73E8BE001D5839 /* NHDVideoPlayerViewController.swift */; };
+		04B8C4271D73E8BE001D5839 /* NHDVideoPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B8C4251D73E8BE001D5839 /* NHDVideoPlayerViewController.xib */; };
 		04C8F3741D6FF84E004639E8 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8F3731D6FF84E004639E8 /* UIFontExtension.swift */; };
 		04D1AA781D66B3FF00106C27 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA771D66B3FF00106C27 /* UIColorExtension.swift */; };
 		04D1AA7A1D66E34D00106C27 /* uploadVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D1AA791D66E34D00106C27 /* uploadVideoViewController.xib */; };
@@ -172,6 +174,8 @@
 		04426B221D5DBE5F005B3621 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		04ABC9541D6BF5E800EF0339 /* NHDSplash.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHDSplash.xib; sourceTree = "<group>"; };
 		04ABC9561D6BF7FD00EF0339 /* NHDSplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDSplash.swift; sourceTree = "<group>"; };
+		04B8C4241D73E8BE001D5839 /* NHDVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDVideoPlayerViewController.swift; sourceTree = "<group>"; };
+		04B8C4251D73E8BE001D5839 /* NHDVideoPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHDVideoPlayerViewController.xib; sourceTree = "<group>"; };
 		04C8F3731D6FF84E004639E8 /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		04D1AA771D66B3FF00106C27 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		04D1AA791D66E34D00106C27 /* uploadVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = uploadVideoViewController.xib; sourceTree = "<group>"; };
@@ -319,6 +323,7 @@
 		04426AC41D5D9B07005B3621 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				04B8C4231D73E8A5001D5839 /* VideoPlayer */,
 				042E385A1D72A7F900BF8D74 /* Paypal */,
 				04178D7E1D6ED65000DCE8CA /* Food */,
 				04ABC9531D6BF5B900EF0339 /* Splash */,
@@ -543,6 +548,15 @@
 				04ABC9561D6BF7FD00EF0339 /* NHDSplash.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		04B8C4231D73E8A5001D5839 /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				04B8C4241D73E8BE001D5839 /* NHDVideoPlayerViewController.swift */,
+				04B8C4251D73E8BE001D5839 /* NHDVideoPlayerViewController.xib */,
+			);
+			path = VideoPlayer;
 			sourceTree = "<group>";
 		};
 		293FBAE7311AD53C884F0F93 /* Pods */ = {
@@ -920,6 +934,7 @@
 				042E385E1D72ADAA00BF8D74 /* NHDPayPalViewController.xib in Resources */,
 				04426ADE1D5DA932005B3621 /* ChamsBlack.ttf in Resources */,
 				04426B111D5DB4C9005B3621 /* Recorder.storyboard in Resources */,
+				04B8C4271D73E8BE001D5839 /* NHDVideoPlayerViewController.xib in Resources */,
 				04D1AA7A1D66E34D00106C27 /* uploadVideoViewController.xib in Resources */,
 				04426ADF1D5DA932005B3621 /* ChamsBold Italic.ttf in Resources */,
 				04426B131D5DB4C9005B3621 /* a_filter.cisf in Resources */,
@@ -1062,6 +1077,7 @@
 				042E385C1D72A82300BF8D74 /* NHDPayPalViewController.swift in Sources */,
 				8448B1A71D58434500DBFFFB /* chatViewController.swift in Sources */,
 				04426AF31D5DAA2C005B3621 /* Configuration.swift in Sources */,
+				04B8C4261D73E8BE001D5839 /* NHDVideoPlayerViewController.swift in Sources */,
 				84C8920C1D63450700DA1F2B /* TalksCellTableViewCell.swift in Sources */,
 				844B8FF51D668C8900B42991 /* ResultModel.swift in Sources */,
 				04426B171D5DB4C9005B3621 /* SCSessionListViewController.m in Sources */,

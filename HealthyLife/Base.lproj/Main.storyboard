@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="uuG-VB-6K1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="uuG-VB-6K1">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="197" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MwT-94-AcT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="197" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MwT-94-AcT">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -656,7 +656,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLC-Ys-SIY">
                                 <rect key="frame" x="20" y="101" width="335" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jly-rq-BfB">
@@ -921,14 +921,6 @@
             </objects>
             <point key="canvasLocation" x="3410.5" y="90.5"/>
         </scene>
-        <!--AV Player View Controller-->
-        <scene sceneID="YIn-lb-yRC">
-            <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="4xq-3G-r9K" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pqq-DD-ehP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2572.5" y="1715.5"/>
-        </scene>
         <!--Daily Workout Plan-->
         <scene sceneID="c0s-qX-flH">
             <objects>
@@ -1032,7 +1024,6 @@
                                 <state key="normal" title="Play Instruction"/>
                                 <connections>
                                     <action selector="playInstructionAction:" destination="DVr-Rr-uRL" eventType="touchUpInside" id="bjT-WT-q2S"/>
-                                    <segue destination="z98-0a-96Q" kind="modal" identifier="playVideo" id="boa-u0-2o0"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Squat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sze-xc-eeT">
@@ -1093,14 +1084,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gC2-7R-DIL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2978.5" y="692.5"/>
-        </scene>
-        <!--AV Player View Controller-->
-        <scene sceneID="yoQ-Mf-G1W">
-            <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="z98-0a-96Q" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="syo-7q-duG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3645.5" y="235.5"/>
         </scene>
         <!--Upload Food-->
         <scene sceneID="7Ob-Cl-L1Y">
@@ -1224,7 +1207,6 @@
                                                             <state key="normal" title="Video Trailer"/>
                                                             <connections>
                                                                 <action selector="videoTrailerAction:" destination="lGX-lZ-Il6" eventType="touchUpInside" id="erZ-uA-q7P"/>
-                                                                <segue destination="4xq-3G-r9K" kind="modal" identifier="playtrailer" id="psH-s6-PxX"/>
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfa-G5-15n">
@@ -1671,7 +1653,6 @@
                                             <state key="normal" image="playButton"/>
                                             <connections>
                                                 <action selector="videoTrailerAction:" destination="MNm-bG-QeR" eventType="touchUpInside" id="9Fs-n0-3Lj"/>
-                                                <segue destination="4xq-3G-r9K" kind="modal" identifier="player" id="p7o-h6-Snf"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -1800,14 +1781,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dze-hP-BH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2281.5" y="2506.5"/>
-        </scene>
-        <!--AV Player View Controller-->
-        <scene sceneID="7RH-Oc-qRZ">
-            <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="ZeC-c9-ceX" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fa5-Kq-yYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-659" y="-1014"/>
         </scene>
         <!--Add Plan Vid View Controller-->
         <scene sceneID="dkn-eU-slG">
@@ -1976,7 +1949,6 @@
                                             <outlet property="desVidLabel" destination="OZ3-9Q-CVg" id="u5e-h0-OQM"/>
                                             <outlet property="nameVidLabel" destination="Cxv-1l-JhO" id="Ttp-ve-B8Y"/>
                                             <outlet property="photoView" destination="I1W-45-8iW" id="4qc-cA-SD4"/>
-                                            <segue destination="ZeC-c9-ceX" kind="modal" identifier="videoSegue" id="5Vp-aW-7Vh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2210,14 +2182,13 @@
         <image name="startButton" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="de9-EU-rTg"/>
         <segue reference="ufo-Uh-4J7"/>
         <segue reference="Ilp-x2-K6i"/>
         <segue reference="H2p-Yh-2tL"/>
         <segue reference="qHN-1s-BfY"/>
-        <segue reference="p7o-h6-Snf"/>
-        <segue reference="C9e-nW-Kc2"/>
+        <segue reference="de9-EU-rTg"/>
         <segue reference="P32-pf-mmX"/>
+        <segue reference="6Io-V1-e1J"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

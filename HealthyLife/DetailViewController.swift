@@ -55,20 +55,11 @@ class DetailViewController: UIViewController {
     
    
     @IBAction func playInstructionAction(sender: AnyObject) {
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "playVideo"
-        {
-         
-            let url = NSURL(string:  activity.videoUrl)
-            let destination = segue.destinationViewController as! AVPlayerViewController
-            
-            destination.player = AVPlayer(URL: url!)
-            destination.player?.play()
+        let playerVC = NHDVideoPlayerViewController(nibName: String(NHDVideoPlayerViewController), bundle: nil)
+        playerVC.playVideo(activity.videoUrl)
+        presentViewController(playerVC, animated: true, completion: nil)
 
-        }
     }
     
     @IBAction func cancelAction(sender: AnyObject) {

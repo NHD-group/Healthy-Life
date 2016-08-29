@@ -289,13 +289,9 @@ class chatViewController: JSQMessagesViewController {
         let message = messages[indexPath.item]
         if message.type.isVideo() {
             
-            if let url = message.fileURL {
-                
-                let vc = AVPlayerViewController()
-                vc.player = AVPlayer(URL: NSURL(string: url)!)
-                vc.player?.play()
-                presentViewController(vc, animated: true, completion: nil)
-            }
+            let playerVC = NHDVideoPlayerViewController(nibName: String(NHDVideoPlayerViewController), bundle: nil)
+            playerVC.playVideo(message.fileURL)
+            presentViewController(playerVC, animated: true, completion: nil)
         }
     }
     

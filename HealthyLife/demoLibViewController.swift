@@ -73,7 +73,7 @@ class demoLibViewController: BaseTableViewController {
         if let cell = tableView.dequeueReusableCellWithIdentifier("demoCell") as? demoTableViewCell {
             
             cell.configureCell(trailers[indexPath.row])
-            cell.navigationController = self.navigationController
+            cell.delegate = self
 
             return cell
             
@@ -86,20 +86,7 @@ class demoLibViewController: BaseTableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "playtrailer" {
-            
-            
-            let controller = segue.destinationViewController as! AVPlayerViewController
-            if let button = sender as? UIButton {
-                let cell = button.superview?.superview?.superview as! demoTableViewCell
-                let videoUrl = cell.videoUrl
-                controller.player = AVPlayer(URL: videoUrl)
-                controller.player?.play()
-
-                
-            }
-            
-        } else if segue.identifier == "commentFromLib" {
+        if segue.identifier == "commentFromLib" {
             let controller = segue.destinationViewController as! commentsViewController
             if let button = sender as? UIButton {
                 let cell = button.superview?.superview?.superview as! demoTableViewCell
@@ -121,5 +108,25 @@ class demoLibViewController: BaseTableViewController {
             }
         }
         
+    }
+}
+
+extension demoLibViewController: demoTableViewCellDelegate {
+    
+    func getHealthyAction(trailer: Trailer) {
+        
+        Helper.showAlert("Sign Up To This Trainer", message: "Pleas ask your trainers for new workoutplan", okActionBlock: { 
+            
+            DataService.dataService.baseRef.child("users").child(trailer.uid!).child("trainee").child(DataService.currentUserID).child("name").setValue(DataService.currentUserName)
+            }, cancelActionBlock: { 
+                
+            }, inViewController: self)
+    }
+    
+    func onVideoTrainerTapped(videoUrl: NSURL) {
+        
+        let playerVC = NHDVideoPlayerViewController(nibName: String(NHDVideoPlayerViewController), bundle: nil)
+        playerVC.playVideoWithURL(videoUrl)
+        presentViewController(playerVC, animated: true, completion: nil)
     }
 }

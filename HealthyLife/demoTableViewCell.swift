@@ -11,8 +11,15 @@ import Firebase
 import AVFoundation
 import AVKit
 
+protocol demoTableViewCellDelegate: class {
+    func onVideoTrainerTapped(videoUrl: NSURL)
+    func getHealthyAction(trailer: Trailer)
+}
+
 class demoTableViewCell: UITableViewCell {
 
+    weak var delegate: demoTableViewCellDelegate?
+    
     @IBOutlet weak var avaImage: UIImageView!
     //done
     
@@ -40,7 +47,7 @@ class demoTableViewCell: UITableViewCell {
     
     @IBAction func videoTrailerAction(sender: AnyObject) {
       
-       
+       delegate?.onVideoTrainerTapped(videoUrl)
     }
     
     var trailer: Trailer!
@@ -153,40 +160,14 @@ class demoTableViewCell: UITableViewCell {
 
             
         })
-        
-
-
-        
        
     }
     
     
     @IBAction func getHealthyAction(sender: AnyObject) {
-        alertMessage()
-             
- 
         
+        delegate?.getHealthyAction(trailer)
     }
-    
-    weak var navigationController: UINavigationController?
-    
-    
-    func alertMessage() {
-        let alert = UIAlertController(title: "Sign Up To This Trainer", message: "Pleas ask your trainers for new workoutplan", preferredStyle: .Alert)
-        let alertAction = UIAlertAction(title: "ok", style: .Default) { (UIAlertAction) in
-            DataService.dataService.baseRef.child("users").child(self.uid).child("trainee").child(self.currentUid).child("name").setValue( self.currentUserName)
-            
-        }
-        
-        let alertActionCancel = UIAlertAction(title: "cancel", style: .Default, handler: nil)
-        
-        alert.addAction(alertAction)
-        alert.addAction(alertActionCancel)
-        self.navigationController?.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-
-    
     
     @IBAction func talkAction(sender: AnyObject) {
         DataService.dataService.chatRoom.child(selectedUsername).observeSingleEventOfType(.Value, withBlock: { snapshot in
@@ -201,17 +182,5 @@ class demoTableViewCell: UITableViewCell {
         })
 
     }
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
+
 }

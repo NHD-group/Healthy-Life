@@ -37,9 +37,7 @@ class Video: NSObject {
 }
 
 
-class yourVideosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    @IBOutlet weak var tableView: UITableView!
+class yourVideosViewController: BaseTableViewController {
 
     var videos = [Video]()
     var videoRef = FIRDatabaseReference()
@@ -48,11 +46,8 @@ class yourVideosViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
         
         videoRef =  DataService.dataService.userRef.child("yourVideo")
-        
         
         videoRef.observeEventType(.Value, withBlock: { snapshot in
             
@@ -78,13 +73,11 @@ class yourVideosViewController: UIViewController, UITableViewDelegate, UITableVi
             
             // Be sure that the tableView updates when there is new data.
             
-            self.tableView.reloadData()
+            self.dataArray = self.videos
             
         })
         
         tableView.allowsMultipleSelectionDuringEditing = true
-        
-        // Do any additional setup after loading the view.
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -95,9 +88,18 @@ class yourVideosViewController: UIViewController, UITableViewDelegate, UITableVi
         print(indexPath.row)
         
         
-        videoRef.child(videos[indexPath.row].key as! String).removeValue()
+        videoRef.child(videos[indexPath.row].key as String).removeValue()
         
         
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+        
+        let playerVC = NHDVideoPlayerViewController(nibName: String(NHDVideoPlayerViewController), bundle: nil)
+        playerVC.playVideo(videos[indexPath.row].videoUrl)
+        presentViewController(playerVC, animated: true, completion: nil)
     }
     
     @IBAction func backAction(sender: AnyObject) {
@@ -105,12 +107,7 @@ class yourVideosViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return videos.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("videos") as! vidCellTableViewCell
         cell.video = videos[indexPath.row]
         
@@ -119,18 +116,7 @@ class yourVideosViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "videoSegue"
-        {
-            let cell = sender as! UITableViewCell
-            let indexPath = tableView.indexPathForCell(cell)
-            let videoUrl = videos[indexPath!.row].videoUrl
-            let destination = segue.destinationViewController as! AVPlayerViewController
-            
-            let url = NSURL(string: videoUrl! )
-            destination.player = AVPlayer(URL: url!)
-            destination.player?.play()
-
-        } else if segue.identifier == "createPlan" {
+        if segue.identifier == "createPlan" {
             let controller = segue.destinationViewController as! addPlanVidViewController
             if let button = sender as? UIButton {
                 let cell = button.superview?.superview as! vidCellTableViewCell

@@ -61,7 +61,9 @@ class TrainerDetailViewController: UIViewController {
     
     @IBAction func videoTrailerAction(sender: AnyObject) {
         
-        
+        let playerVC = NHDVideoPlayerViewController(nibName: String(NHDVideoPlayerViewController), bundle: nil)
+        playerVC.playVideoWithURL(videoUrl)
+        presentViewController(playerVC, animated: true, completion: nil)
     }
     
     
@@ -106,15 +108,9 @@ class TrainerDetailViewController: UIViewController {
         self.thumbnailUrl.layer.cornerRadius = 10
         self.thumbnailUrl.clipsToBounds = true
 
-
+        title = "Trainer Details"
       
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     
     
@@ -256,14 +252,7 @@ class TrainerDetailViewController: UIViewController {
 //        trainerComment
         
         
-        if segue.identifier == "player" {
-            
-            let destination = segue.destinationViewController as! AVPlayerViewController
-            destination.player = AVPlayer(URL: videoUrl)
-            destination.player?.play()
-
-          
-        } else if segue.identifier == "trainerComment" {
+        if segue.identifier == "trainerComment" {
             let controller = segue.destinationViewController as! commentsViewController
            
                 controller.KeyUid = uid
