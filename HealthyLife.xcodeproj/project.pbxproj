@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040F4FE61D74497A0056725F /* NSTimeIntervalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F4FE51D74497A0056725F /* NSTimeIntervalExtension.swift */; };
 		04178D801D6ED67100DCE8CA /* uploadFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04178D7F1D6ED67100DCE8CA /* uploadFoodViewController.swift */; };
 		04178D821D6ED68F00DCE8CA /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04178D811D6ED68F00DCE8CA /* FoodCollectionViewCell.swift */; };
 		04178D841D6ED6A000DCE8CA /* FoodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04178D831D6ED6A000DCE8CA /* FoodCollectionViewCell.xib */; };
@@ -129,6 +130,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040F4FE51D74497A0056725F /* NSTimeIntervalExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTimeIntervalExtension.swift; sourceTree = "<group>"; };
 		04178D7F1D6ED67100DCE8CA /* uploadFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uploadFoodViewController.swift; sourceTree = "<group>"; };
 		04178D811D6ED68F00DCE8CA /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		04178D831D6ED6A000DCE8CA /* FoodCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 				04426AEC1D5DAA2C005B3621 /* UIImageViewExtension.swift */,
 				04D1AA771D66B3FF00106C27 /* UIColorExtension.swift */,
 				04C8F3731D6FF84E004639E8 /* UIFontExtension.swift */,
+				040F4FE51D74497A0056725F /* NSTimeIntervalExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1090,6 +1093,7 @@
 				844B8FF51D668C8900B42991 /* ResultModel.swift in Sources */,
 				04426B171D5DB4C9005B3621 /* SCSessionListViewController.m in Sources */,
 				746E341E1D67F80900E9C9A0 /* Message.swift in Sources */,
+				040F4FE61D74497A0056725F /* NSTimeIntervalExtension.swift in Sources */,
 				84BD7C7F1D63FF5D006A868E /* ratingViewController.swift in Sources */,
 				84FACCAD1D4F3D6A00E73FDC /* NewfeedViewController.swift in Sources */,
 				84AB52821D488A6000CB99FE /* FoodTableViewCell.swift in Sources */,

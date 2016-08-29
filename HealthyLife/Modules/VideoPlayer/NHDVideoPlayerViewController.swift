@@ -24,18 +24,30 @@ class NHDVideoPlayerViewController: BaseViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var playButton: UIButton!
     
-    var asset: AVAsset?
+    var asset: AVAsset? {
+        didSet {
+            
+            guard let asset = asset else {
+                return
+            }
+            UIViewController.attemptRotationToDeviceOrientation()
+            duration = CMTimeGetSeconds(asset.duration)
+            totalTimeLabel.text = duration.readableDurationString()
+        }
+    }
     var videoURL: NSURL?
     var titleText: String?
     var avPlayerLayer : AVPlayerLayer!
     var avPlayer : AVPlayer!
     var defaultRate: Float = 1
+    var duration: NSTimeInterval = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = Configuration.Colors.lightGray
         titleLabel.text = titleText
+        slider.value = 0
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -48,7 +60,6 @@ class NHDVideoPlayerViewController: BaseViewController {
         
         dispatch_async(dispatch_get_main_queue(), {
             self.asset = AVAsset(URL: videoURL)
-            UIViewController.attemptRotationToDeviceOrientation()
         })
         
         
@@ -57,7 +68,6 @@ class NHDVideoPlayerViewController: BaseViewController {
         avPlayer = AVPlayer(URL: videoURL)
         avPlayer.play()
         avPlayer.allowsExternalPlayback = true
-        
         avPlayerLayer = AVPlayerLayer(player: avPlayer)
         avPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspect
         movieContainer.layer.insertSublayer(avPlayerLayer, atIndex: 0)
@@ -66,6 +76,16 @@ class NHDVideoPlayerViewController: BaseViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.itemDidFinishPlaying(_:)), name: AVPlayerItemDidPlayToEndTimeNotification, object: avPlayer.currentItem)
         
         avPlayer.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.New, context: nil)
+        
+//        avPlayer.addPeriodicTimeObserverForInterval(CMTime(seconds: 1, preferredTimescale: 0), queue: dispatch_get_main_queue()) { (time) in
+//            let currentTime = CMTimeGetSeconds(time)
+//            self.currentTimeLabel.text = currentTime.readableDurationString()
+//            if self.duration > 0 {
+//                self.slider.value = Float(currentTime / self.duration)
+//            }
+//        }
+        
+        NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(self.updateCurrentTime), userInfo: nil, repeats: true)
 
     }
     
@@ -73,6 +93,20 @@ class NHDVideoPlayerViewController: BaseViewController {
         super.viewDidDisappear(animated)
         
         avPlayer.removeObserver(self, forKeyPath: "status")
+//        avPlayer.removeTimeObserver(self)
+    }
+    
+    func updateCurrentTime() {
+        
+        guard let currentItem = avPlayer.currentItem else {
+            return
+        }
+        
+        let currentTime = CMTimeGetSeconds(currentItem.currentTime())
+        currentTimeLabel.text = currentTime.readableDurationString()
+        if duration > 0 {
+            slider.value = Float(currentTime / duration)
+        }
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
@@ -81,7 +115,6 @@ class NHDVideoPlayerViewController: BaseViewController {
                 if status == 1 {
                     playButton.selected = true
                 }
-                print(status)
             }
         }
     }
@@ -158,8 +191,11 @@ class NHDVideoPlayerViewController: BaseViewController {
         rateLabel.text = String.localizedStringWithFormat("%0.1fx", defaultRate)
     }
     
-    @IBAction func sliderChangeValue(sender: AnyObject) {
+    @IBAction func sliderChangeValue(slider: UISlider) {
+        
+        
     }
+    
     @IBAction func onClose(sender: AnyObject) {
         
         dismissViewControllerAnimated(true, completion: nil)
