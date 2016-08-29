@@ -151,7 +151,7 @@ extension demoLibViewController: demoTableViewCellDelegate {
     func onVideoTrainerTapped(videoUrl: NSURL) {
         
         let playerVC = NHDVideoPlayerViewController(nibName: String(NHDVideoPlayerViewController), bundle: nil)
-        playerVC.playVideoWithURL(videoUrl)
+        playerVC.playVideoWithURL(videoUrl, title: "Demo Lib")
         presentViewController(playerVC, animated: true, completion: nil)
     }
 }

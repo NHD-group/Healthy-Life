@@ -57,7 +57,7 @@ class DetailViewController: UIViewController {
     @IBAction func playInstructionAction(sender: AnyObject) {
         
         let playerVC = NHDVideoPlayerViewController(nibName: String(NHDVideoPlayerViewController), bundle: nil)
-        playerVC.playVideo(activity.videoUrl)
+        playerVC.playVideo(activity.videoUrl, title: "Playing Instruction")
         presentViewController(playerVC, animated: true, completion: nil)
 
     }

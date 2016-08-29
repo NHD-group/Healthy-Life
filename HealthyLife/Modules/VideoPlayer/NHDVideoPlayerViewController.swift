@@ -12,18 +12,30 @@ import AVFoundation
 
 class NHDVideoPlayerViewController: BaseViewController {
 
+    @IBOutlet weak var topBar: UIView!
+    @IBOutlet weak var bottomBar: UIView!
     @IBOutlet weak var movieContainer: UIView!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet weak var rateLabel: UILabel!
 
+    @IBOutlet weak var titleLabel: NHDCustomBoldFontLabel!
+    @IBOutlet weak var currentTimeLabel: UILabel!
+    @IBOutlet weak var totalTimeLabel: UILabel!
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var playButton: UIButton!
+    
     var asset: AVAsset?
     var videoURL: NSURL?
+    var titleText: String?
     var avPlayerLayer : AVPlayerLayer!
     var avPlayer : AVPlayer!
+    var defaultRate: Float = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = Configuration.Colors.lightGray
+        titleLabel.text = titleText
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -53,46 +65,42 @@ class NHDVideoPlayerViewController: BaseViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.itemDidFinishPlaying(_:)), name: AVPlayerItemDidPlayToEndTimeNotification, object: avPlayer.currentItem)
         
-//        avPlayer.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.New, context: nil)
+        avPlayer.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.New, context: nil)
 
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         
-//        avPlayer.removeObserver(self, forKeyPath: "status")
+        avPlayer.removeObserver(self, forKeyPath: "status")
     }
     
-//    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-//        if keyPath == "status" {
-//            if let status = change?[NSKeyValueChangeNewKey] as? Int {
-//                if status == 1 {
-//
-//                }
-//                print(status)
-//            }
-//        }
-//    }
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if keyPath == "status" {
+            if let status = change?[NSKeyValueChangeNewKey] as? Int {
+                if status == 1 {
+                    playButton.selected = true
+                }
+                print(status)
+            }
+        }
+    }
 
 
-    func playVideo(videoUrl: String?) {
+    func playVideo(videoUrl: String?, title: String?) {
         
         guard let videoUrl = videoUrl else {
             return
         }
         
         let url = NSURL(string: videoUrl)
-        playVideoWithURL(url)
+        playVideoWithURL(url, title: title)
     }
 
-    func playVideoWithURL(url: NSURL?) {
-        
-        guard let url = url else {
-            return
-        }
+    func playVideoWithURL(url: NSURL?, title: String?) {
         
         videoURL = url
-        
+        titleText = title
     }
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
@@ -124,6 +132,34 @@ class NHDVideoPlayerViewController: BaseViewController {
         }
     }
     
+    @IBAction func onPlayTapped(button: UIButton) {
+        
+        button.selected = !button.selected
+
+        if button.selected {
+            avPlayer.play()
+        } else {
+            avPlayer.pause()
+        }
+        
+    }
+    
+    @IBAction func onPrevTapped(sender: AnyObject) {
+        
+        defaultRate -= 0.1
+        avPlayer.rate = defaultRate
+        rateLabel.text = String.localizedStringWithFormat("%0.1fx", defaultRate)
+    }
+    
+    @IBAction func onNextTapped(sender: AnyObject) {
+        
+        defaultRate += 0.1
+        avPlayer.rate = defaultRate
+        rateLabel.text = String.localizedStringWithFormat("%0.1fx", defaultRate)
+    }
+    
+    @IBAction func sliderChangeValue(sender: AnyObject) {
+    }
     @IBAction func onClose(sender: AnyObject) {
         
         dismissViewControllerAnimated(true, completion: nil)

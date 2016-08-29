@@ -62,7 +62,7 @@ class TrainerDetailViewController: UIViewController {
     @IBAction func videoTrailerAction(sender: AnyObject) {
         
         let playerVC = NHDVideoPlayerViewController(nibName: String(NHDVideoPlayerViewController), bundle: nil)
-        playerVC.playVideoWithURL(videoUrl)
+        playerVC.playVideoWithURL(videoUrl, title: selectedUsername)
         presentViewController(playerVC, animated: true, completion: nil)
     }
     
