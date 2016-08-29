@@ -18,7 +18,7 @@ class SchedulePlanViewController:  BaseViewController {
     @IBAction func saveScheduleAction(sender: AnyObject) {
         let notification = UILocalNotification()
         notification.fireDate = datePicker.date
-        notification.alertBody = "Hey you! Yeah you! start your work out \(nameOfPlan) "
+        notification.alertBody = "Hey you! Yeah you! start your work out \(PlanName) "
         notification.alertAction = "be awesome!"
         notification.soundName = UILocalNotificationDefaultSoundName
         notification.userInfo = ["CustomField1": "w00t"]
