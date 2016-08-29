@@ -18,6 +18,8 @@ class sendedPlanCellTableViewCell: UITableViewCell {
     
     var keyUID = String()
     
+    
+    
     var plan: String! {
         didSet {
             planName.text = plan
@@ -41,6 +43,8 @@ class sendedPlanCellTableViewCell: UITableViewCell {
             
         }
     }
+    
+    
     
 
     @IBAction func rateAction(sender: AnyObject) {

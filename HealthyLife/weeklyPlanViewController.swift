@@ -232,6 +232,14 @@ class weeklyPlanViewController: BaseViewController, UITableViewDelegate, UITable
             targetController.key = key
             targetController.segue = "sendedPlan"
             
+        } else if let vc = segue.destinationViewController as? SchedulePlanViewController {
+            if let button = sender as? UIButton {
+                if let cell = button.superview?.superview as? sendedPlanCellTableViewCell {
+                vc.PlanName = cell.plan
+                } else if let yourCell = button.superview?.superview as? cellTableViewCell {
+                vc.PlanName = yourCell.plan
+                }
+            }
         }
     }
     

@@ -97,6 +97,7 @@
 		84BD7C7F1D63FF5D006A868E /* ratingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD7C7E1D63FF5D006A868E /* ratingViewController.swift */; };
 		84C367891D65680D0033AFC1 /* AddDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C367881D65680D0033AFC1 /* AddDemoViewController.swift */; };
 		84C8920C1D63450700DA1F2B /* TalksCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8920B1D63450700DA1F2B /* TalksCellTableViewCell.swift */; };
+		84F686BF1D73E7DD008A30EF /* SchedulePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F686BE1D73E7DD008A30EF /* SchedulePlanViewController.swift */; };
 		84FACC9B1D4EF86700E73FDC /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACC9A1D4EF86700E73FDC /* Data.swift */; };
 		84FACCA01D4F01FD00E73FDC /* weeklyPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACC9F1D4F01FD00E73FDC /* weeklyPlanViewController.swift */; };
 		84FACCA21D4F021100E73FDC /* dailyPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACCA11D4F021100E73FDC /* dailyPlanViewController.swift */; };
@@ -235,6 +236,7 @@
 		84BD7C7E1D63FF5D006A868E /* ratingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ratingViewController.swift; sourceTree = "<group>"; };
 		84C367881D65680D0033AFC1 /* AddDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDemoViewController.swift; sourceTree = "<group>"; };
 		84C8920B1D63450700DA1F2B /* TalksCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalksCellTableViewCell.swift; sourceTree = "<group>"; };
+		84F686BE1D73E7DD008A30EF /* SchedulePlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulePlanViewController.swift; sourceTree = "<group>"; };
 		84FACC9A1D4EF86700E73FDC /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		84FACC9F1D4F01FD00E73FDC /* weeklyPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weeklyPlanViewController.swift; sourceTree = "<group>"; };
 		84FACCA11D4F021100E73FDC /* dailyPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dailyPlanViewController.swift; sourceTree = "<group>"; };
@@ -770,6 +772,7 @@
 				84630B8F1D5767B20006A8FC /* weekly */,
 				841DDAB61D54917B007917E7 /* sendPlanViewController.swift */,
 				84BD7C7E1D63FF5D006A868E /* ratingViewController.swift */,
+				84F686BE1D73E7DD008A30EF /* SchedulePlanViewController.swift */,
 			);
 			name = activitiesPlanned;
 			sourceTree = "<group>";
@@ -1024,6 +1027,7 @@
 				849371511D6365690096CE4B /* uploadVideoViewController.swift in Sources */,
 				04426AD21D5D9B07005B3621 /* MainTabBarViewController.swift in Sources */,
 				04D1AA7C1D66FC4E00106C27 /* Helper.swift in Sources */,
+				84F686BF1D73E7DD008A30EF /* SchedulePlanViewController.swift in Sources */,
 				84630B931D5773D60006A8FC /* sendedPlanCellTableViewCell.swift in Sources */,
 				84181DE21D47C99800686BAB /* AppDelegate.swift in Sources */,
 				84B114E81D56416800916206 /* trackingModel.swift in Sources */,
