@@ -12,10 +12,26 @@ import AVFoundation
 
 class NHDVideoPlayerViewController: AVPlayerViewController {
 
+    var asset: AVAsset?
+    var videoURL: NSURL?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        guard let videoURL = videoURL else {
+            return
+        }
+        
+        player = AVPlayer(URL: videoURL)
+        player?.play()
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.asset = AVAsset(URL: videoURL)
+            UIViewController.attemptRotationToDeviceOrientation()
+        })
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.itemDidFinishPlaying(_:)), name: AVPlayerItemDidPlayToEndTimeNotification, object: player?.currentItem)
+
     }
 
     func playVideo(videoUrl: String?) {
@@ -34,7 +50,28 @@ class NHDVideoPlayerViewController: AVPlayerViewController {
             return
         }
         
+        videoURL = url
+        
         player = AVPlayer(URL: url)
         player?.play()
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        
+        if let videoTrack = asset?.tracksWithMediaType(AVMediaTypeVideo).first {
+            let size = videoTrack.naturalSize
+//            let txf = videoTrack.preferredTransform
+            
+            if size.width < size.height {
+                return .Portrait
+            }
+        }
+
+        return .Landscape
+    }
+    
+    
+    func itemDidFinishPlaying(notification:NSNotification) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
