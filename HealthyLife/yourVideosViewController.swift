@@ -46,6 +46,8 @@ class yourVideosViewController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         videoRef =  DataService.dataService.userRef.child("yourVideo")
         
@@ -111,6 +113,7 @@ class yourVideosViewController: BaseTableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("videos") as! vidCellTableViewCell
         cell.video = videos[indexPath.row]
+        cell.createPlanButton.tag = indexPath.row
         
         return cell
     }
@@ -120,8 +123,8 @@ class yourVideosViewController: BaseTableViewController {
         if segue.identifier == "createPlan" {
             let controller = segue.destinationViewController as! addPlanVidViewController
             if let button = sender as? UIButton {
-                let cell = button.superview?.superview as! vidCellTableViewCell
-                controller.video = cell.video
+                let video = videos[button.tag]
+                controller.video = video
             }
             
         }

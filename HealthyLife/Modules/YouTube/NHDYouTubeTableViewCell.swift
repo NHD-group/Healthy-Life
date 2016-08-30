@@ -12,19 +12,13 @@ protocol NHDYouTubeTableViewCellDelegate: class {
     func onChooseVideo(video: NHDYouTubeModel)
 }
 
-class NHDYouTubeTableViewCell: UITableViewCell {
+class NHDYouTubeTableViewCell: BaseTableViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var thumbnailView: UIImageView!
-    @IBOutlet weak var conerView: UIView!
     var selectedVideo: NHDYouTubeModel?
     weak var delegate: NHDYouTubeTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        conerView.layer.cornerRadius = 5
-        conerView.layer.masksToBounds = true
     }
 
     func initWithData(video: NHDYouTubeModel) {

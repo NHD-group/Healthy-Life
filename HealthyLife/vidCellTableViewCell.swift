@@ -8,14 +8,11 @@
 
 import UIKit
 
-class vidCellTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var nameVidLabel: UILabel!
+class vidCellTableViewCell: BaseTableViewCell {
     
     @IBOutlet weak var desVidLabel: UILabel!
+    @IBOutlet weak var createPlanButton: UIButton!
     
-    @IBOutlet weak var photoView: UIImageView!
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,9 +20,9 @@ class vidCellTableViewCell: UITableViewCell {
 
     var video: Video! {
         didSet {
-            nameVidLabel.text = video.name
+            titleLabel.text = video.name
             desVidLabel.text = video.des
-            photoView.downloadImageWithKey(video.key)
+            thumbnailView.downloadImageWithKey(video.key)
         }
     }
 

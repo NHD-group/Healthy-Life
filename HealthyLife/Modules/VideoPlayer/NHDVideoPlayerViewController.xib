@@ -39,10 +39,10 @@
                     <subviews>
                         <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aER-SK-iSA">
                             <rect key="frame" x="0.0" y="44" width="600" height="556"/>
-                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </webView>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="aER-SK-iSA" firstAttribute="top" secondItem="ojX-TF-HZA" secondAttribute="top" constant="44" id="G36-Uy-6s2"/>
                         <constraint firstAttribute="trailing" secondItem="aER-SK-iSA" secondAttribute="trailing" id="e5f-od-2td"/>

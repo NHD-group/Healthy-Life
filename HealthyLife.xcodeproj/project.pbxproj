@@ -47,6 +47,7 @@
 		044E63611D75619E00E35209 /* YouTube.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044E635F1D75619E00E35209 /* YouTube.storyboard */; };
 		044E63651D7571B900E35209 /* NHDYouTubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E63641D7571B900E35209 /* NHDYouTubeTableViewCell.swift */; };
 		044E63671D7572EC00E35209 /* NHDYouTubeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E63661D7572EC00E35209 /* NHDYouTubeModel.swift */; };
+		044E63691D759A5600E35209 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E63681D759A5600E35209 /* BaseTableViewCell.swift */; };
 		04ABC9551D6BF5E800EF0339 /* NHDSplash.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ABC9541D6BF5E800EF0339 /* NHDSplash.xib */; };
 		04ABC9571D6BF7FD00EF0339 /* NHDSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ABC9561D6BF7FD00EF0339 /* NHDSplash.swift */; };
 		04B8C4261D73E8BE001D5839 /* NHDVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8C4241D73E8BE001D5839 /* NHDVideoPlayerViewController.swift */; };
@@ -188,6 +189,7 @@
 		044E635F1D75619E00E35209 /* YouTube.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YouTube.storyboard; sourceTree = "<group>"; };
 		044E63641D7571B900E35209 /* NHDYouTubeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDYouTubeTableViewCell.swift; sourceTree = "<group>"; };
 		044E63661D7572EC00E35209 /* NHDYouTubeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDYouTubeModel.swift; sourceTree = "<group>"; };
+		044E63681D759A5600E35209 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		04ABC9541D6BF5E800EF0339 /* NHDSplash.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHDSplash.xib; sourceTree = "<group>"; };
 		04ABC9561D6BF7FD00EF0339 /* NHDSplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDSplash.swift; sourceTree = "<group>"; };
 		04B8C4241D73E8BE001D5839 /* NHDVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDVideoPlayerViewController.swift; sourceTree = "<group>"; };
@@ -471,6 +473,7 @@
 				04D1AA7D1D67046600106C27 /* BaseViewController.swift */,
 				04E7B6E51D6EA8E60088884A /* BaseTabPageViewController.swift */,
 				04E7B6E71D6EC0E90088884A /* BaseTableViewController.swift */,
+				044E63681D759A5600E35209 /* BaseTableViewCell.swift */,
 			);
 			path = BaseClasses;
 			sourceTree = "<group>";
@@ -1112,6 +1115,7 @@
 				84630B931D5773D60006A8FC /* sendedPlanCellTableViewCell.swift in Sources */,
 				84181DE21D47C99800686BAB /* AppDelegate.swift in Sources */,
 				84B114E81D56416800916206 /* trackingModel.swift in Sources */,
+				044E63691D759A5600E35209 /* BaseTableViewCell.swift in Sources */,
 				84C367891D65680D0033AFC1 /* AddDemoViewController.swift in Sources */,
 				04ABC9571D6BF7FD00EF0339 /* NHDSplash.swift in Sources */,
 				847C45411D52E5F500826536 /* NewFeedtablviewCellTableViewCell.swift in Sources */,
