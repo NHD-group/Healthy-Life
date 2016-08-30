@@ -32,7 +32,7 @@ class PrictListViewController: BaseViewController, UITableViewDataSource, UITabl
         tableView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
 
        
-        priceListRef = FIRDatabase.database().reference().child("videosTrailer").child(currentUid).child("priceList")
+        priceListRef = FIRDatabase.database().reference().child("videosTrailer").child(uid).child("priceList")
         priceListRef.queryLimitedToLast(10).observeEventType(.Value, withBlock: { (snapshot) in
            
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
