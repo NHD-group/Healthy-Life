@@ -44,9 +44,13 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
+- [x] Customize video player: rate/volume
 - [ ] Youtube APIs
 - [x] Tabbar animation
 - [ ] Report plan history
+- [x] Graph for weight changed history
+- [x] Paypal APIs
+- [x] Customize camera
 
 The following **additional** features are implemented:
 
@@ -59,6 +63,8 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 ![Layout](HealthyLife/Resources/images/layout.png)
+
+![Video Player](HealthyLife/Resources/images/videoplayer.png)
 
 ![LaunchImage](HealthyLife/Resources/images/LaunchImage-ios7-retina4@2x.png)
 
