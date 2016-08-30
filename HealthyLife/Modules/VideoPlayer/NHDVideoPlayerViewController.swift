@@ -84,7 +84,8 @@ class NHDVideoPlayerViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = Configuration.Colors.darkBlue
+        view.backgroundColor = Configuration.Colors.lightGray
+        webContain.hidden = true
         slider.value = 0
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapOnContent(_:)))
@@ -109,7 +110,7 @@ class NHDVideoPlayerViewController: BaseViewController {
         setupVideoPlayer()
     }
     
-    func setupVideoPlayer(){
+    func setupVideoPlayer() {
         
         titleLabel.text = titleText
 
@@ -128,7 +129,7 @@ class NHDVideoPlayerViewController: BaseViewController {
         avPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspect
         movieContainer.layer.insertSublayer(avPlayerLayer, atIndex: 0)
         avPlayerLayer.frame = movieContainer.bounds
-        
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.itemDidFinishPlaying(_:)), name: AVPlayerItemDidPlayToEndTimeNotification, object: avPlayer.currentItem)
         
         avPlayer.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.New, context: nil)
@@ -168,6 +169,10 @@ class NHDVideoPlayerViewController: BaseViewController {
     }
     
     func tapOnContent(gesture: UITapGestureRecognizer?) {
+        
+        if isYouTubeVideo {
+            return
+        }
         
         let alpha = 1.0 - topBar.alpha
         
@@ -377,5 +382,6 @@ extension NHDVideoPlayerViewController: UIWebViewDelegate {
         nextButton.hidden = true
         rateLabel.hidden = true
         topBar.backgroundColor = Configuration.Colors.primary
+        webContain.hidden = false
     }
 }
