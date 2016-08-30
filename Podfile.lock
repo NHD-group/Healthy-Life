@@ -79,6 +79,8 @@ PODS:
   - SCRecorder (2.7.0)
   - SnapKit (0.22.0)
   - TabPageViewController (0.2.1)
+  - YouTubePlayer (0.3.0)
+  - YoutubeSourceParserKit (0.2.4)
 
 DEPENDENCIES:
   - CollectionViewWaterfallLayout (~> 0.2)
@@ -98,6 +100,8 @@ DEPENDENCIES:
   - SCRecorder
   - SnapKit (~> 0.22.0)
   - TabPageViewController
+  - YouTubePlayer
+  - YoutubeSourceParserKit
 
 SPEC CHECKSUMS:
   CardIO: 92c45caef0d986c4a303a7afba0c9b76ff2b1f6e
@@ -126,5 +130,7 @@ SPEC CHECKSUMS:
   SCRecorder: bbb521dbc222908876ec9cd9156bbc8a893bed44
   SnapKit: 0dd2fd157330f1ea11fd84da13e6be8a7a22bae0
   TabPageViewController: a4b46480e21251000962abad071b538679dbc2ad
+  YouTubePlayer: 88713a96c356f2c88da8925eb61438eda88bcd57
+  YoutubeSourceParserKit: d1506222a62718ed41f18ab52ebbc1b1d9ecabcc
 
 COCOAPODS: 0.39.0

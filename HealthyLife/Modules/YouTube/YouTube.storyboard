@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="h3B-Ql-tX5">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Search YouTube-->
+        <scene sceneID="g9J-e6-iDx">
+            <objects>
+                <viewController title="Search YouTube" automaticallyAdjustsScrollViewInsets="NO" id="h3B-Ql-tX5" customClass="NHDYouTubeSearchVideoVC" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I5X-7m-ENm"/>
+                        <viewControllerLayoutGuide type="bottom" id="0iY-I4-ylN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jdu-16-YP4">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Van-x7-vvf">
+                                <rect key="frame" x="0.0" y="44" width="320" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NHDYouTubeTableViewCell" rowHeight="120" id="xe3-aH-0sA" customClass="NHDYouTubeTableViewCell" customModule="HealthyLife" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xe3-aH-0sA" id="rs1-W0-YJh">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYu-w8-7ch">
+                                                    <rect key="frame" x="5" y="3" width="310" height="114"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XJ9-nS-uGx">
+                                                            <rect key="frame" x="182" y="12" width="120" height="90"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="120" id="9dj-CP-ikV"/>
+                                                                <constraint firstAttribute="width" secondItem="XJ9-nS-uGx" secondAttribute="height" multiplier="4:3" id="hqc-gd-V8Z"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxp-qu-dv4">
+                                                            <rect key="frame" x="8" y="12" width="36" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rht-XW-Hh4" customClass="NHDCustomSubmitGreenButton" customModule="HealthyLife" customModuleProvider="target">
+                                                            <rect key="frame" x="8" y="74" width="54" height="28"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <state key="normal" title=" Choose "/>
+                                                            <connections>
+                                                                <action selector="onChooseVideo:" destination="xe3-aH-0sA" eventType="touchUpInside" id="Ztp-Lz-upu"/>
+                                                            </connections>
+                                                        </button>
+                                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleAspectFit" image="youtube_play" translatesAutoresizingMaskIntoConstraints="NO" id="HB2-kS-4Rm">
+                                                            <rect key="frame" x="217" y="32" width="50" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="HB2-kS-4Rm" secondAttribute="height" id="2X1-Eo-qww"/>
+                                                                <constraint firstAttribute="width" constant="50" id="MOU-Dy-q4A"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="XJ9-nS-uGx" secondAttribute="trailing" constant="8" id="4ON-LY-oxV"/>
+                                                        <constraint firstItem="Rht-XW-Hh4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Dxp-qu-dv4" secondAttribute="bottom" constant="8" id="9Fu-wM-IZL"/>
+                                                        <constraint firstItem="Dxp-qu-dv4" firstAttribute="top" secondItem="UYu-w8-7ch" secondAttribute="top" constant="12" id="Axt-6V-aVL"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Rht-XW-Hh4" secondAttribute="bottom" constant="12" id="FWw-nu-aYl"/>
+                                                        <constraint firstItem="Rht-XW-Hh4" firstAttribute="leading" secondItem="Dxp-qu-dv4" secondAttribute="leading" id="ap0-KU-0jn"/>
+                                                        <constraint firstItem="HB2-kS-4Rm" firstAttribute="centerY" secondItem="XJ9-nS-uGx" secondAttribute="centerY" id="g7H-Qc-ilr"/>
+                                                        <constraint firstItem="XJ9-nS-uGx" firstAttribute="centerY" secondItem="UYu-w8-7ch" secondAttribute="centerY" id="izq-an-MdI"/>
+                                                        <constraint firstItem="Dxp-qu-dv4" firstAttribute="leading" secondItem="UYu-w8-7ch" secondAttribute="leading" constant="8" id="lTj-a1-idM"/>
+                                                        <constraint firstItem="HB2-kS-4Rm" firstAttribute="centerX" secondItem="XJ9-nS-uGx" secondAttribute="centerX" id="qIK-Yh-oeu"/>
+                                                        <constraint firstItem="XJ9-nS-uGx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Dxp-qu-dv4" secondAttribute="trailing" constant="8" id="tvT-mj-85T"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="UYu-w8-7ch" secondAttribute="bottom" constant="2" id="3e0-id-4kw"/>
+                                                <constraint firstAttribute="trailing" secondItem="UYu-w8-7ch" secondAttribute="trailing" constant="5" id="Kqa-nU-SDI"/>
+                                                <constraint firstItem="UYu-w8-7ch" firstAttribute="top" secondItem="rs1-W0-YJh" secondAttribute="top" constant="3" id="fiL-zS-isd"/>
+                                                <constraint firstItem="UYu-w8-7ch" firstAttribute="leading" secondItem="rs1-W0-YJh" secondAttribute="leading" constant="5" id="xnt-j6-Jp0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="conerView" destination="UYu-w8-7ch" id="HGx-Nr-dtW"/>
+                                            <outlet property="thumbnailView" destination="XJ9-nS-uGx" id="bAT-EA-Pmg"/>
+                                            <outlet property="titleLabel" destination="Dxp-qu-dv4" id="6Sg-VE-GFu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="W4J-Pv-aoD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Van-x7-vvf" firstAttribute="leading" secondItem="Jdu-16-YP4" secondAttribute="leading" id="GBr-dt-79z"/>
+                            <constraint firstItem="Van-x7-vvf" firstAttribute="top" secondItem="W4J-Pv-aoD" secondAttribute="bottom" id="ROF-xK-epH"/>
+                            <constraint firstItem="W4J-Pv-aoD" firstAttribute="leading" secondItem="Jdu-16-YP4" secondAttribute="leading" id="Shu-I9-bPC"/>
+                            <constraint firstAttribute="trailing" secondItem="W4J-Pv-aoD" secondAttribute="trailing" id="eqV-4c-oAK"/>
+                            <constraint firstAttribute="trailing" secondItem="Van-x7-vvf" secondAttribute="trailing" id="fEu-22-kIQ"/>
+                            <constraint firstAttribute="bottom" secondItem="Van-x7-vvf" secondAttribute="bottom" id="fYf-4F-Hzh"/>
+                            <constraint firstItem="W4J-Pv-aoD" firstAttribute="top" secondItem="I5X-7m-ENm" secondAttribute="bottom" id="hYZ-ef-k7j"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="YouTube" id="o0Z-my-MrH"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="searchBar" destination="W4J-Pv-aoD" id="dbk-oW-XmL"/>
+                        <outlet property="searchDisplayController" destination="M8T-Zd-Qg1" id="d5r-lE-avv"/>
+                        <outlet property="tableView" destination="Van-x7-vvf" id="hr2-xQ-AcI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u9e-54-888" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="M8T-Zd-Qg1">
+                    <connections>
+                        <outlet property="delegate" destination="h3B-Ql-tX5" id="Gst-ye-cYI"/>
+                        <outlet property="searchContentsController" destination="h3B-Ql-tX5" id="bDK-1c-Nft"/>
+                        <outlet property="searchResultsDataSource" destination="h3B-Ql-tX5" id="R9d-IL-LbU"/>
+                        <outlet property="searchResultsDelegate" destination="h3B-Ql-tX5" id="S0X-AU-rzO"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="695" y="98"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="youtube_play" width="128" height="128"/>
+    </resources>
+    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+</document>

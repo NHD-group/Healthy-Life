@@ -31,6 +31,7 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
     }
     
     var videoUrl: NSURL?
+    var isYouTubeVideo = false
     
     override func viewDidLoad() {
         
@@ -77,6 +78,15 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
         }
     }
     
+    @IBAction func onYouTubeTapped(sender: AnyObject) {
+        
+        let storyboard = UIStoryboard(name: "YouTube", bundle: nil)
+        if let vc = storyboard.instantiateInitialViewController() as? NHDYouTubeSearchVideoVC {
+            vc.delegate = self
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     @IBAction func uploadAction(sender: AnyObject) {
         
         let name = nameVideoTextField.text
@@ -91,31 +101,34 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
         
         
         showLoading()
-
         let key = DataService.dataService.userRef.child("yourVideo").childByAutoId().key
-
-        let uploadTask = FIRStorage.storage().reference().child("videos").child(key).putFile(videoUrl, metadata: nil, completion: { (metadata, error) in
-            if error  != nil {
-                
-                Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
-            } else {
-                if let videoUrl = metadata?.downloadURL()?.absoluteString {
-                    
-                    let videoInfo: [String: AnyObject] = ["videoUrl": videoUrl, "name": self.nameVideoTextField.text!, "description": self.desTextField.text!]
-                    
-                    DataService.dataService.userRef.child("yourVideo").child(key).setValue(videoInfo)
-                    self.hideLoading()
-                    self.onBack()
-                    
-
-                }
-                
-            }
-        })
         
-        uploadTask.observeStatus(.Success, handler: { (snapshot) in
-      
-        })
+        if isYouTubeVideo {
+            
+            let videoInfo: [String: AnyObject] = ["videoUrl": videoUrl.absoluteString, "name": self.nameVideoTextField.text!, "description": self.desTextField.text!]
+            
+            DataService.dataService.userRef.child("yourVideo").child(key).setValue(videoInfo)
+            self.hideLoading()
+            self.onBack()
+        } else {
+            FIRStorage.storage().reference().child("videos").child(key).putFile(videoUrl, metadata: nil, completion: { (metadata, error) in
+                if error  != nil {
+                    
+                    Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
+                } else {
+                    if let videoUrl = metadata?.downloadURL()?.absoluteString {
+                        
+                        let videoInfo: [String: AnyObject] = ["videoUrl": videoUrl, "name": self.nameVideoTextField.text!, "description": self.desTextField.text!]
+                        
+                        DataService.dataService.userRef.child("yourVideo").child(key).setValue(videoInfo)
+                        self.hideLoading()
+                        self.onBack()
+                    }
+                    
+                }
+            })
+        }
+        
         
         if let image = resultImage.image {
             DataService.uploadImage(image, key: key, complete: { (downloadURL) in
@@ -127,4 +140,13 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
     }
 }
 
+extension uploadVideoViewController: NHDYouTubeSearchVideoVCDelegate {
+    
+    func onChooseVideo(video: NHDYouTubeModel) {
+        resultImage.kf_setImageWithURL(NSURL(string: video.thumbnail))
+        videoUrl = NSURL(string: video.videoURL)
+        nameVideoTextField.text = video.title
+        isYouTubeVideo = true
+    }
+}
 

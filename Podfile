@@ -22,7 +22,8 @@ target 'HealthyLife' do
     pod 'CollectionViewWaterfallLayout', '~> 0.2'
     pod 'JBChartView'
     pod 'PayPal-iOS-SDK'
-
+    pod 'YoutubeSourceParserKit'
+    pod 'YouTubePlayer'
 
 end
 

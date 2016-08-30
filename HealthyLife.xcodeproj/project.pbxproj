@@ -43,6 +43,10 @@
 		04426B1F1D5DBA35005B3621 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04426B1D1D5DBA34005B3621 /* GoogleService-Info.plist */; };
 		04426B201D5DBA35005B3621 /* HealthyLife-40181a67534f.json in Resources */ = {isa = PBXBuildFile; fileRef = 04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */; };
 		044E63571D7529DE00E35209 /* videoplayback.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 044E63561D7529DE00E35209 /* videoplayback.mp4 */; };
+		044E63601D75619E00E35209 /* NHDYouTubeSearchVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E635E1D75619E00E35209 /* NHDYouTubeSearchVideoVC.swift */; };
+		044E63611D75619E00E35209 /* YouTube.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044E635F1D75619E00E35209 /* YouTube.storyboard */; };
+		044E63651D7571B900E35209 /* NHDYouTubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E63641D7571B900E35209 /* NHDYouTubeTableViewCell.swift */; };
+		044E63671D7572EC00E35209 /* NHDYouTubeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E63661D7572EC00E35209 /* NHDYouTubeModel.swift */; };
 		04ABC9551D6BF5E800EF0339 /* NHDSplash.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ABC9541D6BF5E800EF0339 /* NHDSplash.xib */; };
 		04ABC9571D6BF7FD00EF0339 /* NHDSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ABC9561D6BF7FD00EF0339 /* NHDSplash.swift */; };
 		04B8C4261D73E8BE001D5839 /* NHDVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8C4241D73E8BE001D5839 /* NHDVideoPlayerViewController.swift */; };
@@ -180,6 +184,10 @@
 		04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "HealthyLife-40181a67534f.json"; sourceTree = "<group>"; };
 		04426B221D5DBE5F005B3621 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		044E63561D7529DE00E35209 /* videoplayback.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = videoplayback.mp4; sourceTree = "<group>"; };
+		044E635E1D75619E00E35209 /* NHDYouTubeSearchVideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDYouTubeSearchVideoVC.swift; sourceTree = "<group>"; };
+		044E635F1D75619E00E35209 /* YouTube.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YouTube.storyboard; sourceTree = "<group>"; };
+		044E63641D7571B900E35209 /* NHDYouTubeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDYouTubeTableViewCell.swift; sourceTree = "<group>"; };
+		044E63661D7572EC00E35209 /* NHDYouTubeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDYouTubeModel.swift; sourceTree = "<group>"; };
 		04ABC9541D6BF5E800EF0339 /* NHDSplash.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHDSplash.xib; sourceTree = "<group>"; };
 		04ABC9561D6BF7FD00EF0339 /* NHDSplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDSplash.swift; sourceTree = "<group>"; };
 		04B8C4241D73E8BE001D5839 /* NHDVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDVideoPlayerViewController.swift; sourceTree = "<group>"; };
@@ -336,6 +344,7 @@
 		04426AC41D5D9B07005B3621 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				044E635D1D75619E00E35209 /* YouTube */,
 				04B8C4231D73E8A5001D5839 /* VideoPlayer */,
 				042E385A1D72A7F900BF8D74 /* Paypal */,
 				04178D7E1D6ED65000DCE8CA /* Food */,
@@ -562,6 +571,17 @@
 				044E63561D7529DE00E35209 /* videoplayback.mp4 */,
 			);
 			path = Videos;
+			sourceTree = "<group>";
+		};
+		044E635D1D75619E00E35209 /* YouTube */ = {
+			isa = PBXGroup;
+			children = (
+				044E635E1D75619E00E35209 /* NHDYouTubeSearchVideoVC.swift */,
+				044E635F1D75619E00E35209 /* YouTube.storyboard */,
+				044E63641D7571B900E35209 /* NHDYouTubeTableViewCell.swift */,
+				044E63661D7572EC00E35209 /* NHDYouTubeModel.swift */,
+			);
+			path = YouTube;
 			sourceTree = "<group>";
 		};
 		04ABC9531D6BF5B900EF0339 /* Splash */ = {
@@ -988,6 +1008,7 @@
 				04426AE21D5DA932005B3621 /* ChamsRegular.ttf in Resources */,
 				84181DEC1D47C99800686BAB /* Assets.xcassets in Resources */,
 				84181DE71D47C99800686BAB /* Main.storyboard in Resources */,
+				044E63611D75619E00E35209 /* YouTube.storyboard in Resources */,
 				04426B201D5DBA35005B3621 /* HealthyLife-40181a67534f.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1109,6 +1130,7 @@
 				846BFCCD1D65AF3D009333B1 /* uploadResultViewController.swift in Sources */,
 				8420E2051D6BF85E00F3CBAE /* cellDailyTableViewCell.swift in Sources */,
 				04426B1B1D5DB4C9005B3621 /* SCWatermarkOverlayView.m in Sources */,
+				044E63601D75619E00E35209 /* NHDYouTubeSearchVideoVC.swift in Sources */,
 				04178D801D6ED67100DCE8CA /* uploadFoodViewController.swift in Sources */,
 				84AB527D1D48877400CB99FE /* journalViewController.swift in Sources */,
 				840E47541D64D2AB0002790C /* ActivitiesDoneCellTableViewCell.swift in Sources */,
@@ -1125,6 +1147,7 @@
 				8448B1A71D58434500DBFFFB /* chatViewController.swift in Sources */,
 				04426AF31D5DAA2C005B3621 /* Configuration.swift in Sources */,
 				04B8C4261D73E8BE001D5839 /* NHDVideoPlayerViewController.swift in Sources */,
+				044E63671D7572EC00E35209 /* NHDYouTubeModel.swift in Sources */,
 				84C8920C1D63450700DA1F2B /* TalksCellTableViewCell.swift in Sources */,
 				844B8FF51D668C8900B42991 /* ResultModel.swift in Sources */,
 				04426B171D5DB4C9005B3621 /* SCSessionListViewController.m in Sources */,
@@ -1138,6 +1161,7 @@
 				84AB52801D48881F00CB99FE /* foodModel.swift in Sources */,
 				04426AF11D5DAA2C005B3621 /* UIImageExtension.swift in Sources */,
 				840E474C1D64B0D80002790C /* commentsViewController.swift in Sources */,
+				044E63651D7571B900E35209 /* NHDYouTubeTableViewCell.swift in Sources */,
 				848225711D4E42CB00750118 /* demoLibViewController.swift in Sources */,
 				74CBA2F71D727A1600E21CE4 /* JBChartHeaderView.m in Sources */,
 				04E7B6E81D6EC0E90088884A /* BaseTableViewController.swift in Sources */,

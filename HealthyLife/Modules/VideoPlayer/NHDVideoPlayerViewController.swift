@@ -10,9 +10,25 @@ import UIKit
 import AVKit
 import AVFoundation
 import MediaPlayer
+import YoutubeSourceParserKit
+import YouTubePlayer
+
+extension MPVolumeView {
+    var volumeSlider:UISlider {
+        var slider = UISlider()
+        for subview in self.subviews {
+            if subview.isKindOfClass(UISlider){
+                slider = subview as! UISlider
+                return slider
+            }
+        }
+        return slider
+    }
+}
 
 class NHDVideoPlayerViewController: BaseViewController {
 
+    @IBOutlet weak var doneButton: NHDCustomSubmitGreenButton!
     @IBOutlet weak var topBar: UIView!
     @IBOutlet weak var bottomBar: UIView!
     @IBOutlet weak var midBar: UIView!
@@ -26,9 +42,14 @@ class NHDVideoPlayerViewController: BaseViewController {
     @IBOutlet weak var totalTimeLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var webContain: UIView!
+    @IBOutlet weak var webview: UIWebView!
     
+    @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var brightnessTuner : NHDCircularTuner!
     @IBOutlet weak var volumeTuner     : NHDCircularTuner!
+    
     var volumeView = MPVolumeView(frame: CGRectZero)
     weak var volumeSlider : UISlider!
     
@@ -43,19 +64,27 @@ class NHDVideoPlayerViewController: BaseViewController {
             totalTimeLabel.text = duration.readableDurationString()
         }
     }
-    var videoURL: NSURL?
+    var videoURL: NSURL? {
+        didSet {
+            guard avPlayer != nil else {
+                return
+            }
+            
+            setupVideoPlayer()
+        }
+    }
     var titleText: String?
     var avPlayerLayer : AVPlayerLayer!
     var avPlayer : AVPlayer!
     var defaultRate: Float = 1
     var duration: NSTimeInterval = 0
     var tapGesture: UITapGestureRecognizer?
-
+    var isYouTubeVideo = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = Configuration.Colors.darkBlue
-        titleLabel.text = titleText
         slider.value = 0
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapOnContent(_:)))
@@ -77,6 +106,13 @@ class NHDVideoPlayerViewController: BaseViewController {
         
         super.viewDidAppear(animated)
         
+        setupVideoPlayer()
+    }
+    
+    func setupVideoPlayer(){
+        
+        titleLabel.text = titleText
+
         guard let videoURL = videoURL else {
             return
         }
@@ -153,7 +189,7 @@ class NHDVideoPlayerViewController: BaseViewController {
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "status" {
             if let status = change?[NSKeyValueChangeNewKey] as? Int {
-                if status == 1 && introView != nil {
+                if status == 1 && introView != nil && isYouTubeVideo == false {
                     playButton.selected = true
                     introView.removeFromSuperview()
                     introView = nil
@@ -171,14 +207,39 @@ class NHDVideoPlayerViewController: BaseViewController {
             return
         }
         
-        let url = NSURL(string: videoUrl)
-        playVideoWithURL(url, title: title)
+        guard let url = NSURL(string: videoUrl) else {
+            return
+        }
+        
+        if videoUrl.hasPrefix(Configuration.YouTubePath) {
+            Youtube.h264videosWithYoutubeURL(url, completion: { (videoInfo, error) -> Void in
+                if let
+                    videoURLString = videoInfo?["url"] as? String {
+                    let contentURL = NSURL(string: videoURLString)
+                    self.playVideoWithURL(contentURL, title: title)
+                } else {
+                    self.isYouTubeVideo = true
+                    self.playVideoWithURL(url, title: title)
+                    self.addYouTubePlayer()
+                }
+            })
+        } else {
+            playVideoWithURL(url, title: title)
+        }
+        
     }
-
+    
     func playVideoWithURL(url: NSURL?, title: String?) {
         
         videoURL = url
         titleText = title
+    }
+    
+    func addYouTubePlayer() {
+        
+        titleLabel.text = titleText
+        webview.delegate = self
+        webview.loadRequest(NSURLRequest(URL: videoURL!))
     }
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
@@ -307,16 +368,14 @@ extension NHDVideoPlayerViewController {
 
 }
 
-
-extension MPVolumeView {
-    var volumeSlider:UISlider {
-        var slider = UISlider()
-        for subview in self.subviews {
-            if subview.isKindOfClass(UISlider){
-                slider = subview as! UISlider
-                return slider
-            }
-        }
-        return slider
+extension NHDVideoPlayerViewController: UIWebViewDelegate {
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        view.bringSubviewToFront(webContain)
+        view.bringSubviewToFront(topBar)
+        prevButton.hidden = true
+        nextButton.hidden = true
+        rateLabel.hidden = true
+        topBar.backgroundColor = Configuration.Colors.primary
     }
 }
