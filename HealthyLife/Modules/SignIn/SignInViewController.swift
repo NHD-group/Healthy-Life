@@ -44,6 +44,7 @@ class SignInViewController: BaseViewController {
     let defaults = NSUserDefaults.standardUserDefaults()
     
     
+    @IBOutlet weak var backGroundImage: UIImageView!
     
     
     override func viewDidLoad() {
@@ -71,6 +72,12 @@ class SignInViewController: BaseViewController {
         self.createUsername.delegate = self
         self.passwordTextField.delegate = self
         self.createPassword.delegate = self
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+         backGroundImage.transform = CGAffineTransformScale(backGroundImage.transform, 2, 2)
+        
     }
     
     @IBAction func onTap(sender: UITapGestureRecognizer) {

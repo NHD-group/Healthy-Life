@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
     var trackingRef: FIRDatabaseReference!
     var segue = String()
     var finishCountRef: FIRDatabaseReference!
-    
+    var currentUID = (FIRAuth.auth()?.currentUser?.uid)!
 
     @IBOutlet weak var cancelButtonLabel: UIButton!
     @IBOutlet weak var playInstructionButton: UIButton!
@@ -80,10 +80,7 @@ class DetailViewController: UIViewController {
         finishCountRef.setValue(newFcount)
         }
         
-//        if activity.finsihCount == 3 {
-//            DataService.dataService.activitiesPlannedRef.child(segue).child(nameOfPlan).child("activities").child(activity.keyDaily).removeValue()
-//        }
-
+        DataService.dataService.baseRef.child("users").child(currentUID).child("activityDone").childByAutoId().setValue(["activityName": activity.name , "nameOfPlan": nameOfPlan, "time": FIRServerValue.timestamp()])
         
          dismissViewControllerAnimated(true, completion: nil)
         

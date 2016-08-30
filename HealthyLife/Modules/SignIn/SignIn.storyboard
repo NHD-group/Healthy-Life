@@ -220,6 +220,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="CreateAccountButton" destination="1WT-yl-4TH" id="zdm-zy-rzg"/>
+                        <outlet property="backGroundImage" destination="cQX-qH-KXq" id="4g0-Qk-ier"/>
                         <outlet property="createAccountView" destination="M6r-1e-DxK" id="nke-r7-7an"/>
                         <outlet property="createEmail" destination="w6o-sf-IMf" id="h6N-cT-zoG"/>
                         <outlet property="createPassword" destination="mzl-aJ-A1r" id="Od6-wh-nMH"/>
