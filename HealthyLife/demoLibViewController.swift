@@ -88,6 +88,8 @@ class demoLibViewController: BaseTableViewController {
             performSegueWithIdentifier("add", sender: self)
         } else if self.addEditButton.title == "edit" {
             performSegueWithIdentifier("edit", sender: self)
+            NSUserDefaults.standardUserDefaults().setBool(false, forKey: "check")
+            
         }
 
     }

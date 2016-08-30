@@ -1350,6 +1350,14 @@
                                     <action selector="editTrailer:" destination="ooe-SE-3Zg" eventType="touchUpInside" id="187-Kh-mRi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4B-sK-o8j">
+                                <rect key="frame" x="273" y="354" width="102" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="add Price List"/>
+                                <connections>
+                                    <action selector="addToPriceListAction:" destination="ooe-SE-3Zg" eventType="touchUpInside" id="STD-Hi-iCG"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5SC-kg-rzI">
                                 <rect key="frame" x="20" y="174" width="88" height="88"/>
                             </imageView>
@@ -1373,7 +1381,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="time line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="keC-3C-C3d">
                                 <rect key="frame" x="159" y="376" width="113" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4X-4f-MEB">
                                 <rect key="frame" x="143" y="384" width="7" height="21"/>
@@ -1381,12 +1389,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4B-sK-o8j">
-                                <rect key="frame" x="293" y="382" width="65" height="30"/>
-                                <state key="normal" title="add Price"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiq-pt-Qgc">
+                                <rect key="frame" x="273" y="397" width="102" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="edit price list"/>
                                 <connections>
-                                    <action selector="addToPriceListAction:" destination="ooe-SE-3Zg" eventType="touchUpInside" id="STD-Hi-iCG"/>
-                                    <segue destination="qIW-Tt-GHE" kind="push" identifier="fromEdit" id="RYf-z3-vj3"/>
+                                    <segue destination="qIW-Tt-GHE" kind="push" identifier="fromEdit" id="u4i-0E-Bsc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1395,11 +1403,14 @@
                     <navigationItem key="navigationItem" id="r8W-iJ-m4Z"/>
                     <connections>
                         <outlet property="averagePriceTextField" destination="Pue-t3-VcG" id="cw6-SG-jaU"/>
+                        <outlet property="averagePriceUploadButton" destination="Y44-sY-YwW" id="KqS-94-LBK"/>
                         <outlet property="chooseVideoButton" destination="xu9-Mo-M2Z" id="d0f-mn-foC"/>
                         <outlet property="desTextField" destination="CFY-zq-Czc" id="zKN-U2-ERY"/>
+                        <outlet property="desUploadButton" destination="tZW-PE-phZ" id="19h-dU-w9V"/>
                         <outlet property="priceTextField" destination="rJ5-q9-vse" id="QTS-yf-2j4"/>
                         <outlet property="thumbNailImage" destination="5SC-kg-rzI" id="xlm-yC-ScK"/>
                         <outlet property="timeLineTextField" destination="keC-3C-C3d" id="YE6-JK-VQG"/>
+                        <outlet property="videoUploadButton" destination="IPB-IK-TkG" id="TdL-VB-jhA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wky-7A-ph3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1912,8 +1923,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="S9V-UA-3WS">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="y23-43-eEi"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="y23-43-eEi">
+                            <connections>
+                                <action selector="addAction:" destination="qIW-Tt-GHE" id="tD7-6L-gLJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="addEditButton" destination="y23-43-eEi" id="MfD-Bl-njx"/>
                         <outlet property="tableView" destination="HoB-IK-ajU" id="d4C-zg-qmZ"/>
@@ -1921,7 +1937,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VPB-xN-yVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2496.5" y="1148.5"/>
+            <point key="canvasLocation" x="2482.5" y="1132.5"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="R4y-3C-2ym">
@@ -2343,14 +2359,14 @@
         <image name="startButton" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ma2-Lr-V81"/>
+        <segue reference="6Io-V1-e1J"/>
         <segue reference="ufo-Uh-4J7"/>
+        <segue reference="Ma2-Lr-V81"/>
+        <segue reference="8Xa-GN-A15"/>
+        <segue reference="u4i-0E-Bsc"/>
         <segue reference="Ilp-x2-K6i"/>
         <segue reference="P32-pf-mmX"/>
         <segue reference="de9-EU-rTg"/>
-        <segue reference="8Xa-GN-A15"/>
-        <segue reference="RYf-z3-vj3"/>
-        <segue reference="6Io-V1-e1J"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

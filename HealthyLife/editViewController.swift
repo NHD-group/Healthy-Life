@@ -17,6 +17,14 @@ class editViewController: BaseViewController , UIImagePickerControllerDelegate, 
     var currentUid = (FIRAuth.auth()?.currentUser?.uid)!
     var trailerRef = FIRDatabaseReference()
     
+    @IBOutlet weak var desUploadButton: UIButton!
+    
+    @IBOutlet weak var videoUploadButton: UIButton!
+    
+    @IBOutlet weak var averagePriceUploadButton: UIButton!
+    
+    
+
     @IBOutlet weak var desTextField: UITextField!
     
     @IBOutlet weak var chooseVideoButton: UIButton!
@@ -24,7 +32,10 @@ class editViewController: BaseViewController , UIImagePickerControllerDelegate, 
     @IBAction func editDesAction(sender: AnyObject) {
         if desTextField.text !=  "" {
         trailerRef.child("description").setValue(desTextField.text!)
+        } else {
+            Helper.showAlert("missing Info", message: "some textfield is not filled", inViewController: self)
         }
+
 
     }
     
@@ -116,7 +127,7 @@ class editViewController: BaseViewController , UIImagePickerControllerDelegate, 
     @IBOutlet weak var averagePriceTextField: UITextField!
     
     @IBAction func uploadAveragePriceAction(sender: AnyObject) {
-        if averagePriceTextField.text != nil {
+        if averagePriceTextField.text != "" {
         trailerRef.child("pricePerWeek").setValue(averagePriceTextField.text!)
             
         } else {
@@ -131,7 +142,7 @@ class editViewController: BaseViewController , UIImagePickerControllerDelegate, 
     
     @IBAction func addToPriceListAction(sender: AnyObject) {
         
-        if timeLineTextField.text != nil && priceTextField.text != nil {
+        if timeLineTextField.text != "" && priceTextField.text != "" {
        trailerRef.child("priceList").childByAutoId().setValue("\(priceTextField.text!) / \(timeLineTextField.text!)")
         } else {
             Helper.showAlert("missing Info", message: "some textfield is not filled", inViewController: self)
@@ -139,18 +150,55 @@ class editViewController: BaseViewController , UIImagePickerControllerDelegate, 
     }
     
     
+    func viewFromEdit() {
+        
+        averagePriceTextField.hidden = true
+        desTextField.hidden = true
+        chooseVideoButton.hidden = true
+        desUploadButton.hidden = true
+        videoUploadButton.hidden = true
+        averagePriceUploadButton.hidden = true
+        thumbNailImage.hidden = true
+    }
+
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
          trailerRef = FIRDatabase.database().reference().child("videosTrailer").child(currentUid)
+        
+        
+        let  check = NSUserDefaults.standardUserDefaults().boolForKey("check")
+        
+        print(check)
+        
+        if check == true {
+            viewFromEdit()
+        }
 
+        
         chooseVideoButton.hidden = false
         
         thumbNailImage.hidden = true
+        
+        
+        
+        
 
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        let  check = NSUserDefaults.standardUserDefaults().boolForKey("check")
+        
+        print(check)
+        
+        if check == true {
+            viewFromEdit()
+        }
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
