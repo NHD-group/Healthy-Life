@@ -133,6 +133,7 @@ class editViewController: BaseViewController , UIImagePickerControllerDelegate, 
         } else {
              Helper.showAlert("missing Info", message: "some textfield is not filled", inViewController: self)
         }
+    
         
     }
     
@@ -147,6 +148,8 @@ class editViewController: BaseViewController , UIImagePickerControllerDelegate, 
         } else {
             Helper.showAlert("missing Info", message: "some textfield is not filled", inViewController: self)
         }
+        
+        onBack()
     }
     
     

@@ -21,7 +21,7 @@ class Activities {
     private var Set : String!
     private var CreatorID: String!
     private var FinishCount: Int!
-    
+
     
     
     var keyDaily: String {

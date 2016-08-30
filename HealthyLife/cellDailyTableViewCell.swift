@@ -14,6 +14,7 @@ class cellDailyTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descripLabel: UILabel!
     
+    @IBOutlet weak var finishedCount: UILabel!
     var activity: Activities! {
         didSet {
             nameLabel.text = activity.name
@@ -21,9 +22,10 @@ class cellDailyTableViewCell: UITableViewCell {
             contentView.backgroundColor = Configuration.Colors.lightGray
             Configuration.Colors.lightGray
             
+           
             backview.layer.cornerRadius = 10
             backview.clipsToBounds = true
-            
+            finishedCount.text = "done \(activity.finsihCount) times"
 
         }
     }
