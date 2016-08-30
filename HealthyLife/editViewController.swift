@@ -143,7 +143,7 @@ class editViewController: BaseViewController , UIImagePickerControllerDelegate, 
     @IBAction func addToPriceListAction(sender: AnyObject) {
         
         if timeLineTextField.text != "" && priceTextField.text != "" {
-       trailerRef.child("priceList").childByAutoId().setValue("\(priceTextField.text!) / \(timeLineTextField.text!)")
+       trailerRef.child("priceList").childByAutoId().setValue("\(priceTextField.text!) $ / \(timeLineTextField.text!)")
         } else {
             Helper.showAlert("missing Info", message: "some textfield is not filled", inViewController: self)
         }

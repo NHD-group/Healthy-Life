@@ -78,6 +78,7 @@
 		8448B1A71D58434500DBFFFB /* chatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448B1A61D58434500DBFFFB /* chatViewController.swift */; };
 		844902241D56064900B8ADF3 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844902231D56064900B8ADF3 /* Plan.swift */; };
 		844902271D56310C00B8ADF3 /* trackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844902261D56310C00B8ADF3 /* trackingViewController.swift */; };
+		844A4C8F1D75427900C9FDFB /* pricelistCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A4C8E1D75427900C9FDFB /* pricelistCellTableViewCell.swift */; };
 		844A87291D586E7100DEC697 /* talksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A87281D586E7100DEC697 /* talksViewController.swift */; };
 		844A872B1D58704D00DEC697 /* chatterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A872A1D58704D00DEC697 /* chatterModel.swift */; };
 		844B8FF31D668B0800B42991 /* displayCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B8FF21D668B0800B42991 /* displayCellTableViewCell.swift */; };
@@ -224,6 +225,7 @@
 		8448B1A61D58434500DBFFFB /* chatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatViewController.swift; sourceTree = "<group>"; };
 		844902231D56064900B8ADF3 /* Plan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		844902261D56310C00B8ADF3 /* trackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = trackingViewController.swift; sourceTree = "<group>"; };
+		844A4C8E1D75427900C9FDFB /* pricelistCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pricelistCellTableViewCell.swift; sourceTree = "<group>"; };
 		844A87281D586E7100DEC697 /* talksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = talksViewController.swift; sourceTree = "<group>"; };
 		844A872A1D58704D00DEC697 /* chatterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatterModel.swift; sourceTree = "<group>"; };
 		844B8FF21D668B0800B42991 /* displayCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = displayCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -684,6 +686,24 @@
 			name = tracking;
 			sourceTree = "<group>";
 		};
+		844A4C8D1D75424F00C9FDFB /* demoFeed */ = {
+			isa = PBXGroup;
+			children = (
+				848225701D4E42CB00750118 /* demoLibViewController.swift */,
+				848225721D4E430D00750118 /* demoTableViewCell.swift */,
+			);
+			name = demoFeed;
+			sourceTree = "<group>";
+		};
+		844A4C901D75428000C9FDFB /* pricelist */ = {
+			isa = PBXGroup;
+			children = (
+				844A4C8E1D75427900C9FDFB /* pricelistCellTableViewCell.swift */,
+				842476E61D743884002E796A /* PrictListViewController.swift */,
+			);
+			name = pricelist;
+			sourceTree = "<group>";
+		};
 		84630B8F1D5767B20006A8FC /* weekly */ = {
 			isa = PBXGroup;
 			children = (
@@ -724,11 +744,10 @@
 		8482256D1D4E412F00750118 /* demo */ = {
 			isa = PBXGroup;
 			children = (
-				848225701D4E42CB00750118 /* demoLibViewController.swift */,
-				848225721D4E430D00750118 /* demoTableViewCell.swift */,
+				844A4C901D75428000C9FDFB /* pricelist */,
+				844A4C8D1D75424F00C9FDFB /* demoFeed */,
 				84C367881D65680D0033AFC1 /* AddDemoViewController.swift */,
 				84EB16A51D74259B0055BC8A /* editViewController.swift */,
-				842476E61D743884002E796A /* PrictListViewController.swift */,
 			);
 			name = demo;
 			sourceTree = "<group>";
@@ -1058,6 +1077,7 @@
 			files = (
 				04D1AA7E1D67046600106C27 /* BaseViewController.swift in Sources */,
 				844A872B1D58704D00DEC697 /* chatterModel.swift in Sources */,
+				844A4C8F1D75427900C9FDFB /* pricelistCellTableViewCell.swift in Sources */,
 				8470B3EC1D66D249000D7638 /* TrainerDetailViewController.swift in Sources */,
 				844902271D56310C00B8ADF3 /* trackingViewController.swift in Sources */,
 				04426B121D5DB4C9005B3621 /* SCRecorderViewController.m in Sources */,
