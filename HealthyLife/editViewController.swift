@@ -113,6 +113,31 @@ class editViewController: BaseViewController , UIImagePickerControllerDelegate, 
     @IBOutlet weak var thumbNailImage: UIImageView!
     
     
+    @IBOutlet weak var averagePriceTextField: UITextField!
+    
+    @IBAction func uploadAveragePriceAction(sender: AnyObject) {
+        if averagePriceTextField.text != nil {
+        trailerRef.child("pricePerWeek").setValue(averagePriceTextField.text!)
+            
+        } else {
+             Helper.showAlert("missing Info", message: "some textfield is not filled", inViewController: self)
+        }
+        
+    }
+    
+    @IBOutlet weak var priceTextField: UITextField!
+    
+    @IBOutlet weak var timeLineTextField: UITextField!
+    
+    @IBAction func addToPriceListAction(sender: AnyObject) {
+        
+        if timeLineTextField.text != nil && priceTextField.text != nil {
+       trailerRef.child("priceList").childByAutoId().setValue("\(priceTextField.text!) / \(timeLineTextField.text!)")
+        } else {
+            Helper.showAlert("missing Info", message: "some textfield is not filled", inViewController: self)
+        }
+    }
+    
     
     
     override func viewDidLoad() {
@@ -129,6 +154,16 @@ class editViewController: BaseViewController , UIImagePickerControllerDelegate, 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "fromEdit" {
+            let controller = segue.destinationViewController as! PrictListViewController
+           controller.uid = currentUid
+        
+        }
     }
     
 

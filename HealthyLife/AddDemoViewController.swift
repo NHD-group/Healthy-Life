@@ -76,7 +76,7 @@ class AddDemoViewController: BaseViewController , UIImagePickerControllerDelegat
                     
                     trailerRef.setValue(videoInfo)
                     FIRDatabase.database().reference().child("users").child(self.currentUid).child("demo").setValue(true)
-                    
+                    trailerRef.child("priceList").childByAutoId().setValue(self.priceTextField.text!)
                     
                 }
                 

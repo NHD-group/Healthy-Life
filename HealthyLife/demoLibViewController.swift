@@ -131,6 +131,12 @@ class demoLibViewController: BaseTableViewController {
                 controller.chatKey = cell.chatKey
                 controller.chatRoomTittle = cell.selectedUsername
             }
+        } else if segue.identifier == "fromDemos" {
+            let controller = segue.destinationViewController as! PrictListViewController
+            if let button = sender as? UIButton {
+                let cell = button.superview?.superview?.superview as! demoTableViewCell
+                controller.uid = cell.uid
+            }
         }
         
     }

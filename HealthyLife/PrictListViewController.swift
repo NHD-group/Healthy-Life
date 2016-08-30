@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import Firebase
 
-class PrictListViewController: UIViewController {
+class PrictListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var uid = String()
+    
+    let currentUid = (FIRAuth.auth()?.currentUser?.uid)!
+    
+    @IBOutlet weak var addEditButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if uid != currentUid {
+            addEditButton.title = nil
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -22,6 +32,19 @@ class PrictListViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+   
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("priceList")
+       
+        return cell!
+        
+    }
+
     
 
     /*
