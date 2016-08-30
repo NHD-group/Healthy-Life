@@ -25,7 +25,12 @@ class cellDailyTableViewCell: UITableViewCell {
            
             backview.layer.cornerRadius = 10
             backview.clipsToBounds = true
+            
+            if activity.finsihCount == 0 {
+                finishedCount.text = "new"
+            } else {
             finishedCount.text = "done \(activity.finsihCount) times"
+            }
 
         }
     }

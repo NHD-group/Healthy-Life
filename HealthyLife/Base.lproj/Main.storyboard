@@ -721,7 +721,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVn-wj-jq9" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="34" width="229" height="21"/>
+                                                    <rect key="frame" x="16" y="26" width="229" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -733,15 +733,15 @@
                                             <segue destination="0Gs-X2-MaY" kind="push" identifier="yourPlan" id="de9-EU-rTg"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="sendedPlan" rowHeight="95" id="rqd-Cx-rSS" customClass="sendedPlanCellTableViewCell" customModule="HealthyLife" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="197" width="375" height="95"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="sendedPlan" rowHeight="96" id="rqd-Cx-rSS" customClass="sendedPlanCellTableViewCell" customModule="HealthyLife" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="197" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rqd-Cx-rSS" id="bdc-sT-L3U">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="94"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULQ-Ol-QwN" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                                                    <rect key="frame" x="15" y="36" width="234" height="21"/>
+                                                    <rect key="frame" x="15" y="27" width="234" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -754,10 +754,6 @@
                                                         <segue destination="p9p-gN-A85" kind="modal" identifier="rate" id="6L8-gC-nST"/>
                                                     </connections>
                                                 </button>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DJO-lA-zAO">
-                                                    <rect key="frame" x="15" y="82" width="315" height="4"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxn-pi-3Uf">
                                                     <rect key="frame" x="305" y="27" width="29" height="29"/>
                                                     <state key="normal" image="Alarm Clock-50"/>
@@ -765,6 +761,10 @@
                                                         <segue destination="TjA-nw-7DK" kind="push" id="P32-pf-mmX"/>
                                                     </connections>
                                                 </button>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DJO-lA-zAO">
+                                                    <rect key="frame" x="8" y="78" width="315" height="4"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
