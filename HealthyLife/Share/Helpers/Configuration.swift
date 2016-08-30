@@ -17,6 +17,7 @@ class Configuration: NSObject {
         static let veryYellow = UIColor(hex: 0xFCFF91)
         static let paleLimeGreen = UIColor(hex: 0xBBFFBF)
         static let lightGray = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 0.7)
+        static let darkBlue = UIColor(red: 62/255.0, green: 68/255.0, blue: 98/255.0, alpha: 1.0)
     }
     
     struct NotificationKey {

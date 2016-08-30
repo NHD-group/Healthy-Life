@@ -20,6 +20,7 @@ class NHDVideoPlayerViewController: BaseViewController {
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     @IBOutlet weak var rateLabel: UILabel!
 
+    @IBOutlet weak var introView: UIView!
     @IBOutlet weak var titleLabel: NHDCustomBoldFontLabel!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var totalTimeLabel: UILabel!
@@ -53,13 +54,23 @@ class NHDVideoPlayerViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = Configuration.Colors.lightGray
+        view.backgroundColor = Configuration.Colors.darkBlue
         titleLabel.text = titleText
         slider.value = 0
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapOnContent(_:)))
         view.addGestureRecognizer(tapGesture!)
         
+        if let path = NSBundle.mainBundle().pathForResource("videoplayback", ofType: "mp4") {
+            let playerItem = AVPlayerItem(URL: NSURL.fileURLWithPath(path))
+            let player = AVPlayer(playerItem: playerItem)
+            player.play()
+            
+            let introPlayerLayer = AVPlayerLayer(player: player)
+            introPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+            introView.layer.insertSublayer(introPlayerLayer, atIndex: 0)
+            introPlayerLayer.frame = introView.bounds
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -75,8 +86,8 @@ class NHDVideoPlayerViewController: BaseViewController {
         })
         
         avPlayer = AVPlayer(URL: videoURL)
-        avPlayer.play()
         avPlayer.allowsExternalPlayback = true
+        
         avPlayerLayer = AVPlayerLayer(player: avPlayer)
         avPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspect
         movieContainer.layer.insertSublayer(avPlayerLayer, atIndex: 0)
@@ -87,6 +98,7 @@ class NHDVideoPlayerViewController: BaseViewController {
         avPlayer.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.New, context: nil)
         
         NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(self.updateCurrentTime), userInfo: nil, repeats: true)
+        avPlayer.play()
 
         setupUI()
     }
@@ -94,11 +106,12 @@ class NHDVideoPlayerViewController: BaseViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        avPlayer.removeObserver(self, forKeyPath: "status")
+        avPlayer?.removeObserver(self, forKeyPath: "status")
         if let tapGesture = tapGesture {
             movieContainer.removeGestureRecognizer(tapGesture)
         }
-        avPlayer.pause()
+        avPlayer?.pause()
+        avPlayerLayer = nil
     }
     
     func hideOrShowControlBar() {
@@ -122,7 +135,6 @@ class NHDVideoPlayerViewController: BaseViewController {
         
         let alpha = 1.0 - topBar.alpha
         
-        
         UIView.animateWithDuration(Configuration.animationDuration) {
             self.topBar.alpha = alpha
             self.bottomBar.alpha = alpha
@@ -141,9 +153,11 @@ class NHDVideoPlayerViewController: BaseViewController {
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "status" {
             if let status = change?[NSKeyValueChangeNewKey] as? Int {
-                if status == 1 {
+                if status == 1 && introView != nil {
                     playButton.selected = true
-                
+                    introView.removeFromSuperview()
+                    introView = nil
+                    avPlayer.play()
                     NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(self.scheduledToHideControls), userInfo: nil, repeats: false)
                 }
             }
@@ -185,7 +199,8 @@ class NHDVideoPlayerViewController: BaseViewController {
         return true
     }
     
-    func itemDidFinishPlaying(notification:NSNotification) {
+    func itemDidFinishPlaying(notification: NSNotification) {
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -272,7 +287,6 @@ extension NHDVideoPlayerViewController {
     @IBAction func brightnessDidChanged(tuner : NHDCircularTuner) {
         let brightnessValue = tuner.progress
         UIScreen.mainScreen().brightness = CGFloat(brightnessValue)
-
     }
     
     @IBAction func volumeDidChanged(tuner : NHDCircularTuner) {

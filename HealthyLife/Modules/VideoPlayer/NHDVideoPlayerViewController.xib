@@ -10,6 +10,7 @@
                 <outlet property="bottomBar" destination="v7H-bg-jh9" id="tAc-Nz-yhV"/>
                 <outlet property="brightnessTuner" destination="uze-G2-uWT" id="8wD-tQ-x14"/>
                 <outlet property="currentTimeLabel" destination="rK2-1z-kl7" id="yAD-9Q-aqz"/>
+                <outlet property="introView" destination="MTH-I9-Dqn" id="Tb1-ax-qU3"/>
                 <outlet property="loadingView" destination="Iok-Js-OJT" id="OjQ-QF-avN"/>
                 <outlet property="midBar" destination="d9p-6S-VWI" id="X3G-26-nR0"/>
                 <outlet property="movieContainer" destination="mMr-wE-8Ad" id="xYD-vc-yQ0"/>
@@ -28,9 +29,28 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Iok-Js-OJT">
-                    <rect key="frame" x="281" y="282" width="37" height="37"/>
-                </activityIndicatorView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTH-I9-Dqn">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Iok-Js-OJT">
+                            <rect key="frame" x="282" y="282" width="37" height="37"/>
+                        </activityIndicatorView>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="scaleAspectFit" image="app_icon" translatesAutoresizingMaskIntoConstraints="NO" id="RM2-R7-FDT">
+                            <rect key="frame" x="530" y="50" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="3d7-fB-shH"/>
+                                <constraint firstAttribute="width" secondItem="RM2-R7-FDT" secondAttribute="height" multiplier="1:1" id="nSJ-24-Hp8"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="RM2-R7-FDT" secondAttribute="trailing" constant="20" id="0nn-aW-3n9"/>
+                        <constraint firstItem="Iok-Js-OJT" firstAttribute="centerY" secondItem="MTH-I9-Dqn" secondAttribute="centerY" id="13n-Vh-E2x"/>
+                        <constraint firstItem="RM2-R7-FDT" firstAttribute="top" secondItem="MTH-I9-Dqn" secondAttribute="top" constant="50" id="GVL-qD-G6i"/>
+                        <constraint firstItem="Iok-Js-OJT" firstAttribute="centerX" secondItem="MTH-I9-Dqn" secondAttribute="centerX" id="PfA-wc-wjw"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mMr-wE-8Ad">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -163,15 +183,21 @@
                     </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9p-6S-VWI">
-                    <rect key="frame" x="0.0" y="220" width="600" height="160"/>
+                    <rect key="frame" x="0.0" y="240" width="600" height="120"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uze-G2-uWT" userLabel="Brightness" customClass="NHDCircularTuner" customModule="HealthyLife" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="18" width="100" height="125"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="0.0" y="10" width="80" height="100"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="width" secondItem="uze-G2-uWT" secondAttribute="height" multiplier="4:5" id="9ca-kX-qHE"/>
                                 <constraint firstAttribute="height" constant="125" id="G3g-Cl-Tc1"/>
-                                <constraint firstAttribute="width" constant="100" id="oWC-bP-wWV"/>
+                                <constraint firstAttribute="width" constant="80" id="oWC-bP-wWV"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="G3g-Cl-Tc1"/>
+                                </mask>
+                            </variation>
                             <connections>
                                 <action selector="brightnessDidChanged:" destination="-1" eventType="valueChanged" id="A3R-ic-Jam"/>
                                 <action selector="brightnessTunerInteractionBegin:" destination="-1" eventType="editingDidBegin" id="M4G-h6-WSt"/>
@@ -179,12 +205,18 @@
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VY7-rc-2Im" userLabel="Volume" customClass="NHDCircularTuner" customModule="HealthyLife" customModuleProvider="target">
-                            <rect key="frame" x="500" y="18" width="100" height="125"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="520" y="10" width="80" height="100"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="125" id="32z-wk-fjo"/>
-                                <constraint firstAttribute="width" constant="100" id="gHN-sg-CQR"/>
+                                <constraint firstAttribute="width" constant="80" id="gHN-sg-CQR"/>
+                                <constraint firstAttribute="width" secondItem="VY7-rc-2Im" secondAttribute="height" multiplier="4:5" id="t9T-Vz-ITZ"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="32z-wk-fjo"/>
+                                </mask>
+                            </variation>
                             <connections>
                                 <action selector="brightnessTunerInteractionBegin:" destination="-1" eventType="editingDidBegin" id="bMD-9g-brc"/>
                                 <action selector="brightnessTunerInteractionEnd:" destination="-1" eventType="editingDidEnd" id="Cq3-9X-hg5"/>
@@ -194,7 +226,7 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="160" id="8km-qT-JX4"/>
+                        <constraint firstAttribute="height" constant="120" id="8km-qT-JX4"/>
                         <constraint firstAttribute="trailing" secondItem="VY7-rc-2Im" secondAttribute="trailing" id="909-gQ-yhD"/>
                         <constraint firstItem="uze-G2-uWT" firstAttribute="centerY" secondItem="d9p-6S-VWI" secondAttribute="centerY" id="ITB-X6-80z"/>
                         <constraint firstItem="VY7-rc-2Im" firstAttribute="centerY" secondItem="d9p-6S-VWI" secondAttribute="centerY" id="Vum-NF-SrH"/>
@@ -204,26 +236,37 @@
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="MTH-I9-Dqn" secondAttribute="trailing" id="00Z-fF-Qpa"/>
                 <constraint firstAttribute="trailing" secondItem="v7H-bg-jh9" secondAttribute="trailing" id="6Ee-e8-Epx"/>
                 <constraint firstItem="mMr-wE-8Ad" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6Ov-l8-62n"/>
+                <constraint firstItem="MTH-I9-Dqn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6R9-io-65l"/>
                 <constraint firstAttribute="bottom" secondItem="v7H-bg-jh9" secondAttribute="bottom" id="8o9-Dz-bOK"/>
+                <constraint firstItem="MTH-I9-Dqn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AdX-S6-Kkh"/>
                 <constraint firstItem="d9p-6S-VWI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DFE-8K-q7i"/>
                 <constraint firstAttribute="bottom" secondItem="mMr-wE-8Ad" secondAttribute="bottom" id="Hcd-0G-ePH"/>
-                <constraint firstItem="Iok-Js-OJT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JKK-D0-J8L"/>
                 <constraint firstItem="d9p-6S-VWI" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="NHP-1I-QXA"/>
                 <constraint firstItem="q2R-pg-M6M" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OIi-cl-1yC"/>
+                <constraint firstAttribute="bottom" secondItem="MTH-I9-Dqn" secondAttribute="bottom" id="Qxp-Uu-3YN"/>
                 <constraint firstItem="mMr-wE-8Ad" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TGH-nL-TdY"/>
+                <constraint firstItem="MTH-I9-Dqn" firstAttribute="top" secondItem="q2R-pg-M6M" secondAttribute="bottom" id="YZZ-nE-LCB"/>
                 <constraint firstItem="v7H-bg-jh9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ew8-eu-LDC"/>
-                <constraint firstItem="Iok-Js-OJT" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="gvA-ez-yWD"/>
                 <constraint firstAttribute="trailing" secondItem="mMr-wE-8Ad" secondAttribute="trailing" id="kQm-UJ-8h8"/>
+                <constraint firstItem="v7H-bg-jh9" firstAttribute="top" secondItem="MTH-I9-Dqn" secondAttribute="bottom" id="ouk-8w-eh6"/>
                 <constraint firstItem="q2R-pg-M6M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="s1h-Es-oNx"/>
                 <constraint firstAttribute="trailing" secondItem="d9p-6S-VWI" secondAttribute="trailing" id="xVa-MT-3Bi"/>
                 <constraint firstAttribute="trailing" secondItem="q2R-pg-M6M" secondAttribute="trailing" id="yLn-go-HZb"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="YZZ-nE-LCB"/>
+                    <exclude reference="ouk-8w-eh6"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="340" y="257"/>
         </view>
     </objects>
     <resources>
+        <image name="app_icon" width="100" height="100"/>
         <image name="bt_next" width="103" height="103"/>
         <image name="bt_previous" width="103" height="103"/>
         <image name="ic_pause" width="21" height="28"/>

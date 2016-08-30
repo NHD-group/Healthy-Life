@@ -42,6 +42,7 @@
 		04426B1B1D5DB4C9005B3621 /* SCWatermarkOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426B0F1D5DB4C9005B3621 /* SCWatermarkOverlayView.m */; };
 		04426B1F1D5DBA35005B3621 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04426B1D1D5DBA34005B3621 /* GoogleService-Info.plist */; };
 		04426B201D5DBA35005B3621 /* HealthyLife-40181a67534f.json in Resources */ = {isa = PBXBuildFile; fileRef = 04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */; };
+		044E63571D7529DE00E35209 /* videoplayback.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 044E63561D7529DE00E35209 /* videoplayback.mp4 */; };
 		04ABC9551D6BF5E800EF0339 /* NHDSplash.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ABC9541D6BF5E800EF0339 /* NHDSplash.xib */; };
 		04ABC9571D6BF7FD00EF0339 /* NHDSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ABC9561D6BF7FD00EF0339 /* NHDSplash.swift */; };
 		04B8C4261D73E8BE001D5839 /* NHDVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8C4241D73E8BE001D5839 /* NHDVideoPlayerViewController.swift */; };
@@ -177,6 +178,7 @@
 		04426B1D1D5DBA34005B3621 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "HealthyLife-40181a67534f.json"; sourceTree = "<group>"; };
 		04426B221D5DBE5F005B3621 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		044E63561D7529DE00E35209 /* videoplayback.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = videoplayback.mp4; sourceTree = "<group>"; };
 		04ABC9541D6BF5E800EF0339 /* NHDSplash.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHDSplash.xib; sourceTree = "<group>"; };
 		04ABC9561D6BF7FD00EF0339 /* NHDSplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDSplash.swift; sourceTree = "<group>"; };
 		04B8C4241D73E8BE001D5839 /* NHDVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDVideoPlayerViewController.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 		04426AB61D5D9294005B3621 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				044E63551D7529DE00E35209 /* Videos */,
 				04426AD81D5DA932005B3621 /* Fonts */,
 				04426AB71D5D9294005B3621 /* images */,
 			);
@@ -549,6 +552,14 @@
 				04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		044E63551D7529DE00E35209 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				044E63561D7529DE00E35209 /* videoplayback.mp4 */,
+			);
+			path = Videos;
 			sourceTree = "<group>";
 		};
 		04ABC9531D6BF5B900EF0339 /* Splash */ = {
@@ -953,6 +964,7 @@
 				04ABC9551D6BF5E800EF0339 /* NHDSplash.xib in Resources */,
 				04426AF71D5DB324005B3621 /* NHDTabbarView.xib in Resources */,
 				04178D841D6ED6A000DCE8CA /* FoodCollectionViewCell.xib in Resources */,
+				044E63571D7529DE00E35209 /* videoplayback.mp4 in Resources */,
 				04426AE11D5DA932005B3621 /* ChamsItalic.ttf in Resources */,
 				04426AE21D5DA932005B3621 /* ChamsRegular.ttf in Resources */,
 				84181DEC1D47C99800686BAB /* Assets.xcassets in Resources */,
