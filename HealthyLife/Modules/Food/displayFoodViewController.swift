@@ -100,7 +100,6 @@ extension displayFoodViewController: UICollectionViewDataSource, CollectionViewW
   
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(FoodCollectionViewCell), forIndexPath: indexPath) as! FoodCollectionViewCell
         cell.configureCell(foods[indexPath.row])
-        cell.delegate = self
         
         return cell
     }
@@ -122,18 +121,17 @@ extension displayFoodViewController: UICollectionViewDataSource, CollectionViewW
     
     func collectionView(collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let width = UIScreen.mainScreen().bounds.width / 2.1
-        var height: CGFloat = 200
+        var height: CGFloat = 210
         
         let food = foods[indexPath.row]
         if let text = food.foodDes {
-             height += NHDFontBucket.blackFontWithSize(16).heightOfString(text, constrainedToWidth: Double(width) - 16)
+             height += NHDFontBucket.blackFontWithSize(16).heightOfString(text, constrainedToWidth: Double(width))
         }
 
         if indexPath.row == 0 {
-            height -= 10
-        } else if indexPath.row == 1 {
             height += 10
         }
+        
         return CGSizeMake(width, height)
     }
 
@@ -153,17 +151,5 @@ extension displayFoodViewController: UICollectionViewDataSource, CollectionViewW
         
         let isUp = (scrollView.panGestureRecognizer.translationInView(scrollView.superview).y > 0)
         delegate?.pageViewControllerIsMoving(isUp)
-    }
-}
-
-extension displayFoodViewController: FoodCollectionViewCellDelegate {
-    
-    func buyItem(food: Food, price: Int) {
-        
-        let vc = NHDPayPalViewController(nibName: String(NHDPayPalViewController), bundle: nil)
-        vc.item = food
-        vc.price = price
-        let navVC = BaseNavigationController(rootViewController: vc)
-        Helper.getRootViewController()?.presentViewController(navVC, animated: true, completion: nil)
     }
 }

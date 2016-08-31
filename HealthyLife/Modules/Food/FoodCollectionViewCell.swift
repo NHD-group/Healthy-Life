@@ -28,8 +28,6 @@ class FoodCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var loveImage: UIImageView!
     
-    @IBOutlet weak var buyButton: NHDCustomSubmitGreenButton!
-    
     weak var delegate: FoodCollectionViewCellDelegate?
 
     let storageRef = FIRStorage.storage().reference()
@@ -116,17 +114,6 @@ class FoodCollectionViewCell: UICollectionViewCell {
         tap.numberOfTapsRequired = 1
         loveImage.addGestureRecognizer(tap)
         loveImage.userInteractionEnabled = true
-        
-        let price = rand() % 300 + 50
-        buyButton.tag = Int(price)
-        buyButton.setTitle(String.localizedStringWithFormat(" Buy $%0.02f ", Double(price)/100.0), forState: .Normal)
-    }
-    
-    @IBAction func onBuy(button: UIButton) {
-        
-        let price = button.tag
-        
-        delegate?.buyItem(food, price: price)
     }
     
 }

@@ -17,63 +17,50 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9OB-Fy-Z3P">
                         <rect key="frame" x="2" y="2" width="172" height="216"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Viv-Z9-4n5">
-                                <rect key="frame" x="10" y="8" width="152" height="152"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Viv-Z9-4n5">
+                                <rect key="frame" x="10" y="8" width="152" height="144"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Viv-Z9-4n5" secondAttribute="height" multiplier="1:1" id="L1Q-MH-o6S"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="Viv-Z9-4n5" secondAttribute="height" multiplier="1:1" id="L1Q-MH-o6S"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e16-UF-QLt">
-                                <rect key="frame" x="10" y="187" width="24" height="24"/>
+                                <rect key="frame" x="10" y="188" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="2E9-sv-IKv"/>
                                     <constraint firstAttribute="width" constant="24" id="er7-BN-z46"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzJ-AJ-9a9" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                                <rect key="frame" x="39" y="190" width="36" height="17"/>
+                                <rect key="frame" x="39" y="191" width="36" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.91764705879999997" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ixs-Ae-Ajg" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                                <rect key="frame" x="10" y="168" width="40" height="11"/>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ixs-Ae-Ajg" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
+                                <rect key="frame" x="10" y="160" width="40" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cU8-I2-bR6" customClass="NHDCustomItalicFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                                <rect key="frame" x="85" y="191" width="77" height="16"/>
+                                <rect key="frame" x="85" y="192" width="77" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rL4-8j-Cd2" customClass="NHDCustomSubmitGreenButton" customModule="HealthyLife" customModuleProvider="target">
-                                <rect key="frame" x="103" y="100" width="59" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="h92-7a-4ED"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Buy $0.99"/>
-                                <connections>
-                                    <action selector="onBuy:" destination="c4H-aR-nTy" eventType="touchUpInside" id="nls-l3-daQ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ixs-Ae-Ajg" firstAttribute="leading" secondItem="Viv-Z9-4n5" secondAttribute="leading" id="1gv-eO-zo4"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ixs-Ae-Ajg" secondAttribute="trailing" constant="10" id="65w-2b-GQU"/>
                             <constraint firstItem="cU8-I2-bR6" firstAttribute="trailing" secondItem="Viv-Z9-4n5" secondAttribute="trailing" id="6tg-wV-yFI"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="e16-UF-QLt" secondAttribute="bottom" constant="5" id="7Qq-H5-Yww"/>
+                            <constraint firstAttribute="bottom" secondItem="e16-UF-QLt" secondAttribute="bottom" constant="4" id="7Qq-H5-Yww"/>
                             <constraint firstItem="FzJ-AJ-9a9" firstAttribute="centerY" secondItem="e16-UF-QLt" secondAttribute="centerY" id="7nQ-zu-jUE"/>
-                            <constraint firstAttribute="trailing" secondItem="rL4-8j-Cd2" secondAttribute="trailing" constant="10" id="Emf-zL-MbV"/>
                             <constraint firstItem="cU8-I2-bR6" firstAttribute="leading" secondItem="FzJ-AJ-9a9" secondAttribute="trailing" constant="10" id="K9Y-pV-HrI"/>
                             <constraint firstItem="FzJ-AJ-9a9" firstAttribute="leading" secondItem="e16-UF-QLt" secondAttribute="trailing" constant="5" id="SiH-i9-beV"/>
                             <constraint firstItem="Ixs-Ae-Ajg" firstAttribute="top" secondItem="Viv-Z9-4n5" secondAttribute="bottom" constant="8" id="XcC-Fv-zEV"/>
-                            <constraint firstItem="e16-UF-QLt" firstAttribute="top" secondItem="Ixs-Ae-Ajg" secondAttribute="bottom" constant="8" id="ZwK-jW-spX"/>
+                            <constraint firstItem="e16-UF-QLt" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ixs-Ae-Ajg" secondAttribute="bottom" constant="8" id="ZwK-jW-spX"/>
                             <constraint firstItem="e16-UF-QLt" firstAttribute="leading" secondItem="Viv-Z9-4n5" secondAttribute="leading" id="agx-K8-10J"/>
-                            <constraint firstItem="rL4-8j-Cd2" firstAttribute="top" secondItem="9OB-Fy-Z3P" secondAttribute="top" constant="100" id="cAL-zT-KOa"/>
                             <constraint firstItem="Viv-Z9-4n5" firstAttribute="top" secondItem="9OB-Fy-Z3P" secondAttribute="top" constant="8" id="gha-hT-Adn"/>
                             <constraint firstItem="cU8-I2-bR6" firstAttribute="baseline" secondItem="FzJ-AJ-9a9" secondAttribute="baseline" id="mm8-F6-cwD"/>
                             <constraint firstItem="Viv-Z9-4n5" firstAttribute="centerX" secondItem="9OB-Fy-Z3P" secondAttribute="centerX" id="pLd-l9-ugh"/>
@@ -93,7 +80,6 @@
             <size key="customSize" width="176" height="263"/>
             <connections>
                 <outlet property="backview" destination="9OB-Fy-Z3P" id="K8Y-TA-275"/>
-                <outlet property="buyButton" destination="rL4-8j-Cd2" id="nvt-dg-thR"/>
                 <outlet property="desLabel" destination="Ixs-Ae-Ajg" id="86H-Gs-daY"/>
                 <outlet property="foodImageView" destination="Viv-Z9-4n5" id="d97-lv-w47"/>
                 <outlet property="loveCount" destination="FzJ-AJ-9a9" id="cQH-rT-VJ0"/>
