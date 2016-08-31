@@ -69,7 +69,7 @@ class demoTableViewCell: UITableViewCell {
     func configureCell(demo : Trailer ) {
         trailer = demo
         
-        priceButton.setTitle("\(trailer.pricePerWeek ?? "undisclosure")$/ a week", forState: .Normal)
+        priceButton.setTitle("$\(trailer.pricePerWeek ?? "undisclosure") / week", forState: .Normal)
         currentUserName = NSUserDefaults.standardUserDefaults().valueForKey("currentUserName") as! String
         
         let url = NSURL(string: trailer.videoUrl!)

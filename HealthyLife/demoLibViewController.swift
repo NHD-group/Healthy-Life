@@ -34,10 +34,6 @@ class demoLibViewController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        FIRDatabase.database().reference().child("videosTrailer").child(currentUid)
-//        ["videoUrl": videoUrl, "description": self.desTextView.text!]
-       
-        
         let ref = DataService.BaseRef
 
         showLoading()
@@ -73,9 +69,9 @@ class demoLibViewController: BaseTableViewController {
         ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("demo").observeEventType(.Value, withBlock: { snapshot in
             
             if let check = snapshot.value as? NSNull {
-                self.addEditButton.title = "add"
+                self.addEditButton.title = "Add"
             } else {
-                self.addEditButton.title = "edit"
+                self.addEditButton.title = "Edit"
             }
             
         })
@@ -84,9 +80,9 @@ class demoLibViewController: BaseTableViewController {
     }
     
     @IBAction func addEditAction(sender: AnyObject) {
-        if self.addEditButton.title == "add" {
+        if self.addEditButton.title == "Add" {
             performSegueWithIdentifier("add", sender: self)
-        } else if self.addEditButton.title == "edit" {
+        } else if self.addEditButton.title == "Edit" {
             performSegueWithIdentifier("edit", sender: self)
             NSUserDefaults.standardUserDefaults().setBool(false, forKey: "check")
             
@@ -148,7 +144,7 @@ extension demoLibViewController: demoTableViewCellDelegate {
     
     func getHealthyAction(trailer: Trailer) {
         
-        Helper.showAlert("Sign Up To This Trainer", message: "Pleas ask your trainers for new workoutplan", okActionBlock: { 
+        Helper.showAlert("Sign Up To This Trainer", message: "Please ask your trainers for new workoutplan", okActionBlock: {
             
             DataService.dataService.baseRef.child("users").child(trailer.uid!).child("trainee").child(DataService.currentUserID).child("name").setValue(DataService.currentUserName)
             }, cancelActionBlock: { 
