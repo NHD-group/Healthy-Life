@@ -266,7 +266,9 @@ class chatViewController: JSQMessagesViewController {
                 cell.textView!.textColor = UIColor.darkGrayColor()
             }
         } else if message.type.isVideo() {
-            let imageView = UIImageView(frame: CGRectMake(message.senderId == senderId ? 105 : 10, 0, 200, 150))
+            let frame = cell.frame
+            let width = frame.size.width / 1.7
+            let imageView = UIImageView(frame: CGRectMake(message.senderId == senderId ? frame.size.width - width : 0, 0, width, frame.size.height))
             imageView.image = UIImage(named: "lightboxPlayIconW")
             imageView.contentMode = .ScaleAspectFit
             imageView.alpha = 0.7
