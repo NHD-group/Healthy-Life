@@ -12,7 +12,8 @@ import Firebase
 class PrictListViewController: BaseTableViewController {
     
     var uid = String()
-    
+    var pricePerWeek: String?
+
     var check = Bool()
     
     var priceListRef = FIRDatabaseReference()
@@ -72,9 +73,20 @@ class PrictListViewController: BaseTableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("priceList") as! pricelistCellTableViewCell
-       cell.price = dataArray[indexPath.row] as! String
+        cell.price = dataArray[indexPath.row] as! String
         return cell
         
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let price = dataArray[indexPath.row] as! String
+        let vc = NHDPayPalViewController(nibName: String(NHDPayPalViewController), bundle: nil)
+        vc.name = price
+        vc.price = pricePerWeek!
+        let navVC = BaseNavigationController(rootViewController: vc)
+        Helper.getRootViewController()?.presentViewController(navVC, animated: true, completion: nil)
+
     }
 
 }

@@ -96,6 +96,7 @@ class demoLibViewController: BaseTableViewController {
         if let cell = tableView.dequeueReusableCellWithIdentifier("demoCell") as? demoTableViewCell {
             
             cell.configureCell(trailers[indexPath.row])
+            cell.priceButton.tag = indexPath.row
             cell.delegate = self
 
             return cell
@@ -132,8 +133,9 @@ class demoLibViewController: BaseTableViewController {
         } else if segue.identifier == "fromDemos" {
             let controller = segue.destinationViewController as! PrictListViewController
             if let button = sender as? UIButton {
-                let cell = button.superview?.superview?.superview as! demoTableViewCell
-                controller.uid = cell.uid
+                let trailer = trailers[button.tag]
+                controller.uid = trailer.uid!
+                controller.pricePerWeek = trailer.pricePerWeek
             }
         }
         

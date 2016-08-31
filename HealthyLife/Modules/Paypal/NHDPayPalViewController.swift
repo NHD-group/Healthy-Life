@@ -10,8 +10,9 @@ import UIKit
 
 class NHDPayPalViewController: BaseViewController {
 
-    var item: Food?
-    var price: Int = 0
+    var id: String?
+    var name: String!
+    var price = "0"
     var payPalConfig = PayPalConfiguration() // default
     
     @IBOutlet weak var successView: UIView!
@@ -38,16 +39,10 @@ class NHDPayPalViewController: BaseViewController {
 
     func setupPaypal() {
         
-        guard let item = item else {
-            return
-        }
-        
         showLoading()
         
-        let string = String.localizedStringWithFormat("%0.02f", Double(price)/100.0)
-        
         // Optional: include multiple items
-        let item1 = PayPalItem(name: item.foodDes!, withQuantity: 1, withPrice: NSDecimalNumber(string: string), withCurrency: "USD", withSku: "")
+        let item1 = PayPalItem(name: name, withQuantity: 1, withPrice: NSDecimalNumber(string: price), withCurrency: "USD", withSku: "")
         
         let items = [item1]
         let subtotal = PayPalItem.totalPriceForItems(items)
@@ -59,7 +54,7 @@ class NHDPayPalViewController: BaseViewController {
         
         let total = subtotal.decimalNumberByAdding(shipping).decimalNumberByAdding(tax)
         
-        let shortDescription = "Buy food " + item.foodDes!
+        let shortDescription = "Buy " + name
         let payment = PayPalPayment(amount: total, currencyCode: "USD", shortDescription: shortDescription, intent: .Sale)
         
         payment.items = items
@@ -96,7 +91,6 @@ extension NHDPayPalViewController: PayPalPaymentDelegate {
             // send completed confirmaion to your server
             print("Here is your proof of payment:\n\n\(completedPayment.confirmation)\n\nSend this to your server for confirmation and fulfillment.")
             
-//            Helper.showAlert("Success", message: completedPayment.description, inViewController: self)
             self.successView.hidden = false
             self.hideLoading()
         })
@@ -104,8 +98,6 @@ extension NHDPayPalViewController: PayPalPaymentDelegate {
     
     func payPalPaymentDidCancel(paymentViewController: PayPalPaymentViewController) {
         
-        print("PayPal Payment Cancelled")
-
         showLoading()
         paymentViewController.dismissViewControllerAnimated(true, completion: nil)
         navigationController?.dismissViewControllerAnimated(true, completion: nil)

@@ -108,7 +108,7 @@ class addPlanVidViewController: BaseViewController, UITableViewDataSource, UITab
         addToOldPlanButton.layer.cornerRadius = 10
         addToOldPlanButton.clipsToBounds = true
 
-
+        title = "Add Plan"
         
         showLoading()
         planRef.observeEventType(.Value, withBlock: { snapshot in
