@@ -100,9 +100,9 @@ class yourVideosViewController: BaseTableViewController {
         super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
         
         let video = videos[indexPath.row] as Video
-        let playerVC = NHDVideoPlayerViewController(nibName: String(NHDVideoPlayerViewController), bundle: nil)
-        playerVC.playVideo(video.videoUrl, title: video.name)
-        presentViewController(playerVC, animated: true, completion: nil)
+
+        NHDVideoPlayerViewController.showPlayer(nil, orLink: video.videoUrl, title: video.name, inViewController: self)
+
     }
     
     @IBAction func backAction(sender: AnyObject) {

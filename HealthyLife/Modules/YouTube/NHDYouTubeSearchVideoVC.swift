@@ -41,9 +41,7 @@ class NHDYouTubeSearchVideoVC: BaseTableViewController {
         super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
         
         let video = dataArray[indexPath.row] as! NHDYouTubeModel
-        let playerVC = NHDVideoPlayerViewController(nibName: String(NHDVideoPlayerViewController), bundle: nil)
-        playerVC.playVideo(video.videoURL, title: video.title)
-        presentViewController(playerVC, animated: true, completion: nil)
+        NHDVideoPlayerViewController.showPlayer(nil, orLink: video.videoURL, title: video.title, inViewController: self)
     }
 }
 

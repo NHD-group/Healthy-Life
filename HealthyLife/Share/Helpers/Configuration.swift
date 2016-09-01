@@ -31,6 +31,7 @@ class Configuration: NSObject {
     static var selectedViewControllerName: NSString?
     static let kMaxSize : Int64 = (1 * 1024 * 1024)/2
     static var selectedRoomKey: NSString?
+    static var isPlayingVideo = false
     
     static var GoogleApiKey = "AIzaSyBcKjf37mIZTQN6U5achsNn21RXOGyc7HQ"
     static var YouTubePath = "https://youtu.be/"
