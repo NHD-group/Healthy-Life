@@ -73,12 +73,7 @@ class SignInViewController: BaseViewController {
         self.passwordTextField.delegate = self
         self.createPassword.delegate = self
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-         backGroundImage.transform = CGAffineTransformScale(backGroundImage.transform, 2, 2)
-        
-    }
+
     
     @IBAction func onTap(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
