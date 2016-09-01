@@ -17,6 +17,7 @@ class PrictListViewController: BaseTableViewController {
     var check = Bool()
     
     var priceListRef = FIRDatabaseReference()
+    var keys = [String]()
     
     @IBOutlet weak var addEditButton: UIBarButtonItem!
     
@@ -34,16 +35,18 @@ class PrictListViewController: BaseTableViewController {
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
                 for snap in snapshots {
-//                        let key = snap.key
+                        let key = snap.key
                         let price = snap.value as! String
                         
                         // Items are returned chronologically, but it's more fun with the newest jokes first.
-                        
+                        self.keys.insert(key, atIndex: 0)
+    
                         priceList.insert(price, atIndex: 0)
                     
                 }
                 
             }
+            self.tableView.reloadData()
             self.dataArray = priceList
             
         })
@@ -59,11 +62,15 @@ class PrictListViewController: BaseTableViewController {
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "check")
     }
     
+    
+    
+    
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        priceListRef.child(keys[indexPath.row]).removeValue()
         
     }
 
