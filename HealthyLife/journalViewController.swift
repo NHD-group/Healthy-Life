@@ -152,6 +152,7 @@ class journalViewController: BaseViewController {
         
         vc1.delegate = self
         vc2.delegate = self
+        vc3.delegate = self
     }
     
     @IBAction func onAddButtonPressed(sender: UIBarButtonItem) {

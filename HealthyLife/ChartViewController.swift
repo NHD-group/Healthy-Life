@@ -56,6 +56,7 @@ class ChartViewController: BaseViewController {
     }
     
     let lineChart = JBLineChartView()
+    var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +66,15 @@ class ChartViewController: BaseViewController {
         lineChart.delegate = self
         lineChart.dataSource = self
         
-        self.view.addSubview(lineChart)
+        scrollView = UIScrollView(frame: view.frame)
+        scrollView.alwaysBounceVertical = true
+        scrollView.delegate = self
+        view.addSubview(scrollView)
+        scrollView.snp_makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
+        
+        scrollView.addSubview(lineChart)
         lineChart.frame = CGRect(x: kJBLineChartViewControllerChartPadding, y: kJBLineChartViewControllerChartTopPadding, width: self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), height: kJBLineChartViewControllerChartHeight)
         
         // header
@@ -81,9 +90,10 @@ class ChartViewController: BaseViewController {
         headerView.separatorColor = UIColor(red: 142.0/255.0, green: 182.0/255.0, blue: 183.0/255.0, alpha: 1.0)
         self.lineChart.headerView = headerView;
         
-        infoView = UIView(frame: CGRect(x: 0, y: lineChart.frame.origin.y + lineChart.frame.height, width: self.view.bounds.width, height: self.view.bounds.height - (lineChart.frame.origin.y + lineChart.frame.height)))
-        infoView.backgroundColor = Configuration.Colors.lightGray
-        self.view.addSubview(infoView)
+        infoView = UIView(frame: CGRect(x: 0, y: lineChart.frame.origin.y + lineChart.frame.height, width: self.view.bounds.width, height: 120))
+        scrollView.addSubview(infoView)
+        scrollView.contentSize = CGSizeMake(view.bounds.width, CGRectGetMaxY(infoView.frame))
+        scrollView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0)
         
         self.infoView.addSubview(imageView)
         imageView.snp_makeConstraints { (make) in
@@ -120,11 +130,6 @@ class ChartViewController: BaseViewController {
         footerView.sectionCount = results.count
         footerView.footerSeparatorColor = Configuration.Colors.primary
         self.lineChart.footerView = footerView;
-    }
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        let isUp = (scrollView.panGestureRecognizer.translationInView(scrollView.superview).y > 0)
-        delegate?.pageViewControllerIsMoving(isUp)
     }
 }
 
@@ -171,10 +176,21 @@ extension ChartViewController: JBLineChartViewDelegate, JBLineChartViewDataSourc
     
     func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt) {
         let result = results[Int(horizontalIndex)]
-        let imageRef = storageRef.child("images/\(result.resultKey)")
-        self.imageView.downloadImageWithImageReference(imageRef)
-        self.weightLabel.text = "\(result.currentWeight) kg"
-        self.timeLabel.text = result.time.dateTime()
+        UIView.animateWithDuration(Configuration.animationDuration) { 
+            
+            self.imageView.downloadImageWithKey(result.resultKey)
+            self.weightLabel.text = "\(result.currentWeight) kg"
+            self.timeLabel.text = result.time.dateTime()
+            self.infoView.backgroundColor = Configuration.Colors.lightGray
+        }
+    }
+}
+
+extension ChartViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let isUp = (scrollView.panGestureRecognizer.translationInView(scrollView.superview).y > 0)
+        delegate?.pageViewControllerIsMoving(isUp)
     }
 }
 
