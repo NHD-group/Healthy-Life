@@ -170,6 +170,11 @@ class journalViewController: BaseViewController {
         }
     }
     
+    @IBAction func onSettingTapped(sender: AnyObject) {
+        let vc = SettingViewController(nibName: String(SettingViewController), bundle: nil)
+        let navVC = BaseNavigationController(rootViewController: vc)
+        presentViewController(navVC, animated: true, completion: nil)
+    }
 }
 
 extension journalViewController: BaseTabPageViewControllerDelegate {

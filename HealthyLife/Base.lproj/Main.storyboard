@@ -41,14 +41,14 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="124" height="186"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZv-WW-D3z" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                                                                        <rect key="frame" x="8" y="18" width="100" height="21"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZv-WW-D3z" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
+                                                                        <rect key="frame" x="8" y="18" width="108" height="18"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BpB-z8-JrL">
-                                                                        <rect key="frame" x="8" y="67" width="100" height="30"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpB-z8-JrL">
+                                                                        <rect key="frame" x="8" y="64" width="108" height="30"/>
                                                                         <subviews>
                                                                             <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BzY-my-tTY">
                                                                                 <rect key="frame" x="0.0" y="20" width="0.0" height="0.0"/>
@@ -57,8 +57,8 @@
                                                                                 </view>
                                                                                 <blurEffect style="light"/>
                                                                             </visualEffectView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="gaine: 20kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxg-4f-623" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                                                                                <rect key="frame" x="12" y="10" width="76" height="17"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gaine: 20kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxg-4f-623" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
+                                                                                <rect key="frame" x="14" y="9" width="80" height="18"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
@@ -79,8 +79,8 @@
                                                                             <constraint firstAttribute="width" constant="24" id="SIp-9j-NAm"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ke-w7-ANP" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                                                                        <rect key="frame" x="37" y="127" width="42" height="21"/>
+                                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ke-w7-ANP" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
+                                                                        <rect key="frame" x="37" y="137" width="36" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
@@ -280,14 +280,14 @@
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="UIE-XC-Tpu">
-                                        <rect key="frame" x="8" y="10" width="80" height="80"/>
+                                        <rect key="frame" x="8" y="8" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="HJa-rp-SJE"/>
                                             <constraint firstAttribute="width" secondItem="UIE-XC-Tpu" secondAttribute="height" multiplier="1:1" id="aYA-CI-ANy"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxV-hu-tSm" customClass="NHDCustomBlackFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                                        <rect key="frame" x="100" y="6" width="225" height="35"/>
+                                        <rect key="frame" x="98" y="6" width="269" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="nGp-A3-dN2"/>
                                         </constraints>
@@ -295,39 +295,39 @@
                                         <color key="textColor" red="0.91764705879999997" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 followers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxN-Wh-bKv" customClass="NHDCustomItalicFontLabel" customModule="HealthyLife" customModuleProvider="target">
+                                        <rect key="frame" x="98" y="74" width="58" height="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="height" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJ3-RR-Uu1" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
+                                        <rect key="frame" x="98" y="49" width="36" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="weight changed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ta-fl-gNP" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
+                                        <rect key="frame" x="158" y="49" width="91" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kP-Jf-dbo">
-                                        <rect key="frame" x="339" y="8" width="28" height="28"/>
+                                        <rect key="frame" x="339" y="46" width="28" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="5gA-sh-Tl9"/>
                                             <constraint firstAttribute="width" secondItem="3kP-Jf-dbo" secondAttribute="height" multiplier="1:1" id="ACS-Pk-uhz"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="Settings Filled-50"/>
                                         <connections>
-                                            <segue destination="O5d-Uo-XbN" kind="push" id="9Td-5Z-iX2"/>
+                                            <action selector="onSettingTapped:" destination="vcx-zX-44i" eventType="touchUpInside" id="iuM-JT-gaq"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 followers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxN-Wh-bKv" customClass="NHDCustomItalicFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                                        <rect key="frame" x="90" y="74" width="58" height="14"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="height" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJ3-RR-Uu1" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                                        <rect key="frame" x="100" y="49" width="36" height="15"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="weight changed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ta-fl-gNP" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                                        <rect key="frame" x="160" y="49" width="91" height="15"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="nxV-hu-tSm" firstAttribute="leading" secondItem="UIE-XC-Tpu" secondAttribute="trailing" constant="12" id="7Lz-t4-S2j"/>
+                                    <constraint firstItem="nxV-hu-tSm" firstAttribute="leading" secondItem="UIE-XC-Tpu" secondAttribute="trailing" constant="10" id="7Lz-t4-S2j"/>
                                     <constraint firstItem="fB3-fJ-ijH" firstAttribute="leading" secondItem="ZhN-qx-hES" secondAttribute="leading" id="AAv-La-ujP"/>
                                     <constraint firstAttribute="trailing" secondItem="3kP-Jf-dbo" secondAttribute="trailing" constant="8" id="FnV-e2-NWF"/>
                                     <constraint firstItem="UIE-XC-Tpu" firstAttribute="leading" secondItem="ZhN-qx-hES" secondAttribute="leading" constant="8" id="K4U-zT-7hA"/>
@@ -336,13 +336,13 @@
                                     <constraint firstItem="FJ3-RR-Uu1" firstAttribute="leading" secondItem="nxV-hu-tSm" secondAttribute="leading" id="RvB-P4-pOT"/>
                                     <constraint firstItem="7Ta-fl-gNP" firstAttribute="top" secondItem="nxV-hu-tSm" secondAttribute="bottom" constant="8" id="V9e-na-Ojk"/>
                                     <constraint firstItem="7Ta-fl-gNP" firstAttribute="leading" secondItem="FJ3-RR-Uu1" secondAttribute="trailing" constant="24" id="Wkp-Un-GnJ"/>
-                                    <constraint firstItem="UIE-XC-Tpu" firstAttribute="top" secondItem="ZhN-qx-hES" secondAttribute="top" constant="10" id="bWp-xS-fIX"/>
+                                    <constraint firstItem="UIE-XC-Tpu" firstAttribute="top" secondItem="ZhN-qx-hES" secondAttribute="top" constant="8" id="bWp-xS-fIX"/>
+                                    <constraint firstAttribute="trailing" secondItem="nxV-hu-tSm" secondAttribute="trailing" constant="8" id="cdD-fI-trX"/>
                                     <constraint firstItem="FJ3-RR-Uu1" firstAttribute="top" secondItem="nxV-hu-tSm" secondAttribute="bottom" constant="8" id="d6o-5Q-iMH"/>
                                     <constraint firstItem="nxV-hu-tSm" firstAttribute="top" secondItem="ZhN-qx-hES" secondAttribute="top" constant="6" id="f31-N9-pOC"/>
-                                    <constraint firstItem="3kP-Jf-dbo" firstAttribute="top" secondItem="ZhN-qx-hES" secondAttribute="top" constant="8" id="f7b-Iw-7Df"/>
                                     <constraint firstAttribute="trailing" secondItem="fB3-fJ-ijH" secondAttribute="trailing" id="gsq-w7-zFh"/>
                                     <constraint firstItem="DxN-Wh-bKv" firstAttribute="top" secondItem="FJ3-RR-Uu1" secondAttribute="bottom" constant="10" id="h1m-6D-JPW"/>
-                                    <constraint firstItem="3kP-Jf-dbo" firstAttribute="leading" secondItem="nxV-hu-tSm" secondAttribute="trailing" constant="14" id="oJl-OL-EEa"/>
+                                    <constraint firstItem="3kP-Jf-dbo" firstAttribute="top" secondItem="nxV-hu-tSm" secondAttribute="bottom" constant="5" id="kRy-LA-Yso"/>
                                     <constraint firstItem="DxN-Wh-bKv" firstAttribute="leading" secondItem="nxV-hu-tSm" secondAttribute="leading" id="v8a-md-oaq"/>
                                 </constraints>
                             </view>
@@ -550,89 +550,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xKb-rg-ig3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3039.5" y="-1676.5"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="EsG-g4-zJp">
-            <objects>
-                <viewController id="O5d-Uo-XbN" customClass="SettingViewController" customModule="HealthyLife" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y4N-Av-hrc"/>
-                        <viewControllerLayoutGuide type="bottom" id="3o6-yx-QI8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="j2Z-1v-yZi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOz-h2-PoK">
-                                <rect key="frame" x="34" y="137" width="25" height="25"/>
-                                <state key="normal" image="camera"/>
-                                <connections>
-                                    <action selector="cameraAction:" destination="O5d-Uo-XbN" eventType="touchUpInside" id="GPo-zw-z3y"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxK-wn-QXN">
-                                <rect key="frame" x="312" y="137" width="25" height="25"/>
-                                <state key="normal" image="lib"/>
-                                <connections>
-                                    <action selector="photoLibAction:" destination="O5d-Uo-XbN" eventType="touchUpInside" id="fFO-a3-evN"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQd-Bp-7dX">
-                                <rect key="frame" x="137" y="62" width="100" height="100"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="your weight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="acv-FU-dMp">
-                                <rect key="frame" x="20" y="181" width="335" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DOB" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XNb-ZV-brH">
-                                <rect key="frame" x="20" y="268" width="335" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4R-QK-oL8">
-                                <rect key="frame" x="170" y="404" width="34" height="30"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveAction:" destination="O5d-Uo-XbN" eventType="touchUpInside" id="cGx-Zv-YNh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXN-2U-Xya">
-                                <rect key="frame" x="163" y="452" width="48" height="26"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancelAction:" destination="O5d-Uo-XbN" eventType="touchUpInside" id="btL-nr-fMc"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="height" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CpL-B7-fqX">
-                                <rect key="frame" x="20" y="350" width="335" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="VeD-0q-lKy" appends="YES" id="hWM-UB-z5u"/>
-                        </connections>
-                    </view>
-                    <navigationItem key="navigationItem" title="Settings" id="EZN-Ok-KlN"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="DOBLabel" destination="XNb-ZV-brH" id="a9h-EN-4vH"/>
-                        <outlet property="heightLabel" destination="CpL-B7-fqX" id="4GY-mP-Rfr"/>
-                        <outlet property="imageView" destination="aQd-Bp-7dX" id="PzL-Kl-CqX"/>
-                        <outlet property="weightChangeLabel" destination="acv-FU-dMp" id="BwS-Vg-omW"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BLi-DG-whe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="VeD-0q-lKy">
-                    <connections>
-                        <action selector="cancelKeyboardAction:" destination="O5d-Uo-XbN" id="vEK-kP-RDm"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="1547.5" y="-699.5"/>
         </scene>
         <!--Schedule Plan View Controller-->
         <scene sceneID="YwE-9G-TMg">
@@ -1596,8 +1513,8 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5U-V0-I15" customClass="NHDCustomItalicFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                                                            <rect key="frame" x="211" y="37" width="49" height="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5U-V0-I15" customClass="NHDCustomItalicFontLabel" customModule="HealthyLife" customModuleProvider="target">
+                                                            <rect key="frame" x="212" y="37" width="49" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -2398,14 +2315,14 @@
         <image name="startButton" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ma2-Lr-V81"/>
-        <segue reference="Ilp-x2-K6i"/>
         <segue reference="ufo-Uh-4J7"/>
-        <segue reference="C9e-nW-Kc2"/>
-        <segue reference="P32-pf-mmX"/>
-        <segue reference="de9-EU-rTg"/>
         <segue reference="8Xa-GN-A15"/>
         <segue reference="u4i-0E-Bsc"/>
+        <segue reference="f5J-3P-dOk"/>
+        <segue reference="Ilp-x2-K6i"/>
+        <segue reference="de9-EU-rTg"/>
+        <segue reference="P32-pf-mmX"/>
+        <segue reference="6Io-V1-e1J"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
