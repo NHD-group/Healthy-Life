@@ -182,7 +182,6 @@ extension journalViewController: BaseTabPageViewControllerDelegate {
             break
         case 1:
             addIcon.title = (currentUserID == DataService.currentUserID ? "Add Result" : "")
-            vc2.tableView.contentInset = UIEdgeInsetsMake(50, 0, 100, 0)
             vc2.tableView.reloadData()
         case 2:
             addIcon.title = ""

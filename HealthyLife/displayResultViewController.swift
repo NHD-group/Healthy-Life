@@ -65,7 +65,8 @@ class displayResultViewController: BaseTableViewController {
             self.dataArray = self.results
         })
         
-         tableView.allowsMultipleSelectionDuringEditing = true
+        tableView.allowsMultipleSelectionDuringEditing = true
+        tableView.contentInset = UIEdgeInsetsMake(50, 0, 100, 0)
     }
    
     
@@ -87,11 +88,6 @@ class displayResultViewController: BaseTableViewController {
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        
-        if results.count < 3 {
-            return
-        }
-        
         let isUp = (scrollView.panGestureRecognizer.translationInView(scrollView.superview).y > 0)
         delegate?.pageViewControllerIsMoving(isUp)
     }

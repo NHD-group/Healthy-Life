@@ -40,6 +40,7 @@ class displayFoodViewController: BaseViewController {
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.alwaysBounceVertical = true
         
         collectionView.backgroundColor = Configuration.Colors.lightGray
         view.addSubview(collectionView)
@@ -144,11 +145,6 @@ extension displayFoodViewController: UICollectionViewDataSource, CollectionViewW
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        
-        if foods.count < 3 {
-            return
-        }
-        
         let isUp = (scrollView.panGestureRecognizer.translationInView(scrollView.superview).y > 0)
         delegate?.pageViewControllerIsMoving(isUp)
     }
