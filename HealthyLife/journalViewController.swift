@@ -44,7 +44,7 @@ class journalViewController: BaseViewController {
     
     var currentUserID = DataService.currentUserID
     var currentUserName = DataService.currentUserName
-    var userSetting: UserSetting?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,7 @@ class journalViewController: BaseViewController {
         avaImage.layer.cornerRadius = 20
         avaImage.clipsToBounds = true
         addIcon.title = "Add Food"
-
+        
         if currentUserID != DataService.currentUserID {
             settingButton.hidden = true
             planButton.hidden = true
@@ -76,6 +76,7 @@ class journalViewController: BaseViewController {
         //MARK: set up profile
         
         let ref = DataService.BaseRef
+        let storageRef = DataService.storageRef
         
         ref.child("users/\(currentUserID)/username").observeEventType(.Value, withBlock: { snapshot in
             self.name.text = snapshot.value as? String
@@ -86,12 +87,11 @@ class journalViewController: BaseViewController {
         ref.child("users/\(currentUserID)/user_setting").observeEventType(.Value, withBlock: { snapshot in
             if let postDictionary = snapshot.value as? NSDictionary {
                 
-                self.userSetting = UserSetting(dictionary: postDictionary)
-
                 ref.child("users").child(self.currentUserID).child("results_journal").observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
                     
                     let currentWeight = snapshot.value!["CurrentWeight"] as! String
-                    let startingWeight = self.userSetting!.weightChanged ?? "0"
+                    let startingWeight = postDictionary["weight changed"] as! String
+                    
                     
                     let weightChanged = Double(currentWeight)! - Double(startingWeight)!
                     
@@ -102,7 +102,7 @@ class journalViewController: BaseViewController {
                     }
                 }
                 
-                self.heightLabel.text = self.userSetting!.height
+                self.heightLabel.text = postDictionary["height"] as? String
                 var followerCount = 0
                 if let count = postDictionary["followerCount"] as? Int {
                     followerCount = count
@@ -124,7 +124,8 @@ class journalViewController: BaseViewController {
             
         })
         
-        avaImage.downloadImageWithKey(currentUserID)
+        let islandRef = storageRef.child("images/\(currentUserID)")
+        avaImage.downloadImageWithImageReference(islandRef)
         
     }
     
@@ -152,7 +153,6 @@ class journalViewController: BaseViewController {
         
         vc1.delegate = self
         vc2.delegate = self
-        vc3.delegate = self
     }
     
     @IBAction func onAddButtonPressed(sender: UIBarButtonItem) {
@@ -170,12 +170,6 @@ class journalViewController: BaseViewController {
         }
     }
     
-    @IBAction func onSettingTapped(sender: AnyObject) {
-        let vc = SettingViewController(nibName: String(SettingViewController), bundle: nil)
-        let navVC = BaseNavigationController(rootViewController: vc)
-        vc.userSetting = userSetting
-        presentViewController(navVC, animated: true, completion: nil)
-    }
 }
 
 extension journalViewController: BaseTabPageViewControllerDelegate {
@@ -192,7 +186,10 @@ extension journalViewController: BaseTabPageViewControllerDelegate {
             vc2.tableView.reloadData()
         case 2:
             addIcon.title = ""
-            vc3.results = vc2.results
+            vc3.delegate = self
+            vc3.results = vc2.results.reverse()
+            vc3.foods = vc1.foods
+            vc3.tableView.reloadData()
             
             break
         default:
@@ -215,7 +212,7 @@ extension journalViewController: BaseScroolViewDelegate {
                     self.view.layoutIfNeeded()
                     self.topView.alpha = 1
                 })
-//                displayLogoutButton()
+                //                displayLogoutButton()
             }
         } else if topView.tag != 2 {
             topView.tag = 2
@@ -226,10 +223,10 @@ extension journalViewController: BaseScroolViewDelegate {
                 self.view.layoutIfNeeded()
                 self.topView.alpha = 0
             })
-//            displaySettingButton()
+            //            displaySettingButton()
         }
     }
-
+    
     
     func displaySettingButton() {
         
