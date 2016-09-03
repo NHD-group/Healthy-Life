@@ -48,6 +48,7 @@
 		044E63651D7571B900E35209 /* NHDYouTubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E63641D7571B900E35209 /* NHDYouTubeTableViewCell.swift */; };
 		044E63671D7572EC00E35209 /* NHDYouTubeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E63661D7572EC00E35209 /* NHDYouTubeModel.swift */; };
 		044E63691D759A5600E35209 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E63681D759A5600E35209 /* BaseTableViewCell.swift */; };
+		0452B5071D7B14E00045AEF9 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0452B5061D7B14E00045AEF9 /* FloatRatingView.swift */; };
 		04ABC9551D6BF5E800EF0339 /* NHDSplash.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ABC9541D6BF5E800EF0339 /* NHDSplash.xib */; };
 		04ABC9571D6BF7FD00EF0339 /* NHDSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ABC9561D6BF7FD00EF0339 /* NHDSplash.swift */; };
 		04B8C4261D73E8BE001D5839 /* NHDVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8C4241D73E8BE001D5839 /* NHDVideoPlayerViewController.swift */; };
@@ -191,6 +192,7 @@
 		044E63641D7571B900E35209 /* NHDYouTubeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDYouTubeTableViewCell.swift; sourceTree = "<group>"; };
 		044E63661D7572EC00E35209 /* NHDYouTubeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDYouTubeModel.swift; sourceTree = "<group>"; };
 		044E63681D759A5600E35209 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		0452B5061D7B14E00045AEF9 /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		04ABC9541D6BF5E800EF0339 /* NHDSplash.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHDSplash.xib; sourceTree = "<group>"; };
 		04ABC9561D6BF7FD00EF0339 /* NHDSplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDSplash.swift; sourceTree = "<group>"; };
 		04B8C4241D73E8BE001D5839 /* NHDVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDVideoPlayerViewController.swift; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 		04426AE81D5DAA2C005B3621 /* CustomUIs */ = {
 			isa = PBXGroup;
 			children = (
+				0452B5061D7B14E00045AEF9 /* FloatRatingView.swift */,
 				04426AE91D5DAA2C005B3621 /* NHDFontBucket.swift */,
 				04F04F581D7482580094F9E8 /* NHDCircularTuner.swift */,
 			);
@@ -1134,6 +1137,7 @@
 				04426AF21D5DAA2C005B3621 /* UIImageViewExtension.swift in Sources */,
 				846BFCCB1D65AF31009333B1 /* displayResultViewController.swift in Sources */,
 				04F04F591D7482580094F9E8 /* NHDCircularTuner.swift in Sources */,
+				0452B5071D7B14E00045AEF9 /* FloatRatingView.swift in Sources */,
 				04426B141D5DB4C9005B3621 /* SCEditVideoViewController.m in Sources */,
 				846BFCCD1D65AF3D009333B1 /* uploadResultViewController.swift in Sources */,
 				8420E2051D6BF85E00F3CBAE /* cellDailyTableViewCell.swift in Sources */,

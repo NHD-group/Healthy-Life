@@ -14,7 +14,7 @@ class ratingViewController: UIViewController {
     var KeyUID: String!
 
     @IBOutlet weak var starCountLabel: UILabel!
-    
+    @IBOutlet var floatRatingView: FloatRatingView!
     @IBOutlet weak var commentTextField: UITextField!
     
     var trainerID: FIRDatabaseReference!
@@ -23,9 +23,6 @@ class ratingViewController: UIViewController {
     var userCommentCount = Int()
     var nameOfPlan = String()
     
-    
-    
-    @IBOutlet weak var stepperValue: UIStepper!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,21 +43,20 @@ class ratingViewController: UIViewController {
             self.userCommentCount = snapshot.value as! Int
         })
 
-       
         
-        
-//        "totalRate": 0, "totalPeoleVoted": 0
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func stepperStarCount(sender: AnyObject) {
-        
-            starCountLabel.text = "\(Int(stepperValue.value))"
-            
+        // Required float rating view params
+        floatRatingView.emptyImage = UIImage(named: "StarEmpty")
+        floatRatingView.fullImage = UIImage(named: "StarFull")
+        // Optional params
+        floatRatingView.delegate = self
+        floatRatingView.contentMode = UIViewContentMode.ScaleAspectFit
+        floatRatingView.maxRating = 5
+        floatRatingView.minRating = 1
+        floatRatingView.rating = 1
+        starCountLabel.text = "1"
+        floatRatingView.editable = true
+        floatRatingView.halfRatings = false
+        floatRatingView.floatRatings = false
     }
 
     @IBAction func submitAction(sender: AnyObject) {
@@ -80,8 +76,7 @@ class ratingViewController: UIViewController {
         }
         
         FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("activities_planned").child("sendedPlan").child(nameOfPlan).child("checkVote").setValue(true)
-        
-        
+
         
         dismissViewControllerAnimated(true, completion: nil)
         
@@ -90,15 +85,15 @@ class ratingViewController: UIViewController {
     
     @IBAction func cancelAction(sender: AnyObject) {
     }
+}
+
+extension ratingViewController: FloatRatingViewDelegate {
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func floatRatingView(ratingView: FloatRatingView, isUpdating rating:Float) {
+        starCountLabel.text = NSString(format: "%.0f", floatRatingView.rating) as String
     }
-    */
-
+    
+    func floatRatingView(ratingView: FloatRatingView, didUpdate rating: Float) {
+        
+    }
 }

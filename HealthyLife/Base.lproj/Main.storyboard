@@ -220,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xQE-S2-LRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="720.5" y="-1798.5"/>
+            <point key="canvasLocation" x="694.5" y="-1788.5"/>
         </scene>
         <!--Journal-->
         <scene sceneID="koj-Pc-Jve">
@@ -766,7 +766,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NET-uG-OEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3339.5" y="-632.5"/>
+            <point key="canvasLocation" x="2953.5" y="-625.5"/>
         </scene>
         <!--Rating View Controller-->
         <scene sceneID="hAf-iP-WwM">
@@ -780,18 +780,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIM-6E-5zS">
-                                <rect key="frame" x="31" y="120" width="40" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="Oau-7u-SFa">
-                                <rect key="frame" x="140" y="116" width="94" height="29"/>
-                                <connections>
-                                    <action selector="stepperStarCount:" destination="p9p-gN-A85" eventType="valueChanged" id="4Gb-p4-HuB"/>
-                                </connections>
-                            </stepper>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Hc-rT-8Db">
                                 <rect key="frame" x="48" y="198" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -818,8 +806,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ys-eI-Uq6">
-                                <rect key="frame" x="288" y="120" width="19" height="21"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s3p-H4-Wmp" customClass="FloatRatingView" customModule="HealthyLife" customModuleProvider="target">
+                                <rect key="frame" x="37" y="129" width="302" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="StarFull"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minRating">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxRating">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ys-eI-Uq6">
+                                <rect key="frame" x="346" y="139" width="19" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -829,13 +834,13 @@
                     </view>
                     <connections>
                         <outlet property="commentTextField" destination="3Hc-rT-8Db" id="KeM-ZL-DH5"/>
+                        <outlet property="floatRatingView" destination="s3p-H4-Wmp" id="TI2-N7-Gkt"/>
                         <outlet property="starCountLabel" destination="4ys-eI-Uq6" id="jx5-rj-XAj"/>
-                        <outlet property="stepperValue" destination="Oau-7u-SFa" id="L8e-bW-dzX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="78i-Cx-ptG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3410.5" y="90.5"/>
+            <point key="canvasLocation" x="3396.5" y="-66.5"/>
         </scene>
         <!--Daily Workout Plan-->
         <scene sceneID="c0s-qX-flH">
@@ -1006,7 +1011,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gC2-7R-DIL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2978.5" y="692.5"/>
+            <point key="canvasLocation" x="2978.5" y="390.5"/>
         </scene>
         <!--Upload Food-->
         <scene sceneID="7Ob-Cl-L1Y">
@@ -2305,6 +2310,8 @@
         <image name="Alarm Clock-50" width="50" height="50"/>
         <image name="Settings Filled-50" width="50" height="50"/>
         <image name="Star" width="25" height="25"/>
+        <image name="StarEmpty" width="22" height="22"/>
+        <image name="StarFull" width="22" height="22"/>
         <image name="addToPlan" width="25" height="25"/>
         <image name="camera" width="25" height="25"/>
         <image name="clipper" width="176" height="176"/>
@@ -2318,8 +2325,8 @@
         <segue reference="ufo-Uh-4J7"/>
         <segue reference="8Xa-GN-A15"/>
         <segue reference="u4i-0E-Bsc"/>
-        <segue reference="f5J-3P-dOk"/>
         <segue reference="Ilp-x2-K6i"/>
+        <segue reference="f5J-3P-dOk"/>
         <segue reference="de9-EU-rTg"/>
         <segue reference="P32-pf-mmX"/>
         <segue reference="6Io-V1-e1J"/>
