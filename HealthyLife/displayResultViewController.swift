@@ -18,15 +18,9 @@ class displayResultViewController: BaseTableViewController {
     var results = [Result]()
     
     var resultRef: FIRDatabaseReference!
-    var isAlreadyLoaded = false
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-
-        if isAlreadyLoaded {
-            return
-        }
-        isAlreadyLoaded = true
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         let ref = DataService.BaseRef
         

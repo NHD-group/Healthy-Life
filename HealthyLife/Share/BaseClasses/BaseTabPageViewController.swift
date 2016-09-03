@@ -67,9 +67,16 @@ extension BaseTabPageViewController {
     
     override func displayControllerWithIndex(index: Int, direction: UIPageViewControllerNavigationDirection, animated: Bool) {
 
-        super.displayControllerWithIndex(index, direction: direction, animated: animated)
+        view.userInteractionEnabled = false
+        dispatch_async(dispatch_get_main_queue()) { 
+            super.displayControllerWithIndex(index, direction: direction, animated: animated)
+        }
         
-        actionDelegate?.pageViewControllerWasSelected(index)
+        Helper.delay(Configuration.animationDuration) {
+            self.view.userInteractionEnabled = true
+            self.actionDelegate?.pageViewControllerWasSelected(index)
+        }
+        
     }
     
 }
