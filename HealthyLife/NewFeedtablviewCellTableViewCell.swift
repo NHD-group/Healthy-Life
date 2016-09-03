@@ -82,7 +82,7 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         ref.child("users").child(self.selectedUID).child("results_journal").observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
             
             let currentWeight = snapshot.value!["CurrentWeight"] as! String
-            let startingWeight = userProfile.userSetting?.weightChanged as! String
+            let startingWeight = userProfile.userSetting?.weightChanged ?? "0"
             
             
             let weightChanged = Double(currentWeight)! - Double(startingWeight)!
@@ -111,13 +111,7 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
             
         }
         
-        
-        
-        
-        
-        
-        
-        HeightLabel.text = userProfile.userSetting?.height as? String ?? "height"
+        HeightLabel.text = userProfile.userSetting?.height ?? "height"
         
         nameLabel.text = sellectedUsername
         let followerCount = userProfile.followerCount ?? 0

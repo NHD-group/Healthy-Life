@@ -43,10 +43,22 @@ class Helper: NSObject {
     }
     
     static func getPresentationDateString(sinceDate: NSDate) -> String {
+        
+        return BirthdayDateFormatter().stringFromDate(sinceDate)
+    }
+    
+    static func BirthdayDateFormatter() -> NSDateFormatter {
         let DateFormatter = NSDateFormatter()
         DateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        DateFormatter.timeStyle = .ShortStyle
-        return DateFormatter.stringFromDate(sinceDate)
+        DateFormatter.timeStyle = .NoStyle
+        return DateFormatter
+    }
+    
+    static func setPresentationDateString(dateString: String?) -> NSDate? {
+        if dateString == nil {
+            return NSDate()
+        }
+        return BirthdayDateFormatter().dateFromString(dateString!)
     }
     
     static func getDecimalFormattedNumberString(number: NSNumber) -> String {

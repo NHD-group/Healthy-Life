@@ -12,35 +12,18 @@ import Firebase
 class SettingViewController: BaseViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate   {
 
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var weightChangeLabel: UITextField!
-    
-    
-    @IBOutlet weak var DOBLabel: UITextField!
-    
-    
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var heightLabel: UITextField!
-    
-    let storageRef = FIRStorage.storage().reference()
-    
-    @IBAction func cancelKeyboardAction(sender: AnyObject) {
-        view.endEditing(true)
-    }
-    
-    
-    //MARK: Photo Action
-    
-    
+    var userSetting: UserSetting?
+
     @IBAction func cameraAction(sender: AnyObject) {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.sourceType = .Camera
         
         presentViewController(picker, animated: true, completion: nil)
-        
-        
     }
-    
     
     @IBAction func photoLibAction(sender: AnyObject) {
         let picker = UIImagePickerController()
@@ -48,67 +31,48 @@ class SettingViewController: BaseViewController,UIImagePickerControllerDelegate,
         picker.sourceType = .PhotoLibrary
         
         presentViewController(picker, animated: true, completion: nil)
-        
     }
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
-        
+        imageView.tag = 100
     }
-        
-    //MARK: save setting
+    
     
     @IBAction func saveAction(sender: AnyObject) {
         
-        let currentID = DataService.currentUserID
-       
-        
         let userSetting: Dictionary<String, AnyObject> = [
             "weight changed": weightChangeLabel.text!,
-            "DOB": DOBLabel.text!,
+            "DOB": Helper.getPresentationDateString(datePicker.date),
             "height": heightLabel.text!
-            
         ]
         DataService.dataService.userRef.child("user_setting").setValue(userSetting)
         
         //: Upload Image
-        
-        if var avatarImage = imageView.image {
-            
-            avatarImage = avatarImage.resizeImage(CGSize(width: 100.0, height: 100.0))
-            
-            let imageData: NSData = UIImagePNGRepresentation(avatarImage)!
-            
-            // Create a reference to the file you want to upload
-            
-            let riversRef = storageRef.child("images/\(currentID)")
-            
-            // Upload the file to the path ""images/\(key)"
-            riversRef.putData(imageData, metadata: nil) { metadata, error in
-                if (error != nil) {
-                    // Uh-oh, an error occurred!
-                    Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
-                } else {
-                    // Metadata contains file metadata such as size, content-type, and download URL.
-                    let downloadURL = metadata!.downloadURL
-                    print(downloadURL)
-                    self.onBack()
-                }
-            }
-        } else {
+        if imageView.tag == 0 {
             onBack()
+            return
         }
         
-    }
-    
-    
-    @IBAction func cancelAction(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        imageView.uploadImageWithKey(DataService.currentUserID, complete: {
+            self.onBack()
+            }) { (error) in
+                Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Settings"
+        imageView.downloadImageWithKey(DataService.currentUserID)
+        if let userSetting = userSetting {
+            if let date = Helper.setPresentationDateString(userSetting.DOB) {
+                datePicker.date = date
+            }
+            weightChangeLabel.text = userSetting.weightChanged
+            heightLabel.text = userSetting.height
+        }
     }
 }

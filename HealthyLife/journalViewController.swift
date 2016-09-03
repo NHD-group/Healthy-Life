@@ -44,7 +44,7 @@ class journalViewController: BaseViewController {
     
     var currentUserID = DataService.currentUserID
     var currentUserName = DataService.currentUserName
-    
+    var userSetting: UserSetting?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +76,6 @@ class journalViewController: BaseViewController {
         //MARK: set up profile
         
         let ref = DataService.BaseRef
-        let storageRef = DataService.storageRef
         
         ref.child("users/\(currentUserID)/username").observeEventType(.Value, withBlock: { snapshot in
             self.name.text = snapshot.value as? String
@@ -87,11 +86,12 @@ class journalViewController: BaseViewController {
         ref.child("users/\(currentUserID)/user_setting").observeEventType(.Value, withBlock: { snapshot in
             if let postDictionary = snapshot.value as? NSDictionary {
                 
+                self.userSetting = UserSetting(dictionary: postDictionary)
+
                 ref.child("users").child(self.currentUserID).child("results_journal").observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot!) in
                     
                     let currentWeight = snapshot.value!["CurrentWeight"] as! String
-                    let startingWeight = postDictionary["weight changed"] as! String
-                    
+                    let startingWeight = self.userSetting!.weightChanged ?? "0"
                     
                     let weightChanged = Double(currentWeight)! - Double(startingWeight)!
                     
@@ -102,7 +102,7 @@ class journalViewController: BaseViewController {
                     }
                 }
                 
-                self.heightLabel.text = postDictionary["height"] as? String
+                self.heightLabel.text = self.userSetting!.height
                 var followerCount = 0
                 if let count = postDictionary["followerCount"] as? Int {
                     followerCount = count
@@ -124,8 +124,7 @@ class journalViewController: BaseViewController {
             
         })
         
-        let islandRef = storageRef.child("images/\(currentUserID)")
-        avaImage.downloadImageWithImageReference(islandRef)
+        avaImage.downloadImageWithKey(currentUserID)
         
     }
     
@@ -173,6 +172,7 @@ class journalViewController: BaseViewController {
     @IBAction func onSettingTapped(sender: AnyObject) {
         let vc = SettingViewController(nibName: String(SettingViewController), bundle: nil)
         let navVC = BaseNavigationController(rootViewController: vc)
+        vc.userSetting = userSetting
         presentViewController(navVC, animated: true, completion: nil)
     }
 }

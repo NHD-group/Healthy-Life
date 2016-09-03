@@ -2,11 +2,12 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingViewController" customModule="HealthyLife" customModuleProvider="target">
             <connections>
-                <outlet property="DOBLabel" destination="4Ey-7S-Bje" id="Rpf-bB-hdt"/>
+                <outlet property="datePicker" destination="JCU-Ol-8n5" id="Wtf-bV-fGJ"/>
                 <outlet property="heightLabel" destination="Xcw-1r-FsA" id="af1-tZ-eGj"/>
                 <outlet property="imageView" destination="4lg-s2-m8D" id="HOe-nd-igs"/>
                 <outlet property="view" destination="gVn-zU-Eff" id="XU5-cw-Wen"/>
@@ -18,52 +19,118 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6DD-M5-Sux">
-                    <rect key="frame" x="34" y="137" width="25" height="25"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6DD-M5-Sux">
+                    <rect key="frame" x="228" y="86" width="50" height="35"/>
                     <state key="normal" image="camera"/>
                     <connections>
                         <action selector="cameraAction:" destination="-1" eventType="touchUpInside" id="0V3-Vx-06t"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4lg-s2-m8D">
-                    <rect key="frame" x="137" y="62" width="100" height="100"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="4lg-s2-m8D">
+                    <rect key="frame" x="110" y="70" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="Ibb-Ad-vRA"/>
+                        <constraint firstAttribute="width" secondItem="4lg-s2-m8D" secondAttribute="height" multiplier="1:1" id="Jtm-Sg-DST"/>
+                    </constraints>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="your weight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rkg-mu-5Xd">
-                    <rect key="frame" x="20" y="181" width="335" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DOB" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Ey-7S-Bje">
-                    <rect key="frame" x="20" y="268" width="335" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAc-QM-cPV">
-                    <rect key="frame" x="170" y="404" width="34" height="30"/>
-                    <state key="normal" title="Save"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAc-QM-cPV" customClass="NHDCustomSubmitButton" customModule="HealthyLife" customModuleProvider="target">
+                    <rect key="frame" x="131" y="449" width="57" height="30"/>
+                    <state key="normal" title="UPDATE"/>
                     <connections>
                         <action selector="saveAction:" destination="-1" eventType="touchUpInside" id="jAV-MY-Qlv"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="height" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xcw-1r-FsA">
-                    <rect key="frame" x="20" y="350" width="335" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="height" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xcw-1r-FsA">
+                    <rect key="frame" x="13" y="225" width="251" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8R8-Cd-pFo">
-                    <rect key="frame" x="287" y="137" width="25" height="25"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8R8-Cd-pFo">
+                    <rect key="frame" x="228" y="135" width="50" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="4DZ-Nc-de4"/>
+                        <constraint firstAttribute="width" secondItem="8R8-Cd-pFo" secondAttribute="height" multiplier="10:7" id="IWT-iR-VqV"/>
+                    </constraints>
                     <state key="normal" image="lib"/>
                     <connections>
                         <action selector="photoLibAction:" destination="-1" eventType="touchUpInside" id="e7E-br-myb"/>
                     </connections>
                 </button>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="JCU-Ol-8n5">
+                    <rect key="frame" x="0.0" y="285" width="320" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="BTT-FH-UJ3"/>
+                    </constraints>
+                    <date key="date" timeIntervalSinceReferenceDate="-62934932098.740494">
+                        <!--0006-09-03 10:25:01 +0000-->
+                    </date>
+                    <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                        <!--1970-01-01 11:00:00 +0000-->
+                    </date>
+                    <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
+                        <!--2037-12-31 11:00:00 +0000-->
+                    </date>
+                </datePicker>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="your weight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rkg-mu-5Xd">
+                    <rect key="frame" x="13" y="183" width="251" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6f-bp-IBa" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
+                    <rect key="frame" x="13" y="267" width="58" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(cm)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ixm-M0-Yyg" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
+                    <rect key="frame" x="280" y="231" width="32" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(kg)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q32-Cy-Plw" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
+                    <rect key="frame" x="280" y="189" width="27" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="Ixm-M0-Yyg" firstAttribute="centerY" secondItem="Xcw-1r-FsA" secondAttribute="centerY" id="3go-xY-tH3"/>
+                <constraint firstItem="Rkg-mu-5Xd" firstAttribute="top" secondItem="4lg-s2-m8D" secondAttribute="bottom" constant="13" id="5WW-8L-k7l"/>
+                <constraint firstItem="JCU-Ol-8n5" firstAttribute="top" secondItem="M6f-bp-IBa" secondAttribute="bottom" id="8Ps-Qs-p0z"/>
+                <constraint firstItem="Xcw-1r-FsA" firstAttribute="top" secondItem="Rkg-mu-5Xd" secondAttribute="bottom" constant="12" id="8Qp-mm-OZF"/>
+                <constraint firstItem="Ixm-M0-Yyg" firstAttribute="leading" secondItem="Xcw-1r-FsA" secondAttribute="trailing" constant="16" id="EGG-dp-Jqi"/>
+                <constraint firstAttribute="trailing" secondItem="JCU-Ol-8n5" secondAttribute="trailing" id="FxZ-ce-JSA"/>
+                <constraint firstItem="fAc-QM-cPV" firstAttribute="top" secondItem="JCU-Ol-8n5" secondAttribute="bottom" constant="14" id="KkZ-Ef-lYM"/>
+                <constraint firstItem="8R8-Cd-pFo" firstAttribute="leading" secondItem="4lg-s2-m8D" secondAttribute="trailing" constant="18" id="MPQ-Qg-gAK"/>
+                <constraint firstItem="Xcw-1r-FsA" firstAttribute="leading" secondItem="Rkg-mu-5Xd" secondAttribute="leading" id="NDj-X1-FIz"/>
+                <constraint firstItem="6DD-M5-Sux" firstAttribute="height" secondItem="8R8-Cd-pFo" secondAttribute="height" id="S41-ZZ-WgS"/>
+                <constraint firstItem="M6f-bp-IBa" firstAttribute="leading" secondItem="Rkg-mu-5Xd" secondAttribute="leading" id="S7k-i2-RWM"/>
+                <constraint firstItem="JCU-Ol-8n5" firstAttribute="leading" secondItem="gVn-zU-Eff" secondAttribute="leading" id="Sw9-2t-rMm"/>
+                <constraint firstItem="Q32-Cy-Plw" firstAttribute="centerY" secondItem="Rkg-mu-5Xd" secondAttribute="centerY" id="WeL-zL-TJ5"/>
+                <constraint firstItem="4lg-s2-m8D" firstAttribute="top" secondItem="gVn-zU-Eff" secondAttribute="top" constant="70" id="XrY-mT-B0I"/>
+                <constraint firstItem="8R8-Cd-pFo" firstAttribute="bottom" secondItem="4lg-s2-m8D" secondAttribute="bottom" id="Y9a-wl-DeE"/>
+                <constraint firstItem="6DD-M5-Sux" firstAttribute="trailing" secondItem="8R8-Cd-pFo" secondAttribute="trailing" id="Ysn-fg-esg"/>
+                <constraint firstItem="4lg-s2-m8D" firstAttribute="centerX" secondItem="gVn-zU-Eff" secondAttribute="centerX" id="bgA-aP-nAG"/>
+                <constraint firstItem="Q32-Cy-Plw" firstAttribute="leading" secondItem="Rkg-mu-5Xd" secondAttribute="trailing" constant="16" id="cOw-rb-Udf"/>
+                <constraint firstItem="JCU-Ol-8n5" firstAttribute="centerX" secondItem="gVn-zU-Eff" secondAttribute="centerX" id="dYR-AT-szz"/>
+                <constraint firstAttribute="trailing" secondItem="Q32-Cy-Plw" secondAttribute="trailing" constant="13" id="hJc-N8-C6O"/>
+                <constraint firstAttribute="trailing" secondItem="Ixm-M0-Yyg" secondAttribute="trailing" constant="8" id="mJj-H3-s05"/>
+                <constraint firstItem="M6f-bp-IBa" firstAttribute="top" secondItem="Xcw-1r-FsA" secondAttribute="bottom" constant="12" id="okS-KJ-Ras"/>
+                <constraint firstItem="6DD-M5-Sux" firstAttribute="leading" secondItem="8R8-Cd-pFo" secondAttribute="leading" id="udV-3F-wUU"/>
+                <constraint firstItem="8R8-Cd-pFo" firstAttribute="top" secondItem="6DD-M5-Sux" secondAttribute="bottom" constant="14" id="xNA-h7-tVo"/>
+                <constraint firstItem="Rkg-mu-5Xd" firstAttribute="leading" secondItem="gVn-zU-Eff" secondAttribute="leading" constant="13" id="xd1-YN-l4R"/>
+                <constraint firstItem="fAc-QM-cPV" firstAttribute="centerX" secondItem="gVn-zU-Eff" secondAttribute="centerX" id="ycg-L5-EhU"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </view>
     </objects>
     <resources>
         <image name="camera" width="25" height="25"/>
         <image name="lib" width="25" height="25"/>
+        <image name="user_avatar" width="336" height="336"/>
     </resources>
 </document>

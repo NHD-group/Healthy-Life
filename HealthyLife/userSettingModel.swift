@@ -10,15 +10,15 @@ import Foundation
 
 class UserSetting: NSObject {
 
-    var DOB: NSString?
-    var weightChanged: NSString?
-    var height: NSString?
+    var DOB: String?
+    var weightChanged: String?
+    var height: String?
     
     init(dictionary: NSDictionary) {
       
-        DOB = (dictionary["DOB"] as? String) ?? "non"
-        weightChanged = (dictionary["weight changed"] as? String) ?? "non"
-        height = (dictionary["height"] as? String) ?? "non"
+        DOB = (dictionary["DOB"] as? String) ?? ""
+        weightChanged = (dictionary["weight changed"] as? String) ?? "0"
+        height = (dictionary["height"] as? String) ?? "0"
     }
     
 }

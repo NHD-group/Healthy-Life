@@ -12,6 +12,27 @@ import Firebase
 
 extension UIImageView {
     
+    func uploadImageWithKey(key: String, complete: (() -> ())?, fail: ((error:NSError?) -> ())?) {
+        
+        let imageRef = FIRStorage.storage().reference().child("images/\(key)")
+
+        if var avatarImage = self.image {
+            
+            avatarImage = avatarImage.resizeImage(CGSize(width: 100.0, height: 100.0))
+            let imageData: NSData = UIImagePNGRepresentation(avatarImage)!
+            
+            imageRef.putData(imageData, metadata: nil) { metadata, error in
+                if (error != nil) {
+                    fail?(error: error)
+                } else {
+                    complete?()
+                }
+            }
+        } else {
+            complete?()
+        }
+    }
+    
 
     func downloadImageWithKey(key: String) {
         let imageRef = FIRStorage.storage().reference().child("images/\(key)")
