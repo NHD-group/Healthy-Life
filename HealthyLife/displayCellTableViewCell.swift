@@ -60,34 +60,18 @@ class displayCellTableViewCell: UITableViewCell {
                         self.weightView.backgroundColor = UIColor.redColor()
                         self.weightChangedLabel.text = "lose: \(abs(weightChanged)) kg"
                     }
-                    
-                    
                 }
                 
             })
             
             let islandRef = storageRef.child("images/\(result!.resultKey)")
             avaImage.downloadImageWithImageReference(islandRef)
-
-            
             
             timeLabel.text = "\(result!.time.timeAgo())"
             likeCountLabel.text = "\(result!.love)"
             
-            
-          
-            
-            
         }
     }
-    
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        // UITapGestureRecognizer is set programatically.
-          }
     
     
 }

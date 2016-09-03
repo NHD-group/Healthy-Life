@@ -59,6 +59,7 @@ extension UIImageView {
                     
                     if (error != nil) {
                         // Uh-oh, an error occurred!
+                        NSLog((error?.description)!)
                     } else {
                         // Data for "images/island.jpg" is returned
                         let responseImage: UIImage! = UIImage(data: data!)

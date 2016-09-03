@@ -66,9 +66,6 @@ class displayResultViewController: BaseTableViewController {
         })
         
          tableView.allowsMultipleSelectionDuringEditing = true
-        
-        
-        // Do any additional setup after loading the view.
     }
    
     
@@ -77,12 +74,8 @@ class displayResultViewController: BaseTableViewController {
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.row)
         
-        
-            resultRef.child(results[indexPath.row].resultKey).removeValue()
-        
-        
+        resultRef.child(results[indexPath.row].resultKey).removeValue()
     }
     
     
