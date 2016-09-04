@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Results-->
@@ -1025,38 +1026,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6f-RJ-sRQ">
-                                <rect key="frame" x="90" y="289" width="25" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6f-RJ-sRQ">
+                                <rect key="frame" x="69" y="343" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fEq-wJ-wfk"/>
+                                    <constraint firstAttribute="width" secondItem="T6f-RJ-sRQ" secondAttribute="height" multiplier="1:1" id="pBx-pT-lYr"/>
+                                </constraints>
                                 <state key="normal" image="lib"/>
                                 <connections>
                                     <action selector="photoLibAction:" destination="0cS-9h-tg1" eventType="touchUpInside" id="WoC-lR-N4G"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="kyH-29-b98">
-                                <rect key="frame" x="20" y="88" width="335" height="185"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="kyH-29-b98">
+                                <rect key="frame" x="20" y="88" width="335" height="251"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kyH-29-b98" secondAttribute="height" multiplier="4:3" id="x3L-lP-Kfr"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="860-1T-j8w" customClass="NHDCustomSubmitButton" customModule="HealthyLife" customModuleProvider="target">
-                                <rect key="frame" x="162" y="390" width="50" height="30"/>
-                                <state key="normal" title="Upload"/>
-                                <connections>
-                                    <action selector="uploadAction:" destination="0cS-9h-tg1" eventType="touchUpInside" id="g7i-Rx-kRX"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type of Food" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ue-bi-xK6">
-                                <rect key="frame" x="20" y="340" width="335" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type of Food" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ue-bi-xK6">
+                                <rect key="frame" x="20" y="406" width="335" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNr-ii-cwc">
-                                <rect key="frame" x="260" y="289" width="25" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNr-ii-cwc">
+                                <rect key="frame" x="256" y="343" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mNr-ii-cwc" secondAttribute="height" multiplier="1:1" id="FsF-V7-bzz"/>
+                                </constraints>
                                 <state key="normal" image="camera"/>
                                 <connections>
                                     <action selector="cameraAction:" destination="0cS-9h-tg1" eventType="touchUpInside" id="TwL-UD-SB7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="860-1T-j8w" customClass="NHDRoundedConrerButton" customModule="HealthyLife" customModuleProvider="target">
+                                <rect key="frame" x="157" y="456" width="60" height="30"/>
+                                <state key="normal" title="UPLOAD"/>
+                                <connections>
+                                    <action selector="uploadAction:" destination="0cS-9h-tg1" eventType="touchUpInside" id="g7i-Rx-kRX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="T6f-RJ-sRQ" firstAttribute="top" secondItem="mNr-ii-cwc" secondAttribute="top" id="5T5-QQ-MRk"/>
+                            <constraint firstItem="860-1T-j8w" firstAttribute="centerX" secondItem="Tsx-bJ-VnI" secondAttribute="centerX" id="8iD-OO-s88"/>
+                            <constraint firstItem="0ue-bi-xK6" firstAttribute="leading" secondItem="kyH-29-b98" secondAttribute="leading" id="CgZ-yx-wps"/>
+                            <constraint firstItem="T6f-RJ-sRQ" firstAttribute="centerX" secondItem="Tsx-bJ-VnI" secondAttribute="centerX" multiplier="1:2" id="Cno-b2-O1E"/>
+                            <constraint firstItem="kyH-29-b98" firstAttribute="leading" secondItem="Tsx-bJ-VnI" secondAttribute="leading" constant="20" id="GEG-aN-gm8"/>
+                            <constraint firstItem="0ue-bi-xK6" firstAttribute="top" secondItem="T6f-RJ-sRQ" secondAttribute="bottom" constant="13" id="KFS-EO-Z1T"/>
+                            <constraint firstItem="kyH-29-b98" firstAttribute="top" secondItem="eWu-Rk-ouQ" secondAttribute="bottom" constant="24" id="OBY-iT-ZcE"/>
+                            <constraint firstItem="860-1T-j8w" firstAttribute="top" secondItem="0ue-bi-xK6" secondAttribute="bottom" constant="20" id="VL7-Oy-tgE"/>
+                            <constraint firstItem="0ue-bi-xK6" firstAttribute="trailing" secondItem="kyH-29-b98" secondAttribute="trailing" id="eEz-hm-HEn"/>
+                            <constraint firstItem="kyH-29-b98" firstAttribute="centerX" secondItem="Tsx-bJ-VnI" secondAttribute="centerX" id="lav-rb-HGH"/>
+                            <constraint firstItem="T6f-RJ-sRQ" firstAttribute="bottom" secondItem="mNr-ii-cwc" secondAttribute="bottom" id="uCL-Vc-57i"/>
+                            <constraint firstItem="mNr-ii-cwc" firstAttribute="centerX" secondItem="Tsx-bJ-VnI" secondAttribute="centerX" multiplier="3:2" id="uY8-gF-6QO"/>
+                            <constraint firstItem="T6f-RJ-sRQ" firstAttribute="top" secondItem="kyH-29-b98" secondAttribute="bottom" constant="4" id="zme-p6-RYa"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="W5E-aQ-4mL" appends="YES" id="a7J-Ih-KWc"/>
                         </connections>

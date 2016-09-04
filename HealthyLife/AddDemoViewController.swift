@@ -14,24 +14,23 @@ import AVFoundation
 class AddDemoViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     @IBOutlet weak var desTextView: UITextView!
-    
     @IBOutlet weak var thumbnailImage: UIImageView!
-    
-    
-    var currentUid = (FIRAuth.auth()?.currentUser?.uid)!
-    var videoUrl = NSURL()
-    
-    
     @IBOutlet weak var priceTextField: UITextField!
     
+    var videoUrl = NSURL()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
     
     @IBAction func uploadAction(sender: AnyObject) {
         
         showLoading()
-
+        let currentUid = DataService.currentUserID
         let trailerRef = FIRDatabase.database().reference().child("videosTrailer").child(currentUid)
         
-        let uploadTask = FIRStorage.storage().reference().child("videosTrailer").child(currentUid).putFile(videoUrl, metadata: nil, completion: { (metadata, error) in
+        FIRStorage.storage().reference().child("videosTrailer").child(currentUid).putFile(videoUrl, metadata: nil, completion: { (metadata, error) in
             if error  != nil {
                 
                 Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
@@ -41,13 +40,11 @@ class AddDemoViewController: BaseViewController, UIImagePickerControllerDelegate
                 thumbNail = thumbNail!.resizeImage(CGSize(width: 500.0, height: 500.0))
                 
                 let imageData: NSData = UIImagePNGRepresentation(thumbNail!)!
-                
-                
-                
+
                 
                 // Create a reference to the file you want to upload
                 
-                let riversRef = FIRStorage.storage().reference().child("images").child("trailer").child(self.currentUid)
+                let riversRef = FIRStorage.storage().reference().child("images").child("trailer").child(currentUid)
                 
                 // Upload the file to the path ""images/\(key)"
                 riversRef.putData(imageData, metadata: nil) { metadata, error in
@@ -73,7 +70,7 @@ class AddDemoViewController: BaseViewController, UIImagePickerControllerDelegate
                     let videoInfo: [String: AnyObject] = ["videoUrl": videoUrl, "description": self.desTextView.text!, "pricePerWeek": self.priceTextField.text!]
                     
                     trailerRef.setValue(videoInfo)
-                    FIRDatabase.database().reference().child("users").child(self.currentUid).child("demo").setValue(true)
+                    FIRDatabase.database().reference().child("users").child(currentUid).child("demo").setValue(true)
                     trailerRef.child("priceList").childByAutoId().setValue(self.priceTextField.text!)
                     
                 }

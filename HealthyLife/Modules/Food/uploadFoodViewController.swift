@@ -17,6 +17,16 @@ class uploadFoodViewController:  BaseViewController, UIImagePickerControllerDele
     
     @IBOutlet weak var FoodImageView: UIImageView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let tapToChoosePhotoGesture = UITapGestureRecognizer(target: self, action: #selector(self.photoLibAction(_:)))
+        FoodImageView.addGestureRecognizer(tapToChoosePhotoGesture)
+        FoodImageView.userInteractionEnabled = true
+
+        addBackgroundImage()
+    }
+    
     @IBAction func tapAction(sender: AnyObject) {
         view.endEditing(true)
         
@@ -30,8 +40,6 @@ class uploadFoodViewController:  BaseViewController, UIImagePickerControllerDele
         picker.sourceType = .Camera
         
         presentViewController(picker, animated: true, completion: nil)
-
-
     }
     
     
@@ -41,26 +49,25 @@ class uploadFoodViewController:  BaseViewController, UIImagePickerControllerDele
         picker.sourceType = .PhotoLibrary
         
         presentViewController(picker, animated: true, completion: nil)
-        
     }
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         FoodImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
-        
+        FoodImageView.tag = 1
     }
     
     //MARK: Set Up action upload JSON data to firebase realtime database and Photo to Firebase Storage.
     
     @IBAction func uploadAction(sender: UIButton) {
         
-        guard var foodImage = FoodImageView.image else {
+        guard let foodImage = FoodImageView.image where FoodImageView.tag != 0 else {
             Helper.showAlert("Warning", message: "Please select a photo!", inViewController: self)
             return
         }
         
         //: Upload JSON to realtime database
-        
+        showLoading()
         key =  ref.child("users").child(currentUserID!).child("food_journal").childByAutoId().key
 
         let newPost: Dictionary<String, AnyObject> = [
@@ -75,6 +82,7 @@ class uploadFoodViewController:  BaseViewController, UIImagePickerControllerDele
         
         DataService.uploadImage(foodImage, key: key, complete: { (downloadURL) in
             self.onBack()
+            self.hideLoading()
             }) { (error) in
                 Helper.showAlert("Error", message: error.localizedDescription, inViewController: self)
         }

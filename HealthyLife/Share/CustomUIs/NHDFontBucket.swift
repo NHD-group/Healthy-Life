@@ -39,31 +39,36 @@ class NHDFontBucket {
 class NHDCustomFontLabel: UILabel {
     
     override func awakeFromNib() {
-        
+        super.awakeFromNib()
+
         font = NHDFontBucket.fontWithSize(font.pointSize - 1)
+        adjustsFontSizeToFitWidth = true
     }
 }
 
-class NHDCustomItalicFontLabel: UILabel {
+class NHDCustomItalicFontLabel: NHDCustomFontLabel {
     
     override func awakeFromNib() {
-        
+        super.awakeFromNib()
+
         font = NHDFontBucket.italicFontWithSize(font.pointSize - 1)
     }
 }
 
-class NHDCustomBoldFontLabel: UILabel {
+class NHDCustomBoldFontLabel: NHDCustomFontLabel {
     
     override func awakeFromNib() {
-        
+        super.awakeFromNib()
+
         font = NHDFontBucket.boldFontWithSize(font.pointSize - 1)
     }
 }
 
-class NHDCustomBlackFontLabel: UILabel {
+class NHDCustomBlackFontLabel: NHDCustomFontLabel {
     
     override func awakeFromNib() {
-        
+        super.awakeFromNib()
+
         font = NHDFontBucket.blackFontWithSize(font.pointSize - 1)
     }
 }
@@ -71,11 +76,13 @@ class NHDCustomBlackFontLabel: UILabel {
 class NHDCustomFontButton: UIButton {
     
     override func awakeFromNib() {
-        
+        super.awakeFromNib()
+
         if let titleLabel = titleLabel {
             titleLabel.font = NHDFontBucket.blackFontWithSize(titleLabel.font.pointSize)
             titleLabel.adjustsFontSizeToFitWidth = true
         }
+        contentEdgeInsets = UIEdgeInsetsMake(3, 3, 3, 3)
     }
 }
 

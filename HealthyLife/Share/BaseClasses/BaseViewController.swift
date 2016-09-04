@@ -9,6 +9,7 @@
 import UIKit
 import MBProgressHUD
 import Firebase
+import SnapKit
 
 class BaseViewController: UIViewController {
 
@@ -30,6 +31,33 @@ class BaseViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(BaseViewController.keyboardWillAppear), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(BaseViewController.keyboardWillDisappear), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func addBackgroundImage() {
+        
+        let blurredBackground = UIImageView(frame: view.frame)
+        blurredBackground.image = UIImage(named: "SignIn")
+        blurredBackground.alpha = 0.7
+        blurredBackground.blurImage()
+        
+        view.insertSubview(blurredBackground, atIndex: 0)
+        blurredBackground.snp_makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
+        
+        let colorView = UIView(frame: view.frame)
+        colorView.alpha = 0.8
+        UIView.animateWithDuration(3, delay: 0.3, options:[UIViewAnimationOptions.Repeat, UIViewAnimationOptions.Autoreverse], animations: {
+            colorView.backgroundColor = UIColor.blackColor()
+            colorView.backgroundColor = UIColor.greenColor()
+            colorView.backgroundColor = UIColor.grayColor()
+            colorView.backgroundColor = Configuration.Colors.veryYellow
+            }, completion: nil)
+        
+        view.insertSubview(colorView, atIndex: 0)
+        colorView.snp_makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
     }
     
     func displayLogoutButton() {
