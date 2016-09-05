@@ -66,14 +66,14 @@ class editViewController: BaseViewController , UIImagePickerControllerDelegate, 
 
     
     @IBAction func editTrailer(sender: AnyObject) {
-        showLoading()
         
-       
+        showLoading()
         
         let uploadTask = FIRStorage.storage().reference().child("videosTrailer").child(currentUid).putFile(videoUrl, metadata: nil, completion: { (metadata, error) in
             if error  != nil {
                 
                 Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
+                self.hideLoading()
                 return
             } else {
                 var thumbNail = self.thumbNailImage.image
@@ -93,6 +93,7 @@ class editViewController: BaseViewController , UIImagePickerControllerDelegate, 
                     if (error != nil) {
                         // Uh-oh, an error occurred!
                         Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
+                        self.hideLoading()
                     } else {
                         // Metadata contains file metadata such as size, content-type, and download URL.
                         if let downloadURL = metadata?.downloadURL()?.absoluteString {

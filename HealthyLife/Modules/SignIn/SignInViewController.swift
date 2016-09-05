@@ -205,7 +205,7 @@ class SignInViewController: BaseViewController {
             FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
                 if error != nil {
                     Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
-
+                    self.hideLoading()
                 } else {
                     self.getDetailsOfUser()
                     self.saveDataUser(email, password: password)
@@ -213,6 +213,7 @@ class SignInViewController: BaseViewController {
             })
         } else {
             Helper.showAlert("Oops", message: "Please fill in all the fields", inViewController: self)
+            self.hideLoading()
         }
         
     }
@@ -228,6 +229,7 @@ class SignInViewController: BaseViewController {
             FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user, error) in
                 if error != nil {
                     Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
+                    self.hideLoading()
                 } else {
                     FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
                         if error != nil {
@@ -245,7 +247,7 @@ class SignInViewController: BaseViewController {
             })
         } else {
             Helper.showAlert("Oops", message: "Please fill in all the fields", inViewController: self)
-
+            self.hideLoading()
         }
         
     }

@@ -374,6 +374,7 @@ extension chatViewController: UIImagePickerControllerDelegate, UINavigationContr
                 if error  != nil {
                     
                     Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
                 } else {
                     if let videoUrl = metadata?.downloadURL()?.absoluteString {
 

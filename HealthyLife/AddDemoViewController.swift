@@ -34,6 +34,7 @@ class AddDemoViewController: BaseViewController, UIImagePickerControllerDelegate
             if error  != nil {
                 
                 Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
+                self.hideLoading()
                 return
             } else {
                 var thumbNail = self.thumbnailImage.image
@@ -51,6 +52,7 @@ class AddDemoViewController: BaseViewController, UIImagePickerControllerDelegate
                     if (error != nil) {
                         // Uh-oh, an error occurred!
                         Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
+                        self.hideLoading()
                     } else {
                         // Metadata contains file metadata such as size, content-type, and download URL.
                         if let downloadURL = metadata?.downloadURL()?.absoluteString {

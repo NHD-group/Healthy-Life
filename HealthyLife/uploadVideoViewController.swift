@@ -115,6 +115,7 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
                 if error  != nil {
                     
                     Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
+                    self.hideLoading()
                 } else {
                     if let videoUrl = metadata?.downloadURL()?.absoluteString {
                         
@@ -134,6 +135,7 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
             DataService.uploadImage(image, key: key, complete: { (downloadURL) in
             }) { (error) in
                 Helper.showAlert("Error", message: error.localizedDescription, inViewController: self)
+                self.hideLoading()
             }
         }
         
