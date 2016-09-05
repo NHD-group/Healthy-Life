@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="uploadFoodViewController" customModule="HealthyLife" customModuleProvider="target">
+            <connections>
+                <outlet property="desTextField" destination="nyu-EA-qD3" id="zFK-pT-Bij"/>
+                <outlet property="pickerContainer" destination="EMR-Md-DVz" id="4GK-a7-RKH"/>
+                <outlet property="view" destination="yLl-Vf-gdX" id="d10-K6-87e"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="yLl-Vf-gdX">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type of Food" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nyu-EA-qD3">
+                    <rect key="frame" x="20" y="74" width="280" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uc-WW-DKQ" customClass="NHDRoundedConrerButton" customModule="HealthyLife" customModuleProvider="target">
+                    <rect key="frame" x="130" y="119" width="60" height="30"/>
+                    <state key="normal" title="UPLOAD"/>
+                    <connections>
+                        <action selector="uploadAction:" destination="-1" eventType="touchUpInside" id="ksu-RR-iaM"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMR-Md-DVz">
+                    <rect key="frame" x="0.0" y="169" width="320" height="399"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="8uc-WW-DKQ" firstAttribute="top" secondItem="nyu-EA-qD3" secondAttribute="bottom" constant="15" id="6oc-ui-PEL"/>
+                <constraint firstItem="8uc-WW-DKQ" firstAttribute="centerX" secondItem="yLl-Vf-gdX" secondAttribute="centerX" id="Czs-O8-bCT"/>
+                <constraint firstAttribute="bottom" secondItem="EMR-Md-DVz" secondAttribute="bottom" id="Ffl-03-mjk"/>
+                <constraint firstItem="EMR-Md-DVz" firstAttribute="leading" secondItem="yLl-Vf-gdX" secondAttribute="leading" id="P83-y6-iNf"/>
+                <constraint firstItem="nyu-EA-qD3" firstAttribute="centerX" secondItem="yLl-Vf-gdX" secondAttribute="centerX" id="Vdx-L5-zug"/>
+                <constraint firstItem="EMR-Md-DVz" firstAttribute="top" secondItem="8uc-WW-DKQ" secondAttribute="bottom" constant="20" id="cCU-59-IuA"/>
+                <constraint firstItem="nyu-EA-qD3" firstAttribute="leading" secondItem="yLl-Vf-gdX" secondAttribute="leading" constant="20" id="jsc-3F-RPj"/>
+                <constraint firstItem="nyu-EA-qD3" firstAttribute="top" secondItem="yLl-Vf-gdX" secondAttribute="top" constant="74" id="kCT-6E-wkl"/>
+                <constraint firstAttribute="trailing" secondItem="EMR-Md-DVz" secondAttribute="trailing" id="nRN-fD-KJv"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+        </view>
+    </objects>
+</document>

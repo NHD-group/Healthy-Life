@@ -8,95 +8,99 @@
 
 import UIKit
 import Firebase
+import SnapKit
+import DKImagePickerController
+import MBProgressHUD
 
 class uploadFoodViewController:  BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
-    var ref =  FIRDatabase.database().reference()
-    let currentUserID = FIRAuth.auth()?.currentUser?.uid
-    var key = ""
+    @IBOutlet weak var pickerContainer: UIView!
+    @IBOutlet weak var desTextField: UITextField!
     
-    @IBOutlet weak var FoodImageView: UIImageView!
-    
+    var pickerController: DKImagePickerController!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tapToChoosePhotoGesture = UITapGestureRecognizer(target: self, action: #selector(self.photoLibAction(_:)))
-        FoodImageView.addGestureRecognizer(tapToChoosePhotoGesture)
-        FoodImageView.userInteractionEnabled = true
-
+        title = "Upload Food"
         addBackgroundImage()
+        setupPicker()
     }
     
-    @IBAction func tapAction(sender: AnyObject) {
-        view.endEditing(true)
+    func setupPicker() {
         
-    }
-    //MARK: Set up camera and photo lib for uploading photos.
-    
-    @IBAction func cameraAction(sender: UIButton) {
+        if pickerController != nil {
+            return
+        }
         
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = .Camera
+        pickerController = DKImagePickerController()
         
-        presentViewController(picker, animated: true, completion: nil)
-    }
-    
-    
-    @IBAction func photoLibAction(sender: UIButton) {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = .PhotoLibrary
+        // Custom camera
+        pickerController.UIDelegate = CustomUIDelegate()
         
-        presentViewController(picker, animated: true, completion: nil)
+        pickerController.assetType = .AllPhotos
+        pickerController.allowsLandscape = false
+        pickerController.allowMultipleTypes = true
+        pickerController.sourceType = .Both
+        pickerController.singleSelect = true
+        
+        //		pickerController.showsCancelButton = true
+        //		pickerController.showsEmptyAlbums = false
+        //		pickerController.defaultAssetGroup = PHAssetCollectionSubtype.SmartAlbumFavorites
+        
+        // Clear all the selected assets if you used the picker controller as a single instance.
+        //		pickerController.defaultSelectedAssets = nil
+        
+        MBProgressHUD.showHUDAddedTo(pickerContainer, animated: true)
+        
+        addChildViewController(pickerController)
+        pickerContainer.addSubview(pickerController.view)
+        pickerController.didMoveToParentViewController(self)
+        MBProgressHUD.hideHUDForView(pickerContainer, animated: true)
+
     }
-    
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        FoodImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
-        FoodImageView.tag = 1
-    }
-    
-    //MARK: Set Up action upload JSON data to firebase realtime database and Photo to Firebase Storage.
     
     @IBAction func uploadAction(sender: UIButton) {
         
-        guard let foodImage = FoodImageView.image where FoodImageView.tag != 0 else {
+        guard let asset = pickerController.selectedAssets.first else {
             Helper.showAlert("Warning", message: "Please select a photo!", inViewController: self)
             return
         }
         
-        //: Upload JSON to realtime database
-        showLoading()
-        key =  ref.child("users").child(currentUserID!).child("food_journal").childByAutoId().key
-
-        let newPost: Dictionary<String, AnyObject> = [
-            "ImageUrl": key,
-            "Description": foodDesTextField.text!,
-            "Love": 0,
-             "time": FIRServerValue.timestamp()
-            
-        ]
-
-        ref.child("users").child(currentUserID!).child("food_journal").child(key).setValue(newPost)
+        guard desTextField.text?.characters.count > 0 else {
+            Helper.showAlert("Warning", message: "Please enter the title!", inViewController: self)
+            return
+        }
         
-        DataService.uploadImage(foodImage, key: key, complete: { (downloadURL) in
-            self.onBack()
-            self.hideLoading()
+        asset.fetchImageWithSize(Configuration.defaultPhotoSize) { (image, info) in
+            guard let image = image else {
+                Helper.showAlert("Error", message: info?.description, inViewController: self)
+                return
+            }
+            
+            let ref =  FIRDatabase.database().reference()
+            let currentUserID = DataService.currentUserID
+            
+            self.showLoading()
+            let key =  ref.child("users").child(currentUserID).child("food_journal").childByAutoId().key
+            
+            let newPost: Dictionary<String, AnyObject> = [
+                "ImageUrl": key,
+                "Description": self.desTextField.text!,
+                "Love": 0,
+                "time": FIRServerValue.timestamp()
+                
+            ]
+            
+            ref.child("users").child(currentUserID).child("food_journal").child(key).setValue(newPost)
+            
+            DataService.uploadImage(image, key: key, complete: { (downloadURL) in
+                self.onBack()
+                self.hideLoading()
             }) { (error) in
                 Helper.showAlert("Error", message: error.localizedDescription, inViewController: self)
+            }
         }
-    
-        
-    }
-    
-     //******************************************************************************************************
-    
-    
-    @IBOutlet weak var foodDesTextField: UITextField!
-    
-    @IBAction func cancelAction(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
         
     }
 

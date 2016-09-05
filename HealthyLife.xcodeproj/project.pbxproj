@@ -61,6 +61,8 @@
 		04D1AA7A1D66E34D00106C27 /* uploadVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D1AA791D66E34D00106C27 /* uploadVideoViewController.xib */; };
 		04D1AA7C1D66FC4E00106C27 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA7B1D66FC4E00106C27 /* Helper.swift */; };
 		04D1AA7E1D67046600106C27 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA7D1D67046600106C27 /* BaseViewController.swift */; };
+		04DC46831D7D382D00EA456E /* uploadFoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DC46821D7D382D00EA456E /* uploadFoodViewController.xib */; };
+		04DC46851D7D3E0100EA456E /* CustomCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC46841D7D3E0100EA456E /* CustomCamera.swift */; };
 		04E7B6E61D6EA8E70088884A /* BaseTabPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7B6E51D6EA8E60088884A /* BaseTabPageViewController.swift */; };
 		04E7B6E81D6EC0E90088884A /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7B6E71D6EC0E90088884A /* BaseTableViewController.swift */; };
 		04F04F591D7482580094F9E8 /* NHDCircularTuner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F04F581D7482580094F9E8 /* NHDCircularTuner.swift */; };
@@ -207,6 +209,8 @@
 		04D1AA791D66E34D00106C27 /* uploadVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = uploadVideoViewController.xib; sourceTree = "<group>"; };
 		04D1AA7B1D66FC4E00106C27 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		04D1AA7D1D67046600106C27 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		04DC46821D7D382D00EA456E /* uploadFoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = uploadFoodViewController.xib; sourceTree = "<group>"; };
+		04DC46841D7D3E0100EA456E /* CustomCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCamera.swift; sourceTree = "<group>"; };
 		04E7B6E51D6EA8E60088884A /* BaseTabPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabPageViewController.swift; sourceTree = "<group>"; };
 		04E7B6E71D6EC0E90088884A /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		04F04F581D7482580094F9E8 /* NHDCircularTuner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDCircularTuner.swift; sourceTree = "<group>"; };
@@ -311,6 +315,7 @@
 			children = (
 				04178D851D6ED96F00DCE8CA /* displayFoodViewController.swift */,
 				04178D7F1D6ED67100DCE8CA /* uploadFoodViewController.swift */,
+				04DC46821D7D382D00EA456E /* uploadFoodViewController.xib */,
 				04178D811D6ED68F00DCE8CA /* FoodCollectionViewCell.swift */,
 				04178D831D6ED6A000DCE8CA /* FoodCollectionViewCell.xib */,
 			);
@@ -490,6 +495,7 @@
 		04426AE81D5DAA2C005B3621 /* CustomUIs */ = {
 			isa = PBXGroup;
 			children = (
+				04DC46841D7D3E0100EA456E /* CustomCamera.swift */,
 				04A66B8B1D7C666F00B6BE3E /* RoundedConrerButton.swift */,
 				0452B5061D7B14E00045AEF9 /* FloatRatingView.swift */,
 				04426AE91D5DAA2C005B3621 /* NHDFontBucket.swift */,
@@ -1005,6 +1011,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DC46831D7D382D00EA456E /* uploadFoodViewController.xib in Resources */,
 				04426B1F1D5DBA35005B3621 /* GoogleService-Info.plist in Resources */,
 				04426AE01D5DA932005B3621 /* ChamsBold.ttf in Resources */,
 				04426AD41D5D9B22005B3621 /* SignIn.storyboard in Resources */,
@@ -1164,6 +1171,7 @@
 				842476E71D743884002E796A /* PrictListViewController.swift in Sources */,
 				8409619E1D533183008DE12D /* userSettingModel.swift in Sources */,
 				042E385C1D72A82300BF8D74 /* NHDPayPalViewController.swift in Sources */,
+				04DC46851D7D3E0100EA456E /* CustomCamera.swift in Sources */,
 				8448B1A71D58434500DBFFFB /* chatViewController.swift in Sources */,
 				04426AF31D5DAA2C005B3621 /* Configuration.swift in Sources */,
 				04B8C4261D73E8BE001D5839 /* NHDVideoPlayerViewController.swift in Sources */,

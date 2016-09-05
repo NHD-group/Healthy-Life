@@ -24,6 +24,7 @@ target 'HealthyLife' do
     pod 'PayPal-iOS-SDK'
     pod 'YoutubeSourceParserKit'
     pod 'YouTubePlayer'
+    pod 'DKImagePickerController'
 
 end
 

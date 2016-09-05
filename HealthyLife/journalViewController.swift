@@ -158,10 +158,8 @@ class journalViewController: BaseViewController {
     @IBAction func onAddButtonPressed(sender: UIBarButtonItem) {
         if let index = tc.currentIndex {
             if index == 0 {
-                self.performSegueWithIdentifier("uploadFood", sender: self)
-                //let vc = uploadFoodViewController()
-                
-                //self.navigationController?.pushViewController(vc, animated: true)
+                let vc = uploadFoodViewController(nibName: String(uploadFoodViewController), bundle: nil)
+                navigationController?.pushViewController(vc, animated: true)
             } else if index == 1 {
                 self.performSegueWithIdentifier("updateResult", sender: self)
                 //let vc = uploadResultViewController()

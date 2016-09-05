@@ -1,6 +1,11 @@
 PODS:
   - CardIO (5.3.2)
   - CollectionViewWaterfallLayout (0.2.2)
+  - DKImagePickerController (3.3.4):
+    - DKImagePickerController/Camera (= 3.3.4)
+    - DKImagePickerController/ImageManager (= 3.3.4)
+  - DKImagePickerController/Camera (3.3.4)
+  - DKImagePickerController/ImageManager (3.3.4)
   - Firebase (3.5.1):
     - Firebase/Core (= 3.5.1)
   - Firebase/Analytics (3.5.1):
@@ -84,6 +89,7 @@ PODS:
 
 DEPENDENCIES:
   - CollectionViewWaterfallLayout (~> 0.2)
+  - DKImagePickerController
   - Firebase
   - Firebase/Auth
   - Firebase/Core
@@ -106,6 +112,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   CardIO: 92c45caef0d986c4a303a7afba0c9b76ff2b1f6e
   CollectionViewWaterfallLayout: b4f9aabad89609696ea3f6dceff956dd58e2bae4
+  DKImagePickerController: 4de1703ad3ba8bc216753447cbb00e482d8d4604
   Firebase: 9b3edeffaf60d56e377dc5281e91c4ba935a5ad9
   FirebaseAnalytics: d968d4d5f6aeb795cd64144337bcd233e530efc6
   FirebaseAuth: 26fd291c3b552fc9658420b867520d5ae080421c

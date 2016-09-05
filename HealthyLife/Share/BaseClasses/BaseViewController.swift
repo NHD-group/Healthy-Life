@@ -37,23 +37,21 @@ class BaseViewController: UIViewController {
         
         let blurredBackground = UIImageView(frame: view.frame)
         blurredBackground.image = UIImage(named: "SignIn")
-        blurredBackground.alpha = 0.7
+        blurredBackground.alpha = 0.3
         blurredBackground.blurImage()
-        
         view.insertSubview(blurredBackground, atIndex: 0)
         blurredBackground.snp_makeConstraints { (make) in
             make.edges.equalTo(view)
         }
         
         let colorView = UIView(frame: view.frame)
-        colorView.alpha = 0.8
+        colorView.alpha = 0.3
         UIView.animateWithDuration(3, delay: 0.3, options:[UIViewAnimationOptions.Repeat, UIViewAnimationOptions.Autoreverse], animations: {
             colorView.backgroundColor = UIColor.blackColor()
             colorView.backgroundColor = UIColor.greenColor()
             colorView.backgroundColor = UIColor.grayColor()
             colorView.backgroundColor = Configuration.Colors.veryYellow
             }, completion: nil)
-        
         view.insertSubview(colorView, atIndex: 0)
         colorView.snp_makeConstraints { (make) in
             make.edges.equalTo(view)
@@ -119,5 +117,13 @@ class BaseViewController: UIViewController {
     
     override func shouldAutorotate() -> Bool {
         return false
+    }
+    
+    func addGradientLayer() {
+        let gl = CAGradientLayer()
+        gl.colors = [ UIColor.whiteColor().CGColor, Configuration.Colors.lightGray.CGColor]
+        gl.locations = [ 1.0, 0.0]
+        gl.frame = view.frame
+        view.layer.insertSublayer(gl, atIndex: 0)
     }
 }
