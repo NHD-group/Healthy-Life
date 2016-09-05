@@ -22,26 +22,26 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uc-WW-DKQ" customClass="NHDRoundedConrerButton" customModule="HealthyLife" customModuleProvider="target">
-                    <rect key="frame" x="130" y="119" width="60" height="30"/>
+                    <rect key="frame" x="130" y="114" width="60" height="30"/>
                     <state key="normal" title="UPLOAD"/>
                     <connections>
                         <action selector="uploadAction:" destination="-1" eventType="touchUpInside" id="ksu-RR-iaM"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMR-Md-DVz">
-                    <rect key="frame" x="0.0" y="169" width="320" height="399"/>
+                    <rect key="frame" x="0.0" y="159" width="320" height="349"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="8uc-WW-DKQ" firstAttribute="top" secondItem="nyu-EA-qD3" secondAttribute="bottom" constant="15" id="6oc-ui-PEL"/>
+                <constraint firstItem="8uc-WW-DKQ" firstAttribute="top" secondItem="nyu-EA-qD3" secondAttribute="bottom" constant="10" id="6oc-ui-PEL"/>
                 <constraint firstItem="8uc-WW-DKQ" firstAttribute="centerX" secondItem="yLl-Vf-gdX" secondAttribute="centerX" id="Czs-O8-bCT"/>
-                <constraint firstAttribute="bottom" secondItem="EMR-Md-DVz" secondAttribute="bottom" id="Ffl-03-mjk"/>
+                <constraint firstAttribute="bottom" secondItem="EMR-Md-DVz" secondAttribute="bottom" constant="60" id="Ffl-03-mjk"/>
                 <constraint firstItem="EMR-Md-DVz" firstAttribute="leading" secondItem="yLl-Vf-gdX" secondAttribute="leading" id="P83-y6-iNf"/>
                 <constraint firstItem="nyu-EA-qD3" firstAttribute="centerX" secondItem="yLl-Vf-gdX" secondAttribute="centerX" id="Vdx-L5-zug"/>
-                <constraint firstItem="EMR-Md-DVz" firstAttribute="top" secondItem="8uc-WW-DKQ" secondAttribute="bottom" constant="20" id="cCU-59-IuA"/>
+                <constraint firstItem="EMR-Md-DVz" firstAttribute="top" secondItem="8uc-WW-DKQ" secondAttribute="bottom" constant="15" id="cCU-59-IuA"/>
                 <constraint firstItem="nyu-EA-qD3" firstAttribute="leading" secondItem="yLl-Vf-gdX" secondAttribute="leading" constant="20" id="jsc-3F-RPj"/>
                 <constraint firstItem="nyu-EA-qD3" firstAttribute="top" secondItem="yLl-Vf-gdX" secondAttribute="top" constant="74" id="kCT-6E-wkl"/>
                 <constraint firstAttribute="trailing" secondItem="EMR-Md-DVz" secondAttribute="trailing" id="nRN-fD-KJv"/>

@@ -23,7 +23,7 @@ public class CustomUIDelegate: DKImagePickerControllerDefaultUIDelegate, UIImage
     }
     
     public override func imagePickerControllerCollectionViewBackgroundColor() -> UIColor {
-        return UIColor.clearColor()
+        return Configuration.Colors.veryYellow
     }
     
 	public override func imagePickerControllerCreateCamera(imagePickerController: DKImagePickerController,

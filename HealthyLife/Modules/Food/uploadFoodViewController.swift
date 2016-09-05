@@ -23,7 +23,6 @@ class uploadFoodViewController: BaseViewController, UIImagePickerControllerDeleg
         super.viewDidLoad()
         
         title = "Upload Food"
-        addBackgroundImage()
         setupPicker()
     }
     
@@ -54,6 +53,9 @@ class uploadFoodViewController: BaseViewController, UIImagePickerControllerDeleg
         addChildViewController(pickerController)
         pickerContainer.addSubview(pickerController.view)
         pickerController.didMoveToParentViewController(self)
+        pickerController.view.snp_makeConstraints { (make) in
+            make.edges.equalTo(pickerContainer)
+        }
 
     }
     
