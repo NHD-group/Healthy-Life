@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SnapKit
 
 class BaseTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -24,6 +25,14 @@ class BaseTableViewController: BaseViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if tableView == nil {
+            view.addSubview(UITableView(frame: view.frame))
+            tableView = view.subviews.first as! UITableView
+            tableView.snp_makeConstraints(closure: { (make) in
+                make.edges.equalTo(view)
+            })
+        }
         
         tableView.delegate = self
         tableView.dataSource = self

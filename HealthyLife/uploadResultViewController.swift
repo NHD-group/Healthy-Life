@@ -10,47 +10,27 @@ import UIKit
 import MobileCoreServices
 import Firebase
 
-class uploadResultViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class uploadResultViewController: uploadFoodViewController  {
     
-    var ref =  FIRDatabase.database().reference()
-    let currentUserID = FIRAuth.auth()?.currentUser?.uid
-    var key = ""
-    let storageRef = FIRStorage.storage().reference()
-
-    @IBOutlet weak var currentWeightLabel: UITextField!
-
-    @IBOutlet weak var resultImage: UIImageView!
-    
-    
-    @IBAction func cameraAction(sender: AnyObject) {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = .Camera
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        presentViewController(picker, animated: true, completion: nil)
+        title = "Upload Result"
+        desTextField.placeholder = "Current Weight"
+        desTextField.keyboardType = .DecimalPad
     }
     
-    
-    @IBAction func libAction(sender: AnyObject) {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = .PhotoLibrary
+    override func updateImage(image: UIImage, text: String) {
         
-        presentViewController(picker, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        resultImage.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
+        let ref =  FIRDatabase.database().reference()
+        let currentUserID = DataService.currentUserID
         
-    }
-
-    
-    @IBAction func uploadAction(sender: AnyObject) {
-        key =  ref.child("users").child(currentUserID!).child("results_journal").childByAutoId().key
+        showLoading()
+        let key =  ref.child("users").child(currentUserID!).child("results_journal").childByAutoId().key
         
         let newPost: Dictionary<String, AnyObject> = [
             "ImageUrl": key,
-            "CurrentWeight": currentWeightLabel.text!,
+            "CurrentWeight": desTextField.text!,
             "Love": 0,
             "time": FIRServerValue.timestamp()
             
@@ -58,48 +38,12 @@ class uploadResultViewController: BaseViewController, UIImagePickerControllerDel
         
         ref.child("users").child(currentUserID!).child("results_journal").child(key).setValue(newPost)
         
-        
-        
-        //: Upload Image
-        showLoading()
-        var foodImage = resultImage.image
-        foodImage = foodImage?.resizeImage(CGSize(width: 500.0, height: 500.0))
-        
-        let imageData: NSData = UIImagePNGRepresentation(foodImage!)!
-        let riversRef = storageRef.child("images/\(key)")
-        riversRef.putData(imageData, metadata: nil) { metadata, error in
-            if (error != nil) {
-                self.hideLoading()
-                Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
-            } else {
-                self.hideLoading()
-                self.onBack()
-            }
+        DataService.uploadImage(image, key: key, complete: { (downloadURL) in
+            self.onBack()
+            self.hideLoading()
+        }) { (error) in
+            Helper.showAlert("Error", message: error.localizedDescription, inViewController: self)
+            self.hideLoading()
         }
-        
     }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

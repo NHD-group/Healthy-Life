@@ -131,10 +131,8 @@ class journalViewController: BaseViewController {
     
     func initTabPageView() {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let vc = storyboard.instantiateViewControllerWithIdentifier(String(displayResultViewController)) as? displayResultViewController {
-            vc2 = vc
-        }
+        vc2 = displayResultViewController()
+ 
         vc1.currentUserID = currentUserID
         vc2.currentUserID = currentUserID
         
@@ -161,9 +159,8 @@ class journalViewController: BaseViewController {
                 let vc = uploadFoodViewController(nibName: String(uploadFoodViewController), bundle: nil)
                 navigationController?.pushViewController(vc, animated: true)
             } else if index == 1 {
-                self.performSegueWithIdentifier("updateResult", sender: self)
-                //let vc = uploadResultViewController()
-                //self.navigationController?.pushViewController(vc, animated: true)
+                let vc = uploadResultViewController(nibName: String(uploadFoodViewController), bundle: nil)
+                navigationController?.pushViewController(vc, animated: true)
             }
         }
     }
@@ -180,7 +177,7 @@ extension journalViewController: BaseTabPageViewControllerDelegate {
             break
         case 1:
             addIcon.title = (currentUserID == DataService.currentUserID ? "Add Result" : "")
-            vc2.tableView.reloadData()
+//            vc2.tableView.reloadData()
         case 2:
             addIcon.title = ""
             vc3.delegate = self

@@ -51,12 +51,9 @@ class uploadFoodViewController:  BaseViewController, UIImagePickerControllerDele
         // Clear all the selected assets if you used the picker controller as a single instance.
         //		pickerController.defaultSelectedAssets = nil
         
-        MBProgressHUD.showHUDAddedTo(pickerContainer, animated: true)
-        
         addChildViewController(pickerController)
         pickerContainer.addSubview(pickerController.view)
         pickerController.didMoveToParentViewController(self)
-        MBProgressHUD.hideHUDForView(pickerContainer, animated: true)
 
     }
     
@@ -77,31 +74,33 @@ class uploadFoodViewController:  BaseViewController, UIImagePickerControllerDele
                 Helper.showAlert("Error", message: info?.description, inViewController: self)
                 return
             }
-            
-            let ref =  FIRDatabase.database().reference()
-            let currentUserID = DataService.currentUserID
-            
-            self.showLoading()
-            let key =  ref.child("users").child(currentUserID).child("food_journal").childByAutoId().key
-            
-            let newPost: Dictionary<String, AnyObject> = [
-                "ImageUrl": key,
-                "Description": self.desTextField.text!,
-                "Love": 0,
-                "time": FIRServerValue.timestamp()
-                
-            ]
-            
-            ref.child("users").child(currentUserID).child("food_journal").child(key).setValue(newPost)
-            
-            DataService.uploadImage(image, key: key, complete: { (downloadURL) in
-                self.onBack()
-                self.hideLoading()
-            }) { (error) in
-                Helper.showAlert("Error", message: error.localizedDescription, inViewController: self)
-            }
+            self.updateImage(image, text: self.desTextField.text!)
         }
+    }
+    
+    func updateImage(image: UIImage, text: String) {
         
+        let ref =  FIRDatabase.database().reference()
+        let currentUserID = DataService.currentUserID
+        
+        showLoading()
+        let key =  ref.child("users").child(currentUserID).child("food_journal").childByAutoId().key
+        
+        let newPost: Dictionary<String, AnyObject> = [
+            "ImageUrl": key,
+            "Description": text,
+            "Love": 0,
+            "time": FIRServerValue.timestamp()
+        ]
+        
+        ref.child("users").child(currentUserID).child("food_journal").child(key).setValue(newPost)
+        
+        DataService.uploadImage(image, key: key, complete: { (downloadURL) in
+            self.onBack()
+            self.hideLoading()
+        }) { (error) in
+            Helper.showAlert("Error", message: error.localizedDescription, inViewController: self)
+        }
     }
 
 }

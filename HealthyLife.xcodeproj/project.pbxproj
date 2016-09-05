@@ -63,6 +63,7 @@
 		04D1AA7E1D67046600106C27 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA7D1D67046600106C27 /* BaseViewController.swift */; };
 		04DC46831D7D382D00EA456E /* uploadFoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DC46821D7D382D00EA456E /* uploadFoodViewController.xib */; };
 		04DC46851D7D3E0100EA456E /* CustomCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC46841D7D3E0100EA456E /* CustomCamera.swift */; };
+		04DC46871D7D4C8A00EA456E /* displayCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DC46861D7D4C8A00EA456E /* displayCellTableViewCell.xib */; };
 		04E7B6E61D6EA8E70088884A /* BaseTabPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7B6E51D6EA8E60088884A /* BaseTabPageViewController.swift */; };
 		04E7B6E81D6EC0E90088884A /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7B6E71D6EC0E90088884A /* BaseTableViewController.swift */; };
 		04F04F591D7482580094F9E8 /* NHDCircularTuner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F04F581D7482580094F9E8 /* NHDCircularTuner.swift */; };
@@ -211,6 +212,7 @@
 		04D1AA7D1D67046600106C27 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		04DC46821D7D382D00EA456E /* uploadFoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = uploadFoodViewController.xib; sourceTree = "<group>"; };
 		04DC46841D7D3E0100EA456E /* CustomCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCamera.swift; sourceTree = "<group>"; };
+		04DC46861D7D4C8A00EA456E /* displayCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = displayCellTableViewCell.xib; sourceTree = "<group>"; };
 		04E7B6E51D6EA8E60088884A /* BaseTabPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabPageViewController.swift; sourceTree = "<group>"; };
 		04E7B6E71D6EC0E90088884A /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		04F04F581D7482580094F9E8 /* NHDCircularTuner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDCircularTuner.swift; sourceTree = "<group>"; };
@@ -775,6 +777,7 @@
 			isa = PBXGroup;
 			children = (
 				846BFCCA1D65AF31009333B1 /* displayResultViewController.swift */,
+				04DC46861D7D4C8A00EA456E /* displayCellTableViewCell.xib */,
 				846BFCCC1D65AF3D009333B1 /* uploadResultViewController.swift */,
 				844B8FF21D668B0800B42991 /* displayCellTableViewCell.swift */,
 			);
@@ -1031,6 +1034,7 @@
 				04426AE11D5DA932005B3621 /* ChamsItalic.ttf in Resources */,
 				04426AE21D5DA932005B3621 /* ChamsRegular.ttf in Resources */,
 				84181DEC1D47C99800686BAB /* Assets.xcassets in Resources */,
+				04DC46871D7D4C8A00EA456E /* displayCellTableViewCell.xib in Resources */,
 				84181DE71D47C99800686BAB /* Main.storyboard in Resources */,
 				044E63611D75619E00E35209 /* YouTube.storyboard in Resources */,
 				04426B201D5DBA35005B3621 /* HealthyLife-40181a67534f.json in Resources */,

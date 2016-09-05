@@ -17,7 +17,9 @@ public class CustomUIDelegate: DKImagePickerControllerDefaultUIDelegate, UIImage
 	var didFinishCapturingVideo: ((videoURL: NSURL) -> Void)?
 	
     public override func createDoneButton() -> UIButton {
-        return UIButton()
+        let button = super.createDoneButton()
+        button.hidden = true
+        return button
     }
     
     public override func imagePickerControllerCollectionViewBackgroundColor() -> UIColor {

@@ -28,11 +28,7 @@ class displayResultViewController: BaseTableViewController {
         
         resultRef = ref.child("users").child(currentUserID).child("results_journal")
         resultRef.queryLimitedToLast(10).observeEventType(.Value, withBlock: { snapshot in
-            
-            // The snapshot is a current look at our jokes data.
-            
-            print(snapshot.value)
-            
+
             self.results = []
             
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
@@ -61,6 +57,9 @@ class displayResultViewController: BaseTableViewController {
         
         tableView.allowsMultipleSelectionDuringEditing = true
         tableView.contentInset = UIEdgeInsetsMake(50, 0, 100, 0)
+        tableView.rowHeight = 140
+        
+        tableView.registerNib(UINib(nibName: String(displayCellTableViewCell), bundle: nil), forCellReuseIdentifier: String(displayCellTableViewCell))
     }
    
     
@@ -75,7 +74,7 @@ class displayResultViewController: BaseTableViewController {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("result") as! displayCellTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(String(displayCellTableViewCell)) as! displayCellTableViewCell
         cell.result = results[indexPath.row]
         return cell
         
