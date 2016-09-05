@@ -25,7 +25,7 @@ class uploadVideoViewController: BaseViewController, UIImagePickerControllerDele
         let imagePickerController = UIImagePickerController()
         imagePickerController.allowsEditing = true
         imagePickerController.delegate = self
-        imagePickerController.mediaTypes = [kUTTypeImage as String , kUTTypeMovie as String]
+        imagePickerController.mediaTypes = [kUTTypeMovie as String]
         
         presentViewController(imagePickerController, animated: true, completion: nil)
     }
