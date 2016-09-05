@@ -59,7 +59,12 @@ class yourVideosViewController: BaseTableViewController {
         navigationItem.titleView = searchBar
         searchBar.delegate = self
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .Plain, target: self, action: #selector(self.onSearch))
+        addSearchBarItem()
+        
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        button.setBackgroundImage(UIImage(named: "icn-upload"), forState: UIControlState.Normal)
+        button.addTarget(self, action: #selector(self.onAddVideo(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        navigationItem.rightBarButtonItems?.insert(UIBarButtonItem(customView: button), atIndex: 0)
         
         onSearch()
     }
@@ -122,7 +127,7 @@ class yourVideosViewController: BaseTableViewController {
 
 extension yourVideosViewController: UISearchBarDelegate {
     
-    func onSearch() {
+    override func onSearch() {
         filterContentForSearchText(searchBar.text ?? "")
         dismissKeyboard()
     }

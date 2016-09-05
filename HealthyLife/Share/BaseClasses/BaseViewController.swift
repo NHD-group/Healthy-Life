@@ -33,6 +33,16 @@ class BaseViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.keyboardWillDisappear), name: UIKeyboardWillHideNotification, object: nil)
     }
     
+    func addSearchBarItem() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        button.setBackgroundImage(UIImage(named: "icn-search"), forState: UIControlState.Normal)
+        button.addTarget(self, action: #selector(self.onSearch), forControlEvents: UIControlEvents.TouchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+    }
+    
+    func onSearch() {
+    }
+    
     func addBackgroundImage() {
         
         let blurredBackground = UIImageView(frame: view.frame)

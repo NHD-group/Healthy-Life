@@ -29,9 +29,7 @@ class NewfeedViewController: BaseTableViewController {
         searchBar.delegate = self
         
         navigationItem.leftBarButtonItem = UIBarButtonItem()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .Plain, target: self, action: #selector(self.onSearch))
-        
-        
+        addSearchBarItem()
         onSearch()
     }
     
@@ -91,7 +89,7 @@ class NewfeedViewController: BaseTableViewController {
 
 extension NewfeedViewController: UISearchBarDelegate {
     
-    func onSearch() {
+    override func onSearch() {
         filterContentForSearchText(searchBar.text ?? "")
         dismissKeyboard()
     }
