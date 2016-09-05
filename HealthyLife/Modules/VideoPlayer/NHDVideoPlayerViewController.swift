@@ -89,7 +89,11 @@ class NHDVideoPlayerViewController: BaseViewController {
             
         }
     }
-    var titleText: String?
+    var titleText: String? {
+        didSet {
+            titleLabel?.text = titleText
+        }
+    }
     var avPlayerLayer : AVPlayerLayer!
     var avPlayer : AVPlayer!
     var defaultRate: Float = 1
