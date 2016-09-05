@@ -12,7 +12,7 @@ import SnapKit
 import DKImagePickerController
 import MBProgressHUD
 
-class uploadFoodViewController:  BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class uploadFoodViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     @IBOutlet weak var pickerContainer: UIView!
     @IBOutlet weak var desTextField: UITextField!
@@ -74,6 +74,7 @@ class uploadFoodViewController:  BaseViewController, UIImagePickerControllerDele
                 Helper.showAlert("Error", message: info?.description, inViewController: self)
                 return
             }
+            self.dismissKeyboard()
             self.updateImage(image, text: self.desTextField.text!)
         }
     }

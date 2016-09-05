@@ -29,8 +29,8 @@ class BaseViewController: UIViewController {
             displayLogoutButton()
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(BaseViewController.keyboardWillAppear), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(BaseViewController.keyboardWillDisappear), name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.keyboardWillAppear), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.keyboardWillDisappear), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func addBackgroundImage() {

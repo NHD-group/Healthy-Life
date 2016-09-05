@@ -24,6 +24,7 @@ class NewfeedViewController: BaseTableViewController {
         isAlreadyLoaded = true
         
         searchBar.sizeToFit()
+        searchBar.placeholder = "Search Users"
         navigationItem.titleView = searchBar
         searchBar.delegate = self
         
@@ -32,7 +33,6 @@ class NewfeedViewController: BaseTableViewController {
         
         
         onSearch()
-        // Do any additional setup after loading the view.
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -40,7 +40,7 @@ class NewfeedViewController: BaseTableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("222", forIndexPath:  indexPath) as! NewFeedtablviewCellTableViewCell
         
         let user = dataArray[indexPath.row] as! UserProfile
-        cell.configureCell(user, setImage: user.UserKey)
+        cell.configureCell(user, setImage: user.key)
         cell.talkButton.tag = indexPath.row
         
         return cell
@@ -74,7 +74,7 @@ class NewfeedViewController: BaseTableViewController {
             
             if let indexPath = tableView.indexPathForSelectedRow {
                 let user = dataArray[indexPath.row] as! UserProfile
-                vc.currentUserID = user.UserKey
+                vc.currentUserID = user.key
                 vc.currentUserName = user.username
             }
         } else if segue.identifier == "details" {
@@ -106,11 +106,11 @@ extension NewfeedViewController: UISearchBarDelegate {
     
     func filterContentForSearchText(searchText: String) {
         
-        let ref = FIRDatabase.database().reference()
+        let ref = FIRDatabase.database().reference().child("users")
         
-        var query = ref.child("users").queryOrderedByChild("followerCount")
+        var query = ref.queryOrderedByChild("followerCount")
         if searchText.characters.count > 0 {
-            query = ref.child("users").queryOrderedByChild("username").queryStartingAtValue(searchText.lowercaseString).queryEndingAtValue(searchText.lowercaseString + "\u{f8ff}")
+            query = ref.queryOrderedByChild("username").queryStartingAtValue(searchText.lowercaseString).queryEndingAtValue(searchText.lowercaseString + "\u{f8ff}")
         }
         
         query.queryLimitedToFirst(20).observeSingleEventOfType(.Value, withBlock: { snapshot in
@@ -118,13 +118,21 @@ extension NewfeedViewController: UISearchBarDelegate {
             let array = self.getDataWith(snapshot)
 
             if searchText.characters.count > 0 {
-                ref.child("users").queryOrderedByChild("username").queryStartingAtValue(searchText.uppercaseString).queryEndingAtValue(searchText.uppercaseString + "\u{f8ff}").queryLimitedToFirst(20).observeSingleEventOfType(.Value, withBlock: { snap in
+                ref.queryOrderedByChild("username").queryStartingAtValue(searchText.uppercaseString).queryEndingAtValue(searchText.uppercaseString + "\u{f8ff}").queryLimitedToFirst(20).observeSingleEventOfType(.Value, withBlock: { snap in
                     
                     let anotherArray = self.getDataWith(snap)
-                    self.dataArray = array + anotherArray
+                    if searchText.characters.count > 0 {
+                        ref.queryOrderedByChild("username").queryStartingAtValue(searchText).queryEndingAtValue(searchText + "\u{f8ff}").queryLimitedToFirst(20).observeSingleEventOfType(.Value, withBlock: { sna in
+                            
+                            let otherArray = self.getDataWith(sna)
+                            self.dataArray = Helper.filterDuplicate(array + anotherArray + otherArray)
+                        })
+                    } else {
+                        self.dataArray = Helper.filterDuplicate(array + anotherArray)
+                    }
                 })
             } else {
-                self.dataArray = array
+                self.dataArray = Helper.filterDuplicate(array)
             }
         })
         
@@ -151,7 +159,7 @@ extension NewfeedViewController: UISearchBarDelegate {
         
         return users
     }
-    
+
     override func dismissKeyboard() {
         
         searchBar.resignFirstResponder()

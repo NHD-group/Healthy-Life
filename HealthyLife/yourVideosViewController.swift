@@ -39,47 +39,29 @@ class Video: NSObject {
 
 class yourVideosViewController: BaseTableViewController {
 
-    var videos = [Video]()
     var videoRef = FIRDatabaseReference()
-    let storage = FIRStorage.storage().reference()
-    
+    let searchBar = UISearchBar()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupSearchBar()
+        
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
-        
-        videoRef =  DataService.dataService.userRef.child("yourVideo")
-        
-        videoRef.observeEventType(.Value, withBlock: { snapshot in
-            
-            self.videos = []
-            
-            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                
-                for snap in snapshots {
-                    
-                    // Make our jokes array for the tableView.
-                    
-                    if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
-                        let key = snap.key
-                        let video = Video(key: key, dictionary: postDictionary)
-                        
-                        // Items are returned chronologically, but it's more fun with the newest jokes first.
-                        
-                        self.videos.insert(video, atIndex: 0)
-                    }
-                }
-                
-            }
-            
-            // Be sure that the tableView updates when there is new data.
-            
-            self.dataArray = self.videos
-            
-        })
-        
         tableView.allowsMultipleSelectionDuringEditing = true
+    }
+    
+    func setupSearchBar() {
+        
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search Videos"
+        navigationItem.titleView = searchBar
+        searchBar.delegate = self
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .Plain, target: self, action: #selector(self.onSearch))
+        
+        onSearch()
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -90,7 +72,7 @@ class yourVideosViewController: BaseTableViewController {
         print(indexPath.row)
         
         
-        videoRef.child(videos[indexPath.row].key as String).removeValue()
+        videoRef.child(dataArray[indexPath.row].key as String).removeValue()
         
         
     }
@@ -99,7 +81,7 @@ class yourVideosViewController: BaseTableViewController {
         
         super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
         
-        let video = videos[indexPath.row] as Video
+        let video = dataArray[indexPath.row] as! Video
 
         NHDVideoPlayerViewController.showPlayer(nil, orLink: video.videoUrl, title: video.name, inViewController: self)
 
@@ -112,7 +94,7 @@ class yourVideosViewController: BaseTableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("videos") as! vidCellTableViewCell
-        cell.video = videos[indexPath.row]
+        cell.video = dataArray[indexPath.row] as! Video
         cell.createPlanButton.tag = indexPath.row
         
         return cell
@@ -123,8 +105,8 @@ class yourVideosViewController: BaseTableViewController {
         if segue.identifier == "createPlan" {
             let controller = segue.destinationViewController as! addPlanVidViewController
             if let button = sender as? UIButton {
-                let video = videos[button.tag]
-                controller.video = video
+                let video = dataArray[button.tag]
+                controller.video = video as! Video
             }
             
         }
@@ -135,5 +117,81 @@ class yourVideosViewController: BaseTableViewController {
         
         let vc = uploadVideoViewController(nibName: String(uploadVideoViewController), bundle: nil)
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension yourVideosViewController: UISearchBarDelegate {
+    
+    func onSearch() {
+        filterContentForSearchText(searchBar.text ?? "")
+        dismissKeyboard()
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        onSearch()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        onSearch()
+    }
+    
+    func filterContentForSearchText(searchText: String) {
+        
+        videoRef = DataService.dataService.userRef.child("yourVideo")
+        
+        var query = videoRef.queryOrderedByKey()
+        if searchText.characters.count > 0 {
+            query = videoRef.queryOrderedByChild("name").queryStartingAtValue(searchText.lowercaseString).queryEndingAtValue(searchText.lowercaseString + "\u{f8ff}")
+        }
+        
+        query.queryLimitedToFirst(20).observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            let array = self.getDataWith(snapshot)
+            
+            if searchText.characters.count > 0 {
+                self.videoRef.queryOrderedByChild("name").queryStartingAtValue(searchText.uppercaseString).queryEndingAtValue(searchText.uppercaseString + "\u{f8ff}").queryLimitedToFirst(20).observeSingleEventOfType(.Value, withBlock: { snap in
+                    
+                    let anotherArray = self.getDataWith(snap)
+                    if searchText.characters.count > 0 {
+                        self.videoRef.queryOrderedByChild("name").queryStartingAtValue(searchText).queryEndingAtValue(searchText + "\u{f8ff}").queryLimitedToFirst(20).observeSingleEventOfType(.Value, withBlock: { sna in
+                            
+                            let otherArray = self.getDataWith(sna)
+                            self.dataArray = Helper.filterDuplicate(array + anotherArray + otherArray)
+                        })
+                    } else {
+                        self.dataArray = Helper.filterDuplicate(array + anotherArray)
+                    }
+                })
+            } else {
+                self.dataArray = Helper.filterDuplicate(array)
+            }
+        })
+        
+    }
+    
+    func getDataWith(snapshot: FIRDataSnapshot) -> [Video] {
+        
+        var videos = [Video]()
+        guard let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] else {
+            return videos
+        }
+        
+        for snap in snapshots {
+            // Make our jokes array for the tableView.
+            
+            if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                let key = snap.key
+                let video = Video(key: key, dictionary: postDictionary)
+                
+                videos.insert(video, atIndex: 0)
+            }
+        }
+        
+        return videos
+    }
+    
+    override func dismissKeyboard() {
+        
+        searchBar.resignFirstResponder()
     }
 }

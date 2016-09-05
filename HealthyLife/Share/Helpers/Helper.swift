@@ -93,4 +93,20 @@ class Helper: NSObject {
             ),
             dispatch_get_main_queue(), closure)
     }
+    
+    class func filterDuplicate(array: [NSObject]) -> [NSObject] {
+        
+        var objects = [NSObject]()
+        var keys = [String]()
+
+        for obj in array {
+            
+            let key = obj.valueForKey("key") as! String
+            if keys.contains(key) == false {
+                objects.append(obj)
+                keys.append(key)
+            }
+        }
+        return objects
+    }
 }
