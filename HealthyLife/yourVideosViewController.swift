@@ -78,8 +78,6 @@ class yourVideosViewController: BaseTableViewController {
         
         
         videoRef.child(dataArray[indexPath.row].key as String).removeValue()
-        
-        
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -149,7 +147,7 @@ extension yourVideosViewController: UISearchBarDelegate {
             query = videoRef.queryOrderedByChild("name").queryStartingAtValue(searchText.lowercaseString).queryEndingAtValue(searchText.lowercaseString + "\u{f8ff}")
         }
         
-        query.queryLimitedToFirst(20).observeSingleEventOfType(.Value, withBlock: { snapshot in
+        query.queryLimitedToFirst(20).observeEventType(.Value, withBlock: { snapshot in
             
             let array = self.getDataWith(snapshot)
             

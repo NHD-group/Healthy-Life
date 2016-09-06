@@ -27,8 +27,10 @@ class BaseTableViewController: BaseViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         
         if tableView == nil {
-            view.addSubview(UITableView(frame: view.frame))
-            tableView = view.subviews.first as! UITableView
+            let table = UITableView(frame: view.frame)
+            table.tag = 999
+            view.addSubview(table)
+            tableView = view.viewWithTag(999) as! UITableView
             tableView.snp_makeConstraints(closure: { (make) in
                 make.edges.equalTo(view)
             })
