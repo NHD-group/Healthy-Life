@@ -10,6 +10,7 @@ import UIKit
 import MBProgressHUD
 import Firebase
 import SnapKit
+import FBSDKLoginKit
 
 class BaseViewController: UIViewController {
 
@@ -111,6 +112,8 @@ class BaseViewController: UIViewController {
         
         Helper.showAlert("Warning", message: "Are you sure you want to log out?", okActionBlock: {
             try! FIRAuth.auth()!.signOut()
+            
+            FBSDKLoginManager().logOut()
             
             NSNotificationCenter.defaultCenter().postNotificationName(Configuration.NotificationKey.userDidLogout, object: nil)
             }, cancelActionBlock: {}, inViewController: self)

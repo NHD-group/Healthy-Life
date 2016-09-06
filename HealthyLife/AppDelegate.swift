@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseMessaging
 import FirebaseInstanceID
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -43,6 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.tokenRefreshNotificaiton),
                                                          name: kFIRInstanceIDTokenRefreshNotification, object: nil)
         
+        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+
         
         return true
     }
@@ -107,6 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
+        FBSDKAppEvents.activateApp()
         connectToFcm()
     }
 
@@ -159,5 +164,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return .Portrait
     }
+    
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+        return handled
+    }
+
 }
 

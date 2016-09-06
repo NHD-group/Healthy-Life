@@ -25,6 +25,9 @@ target 'HealthyLife' do
     pod 'YoutubeSourceParserKit'
     pod 'YouTubePlayer'
     pod 'DKImagePickerController'
+    pod 'FBSDKCoreKit', '~> 4.12.0'
+    pod 'FBSDKLoginKit', '~> 4.12.0'
+    pod 'FBSDKShareKit', '~> 4.12.0'
 
 end
 

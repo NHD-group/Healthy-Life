@@ -1,4 +1,10 @@
 PODS:
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
   - CardIO (5.3.2)
   - CollectionViewWaterfallLayout (0.2.2)
   - DKImagePickerController (3.3.4):
@@ -6,6 +12,12 @@ PODS:
     - DKImagePickerController/ImageManager (= 3.3.4)
   - DKImagePickerController/Camera (3.3.4)
   - DKImagePickerController/ImageManager (3.3.4)
+  - FBSDKCoreKit (4.12.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.12.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.12.0):
+    - FBSDKCoreKit
   - Firebase (3.5.1):
     - Firebase/Core (= 3.5.1)
   - Firebase/Analytics (3.5.1):
@@ -90,6 +102,9 @@ PODS:
 DEPENDENCIES:
   - CollectionViewWaterfallLayout (~> 0.2)
   - DKImagePickerController
+  - FBSDKCoreKit (~> 4.12.0)
+  - FBSDKLoginKit (~> 4.12.0)
+  - FBSDKShareKit (~> 4.12.0)
   - Firebase
   - Firebase/Auth
   - Firebase/Core
@@ -110,9 +125,13 @@ DEPENDENCIES:
   - YoutubeSourceParserKit
 
 SPEC CHECKSUMS:
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   CardIO: 92c45caef0d986c4a303a7afba0c9b76ff2b1f6e
   CollectionViewWaterfallLayout: b4f9aabad89609696ea3f6dceff956dd58e2bae4
   DKImagePickerController: 4de1703ad3ba8bc216753447cbb00e482d8d4604
+  FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
+  FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
+  FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
   Firebase: 9b3edeffaf60d56e377dc5281e91c4ba935a5ad9
   FirebaseAnalytics: d968d4d5f6aeb795cd64144337bcd233e530efc6
   FirebaseAuth: 26fd291c3b552fc9658420b867520d5ae080421c

@@ -41,7 +41,6 @@
 		04426B1A1D5DB4C9005B3621 /* SCVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426B0D1D5DB4C9005B3621 /* SCVideoPlayerViewController.m */; };
 		04426B1B1D5DB4C9005B3621 /* SCWatermarkOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04426B0F1D5DB4C9005B3621 /* SCWatermarkOverlayView.m */; };
 		04426B1F1D5DBA35005B3621 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04426B1D1D5DBA34005B3621 /* GoogleService-Info.plist */; };
-		04426B201D5DBA35005B3621 /* HealthyLife-40181a67534f.json in Resources */ = {isa = PBXBuildFile; fileRef = 04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */; };
 		044E63571D7529DE00E35209 /* videoplayback.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 044E63561D7529DE00E35209 /* videoplayback.mp4 */; };
 		044E63601D75619E00E35209 /* NHDYouTubeSearchVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E635E1D75619E00E35209 /* NHDYouTubeSearchVideoVC.swift */; };
 		044E63611D75619E00E35209 /* YouTube.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044E635F1D75619E00E35209 /* YouTube.storyboard */; };
@@ -57,6 +56,7 @@
 		04B8C4271D73E8BE001D5839 /* NHDVideoPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B8C4251D73E8BE001D5839 /* NHDVideoPlayerViewController.xib */; };
 		04BE6E261D7AD9490009F1DF /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BE6E251D7AD9490009F1DF /* SettingViewController.xib */; };
 		04C8F3741D6FF84E004639E8 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8F3731D6FF84E004639E8 /* UIFontExtension.swift */; };
+		04D03E5C1D7EC29D002981C7 /* HealthyLife-9ef37ea02f75.json in Resources */ = {isa = PBXBuildFile; fileRef = 04D03E5B1D7EC29D002981C7 /* HealthyLife-9ef37ea02f75.json */; };
 		04D1AA781D66B3FF00106C27 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA771D66B3FF00106C27 /* UIColorExtension.swift */; };
 		04D1AA7A1D66E34D00106C27 /* uploadVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D1AA791D66E34D00106C27 /* uploadVideoViewController.xib */; };
 		04D1AA7C1D66FC4E00106C27 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA7B1D66FC4E00106C27 /* Helper.swift */; };
@@ -190,7 +190,6 @@
 		04426B0E1D5DB4C9005B3621 /* SCWatermarkOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCWatermarkOverlayView.h; sourceTree = "<group>"; };
 		04426B0F1D5DB4C9005B3621 /* SCWatermarkOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCWatermarkOverlayView.m; sourceTree = "<group>"; };
 		04426B1D1D5DBA34005B3621 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "HealthyLife-40181a67534f.json"; sourceTree = "<group>"; };
 		04426B221D5DBE5F005B3621 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		044E63561D7529DE00E35209 /* videoplayback.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = videoplayback.mp4; sourceTree = "<group>"; };
 		044E635E1D75619E00E35209 /* NHDYouTubeSearchVideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDYouTubeSearchVideoVC.swift; sourceTree = "<group>"; };
@@ -207,6 +206,7 @@
 		04B8C4251D73E8BE001D5839 /* NHDVideoPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NHDVideoPlayerViewController.xib; sourceTree = "<group>"; };
 		04BE6E251D7AD9490009F1DF /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		04C8F3731D6FF84E004639E8 /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		04D03E5B1D7EC29D002981C7 /* HealthyLife-9ef37ea02f75.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "HealthyLife-9ef37ea02f75.json"; sourceTree = "<group>"; };
 		04D1AA771D66B3FF00106C27 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		04D1AA791D66E34D00106C27 /* uploadVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = uploadVideoViewController.xib; sourceTree = "<group>"; };
 		04D1AA7B1D66FC4E00106C27 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -584,7 +584,7 @@
 			isa = PBXGroup;
 			children = (
 				04426B1D1D5DBA34005B3621 /* GoogleService-Info.plist */,
-				04426B1E1D5DBA35005B3621 /* HealthyLife-40181a67534f.json */,
+				04D03E5B1D7EC29D002981C7 /* HealthyLife-9ef37ea02f75.json */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -1038,10 +1038,10 @@
 				04426AE11D5DA932005B3621 /* ChamsItalic.ttf in Resources */,
 				04426AE21D5DA932005B3621 /* ChamsRegular.ttf in Resources */,
 				84181DEC1D47C99800686BAB /* Assets.xcassets in Resources */,
+				04D03E5C1D7EC29D002981C7 /* HealthyLife-9ef37ea02f75.json in Resources */,
 				04DC46871D7D4C8A00EA456E /* displayCellTableViewCell.xib in Resources */,
 				84181DE71D47C99800686BAB /* Main.storyboard in Resources */,
 				044E63611D75619E00E35209 /* YouTube.storyboard in Resources */,
-				04426B201D5DBA35005B3621 /* HealthyLife-40181a67534f.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1073,7 +1073,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "JSON_FILE=HealthyLife/Share/Firebase/HealthyLife-40181a67534f.json\n\nGOOGLE_APP_ID=1:5549772432:ios:0225cd86a4b27226\n\ndefaults write com.google.SymbolUpload version -integer 1   # creates file if it does not exist\nJSON=$(cat \"${JSON_FILE}\")\n/usr/bin/plutil -replace \"app_${GOOGLE_APP_ID//:/_}\" -json \"${JSON}\" \"$HOME/Library/Preferences/com.google.SymbolUpload.plist\"\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym";
+			shellScript = "JSON_FILE=HealthyLife/Share/Firebase/HealthyLife-9ef37ea02f75.json\n\nGOOGLE_APP_ID=1:5549772432:ios:0225cd86a4b27226\n\ndefaults write com.google.SymbolUpload version -integer 1   # creates file if it does not exist\nJSON=$(cat \"${JSON_FILE}\")\n/usr/bin/plutil -replace \"app_${GOOGLE_APP_ID//:/_}\" -json \"${JSON}\" \"$HOME/Library/Preferences/com.google.SymbolUpload.plist\"\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym";
 			showEnvVarsInLog = 0;
 		};
 		137E2E15B951E35907C4B17A /* Embed Pods Frameworks */ = {

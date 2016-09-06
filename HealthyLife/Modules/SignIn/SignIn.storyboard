@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Pjm-h4-Xl2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Pjm-h4-Xl2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -196,11 +196,20 @@
                                     <action selector="displayCreateAccountViewAction:" destination="Pjm-h4-Xl2" eventType="touchUpInside" id="gDe-ro-TGa"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45H-vH-TFd">
+                                <rect key="frame" x="93" y="30" width="190" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="AMW-j6-8dE"/>
+                                    <constraint firstAttribute="width" constant="190" id="Wii-ts-sng"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="HqD-Df-ugO" secondAttribute="trailing" constant="20" id="0gi-FY-gWH"/>
                             <constraint firstAttribute="trailing" secondItem="EiT-L4-86D" secondAttribute="trailing" id="AjS-iN-ttd"/>
+                            <constraint firstItem="45H-vH-TFd" firstAttribute="top" secondItem="9ti-Os-lsc" secondAttribute="bottom" constant="10" id="HuJ-CX-kzz"/>
                             <constraint firstItem="xK5-zT-LSD" firstAttribute="top" secondItem="cQX-qH-KXq" secondAttribute="bottom" id="IzC-ib-hg0"/>
                             <constraint firstItem="zOd-QP-Fno" firstAttribute="leading" secondItem="uGt-CY-vnF" secondAttribute="leading" constant="20" id="NRv-b1-Ee7"/>
                             <constraint firstItem="xK5-zT-LSD" firstAttribute="top" secondItem="EiT-L4-86D" secondAttribute="bottom" id="YrI-vo-azQ"/>
@@ -210,6 +219,7 @@
                             <constraint firstItem="zOd-QP-Fno" firstAttribute="centerX" secondItem="uGt-CY-vnF" secondAttribute="centerX" id="dUc-3d-5C0"/>
                             <constraint firstAttribute="trailing" secondItem="zOd-QP-Fno" secondAttribute="trailing" constant="20" id="gaU-c2-LRq"/>
                             <constraint firstAttribute="trailing" secondItem="cQX-qH-KXq" secondAttribute="trailing" id="kOh-Ff-caR"/>
+                            <constraint firstItem="45H-vH-TFd" firstAttribute="centerX" secondItem="uGt-CY-vnF" secondAttribute="centerX" id="lKT-s5-zpk"/>
                             <constraint firstItem="EiT-L4-86D" firstAttribute="top" secondItem="uGt-CY-vnF" secondAttribute="top" id="nC2-Qg-SoS"/>
                             <constraint firstItem="zOd-QP-Fno" firstAttribute="top" secondItem="HqD-Df-ugO" secondAttribute="bottom" constant="20" id="qIG-PR-1LH"/>
                             <constraint firstItem="xK5-zT-LSD" firstAttribute="top" secondItem="zOd-QP-Fno" secondAttribute="bottom" constant="30" id="sqL-XU-bSz"/>
@@ -228,6 +238,7 @@
                         <outlet property="displayCButton" destination="zOd-QP-Fno" id="VCH-Wr-wP7"/>
                         <outlet property="displaySButton" destination="HqD-Df-ugO" id="CNG-d3-EPT"/>
                         <outlet property="emailTextField" destination="beS-w2-Yqe" id="zU0-6x-dfB"/>
+                        <outlet property="facebookView" destination="45H-vH-TFd" id="QAW-cr-AWN"/>
                         <outlet property="logInView" destination="GIj-vl-I3W" id="ce1-F4-YwI"/>
                         <outlet property="loginButton" destination="wro-63-tmF" id="L4V-fc-Qwb"/>
                         <outlet property="passwordTextField" destination="ulL-mf-dM7" id="ssP-io-kcl"/>

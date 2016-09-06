@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import SnapKit
 import LocalAuthentication
+import FBSDKLoginKit
 
 class SignInViewController: BaseViewController {
     
@@ -17,6 +18,7 @@ class SignInViewController: BaseViewController {
     let animationDuration: CFTimeInterval = 0.5
     
     
+    @IBOutlet weak var facebookView: UIView!
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var createEmail: UITextField!
@@ -72,6 +74,13 @@ class SignInViewController: BaseViewController {
         self.createUsername.delegate = self
         self.passwordTextField.delegate = self
         self.createPassword.delegate = self
+        
+        let fbLoginButton = FBSDKLoginButton()
+        fbLoginButton.delegate = self
+        facebookView.addSubview(fbLoginButton)
+        fbLoginButton.snp_makeConstraints { (make) in
+            make.edges.equalTo(facebookView)
+        }
     }
 
     
@@ -163,6 +172,7 @@ class SignInViewController: BaseViewController {
         logInView.alpha = 0
         displayCButton.alpha = 1
         displaySButton.alpha = 1
+        facebookView.alpha = 1
         createAccountView.alpha = 0
         
         displayCButton.layer.cornerRadius = 10
@@ -178,6 +188,7 @@ class SignInViewController: BaseViewController {
         logInView.alpha = 1
         displayCButton.alpha = 0
         displaySButton.alpha = 0
+        facebookView.alpha = 0
         createAccountView.alpha = 0
         
         logInView.layer.cornerRadius = 10
@@ -191,6 +202,7 @@ class SignInViewController: BaseViewController {
         createAccountView.alpha = 1
         displayCButton.alpha = 0
         displaySButton.alpha = 0
+        facebookView.alpha = 0
         logInView.alpha = 0
         
         createAccountView.layer.cornerRadius = 10
@@ -256,7 +268,7 @@ class SignInViewController: BaseViewController {
     
     func getDetailsOfUser() {
         
-        DataService.dataService.userRef.child("username").observeEventType(.Value, withBlock: { snapshot in
+        DataService.dataService.userRef.child("username").observeSingleEventOfType(.Value, withBlock: { snapshot in
             if let userName = snapshot.value as? String {
                 DataService.currentUserName = userName
             }
@@ -295,6 +307,43 @@ extension SignInViewController: UITextFieldDelegate {
             break
         }
         return true
+    }
+}
+
+extension SignInViewController: FBSDKLoginButtonDelegate {
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError?) {
+        showLoading()
+        if let error = error {
+            
+            Helper.showAlert("Error", message: error.localizedDescription, inViewController: self)
+            self.hideLoading()
+        } else if result.isCancelled == false {
+            let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+            
+            FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+                if let user = user {
+                    let ref =  FIRDatabase.database().reference()
+                    
+                    ref.child("users").child(user.uid).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                        if snapshot.value is NSNull {
+                            snapshot.ref.setValue(["username" : user.displayName!, "followerCount" : 0, "totalRate": 0, "totalPeoleVoted": 0, "userCommentsCount": 0, "photoURL" : user.photoURL?.absoluteString ?? ""  ])
+                        }
+                    })
+                    
+                    self.getDetailsOfUser()
+                } else {
+                    Helper.showAlert("Error", message: "Can not login with Facebook", inViewController: self)
+                    self.hideLoading()
+                }
+            }
+        } else {
+            self.hideLoading()
+        }
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        
     }
 }
 

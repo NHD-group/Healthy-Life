@@ -124,9 +124,14 @@ class journalViewController: BaseViewController {
             
         })
         
+        ref.child("users/\(currentUserID)/photoURL").observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if let photoURL = snapshot.value as? String {
+                self.avaImage.kf_setImageWithURL(NSURL(string: photoURL))
+            }
+        })
+        
         let islandRef = storageRef.child("images/\(currentUserID)")
         avaImage.downloadImageWithImageReference(islandRef)
-        
     }
     
     func initTabPageView() {
@@ -235,4 +240,11 @@ extension journalViewController: BaseScroolViewDelegate {
         
         pageViewControllerIsMoving(true)
     }
+    
+    @IBAction func onSettingTapped(sender: AnyObject) {
+        let vc = SettingViewController(nibName: String(SettingViewController), bundle: nil)
+        let navVC = BaseNavigationController(rootViewController: vc)
+        presentViewController(navVC, animated: true, completion: nil)
+    }
+
 }
