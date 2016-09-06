@@ -131,7 +131,7 @@ class journalViewController: BaseViewController {
     
     func initTabPageView() {
         
-        vc2 = displayResultViewController()
+        vc2 = displayResultViewController(nibName: String(displayResultViewController), bundle: nil)
  
         vc1.currentUserID = currentUserID
         vc2.currentUserID = currentUserID

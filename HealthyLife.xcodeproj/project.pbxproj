@@ -67,6 +67,7 @@
 		04E7B6E61D6EA8E70088884A /* BaseTabPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7B6E51D6EA8E60088884A /* BaseTabPageViewController.swift */; };
 		04E7B6E81D6EC0E90088884A /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7B6E71D6EC0E90088884A /* BaseTableViewController.swift */; };
 		04F04F591D7482580094F9E8 /* NHDCircularTuner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F04F581D7482580094F9E8 /* NHDCircularTuner.swift */; };
+		04FD79E01D7E7EF800ED2C4D /* displayResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FD79DF1D7E7EF800ED2C4D /* displayResultViewController.xib */; };
 		3FEE3F4FA3D69AF73B170521 /* Pods_HealthyLife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */; };
 		744BC7B21D709F2200DE9BD5 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744BC7B11D709F2200DE9BD5 /* ChartViewController.swift */; };
 		746E341E1D67F80900E9C9A0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E341D1D67F80900E9C9A0 /* Message.swift */; };
@@ -216,6 +217,7 @@
 		04E7B6E51D6EA8E60088884A /* BaseTabPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabPageViewController.swift; sourceTree = "<group>"; };
 		04E7B6E71D6EC0E90088884A /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		04F04F581D7482580094F9E8 /* NHDCircularTuner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHDCircularTuner.swift; sourceTree = "<group>"; };
+		04FD79DF1D7E7EF800ED2C4D /* displayResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = displayResultViewController.xib; sourceTree = "<group>"; };
 		27ED28D4D03289767984B938 /* Pods_HealthyLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthyLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		744BC7B11D709F2200DE9BD5 /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		746E341D1D67F80900E9C9A0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -777,6 +779,7 @@
 			isa = PBXGroup;
 			children = (
 				846BFCCA1D65AF31009333B1 /* displayResultViewController.swift */,
+				04FD79DF1D7E7EF800ED2C4D /* displayResultViewController.xib */,
 				04DC46861D7D4C8A00EA456E /* displayCellTableViewCell.xib */,
 				846BFCCC1D65AF3D009333B1 /* uploadResultViewController.swift */,
 				844B8FF21D668B0800B42991 /* displayCellTableViewCell.swift */,
@@ -1015,6 +1018,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04DC46831D7D382D00EA456E /* uploadFoodViewController.xib in Resources */,
+				04FD79E01D7E7EF800ED2C4D /* displayResultViewController.xib in Resources */,
 				04426B1F1D5DBA35005B3621 /* GoogleService-Info.plist in Resources */,
 				04426AE01D5DA932005B3621 /* ChamsBold.ttf in Resources */,
 				04426AD41D5D9B22005B3621 /* SignIn.storyboard in Resources */,

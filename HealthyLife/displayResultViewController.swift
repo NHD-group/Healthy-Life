@@ -13,20 +13,18 @@ class displayResultViewController: BaseTableViewController {
     
     weak var delegate: BaseScroolViewDelegate?
 
-    var currentUserID = DataService.currentUserID
+    var currentUserID = ""
     
     var results = [Result]()
-    
     var resultRef: FIRDatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let ref = DataService.BaseRef
-        
         showLoading()
-        
-        resultRef = ref.child("users").child(currentUserID).child("results_journal")
+
+        var resultRef = DataService.BaseRef
+        resultRef = resultRef.child("users").child(currentUserID).child("results_journal")
         resultRef.queryLimitedToLast(10).observeEventType(.Value, withBlock: { snapshot in
 
             self.results = []
