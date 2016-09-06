@@ -17,10 +17,10 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9OB-Fy-Z3P">
                         <rect key="frame" x="2" y="2" width="172" height="216"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Viv-Z9-4n5">
-                                <rect key="frame" x="10" y="8" width="152" height="144"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Viv-Z9-4n5">
+                                <rect key="frame" x="10" y="8" width="152" height="152"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="Viv-Z9-4n5" secondAttribute="height" multiplier="1:1" id="L1Q-MH-o6S"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="Viv-Z9-4n5" secondAttribute="height" multiplier="1:1" id="L1Q-MH-o6S"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e16-UF-QLt">
@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ixs-Ae-Ajg" customClass="NHDCustomFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                                <rect key="frame" x="10" y="160" width="40" height="20"/>
+                                <rect key="frame" x="10" y="168" width="40" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

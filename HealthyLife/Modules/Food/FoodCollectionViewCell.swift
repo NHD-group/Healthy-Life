@@ -40,10 +40,6 @@ class FoodCollectionViewCell: UICollectionViewCell {
     func configureCell(food : Food) {
         
         self.food = food
-                
-        backview.layer.cornerRadius = 10
-        backview.clipsToBounds = true
-        
         
         desLabel.text = food.foodDes ?? ""
         if let time = food.time {
@@ -114,6 +110,11 @@ class FoodCollectionViewCell: UICollectionViewCell {
         tap.numberOfTapsRequired = 1
         loveImage.addGestureRecognizer(tap)
         loveImage.userInteractionEnabled = true
+        
+        backview.layer.cornerRadius = 10
+        backview.clipsToBounds = true
+        foodImageView.layer.cornerRadius = 5
+        foodImageView.clipsToBounds = true
     }
     
 }
