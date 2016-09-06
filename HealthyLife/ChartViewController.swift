@@ -171,7 +171,7 @@ extension ChartViewController: ChartViewCellDelegate {
         
         filterFoods = foods.filter({ (food: Food) -> Bool in
             //food.time?.date() == result.time.date()
-            food.time?.timeAgo() == result.time.timeAgo()
+            food.time?.timeAgo() == result.time.timeAgo() || food.time?.date() == result.time.date()
         })
         
         self.tableView.reloadSections(NSIndexSet(index: 2), withRowAnimation: UITableViewRowAnimation.Automatic)
@@ -184,7 +184,7 @@ extension ChartViewController: ChartViewCellDelegate {
         
         filterActivities = activitiesDone.filter({ (activity: ActivitiesDone) -> Bool in
             //activity.time!.date() == result.time.date()
-            activity.time?.timeAgo() == result.time.timeAgo()
+            activity.time?.timeAgo() == result.time.timeAgo() || activity.time?.date() == result.time.date()
         })
         
         self.tableView.reloadSections(NSIndexSet(index: 3), withRowAnimation: UITableViewRowAnimation.Automatic)
