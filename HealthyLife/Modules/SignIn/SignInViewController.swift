@@ -200,6 +200,7 @@ class SignInViewController: BaseViewController {
     
     
     func login() {
+        dismissKeyboard()
         showLoading()
         if let email = emailTextField.text, let password = passwordTextField.text {
             FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
@@ -224,6 +225,7 @@ class SignInViewController: BaseViewController {
     }
     
     func createAccount() {
+        dismissKeyboard()
         showLoading()
         if let email = createEmail.text, let password = createPassword.text, let username = createUsername.text {
             FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user, error) in

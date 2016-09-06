@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 
 class MainTabBarViewController: UITabBarController  {
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,19 +23,6 @@ class MainTabBarViewController: UITabBarController  {
         }
         tabbarView.delegate = self
         
-        NSNotificationCenter.defaultCenter().addObserverForName(Configuration.NotificationKey.uploadVideo, object: nil, queue: NSOperationQueue.mainQueue()) { (notif) in
-            
-            if Configuration.selectedViewControllerName == String(self) {
-                
-                if let path = notif.object as? String {
-                    
-                    let vc = uploadVideoViewController(nibName: String(uploadVideoViewController), bundle: nil)
-                    let navVC = BaseNavigationController(rootViewController: vc)
-                    vc.videoUrl = NSURL(fileURLWithPath: path)
-                    self.presentViewController(navVC, animated: true, completion: nil)
-                }
-            }
-        }
         
         let splashView = NHDSplash(frame: view.frame)
         view.addSubview(splashView)
@@ -44,6 +30,23 @@ class MainTabBarViewController: UITabBarController  {
             make.edges.equalTo(view.snp_edges)
         }
         splashView.delegate = self
+        
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.getNotificationUploadVideo), name: Configuration.NotificationKey.uploadVideo, object: nil)
+    }
+    
+    func getNotificationUploadVideo(notif: NSNotification) {
+        if Configuration.selectedViewControllerName == String(self) {
+            
+            if let path = notif.object as? String {
+                
+                let vc = uploadVideoViewController(nibName: String(uploadVideoViewController), bundle: nil)
+                let navVC = BaseNavigationController(rootViewController: vc)
+                self.presentViewController(navVC, animated: true, completion: {
+                    vc.videoUrl = NSURL(fileURLWithPath: path)
+                })
+            }
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

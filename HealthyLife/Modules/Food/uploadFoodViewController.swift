@@ -23,32 +23,28 @@ class uploadFoodViewController: BaseViewController, UIImagePickerControllerDeleg
         super.viewDidLoad()
         
         title = "Upload Food"
+        MBProgressHUD.showHUDAddedTo(pickerContainer, animated: true)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         setupPicker()
+    }
+    
+    deinit {
+        pickerController.removeFromParentViewController()
+        pickerController = nil
     }
     
     func setupPicker() {
         
-        if pickerController != nil {
-            return
-        }
-        
         pickerController = DKImagePickerController()
-        
-        // Custom camera
         pickerController.UIDelegate = CustomUIDelegate()
-        
         pickerController.assetType = .AllPhotos
         pickerController.allowsLandscape = false
         pickerController.allowMultipleTypes = true
         pickerController.sourceType = .Both
         pickerController.singleSelect = true
-        
-        //		pickerController.showsCancelButton = true
-        //		pickerController.showsEmptyAlbums = false
-        //		pickerController.defaultAssetGroup = PHAssetCollectionSubtype.SmartAlbumFavorites
-        
-        // Clear all the selected assets if you used the picker controller as a single instance.
-        //		pickerController.defaultSelectedAssets = nil
         
         addChildViewController(pickerController)
         pickerContainer.addSubview(pickerController.view)
@@ -56,7 +52,7 @@ class uploadFoodViewController: BaseViewController, UIImagePickerControllerDeleg
         pickerController.view.snp_makeConstraints { (make) in
             make.edges.equalTo(pickerContainer)
         }
-
+        MBProgressHUD.hideHUDForView(pickerContainer, animated: true)
     }
     
     @IBAction func uploadAction(sender: UIButton) {
@@ -78,7 +74,6 @@ class uploadFoodViewController: BaseViewController, UIImagePickerControllerDeleg
             }
             self.dismissKeyboard()
             self.updateImage(image, text: self.desTextField.text!)
-            self.onBack()
         }
         
         
@@ -106,6 +101,7 @@ class uploadFoodViewController: BaseViewController, UIImagePickerControllerDeleg
             self.hideLoading()
         }) { (error) in
             Helper.showAlert("Error", message: error.localizedDescription, inViewController: self)
+            self.hideLoading()
         }
     }
 

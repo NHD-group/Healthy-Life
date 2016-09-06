@@ -18,7 +18,7 @@ class displayFoodViewController: BaseViewController {
     weak var delegate: BaseScroolViewDelegate?
     
     var foods = [Food]()
-    var currentUserID = DataService.currentUserID
+    var currentUserID = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()

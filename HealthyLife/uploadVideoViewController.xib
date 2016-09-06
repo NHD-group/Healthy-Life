@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="uploadVideoViewController" customModule="HealthyLife" customModuleProvider="target">
@@ -10,6 +11,8 @@
                 <outlet property="cameraButton" destination="3Al-JF-JLa" id="Aon-C9-bFR"/>
                 <outlet property="desTextField" destination="nIm-BW-ZyD" id="YH5-F2-LZQ"/>
                 <outlet property="nameVideoTextField" destination="gOn-F8-MqK" id="g3q-er-nUP"/>
+                <outlet property="pickerContainer" destination="dBL-Vc-uoh" id="Nr8-d9-Dkm"/>
+                <outlet property="playIcon" destination="HY2-tS-CWP" id="vB1-ta-cJu"/>
                 <outlet property="resultImage" destination="MdY-mu-rkN" id="Zv6-XE-JW0"/>
                 <outlet property="view" destination="uWV-ff-eZi" id="UOu-86-VyH"/>
             </connections>
@@ -24,54 +27,41 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcr-8x-9FV" customClass="NHDRoundedConrerButton" customModule="HealthyLife" customModuleProvider="target">
-                    <rect key="frame" x="100" y="468" width="120" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="120" id="vqW-vh-Dmq"/>
-                    </constraints>
-                    <state key="normal" title="UPLOAD"/>
-                    <connections>
-                        <action selector="uploadAction:" destination="-1" eventType="touchUpInside" id="rxO-gZ-f6m"/>
-                    </connections>
-                </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gOn-F8-MqK">
                     <rect key="frame" x="20" y="75" width="280" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search on" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9f-Fz-uPU" customClass="NHDCustomItalicFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                    <rect key="frame" x="189" y="344" width="69" height="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search  on" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9f-Fz-uPU" customClass="NHDCustomItalicFontLabel" customModule="HealthyLife" customModuleProvider="target">
+                    <rect key="frame" x="27" y="221" width="52" height="36"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="os9-kh-8Ya" customClass="NHDCustomItalicFontLabel" customModule="HealthyLife" customModuleProvider="target">
-                    <rect key="frame" x="64" y="344" width="90" height="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record video" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="os9-kh-8Ya" customClass="NHDCustomItalicFontLabel" customModule="HealthyLife" customModuleProvider="target">
+                    <rect key="frame" x="69" y="166" width="49" height="36"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="MdY-mu-rkN">
-                    <rect key="frame" x="20" y="155" width="280" height="158"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="MdY-mu-rkN" secondAttribute="height" multiplier="16:9" id="YdA-dd-8Pk"/>
-                    </constraints>
+                    <rect key="frame" x="133" y="155" width="167" height="109"/>
                 </imageView>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="youtube_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4c0-eL-8EW">
-                    <rect key="frame" x="260" y="325" width="40" height="40"/>
+                    <rect key="frame" x="81" y="219" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="4c0-eL-8EW" secondAttribute="height" id="ZnG-Km-n3r"/>
+                        <constraint firstAttribute="width" constant="40" id="l6W-qy-vnh"/>
                     </constraints>
                 </imageView>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="camera-icon" translatesAutoresizingMaskIntoConstraints="NO" id="wTu-dX-uKz">
-                    <rect key="frame" x="20" y="325" width="40" height="40"/>
+                    <rect key="frame" x="25" y="163" width="40" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="1KW-i7-MUh"/>
                         <constraint firstAttribute="width" secondItem="wTu-dX-uKz" secondAttribute="height" id="Xrw-Vf-jQ3"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Al-JF-JLa">
-                    <rect key="frame" x="20" y="318" width="139" height="50"/>
+                    <rect key="frame" x="20" y="159" width="111" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="2Rl-u6-wsS"/>
                     </constraints>
@@ -80,7 +70,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZ3-zS-AtT">
-                    <rect key="frame" x="161" y="318" width="139" height="50"/>
+                    <rect key="frame" x="20" y="214" width="111" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="49X-HZ-7Uy"/>
                     </constraints>
@@ -89,42 +79,71 @@
                         <action selector="onYouTubeTapped:" destination="-1" eventType="touchUpInside" id="INV-P9-gNh"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBL-Vc-uoh">
+                    <rect key="frame" x="0.0" y="311" width="320" height="257"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcr-8x-9FV" customClass="NHDRoundedConrerButton" customModule="HealthyLife" customModuleProvider="target">
+                    <rect key="frame" x="100" y="273" width="120" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="vqW-vh-Dmq"/>
+                    </constraints>
+                    <state key="normal" title="UPLOAD"/>
+                    <connections>
+                        <action selector="uploadAction:" destination="-1" eventType="touchUpInside" id="rxO-gZ-f6m"/>
+                    </connections>
+                </button>
+                <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" image="Play-Normal-icon" translatesAutoresizingMaskIntoConstraints="NO" id="HY2-tS-CWP">
+                    <rect key="frame" x="202" y="195" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="2ij-bo-gWZ"/>
+                        <constraint firstAttribute="width" secondItem="HY2-tS-CWP" secondAttribute="height" multiplier="1:1" id="L3G-v9-n6u"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="CZ3-zS-AtT" firstAttribute="bottom" secondItem="3Al-JF-JLa" secondAttribute="bottom" id="3CL-Wt-ENS"/>
-                <constraint firstItem="4c0-eL-8EW" firstAttribute="top" secondItem="wTu-dX-uKz" secondAttribute="top" id="9lt-tk-6cE"/>
+                <constraint firstItem="3Al-JF-JLa" firstAttribute="top" secondItem="nIm-BW-ZyD" secondAttribute="bottom" constant="14" id="01C-tR-Ayb"/>
+                <constraint firstItem="CZ3-zS-AtT" firstAttribute="trailing" secondItem="3Al-JF-JLa" secondAttribute="trailing" id="0IY-IO-Qy5"/>
+                <constraint firstItem="4c0-eL-8EW" firstAttribute="trailing" secondItem="CZ3-zS-AtT" secondAttribute="trailing" constant="-10" id="3lT-xN-3ut"/>
+                <constraint firstItem="CZ3-zS-AtT" firstAttribute="top" secondItem="3Al-JF-JLa" secondAttribute="bottom" constant="5" id="4KR-9U-g4b"/>
+                <constraint firstItem="HY2-tS-CWP" firstAttribute="centerY" secondItem="MdY-mu-rkN" secondAttribute="centerY" id="5tL-PI-gD7"/>
+                <constraint firstItem="dBL-Vc-uoh" firstAttribute="leading" secondItem="uWV-ff-eZi" secondAttribute="leading" id="8Ey-KW-i5K"/>
                 <constraint firstItem="4c0-eL-8EW" firstAttribute="width" secondItem="wTu-dX-uKz" secondAttribute="width" id="AQN-fO-fVC"/>
                 <constraint firstItem="nIm-BW-ZyD" firstAttribute="leading" secondItem="gOn-F8-MqK" secondAttribute="leading" id="AZf-5P-NeK"/>
                 <constraint firstItem="MdY-mu-rkN" firstAttribute="top" secondItem="nIm-BW-ZyD" secondAttribute="bottom" constant="10" id="BiS-3b-2RK"/>
-                <constraint firstItem="os9-kh-8Ya" firstAttribute="centerY" secondItem="3Al-JF-JLa" secondAttribute="centerY" constant="10" id="DHb-iU-FVY"/>
-                <constraint firstItem="4c0-eL-8EW" firstAttribute="trailing" secondItem="MdY-mu-rkN" secondAttribute="trailing" id="GH3-iB-8hh"/>
+                <constraint firstItem="os9-kh-8Ya" firstAttribute="centerY" secondItem="3Al-JF-JLa" secondAttribute="centerY" id="DHb-iU-FVY"/>
+                <constraint firstItem="rcr-8x-9FV" firstAttribute="top" secondItem="CZ3-zS-AtT" secondAttribute="bottom" constant="9" id="E0c-7M-qw8"/>
+                <constraint firstAttribute="trailing" secondItem="dBL-Vc-uoh" secondAttribute="trailing" id="KB8-Ko-PYs"/>
+                <constraint firstItem="MdY-mu-rkN" firstAttribute="trailing" secondItem="gOn-F8-MqK" secondAttribute="trailing" id="Kw0-fd-tkA"/>
                 <constraint firstItem="gOn-F8-MqK" firstAttribute="top" secondItem="uWV-ff-eZi" secondAttribute="top" constant="75" id="KwX-1g-FSc"/>
+                <constraint firstItem="wTu-dX-uKz" firstAttribute="top" secondItem="3Al-JF-JLa" secondAttribute="top" constant="4" id="LaY-r8-vE7"/>
                 <constraint firstItem="gOn-F8-MqK" firstAttribute="centerX" secondItem="uWV-ff-eZi" secondAttribute="centerX" id="Nbb-7f-OEl"/>
+                <constraint firstItem="MdY-mu-rkN" firstAttribute="bottom" secondItem="CZ3-zS-AtT" secondAttribute="bottom" id="Nf6-fW-dNd"/>
                 <constraint firstItem="rcr-8x-9FV" firstAttribute="centerX" secondItem="uWV-ff-eZi" secondAttribute="centerX" id="QUQ-xe-Bse"/>
                 <constraint firstItem="os9-kh-8Ya" firstAttribute="leading" secondItem="wTu-dX-uKz" secondAttribute="trailing" constant="4" id="Ri2-m9-eOL"/>
-                <constraint firstItem="wTu-dX-uKz" firstAttribute="leading" secondItem="MdY-mu-rkN" secondAttribute="leading" id="WiX-FF-YD5"/>
                 <constraint firstItem="gOn-F8-MqK" firstAttribute="leading" secondItem="uWV-ff-eZi" secondAttribute="leading" constant="20" id="WlO-ft-B6a"/>
                 <constraint firstItem="CZ3-zS-AtT" firstAttribute="width" secondItem="3Al-JF-JLa" secondAttribute="width" id="Wvz-er-EZp"/>
                 <constraint firstItem="4c0-eL-8EW" firstAttribute="leading" secondItem="X9f-Fz-uPU" secondAttribute="trailing" constant="2" id="X74-VT-xDf"/>
                 <constraint firstItem="nIm-BW-ZyD" firstAttribute="trailing" secondItem="gOn-F8-MqK" secondAttribute="trailing" id="Ymc-IG-DcO"/>
+                <constraint firstItem="CZ3-zS-AtT" firstAttribute="leading" secondItem="gOn-F8-MqK" secondAttribute="leading" id="ZJ9-Rj-TUQ"/>
+                <constraint firstItem="4c0-eL-8EW" firstAttribute="top" secondItem="CZ3-zS-AtT" secondAttribute="top" constant="5" id="ZrU-Cr-f1S"/>
+                <constraint firstItem="wTu-dX-uKz" firstAttribute="leading" secondItem="3Al-JF-JLa" secondAttribute="leading" constant="5" id="aKQ-me-QJw"/>
                 <constraint firstItem="nIm-BW-ZyD" firstAttribute="top" secondItem="gOn-F8-MqK" secondAttribute="bottom" constant="10" id="ad2-sF-HAO"/>
-                <constraint firstItem="MdY-mu-rkN" firstAttribute="centerX" secondItem="uWV-ff-eZi" secondAttribute="centerX" id="bph-rr-amK"/>
-                <constraint firstAttribute="bottom" secondItem="rcr-8x-9FV" secondAttribute="bottom" constant="70" id="dyd-3A-SAx"/>
-                <constraint firstItem="CZ3-zS-AtT" firstAttribute="leading" secondItem="3Al-JF-JLa" secondAttribute="trailing" constant="2" id="eQK-ui-8T4"/>
-                <constraint firstItem="3Al-JF-JLa" firstAttribute="leading" secondItem="MdY-mu-rkN" secondAttribute="leading" id="ej5-nE-meg"/>
-                <constraint firstItem="CZ3-zS-AtT" firstAttribute="trailing" secondItem="MdY-mu-rkN" secondAttribute="trailing" id="gUd-0B-emD"/>
-                <constraint firstItem="X9f-Fz-uPU" firstAttribute="centerY" secondItem="CZ3-zS-AtT" secondAttribute="centerY" constant="10" id="h4u-gl-YKf"/>
-                <constraint firstItem="3Al-JF-JLa" firstAttribute="top" secondItem="MdY-mu-rkN" secondAttribute="bottom" constant="5" id="hbf-eS-Na0"/>
-                <constraint firstItem="MdY-mu-rkN" firstAttribute="leading" secondItem="uWV-ff-eZi" secondAttribute="leading" constant="20" id="iVm-nJ-DpJ"/>
-                <constraint firstItem="CZ3-zS-AtT" firstAttribute="top" secondItem="3Al-JF-JLa" secondAttribute="top" id="qq7-Sn-93j"/>
-                <constraint firstItem="wTu-dX-uKz" firstAttribute="top" secondItem="MdY-mu-rkN" secondAttribute="bottom" constant="12" id="sUe-v3-sRb"/>
+                <constraint firstAttribute="bottom" secondItem="dBL-Vc-uoh" secondAttribute="bottom" id="bYF-q4-5er"/>
+                <constraint firstItem="MdY-mu-rkN" firstAttribute="leading" secondItem="3Al-JF-JLa" secondAttribute="trailing" constant="2" id="bsV-Dw-HSe"/>
+                <constraint firstItem="3Al-JF-JLa" firstAttribute="leading" secondItem="gOn-F8-MqK" secondAttribute="leading" id="gDo-wb-pZx"/>
+                <constraint firstItem="X9f-Fz-uPU" firstAttribute="centerY" secondItem="CZ3-zS-AtT" secondAttribute="centerY" id="h4u-gl-YKf"/>
+                <constraint firstItem="3Al-JF-JLa" firstAttribute="width" secondItem="MdY-mu-rkN" secondAttribute="width" multiplier="2:3" id="mOD-L5-aeT"/>
+                <constraint firstItem="HY2-tS-CWP" firstAttribute="centerX" secondItem="MdY-mu-rkN" secondAttribute="centerX" id="ndV-ec-wlc"/>
+                <constraint firstItem="dBL-Vc-uoh" firstAttribute="top" secondItem="rcr-8x-9FV" secondAttribute="bottom" constant="8" id="qgz-cT-uHT"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <point key="canvasLocation" x="460" y="-24"/>
         </view>
     </objects>
     <resources>
+        <image name="Play-Normal-icon" width="256" height="256"/>
         <image name="camera-icon" width="128" height="128"/>
         <image name="placeholder" width="570" height="380"/>
         <image name="youtube_icon" width="100" height="100"/>

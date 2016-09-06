@@ -43,6 +43,10 @@ class BaseViewController: UIViewController {
     func onSearch() {
     }
     
+    deinit {
+        print("deinit: " + String(self))
+    }
+    
     func addBackgroundImage() {
         
         let blurredBackground = UIImageView(frame: view.frame)
