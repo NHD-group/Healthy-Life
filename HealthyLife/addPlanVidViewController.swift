@@ -34,11 +34,13 @@ class addPlanVidViewController: BaseViewController, UITableViewDataSource, UITab
     
     @IBAction func addNewPlanAction(sender: AnyObject) {
         newplanView()
+        onBack()
     }
     
     
     @IBAction func addOldPlanAction(sender: AnyObject) {
         oldOldPlanView()
+        
     }
     
     
@@ -52,8 +54,7 @@ class addPlanVidViewController: BaseViewController, UITableViewDataSource, UITab
         
         planRef.child(nameOfPlanTextField.text!).child("activities").childByAutoId().setValue(activity)
         
-        dismissViewControllerAnimated(true, completion: nil)
-
+        self.onBack()
         
     }
     

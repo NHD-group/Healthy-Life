@@ -78,7 +78,10 @@ class uploadFoodViewController: BaseViewController, UIImagePickerControllerDeleg
             }
             self.dismissKeyboard()
             self.updateImage(image, text: self.desTextField.text!)
+            self.onBack()
         }
+        
+        
     }
     
     func updateImage(image: UIImage, text: String) {
