@@ -79,4 +79,15 @@ extension BaseTabPageViewController {
         
     }
     
+    
+    class func scrollViewDidScroll(scrollView: UIScrollView, delegate: BaseScroolViewDelegate?) {
+        
+        if scrollView.decelerating {
+        }
+        
+        let isUp = (scrollView.panGestureRecognizer.translationInView(scrollView.superview).y > 0) && scrollView.contentOffset.y <= 30
+        
+        delegate?.pageViewControllerIsMoving(isUp)
+    }
+    
 }

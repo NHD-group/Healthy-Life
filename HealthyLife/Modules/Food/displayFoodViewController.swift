@@ -145,7 +145,6 @@ extension displayFoodViewController: UICollectionViewDataSource, CollectionViewW
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        let isUp = (scrollView.panGestureRecognizer.translationInView(scrollView.superview).y > 0)
-        delegate?.pageViewControllerIsMoving(isUp)
+        BaseTabPageViewController.scrollViewDidScroll(scrollView, delegate: delegate)
     }
 }
