@@ -249,8 +249,7 @@ class SignInViewController: BaseViewController {
                         if error != nil {
                             
                         } else {
-                            let ref =  FIRDatabase.database().reference()
-                            ref.child("users").child(user!.uid).setValue(["username" : username ,  "followerCount" : 0, "totalRate": 0, "totalPeoleVoted": 0, "userCommentsCount": 0  ])
+                            DataService.dataService.userRef.setValue(["username" : username ,  "followerCount" : 0, "totalRate": 0, "totalPeoleVoted": 0, "userCommentsCount": 0  ])
                             
                             self.getDetailsOfUser()
                             self.saveDataUser(email, password: password)
@@ -327,7 +326,7 @@ extension SignInViewController: FBSDKLoginButtonDelegate {
                     
                     ref.child("users").child(user.uid).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
                         if snapshot.value is NSNull {
-                            snapshot.ref.setValue(["username" : user.displayName!, "followerCount" : 0, "totalRate": 0, "totalPeoleVoted": 0, "userCommentsCount": 0, "photoURL" : user.photoURL?.absoluteString ?? ""  ])
+                            snapshot.ref.setValue(["username" : user.displayName ?? "Facebook user", "followerCount" : 0, "totalRate": 0, "totalPeoleVoted": 0, "userCommentsCount": 0, "photoURL" : user.photoURL?.absoluteString ?? ""  ])
                         }
                     })
                     

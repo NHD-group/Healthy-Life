@@ -55,10 +55,15 @@ class SettingViewController: BaseViewController,UIImagePickerControllerDelegate,
             return
         }
         
-        imageView.uploadImageWithKey(DataService.currentUserID, complete: {
+        showLoading()
+        imageView.uploadImageWithKey(DataService.currentUserID, complete: { (downloadURL) in
+            DataService.dataService.userRef.child("photoURL").setValue(downloadURL)
+            self.hideLoading()
             self.onBack()
             }) { (error) in
                 Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)
+                self.hideLoading()
+
         }
     }
     
@@ -74,5 +79,12 @@ class SettingViewController: BaseViewController,UIImagePickerControllerDelegate,
             weightChangeLabel.text = userSetting.weightChanged
             heightLabel.text = userSetting.height
         }
+        DataService.dataService.userRef.child("photoURL").observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if let photoURL = snapshot.value as? String {
+                self.imageView.kf_setImageWithURL(NSURL(string: photoURL))
+            } else {
+                self.imageView.downloadImageWithKey(DataService.currentUserID)
+            }
+        })
     }
 }

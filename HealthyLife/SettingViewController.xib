@@ -33,7 +33,7 @@
                         <constraint firstAttribute="width" secondItem="4lg-s2-m8D" secondAttribute="height" multiplier="1:1" id="Jtm-Sg-DST"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAc-QM-cPV" customClass="NHDCustomSubmitButton" customModule="HealthyLife" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAc-QM-cPV" customClass="NHDRoundedConrerButton" customModule="HealthyLife" customModuleProvider="target">
                     <rect key="frame" x="131" y="449" width="57" height="30"/>
                     <state key="normal" title="UPDATE"/>
                     <connections>
