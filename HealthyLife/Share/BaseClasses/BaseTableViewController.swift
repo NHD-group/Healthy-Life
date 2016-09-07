@@ -16,8 +16,7 @@ class BaseTableViewController: BaseViewController, UITableViewDelegate, UITableV
 
     var dataArray = [] {
         didSet {
-            tableView.reloadData()
-            hideLoading()
+            reloadData()
         }
     }
     
@@ -41,7 +40,7 @@ class BaseTableViewController: BaseViewController, UITableViewDelegate, UITableV
         
         tableView.backgroundColor = Configuration.Colors.lightGray
         tableView.separatorStyle = .None
-        
+        tableView.contentInset = UIEdgeInsetsMake(5, 0, 30, 0)
         
 //       tableView.estimatedRowHeight = 130
 //       tableView.rowHeight = UITableViewAutomaticDimension
@@ -81,4 +80,18 @@ class BaseTableViewController: BaseViewController, UITableViewDelegate, UITableV
         }
     }
     
+    func reloadData() {
+        tableView.reloadData()
+        hideLoading()
+        if dataArray.count == 0 {
+            let noResultLabel = UILabel(frame: CGRectMake(0, 0, tableView.frame.width, 60))
+            noResultLabel.font = UIFont.italicSystemFontOfSize(16)
+            noResultLabel.text = "No results found."
+            noResultLabel.textAlignment = .Center
+            noResultLabel.textColor = UIColor.darkGrayColor()
+            tableView.tableFooterView = noResultLabel
+        } else {
+            tableView.tableFooterView = nil
+        }
+    }
 }

@@ -44,7 +44,7 @@ class displayCellTableViewCell: UITableViewCell {
 
 
             ref.child("users").child(currentUserID!).child("user_setting").observeEventType(.Value, withBlock: { snapshot in
-                if snapshot.value == nil {
+                if snapshot.value is NSNull {
                     self.weightChangedLabel.text = "0 kg"
                 } else {
                     let dictionary = snapshot.value as! NSDictionary

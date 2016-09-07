@@ -92,9 +92,10 @@ class DataService {
     static func setup() {
         
         FIRApp.configure()
+        FIRAnalyticsConfiguration.sharedInstance().setAnalyticsCollectionEnabled(false)
         FIRDatabase.database().persistenceEnabled = false
         FIRConfiguration.sharedInstance().logLevel = .Error
-        
+
         FIRAuth.auth()?.addAuthStateDidChangeListener({ (auth, user) in
             if user != nil {
                 dataService = DataService()

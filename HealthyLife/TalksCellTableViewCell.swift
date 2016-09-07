@@ -30,8 +30,8 @@ class TalksCellTableViewCell: UITableViewCell {
             guard let chatterID = chatter?.id else {
                 return
             }
-            let ref = DataService.dataService.baseRef.child("users")
-            ref.child(chatterID).observeEventType(.Value, withBlock: { snapshot in
+            let ref = DataService.dataService.baseRef.child("users").child(chatterID)
+            ref.observeEventType(.Value, withBlock: { snapshot in
                 guard let value = snapshot.value as? NSDictionary else {
                     return
                 }
