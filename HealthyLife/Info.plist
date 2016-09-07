@@ -85,5 +85,20 @@
         <string>fbauth2</string>
         <string>fbshareextension</string>
     </array>
+    <key>Fabric</key>
+    <dict>
+        <key>APIKey</key>
+        <string>d41fc97d63017b09f559fb2432dddac3ba8881d6</string>
+        <key>Kits</key>
+        <array>
+            <dict>
+                <key>KitInfo</key>
+                <dict/>
+                <key>KitName</key>
+                <string>Crashlytics</string>
+            </dict>
+        </array>
+    </dict>
+
 </dict>
 </plist>
