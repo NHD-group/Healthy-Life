@@ -110,11 +110,9 @@ class weeklyPlanViewController: BaseViewController, UITableViewDelegate, UITable
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            print(yourPlans.count)
             return yourPlans.count
             
         case 1:
-            print(sendedPlans.count)
             return sendedPlans.count
             
             

@@ -106,7 +106,6 @@ class demoTableViewCell: UITableViewCell {
                 
                 let AverageStar = Double(userProfile.totalStar!) / Double(userProfile.totalPeopleVoted!)
                 let averageStar = String(format: "%.2f", AverageStar)
-                print(AverageStar)
                 self.averageVote.text = averageStar
                 
             } else {
@@ -153,8 +152,6 @@ class demoTableViewCell: UITableViewCell {
             DataService.dataService.chatRoom.child(self.selectedUsername).observeSingleEventOfType(.Value, withBlock: { snapshot in
                 if let dictinary = snapshot.value as? NSDictionary {
                     self.chatKey = dictinary["chatRoomKey"] as? String ?? ""
-                    print(self.chatKey)
-                    print("check chatKey")
                 } else {
                     self.chatKey =  self.selectedUid + self.currentUid
                 }

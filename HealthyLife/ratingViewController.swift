@@ -30,7 +30,6 @@ class ratingViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         trainerID.child("totalPeoleVoted").observeEventType(.Value, withBlock: { snapshot in
-          print(snapshot.value)
             self.totalPeopleVoted = snapshot.value as! Int
         })
         
@@ -80,7 +79,6 @@ class ratingViewController: UIViewController {
         
         dismissViewControllerAnimated(true, completion: nil)
         
-        print("total" + "\(totalRate)")
     }
     
     @IBAction func cancelAction(sender: AnyObject) {

@@ -94,7 +94,6 @@ class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.row)
         
         
         activityRef.child(activities[indexPath.row].keyDaily ).removeValue()

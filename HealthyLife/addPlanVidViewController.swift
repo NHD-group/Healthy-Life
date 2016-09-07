@@ -114,7 +114,6 @@ class addPlanVidViewController: BaseViewController, UITableViewDataSource, UITab
         showLoading()
         planRef.observeEventType(.Value, withBlock: { snapshot in
             
-            print(snapshot)
             
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 

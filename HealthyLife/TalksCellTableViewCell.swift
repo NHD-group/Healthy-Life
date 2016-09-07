@@ -30,22 +30,19 @@ class TalksCellTableViewCell: UITableViewCell {
             guard let chatterID = chatter?.id else {
                 return
             }
-            DataService.dataService.baseRef.child("users").child(chatterID).observeEventType(.Value, withBlock: { snapshot in
+            let ref = DataService.dataService.baseRef.child("users")
+            ref.child(chatterID).observeEventType(.Value, withBlock: { snapshot in
                 guard let value = snapshot.value as? NSDictionary else {
                     return
                 }
                 self.usernameLabel.text = value["username"] as? String
-                if value["user_setting"] != nil {
-                    
-                    let islandRef = self.storageRef.child("images/\(chatterID)")
-                    self.avaImage.downloadImageWithImageReference(islandRef)
-                    
-                    
-                } else {
-                    self.avaImage.image = UIImage(named: "defaults")
-                    
+            })
+            
+            avaImage.image = UIImage(named: "defaults")
+            ref.child("photoURL").observeSingleEventOfType(.Value, withBlock: { snapshot in
+                if let photoURL = snapshot.value as? String {
+                    self.avaImage.kf_setImageWithURL(NSURL(string: photoURL))
                 }
-                
             })
             
             self.avaImage.layer.cornerRadius = self.avaImage.frame.size.width / 2

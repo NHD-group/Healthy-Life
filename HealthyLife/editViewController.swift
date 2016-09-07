@@ -174,7 +174,6 @@ class editViewController: BaseViewController , UIImagePickerControllerDelegate, 
         
         let  check = NSUserDefaults.standardUserDefaults().boolForKey("check")
         
-        print(check)
         
         if check == true {
             viewFromEdit()
@@ -196,7 +195,6 @@ class editViewController: BaseViewController , UIImagePickerControllerDelegate, 
         super.viewWillAppear(true)
         let  check = NSUserDefaults.standardUserDefaults().boolForKey("check")
         
-        print(check)
         
         if check == true {
             viewFromEdit()

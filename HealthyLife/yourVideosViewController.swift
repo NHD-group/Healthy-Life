@@ -74,7 +74,6 @@ class yourVideosViewController: BaseTableViewController {
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.row)
         
         
         videoRef.child(dataArray[indexPath.row].key as String).removeValue()

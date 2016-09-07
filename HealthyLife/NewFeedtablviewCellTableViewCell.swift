@@ -119,13 +119,12 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         
         //MARK: Set up ava Image
         
-        if userProfile.userSetting == nil {
-            avaImage.image = UIImage(named: "defaults")
-            
-        } else {
-            islandRef  = storageRef.child("images/\(setImage)")
-            avaImage.downloadImageWithImageReference(islandRef)
-        }
+        avaImage.image = UIImage(named: "defaults")
+        ref.child("users/\(setImage)/photoURL").observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if let photoURL = snapshot.value as? String {
+                self.avaImage.kf_setImageWithURL(NSURL(string: photoURL))
+            }
+        })
         
         
         
@@ -139,7 +138,6 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
                 
                 // Current user hasn't voted for the joke... yet.
                 
-                print(thumbsUpDown)
                 self.followImage.image = UIImage(named: "add")
                 
             } else {
@@ -156,8 +154,6 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
             DataService.dataService.chatRoom.child(sellectedUsername).observeSingleEventOfType(.Value, withBlock: { snapshot in
                 if let dictinary = snapshot.value as? NSDictionary {
                     self.chatKey = dictinary["chatRoomKey"] as? String ?? ""
-                    print(self.chatKey)
-                    print("check chatKey")
                 } else {
                     self.chatKey =  self.selectedUID + self.currentUID
                 }
@@ -191,7 +187,6 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         followedRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             if let thumbsUpDown = snapshot.value as? NSNull {
-                print(thumbsUpDown)
                 self.followImage.image = UIImage(named: "add")
                 
                 
@@ -235,7 +230,6 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         
         containerView.layer.cornerRadius = 4
         
-        // Initialization code
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

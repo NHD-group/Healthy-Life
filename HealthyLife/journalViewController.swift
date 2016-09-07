@@ -129,8 +129,6 @@ class journalViewController: BaseViewController {
         ref.child("users/\(currentUserID)/photoURL").observeEventType(.Value, withBlock: { snapshot in
             if let photoURL = snapshot.value as? String {
                 self.avaImage.kf_setImageWithURL(NSURL(string: photoURL))
-            } else {
-                self.avaImage.downloadImageWithKey(self.currentUserID)
             }
         })
     }

@@ -131,8 +131,6 @@ class SignInViewController: BaseViewController {
             showLoading()
             
         }
-        print(email)
-        print(password)
         
     }
     
@@ -142,7 +140,6 @@ class SignInViewController: BaseViewController {
         if authContext.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &error) {
             authContext.evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: "LogIn With TouchID", reply: { (sucessed, error) in
                 if sucessed {
-                        print("works")
                     
                 //handle Sucess
                 
@@ -152,7 +149,6 @@ class SignInViewController: BaseViewController {
                                 
                             } else {
                                 self.getDetailsOfUser()
-                              print("work work work")
                             }
                         })
 

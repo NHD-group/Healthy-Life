@@ -27,7 +27,6 @@ class sendedPlanCellTableViewCell: UITableViewCell {
             
             planRef.child("senderID").observeEventType(.Value, withBlock: { snapshot in
                 self.keyUID = snapshot.value as? String ?? ""
-                print(snapshot.value)
             })
             
             planRef.child("checkVote").observeEventType(.Value, withBlock: { snapshot in

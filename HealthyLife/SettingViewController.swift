@@ -82,8 +82,6 @@ class SettingViewController: BaseViewController,UIImagePickerControllerDelegate,
         DataService.dataService.userRef.child("photoURL").observeSingleEventOfType(.Value, withBlock: { snapshot in
             if let photoURL = snapshot.value as? String {
                 self.imageView.kf_setImageWithURL(NSURL(string: photoURL))
-            } else {
-                self.imageView.downloadImageWithKey(DataService.currentUserID)
             }
         })
     }

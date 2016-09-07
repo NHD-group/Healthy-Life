@@ -70,7 +70,6 @@ class sendPlanViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         
-        print(nameOfPlan)
         
         DataService.dataService.userRef.child("username").observeEventType(.Value, withBlock: { snapshot in
             self.username = snapshot.value as! String

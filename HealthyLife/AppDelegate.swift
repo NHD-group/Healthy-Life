@@ -83,7 +83,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if (error != nil) {
                 print("Unable to connect with FCM. \(error)")
             } else {
-                print("Connected to FCM.")
                 DataService.updateToken()
             }
         }
