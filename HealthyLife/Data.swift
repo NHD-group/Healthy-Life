@@ -195,8 +195,8 @@ class DataService {
     
     class func uploadImage(image: UIImage, key: String, complete: (downloadURL: NSURL?) -> (), errorBlock: (error: NSError) -> ()) {
         
-        let resizedImage = image.resizeImage(CGSize(width: 500.0, height: 500.0))
-        let imageData: NSData = UIImagePNGRepresentation(resizedImage)!
+        let resizedImage = image.resizeImage(Configuration.defaultPhotoSize)
+        let imageData: NSData = UIImageJPEGRepresentation(resizedImage, Configuration.compressionQuality)!
         let riversRef = FIRStorage.storage().reference().child("images/\(key)")
         
         // Upload the file to the path ""images/\(key)"

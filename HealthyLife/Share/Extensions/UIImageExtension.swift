@@ -38,7 +38,7 @@ extension UIImage {
     func convertImageToString(targetSize: CGSize) -> String {
         
         let image = self.resizeImage(targetSize)
-        let imageData: NSData = UIImagePNGRepresentation(image)!
+        let imageData: NSData = UIImageJPEGRepresentation(image, Configuration.compressionQuality)!
         let dataStr = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
         return dataStr
     }

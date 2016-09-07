@@ -77,9 +77,9 @@ class editViewController: BaseViewController , UIImagePickerControllerDelegate, 
                 return
             } else {
                 var thumbNail = self.thumbNailImage.image
-                thumbNail = thumbNail!.resizeImage(CGSize(width: 500.0, height: 500.0))
+                thumbNail = thumbNail!.resizeImage(Configuration.defaultPhotoSize)
                 
-                let imageData: NSData = UIImagePNGRepresentation(thumbNail!)!
+                let imageData: NSData = UIImageJPEGRepresentation(thumbNail!, Configuration.compressionQuality)!
                 
                 
                 

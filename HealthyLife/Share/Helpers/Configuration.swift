@@ -30,7 +30,9 @@ class Configuration: NSObject {
     static let animationDuration: CFTimeInterval = 0.3
     static var selectedViewControllerName: NSString?
     static let kMaxSize : Int64 = 1024 * 1024
-    static let defaultPhotoSize  = CGSizeMake(500, 500)
+    static let defaultPhotoSize  = CGSizeMake(400, 400)
+    static let compressionQuality: CGFloat = 0.7
+    
     static var selectedRoomKey: NSString?
     static var isPlayingVideo = false
     

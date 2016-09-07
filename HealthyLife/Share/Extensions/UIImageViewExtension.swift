@@ -18,8 +18,8 @@ extension UIImageView {
 
         if var avatarImage = self.image {
             
-            avatarImage = avatarImage.resizeImage(CGSize(width: 500.0, height: 500.0))
-            let imageData: NSData = UIImagePNGRepresentation(avatarImage)!
+            avatarImage = avatarImage.resizeImage(Configuration.defaultPhotoSize)
+            let imageData: NSData = UIImageJPEGRepresentation(avatarImage, Configuration.compressionQuality)!
             
             imageRef.putData(imageData, metadata: nil) { metadata, error in
                 if (error != nil) {
