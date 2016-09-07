@@ -43,6 +43,7 @@ class NHDCustomFontLabel: UILabel {
 
         font = NHDFontBucket.fontWithSize(font.pointSize - 1)
         adjustsFontSizeToFitWidth = true
+        minimumScaleFactor = 8
     }
 }
 

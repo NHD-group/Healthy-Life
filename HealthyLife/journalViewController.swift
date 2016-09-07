@@ -104,7 +104,8 @@ class journalViewController: BaseViewController {
                     }
                 }
                 
-                self.heightLabel.text = self.userSetting!.height
+                self.heightLabel.text = Helper.parseHeightToMetre(self.userSetting?.height)
+
                 var followerCount = 0
                 if let count = postDictionary["followerCount"] as? Int {
                     followerCount = count

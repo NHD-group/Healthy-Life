@@ -111,8 +111,8 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
             
         }
         
-        HeightLabel.text = userProfile.userSetting?.height ?? "height"
-        
+        HeightLabel.text = Helper.parseHeightToMetre(userProfile.userSetting?.height)
+
         nameLabel.text = sellectedUsername
         let followerCount = userProfile.followerCount ?? 0
         followerCountLabel.text = "\(followerCount) followers"

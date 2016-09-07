@@ -60,7 +60,6 @@ class FoodCollectionViewCell: UICollectionViewCell {
                 
                 // Current user hasn't voted for the joke... yet.
                 
-                print(thumbsUpDown)
                 self.loveImage.image = UIImage(named: "love")
             } else {
                 
@@ -81,7 +80,6 @@ class FoodCollectionViewCell: UICollectionViewCell {
         loveRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             if let thumbsUpDown = snapshot.value as? NSNull {
-                print(thumbsUpDown)
                 self.loveImage.image = UIImage(named: "love")
                 
                 // addSubtractVote(), in Joke.swift, handles the vote.

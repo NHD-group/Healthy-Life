@@ -109,4 +109,22 @@ class Helper: NSObject {
         }
         return objects
     }
+    
+    class func parseHeightToMetre(height: String?) -> String {
+        
+        guard let height = height else {
+            return " "
+        }
+        
+        if var number = Int(height) {
+            number /= 100
+            return String(number) + " m"
+        }
+        
+        if height.characters.count <= 0 {
+            return " "
+        }
+        
+        return height
+    }
 }
