@@ -913,7 +913,7 @@
 				84181DDC1D47C99800686BAB /* Resources */,
 				137E2E15B951E35907C4B17A /* Embed Pods Frameworks */,
 				8FA4E8D7D6E6D38E177F0168 /* Copy Pods Resources */,
-				04426B211D5DBA63005B3621 /* ShellScript */,
+				048561451D800BAA00F47ACC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1062,19 +1062,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		04426B211D5DBA63005B3621 /* ShellScript */ = {
+		048561451D800BAA00F47ACC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "JSON_FILE=HealthyLife/Share/Firebase/HealthyLife-9ef37ea02f75.json\n\nGOOGLE_APP_ID=1:5549772432:ios:0225cd86a4b27226\n\ndefaults write com.google.SymbolUpload version -integer 1   # creates file if it does not exist\nJSON=$(cat \"${JSON_FILE}\")\n/usr/bin/plutil -replace \"app_${GOOGLE_APP_ID//:/_}\" -json \"${JSON}\" \"$HOME/Library/Preferences/com.google.SymbolUpload.plist\"\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym";
-			showEnvVarsInLog = 0;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" d41fc97d63017b09f559fb2432dddac3ba8881d6 2c0f8016bbfd5132df4c66d4aaf951cf54d39f9471637e34b030ae193e040e57";
 		};
 		137E2E15B951E35907C4B17A /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1357,6 +1356,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HealthyLife/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nguyenbui.com.HealthyLife;
@@ -1371,6 +1371,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HealthyLife/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nguyenbui.com.HealthyLife;

@@ -9,7 +9,6 @@ target 'HealthyLife' do
     pod 'Firebase/Database'
     pod 'Firebase/Storage'
     pod 'Firebase/Auth'
-    pod 'Firebase/Crash'
     pod 'Kingfisher', '~> 2.4'
     pod 'NSDate+TimeAgo'
     pod 'JSQMessagesViewController', '~> 7.3'
@@ -28,7 +27,9 @@ target 'HealthyLife' do
     pod 'FBSDKCoreKit', '~> 4.12.0'
     pod 'FBSDKLoginKit', '~> 4.12.0'
     pod 'FBSDKShareKit', '~> 4.12.0'
-
+    pod 'Fabric'
+    pod 'Crashlytics'
+    
 end
 
 target 'HealthyLifeTests' do

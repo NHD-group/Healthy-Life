@@ -7,36 +7,36 @@ PODS:
   - Bolts/Tasks (1.8.4)
   - CardIO (5.3.2)
   - CollectionViewWaterfallLayout (0.2.2)
+  - Crashlytics (3.8.0):
+    - Fabric (~> 1.6.3)
   - DKImagePickerController (3.3.4):
     - DKImagePickerController/Camera (= 3.3.4)
     - DKImagePickerController/ImageManager (= 3.3.4)
   - DKImagePickerController/Camera (3.3.4)
   - DKImagePickerController/ImageManager (3.3.4)
+  - Fabric (1.6.8)
   - FBSDKCoreKit (4.12.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.12.0):
     - FBSDKCoreKit
   - FBSDKShareKit (4.12.0):
     - FBSDKCoreKit
-  - Firebase (3.5.1):
-    - Firebase/Core (= 3.5.1)
-  - Firebase/Analytics (3.5.1):
-    - FirebaseAnalytics (~> 3.3.1)
-  - Firebase/Auth (3.5.1):
+  - Firebase (3.5.2):
+    - Firebase/Core (= 3.5.2)
+  - Firebase/Analytics (3.5.2):
+    - FirebaseAnalytics (~> 3.3)
+  - Firebase/Auth (3.5.2):
     - Firebase/Analytics
     - FirebaseAuth (= 3.0.4)
-  - Firebase/Core (3.5.1):
+  - Firebase/Core (3.5.2):
     - Firebase/Analytics
-  - Firebase/Crash (3.5.1):
-    - Firebase/Analytics
-    - FirebaseCrash (= 1.0.7)
-  - Firebase/Database (3.5.1):
+  - Firebase/Database (3.5.2):
     - Firebase/Analytics
     - FirebaseDatabase (= 3.0.2)
-  - Firebase/Messaging (3.5.1):
+  - Firebase/Messaging (3.5.2):
     - Firebase/Analytics
     - FirebaseMessaging (= 1.1.1)
-  - Firebase/Storage (3.5.1):
+  - Firebase/Storage (3.5.2):
     - Firebase/Analytics
     - FirebaseStorage (= 1.0.3)
   - FirebaseAnalytics (3.3.1):
@@ -48,12 +48,6 @@ PODS:
     - FirebaseAnalytics (~> 3.2)
     - GoogleNetworkingUtilities (~> 1.2)
     - GoogleParsingUtilities (~> 1.1)
-    - GoogleUtilities (~> 1.2)
-  - FirebaseCrash (1.0.7):
-    - FirebaseAnalytics (~> 3.2)
-    - FirebaseInstanceID (~> 1.0)
-    - GoogleInterchangeUtilities (~> 1.2)
-    - GoogleSymbolUtilities (~> 1.1)
     - GoogleUtilities (~> 1.2)
   - FirebaseDatabase (3.0.2):
     - FirebaseAnalytics (~> 3.2)
@@ -101,14 +95,15 @@ PODS:
 
 DEPENDENCIES:
   - CollectionViewWaterfallLayout (~> 0.2)
+  - Crashlytics
   - DKImagePickerController
+  - Fabric
   - FBSDKCoreKit (~> 4.12.0)
   - FBSDKLoginKit (~> 4.12.0)
   - FBSDKShareKit (~> 4.12.0)
   - Firebase
   - Firebase/Auth
   - Firebase/Core
-  - Firebase/Crash
   - Firebase/Database
   - Firebase/Messaging
   - Firebase/Storage
@@ -128,14 +123,15 @@ SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   CardIO: 92c45caef0d986c4a303a7afba0c9b76ff2b1f6e
   CollectionViewWaterfallLayout: b4f9aabad89609696ea3f6dceff956dd58e2bae4
+  Crashlytics: 8601d9c74a4c4d28f3e7f408bf4c0e490c70e8b4
   DKImagePickerController: 4de1703ad3ba8bc216753447cbb00e482d8d4604
+  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
   FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
   FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
-  Firebase: 9b3edeffaf60d56e377dc5281e91c4ba935a5ad9
+  Firebase: 94e63112efcad75226c0356a8f3032397b8547c9
   FirebaseAnalytics: d968d4d5f6aeb795cd64144337bcd233e530efc6
   FirebaseAuth: 26fd291c3b552fc9658420b867520d5ae080421c
-  FirebaseCrash: 2efeb3715b76ac843b841529ce413efb67e5fd4d
   FirebaseDatabase: 59bea2e7dfd81b3b8b2f8e396caf1a52c2ced6f7
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FirebaseMessaging: 6bc7cd2ecb875c1a9c0f8b94956398aa3145bbb8
