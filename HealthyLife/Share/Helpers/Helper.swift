@@ -116,9 +116,8 @@ class Helper: NSObject {
             return " "
         }
         
-        if var number = Int(height) {
-            number /= 100
-            return String(number) + " m"
+        if let number = Int(height) {
+            return String(number / 100) + "m" + String(number % 100)
         }
         
         if height.characters.count <= 0 {
