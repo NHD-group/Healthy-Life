@@ -79,13 +79,6 @@ class demoTableViewCell: UITableViewCell {
         
         desLabel.text = trailer.des!
         
-        contentView.backgroundColor = Configuration.Colors.lightGray
-        
-        backview.layer.cornerRadius = 10
-        backview.clipsToBounds = true
-        
-
-        
         
         // profile
         let ref = FIRDatabase.database().reference()
@@ -182,4 +175,18 @@ class demoTableViewCell: UITableViewCell {
 
     }
 
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        
+        contentView.backgroundColor = Configuration.Colors.lightGray
+        priceButton.backgroundColor = Configuration.Colors.lightGray
+        
+        backview.layer.cornerRadius = 10
+        backview.clipsToBounds = true
+        
+        priceButton.layer.cornerRadius = 5
+        priceButton.layer.masksToBounds = true
+    }
 }

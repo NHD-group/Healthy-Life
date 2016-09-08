@@ -54,10 +54,10 @@ class displayCellTableViewCell: UITableViewCell {
                     let weightChanged = Double(currentWeight!)! - Double(startingWeight)!
                     
                     if weightChanged > 0 {
-                        self.weightView.backgroundColor = UIColor.greenColor()
+                        self.weightView.backgroundColor = Configuration.Colors.limeGreen
                         self.weightChangedLabel.text = "gain: \(abs(weightChanged)) kg"
                     } else {
-                        self.weightView.backgroundColor = UIColor.redColor()
+                        self.weightView.backgroundColor = Configuration.Colors.primary
                         self.weightChangedLabel.text = "lose: \(abs(weightChanged)) kg"
                     }
                 }
