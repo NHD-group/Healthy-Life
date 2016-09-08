@@ -61,6 +61,7 @@
 		04D1AA7A1D66E34D00106C27 /* uploadVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D1AA791D66E34D00106C27 /* uploadVideoViewController.xib */; };
 		04D1AA7C1D66FC4E00106C27 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA7B1D66FC4E00106C27 /* Helper.swift */; };
 		04D1AA7E1D67046600106C27 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1AA7D1D67046600106C27 /* BaseViewController.swift */; };
+		04DA48C41D811297007E61BD /* NSAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA48C31D811296007E61BD /* NSAttributedStringExtension.swift */; };
 		04DC46831D7D382D00EA456E /* uploadFoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DC46821D7D382D00EA456E /* uploadFoodViewController.xib */; };
 		04DC46851D7D3E0100EA456E /* CustomCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC46841D7D3E0100EA456E /* CustomCamera.swift */; };
 		04DC46871D7D4C8A00EA456E /* displayCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DC46861D7D4C8A00EA456E /* displayCellTableViewCell.xib */; };
@@ -211,6 +212,7 @@
 		04D1AA791D66E34D00106C27 /* uploadVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = uploadVideoViewController.xib; sourceTree = "<group>"; };
 		04D1AA7B1D66FC4E00106C27 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		04D1AA7D1D67046600106C27 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		04DA48C31D811296007E61BD /* NSAttributedStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtension.swift; sourceTree = "<group>"; };
 		04DC46821D7D382D00EA456E /* uploadFoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = uploadFoodViewController.xib; sourceTree = "<group>"; };
 		04DC46841D7D3E0100EA456E /* CustomCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCamera.swift; sourceTree = "<group>"; };
 		04DC46861D7D4C8A00EA456E /* displayCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = displayCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 				04D1AA771D66B3FF00106C27 /* UIColorExtension.swift */,
 				04C8F3731D6FF84E004639E8 /* UIFontExtension.swift */,
 				040F4FE51D74497A0056725F /* NSTimeIntervalExtension.swift */,
+				04DA48C31D811296007E61BD /* NSAttributedStringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1175,6 +1178,7 @@
 				84FACCA41D4F022200E73FDC /* DetailViewController.swift in Sources */,
 				04C8F3741D6FF84E004639E8 /* UIFontExtension.swift in Sources */,
 				04426B151D5DB4C9005B3621 /* SCImageDisplayerViewController.m in Sources */,
+				04DA48C41D811297007E61BD /* NSAttributedStringExtension.swift in Sources */,
 				84FACCA81D4F048A00E73FDC /* Activities.swift in Sources */,
 				842476E71D743884002E796A /* PrictListViewController.swift in Sources */,
 				8409619E1D533183008DE12D /* userSettingModel.swift in Sources */,

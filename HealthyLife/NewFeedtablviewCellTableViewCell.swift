@@ -104,7 +104,9 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
                 self.trainerButton.hidden = false
                 
                 let name = snapshot.value!["name"] as! String
-                self.trainerButton.setTitle("work with: \(name) ", forState: .Normal)
+                let formattedString = NSMutableAttributedString()
+                formattedString.italic("work with: ", fontSize: 13).bold(name, fontSize: 16)
+                self.trainerButton.setAttributedTitle(formattedString, forState: .Normal)
                 self.trainerUid = snapshot.key
                 
             }
