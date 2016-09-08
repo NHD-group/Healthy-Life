@@ -77,7 +77,6 @@ class journalViewController: BaseViewController {
         //MARK: set up profile
         
         let ref = DataService.BaseRef
-        let storageRef = DataService.storageRef
         
         ref.child("users/\(currentUserID)/username").observeEventType(.Value, withBlock: { snapshot in
             self.name.text = snapshot.value as? String

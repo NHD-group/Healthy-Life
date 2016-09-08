@@ -30,7 +30,7 @@ class sendedPlanCellTableViewCell: UITableViewCell {
             })
             
             planRef.child("checkVote").observeEventType(.Value, withBlock: { snapshot in
-                if let check = snapshot.value as? NSNull {
+                if snapshot.value is NSNull {
                     self.rateButton.hidden = false
                 } else {
                     

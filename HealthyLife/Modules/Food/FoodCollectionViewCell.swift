@@ -40,6 +40,9 @@ class FoodCollectionViewCell: UICollectionViewCell {
     func configureCell(food : Food) {
         
         self.food = food
+
+        let islandRef = storageRef.child("images/\(food.foodKey)")
+        foodImageView.downloadImageWithImageReference(islandRef)
         
         desLabel.text = food.foodDes ?? ""
         if let time = food.time {
@@ -49,24 +52,21 @@ class FoodCollectionViewCell: UICollectionViewCell {
         }
         loveCount.text = "\(food.love)"
         
-        
-        let islandRef = storageRef.child("images/\(food.foodKey)")
-        foodImageView.downloadImageWithImageReference(islandRef)
-        
         loveRef = ref.child("users").child(currentUserID!).child("votesLove").child(food.foodKey)
         
         loveRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            if let thumbsUpDown = snapshot.value as? NSNull {
+            if snapshot.value is NSNull {
                 
                 // Current user hasn't voted for the joke... yet.
                 
                 self.loveImage.image = UIImage(named: "love")
+                self.loveImage.tag = 1
             } else {
                 
                 // Current user voted for the joke!
                 
                 self.loveImage.image = UIImage(named: "loved")
-                
+                self.loveImage.tag = 2
             }
             
         })
@@ -75,27 +75,21 @@ class FoodCollectionViewCell: UICollectionViewCell {
     
     func loveTapped(sender: UITapGestureRecognizer) {
         
-        // observeSingleEventOfType listens for a tap by the current user.
-        
-        loveRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        if loveImage.tag == 1 {
+            self.loveImage.image = UIImage(named: "love")
             
-            if let thumbsUpDown = snapshot.value as? NSNull {
-                self.loveImage.image = UIImage(named: "love")
-                
-                // addSubtractVote(), in Joke.swift, handles the vote.
-                
-                self.food.addSubtractLove(true)
-                // setValue saves the vote as true for the current user.
-                // voteRef is a reference to the user's "votes" path.
-                
-                self.loveRef.setValue(true)
-            } else {
-                self.loveImage.image = UIImage(named: "loved")
-                self.food.addSubtractLove(false)
-                self.loveRef.removeValue()
-            }
+            // addSubtractVote(), in Joke.swift, handles the vote.
             
-        })
+            self.food.addSubtractLove(true)
+            // setValue saves the vote as true for the current user.
+            // voteRef is a reference to the user's "votes" path.
+            
+            self.loveRef.setValue(true)
+        } else {
+            self.loveImage.image = UIImage(named: "loved")
+            self.food.addSubtractLove(false)
+            self.loveRef.removeValue()
+        }
     }
     
     

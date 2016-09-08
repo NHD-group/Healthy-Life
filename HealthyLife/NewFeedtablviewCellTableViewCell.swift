@@ -133,8 +133,8 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         followedRef = DataService.dataService.userRef.child("followed").child(setImage)
         
         
-        followedRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            if let thumbsUpDown = snapshot.value as? NSNull {
+        followedRef.observeEventType(.Value, withBlock: { snapshot in
+            if snapshot.value is NSNull {
                 
                 // Current user hasn't voted for the joke... yet.
                 
@@ -186,7 +186,7 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
         
         followedRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
-            if let thumbsUpDown = snapshot.value as? NSNull {
+            if snapshot.value is NSNull {
                 self.followImage.image = UIImage(named: "add")
                 
                 
@@ -209,9 +209,6 @@ class NewFeedtablviewCellTableViewCell: UITableViewCell {
                 self.followerRef.removeValue()
                 
                 self.userProfile.addSubTractFollower(false)
-                
-                
-                
             }
             
             let followerCount = self.userProfile.followerCount ?? 0

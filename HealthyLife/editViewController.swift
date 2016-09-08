@@ -69,7 +69,7 @@ class editViewController: BaseViewController , UIImagePickerControllerDelegate, 
         
         showLoading()
         
-        let uploadTask = FIRStorage.storage().reference().child("videosTrailer").child(currentUid).putFile(videoUrl, metadata: nil, completion: { (metadata, error) in
+        FIRStorage.storage().reference().child("videosTrailer").child(currentUid).putFile(videoUrl, metadata: nil, completion: { (metadata, error) in
             if error  != nil {
                 
                 Helper.showAlert("Error", message: error?.localizedDescription, inViewController: self)

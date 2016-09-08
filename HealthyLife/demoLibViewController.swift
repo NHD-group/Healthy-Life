@@ -68,7 +68,7 @@ class demoLibViewController: BaseTableViewController {
         
         ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("demo").observeEventType(.Value, withBlock: { snapshot in
             
-            if let check = snapshot.value as? NSNull {
+            if snapshot.value is NSNull {
                 self.addEditButton.title = "Add"
             } else {
                 self.addEditButton.title = "Edit"

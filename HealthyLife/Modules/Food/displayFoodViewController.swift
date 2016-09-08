@@ -60,7 +60,7 @@ class displayFoodViewController: BaseViewController {
         let ref = DataService.BaseRef
         ref.child("users").child(currentUserID).child("food_journal").queryLimitedToLast(10).observeEventType(.Value, withBlock: { snapshot in
             
-            self.foods = []
+            var array = [Food]()
             
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
@@ -74,13 +74,12 @@ class displayFoodViewController: BaseViewController {
                         
                         // Items are returned chronologically, but it's more fun with the newest jokes first.
                         
-                        self.foods.insert(food, atIndex: 0)
+                        array.insert(food, atIndex: 0)
                     }
                 }
-                
             }
             
-            // Be sure that the tableView updates when there is new data.
+            self.foods = array
             self.collectionView.reloadData()
             self.hideLoading()
         })

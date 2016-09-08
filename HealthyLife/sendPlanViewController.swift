@@ -39,7 +39,7 @@ class sendPlanViewController: UIViewController, UITableViewDelegate, UITableView
         
         DataService.dataService.userRef.child("tracking").child(sendToID).observeEventType(.Value, withBlock: { snapshot in
            
-            if let check = snapshot.value as? NSNull  {
+            if snapshot.value is NSNull  {
                 
                DataService.dataService.userRef.child("tracking").child(self.sendToID).setValue(["name" : self.selectedFollowerName])
                 

@@ -58,8 +58,8 @@ class FoodTableViewCell: UITableViewCell {
         
         loveRef = ref.child("users").child(currentUserID!).child("votesLove").child(food.foodKey)
         
-        loveRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            if let thumbsUpDown = snapshot.value as? NSNull {
+        loveRef.observeEventType(.Value, withBlock: { snapshot in
+            if snapshot.value is NSNull {
                 
                 // Current user hasn't voted for the joke... yet.
                 
@@ -82,7 +82,7 @@ class FoodTableViewCell: UITableViewCell {
         
         loveRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
-            if let thumbsUpDown = snapshot.value as? NSNull {
+            if snapshot.value is NSNull {
                 self.loveImage.image = UIImage(named: "love")
                 
                 // addSubtractVote(), in Joke.swift, handles the vote.

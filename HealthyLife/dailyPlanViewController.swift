@@ -44,7 +44,7 @@ class dailyPlanViewController: BaseViewController, UITableViewDataSource, UITabl
         showLoading()
        activityRef.observeEventType(.Value, withBlock: { snapshot in
             self.activities = []
-            if let check = snapshot.value as? NSNull  {
+            if snapshot.value is NSNull  {
                 
                 self.alerMessage()
                 DataService.dataService.activitiesPlannedRef.child(self.segue).child(self.key).removeValue()
