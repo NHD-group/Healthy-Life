@@ -47,7 +47,11 @@ class chatViewController: JSQMessagesViewController {
     
     var receiverid : String {
         get {
-            return chatKey.stringByReplacingOccurrencesOfString(senderId, withString: "")
+            var id = chatKey.stringByReplacingOccurrencesOfString(senderId, withString: "")
+            if id.characters.count <= 0 {
+                id = senderId
+            }
+            return id
         }
     }
     
