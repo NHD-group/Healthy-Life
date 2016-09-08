@@ -34,7 +34,6 @@ class addPlanVidViewController: BaseViewController, UITableViewDataSource, UITab
     
     @IBAction func addNewPlanAction(sender: AnyObject) {
         newplanView()
-        onBack()
     }
     
     
