@@ -8,7 +8,7 @@
 
 import UIKit
 
-class pricelistCellTableViewCell: UITableViewCell {
+class pricelistCellTableViewCell: BaseTableViewCell {
 
     @IBOutlet weak var backview: UIView!
     
@@ -33,6 +33,7 @@ class pricelistCellTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

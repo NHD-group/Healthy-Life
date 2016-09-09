@@ -87,6 +87,8 @@ class PrictListViewController: BaseTableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+        
         let price = dataArray[indexPath.row] as! String
         let vc = NHDPayPalViewController(nibName: String(NHDPayPalViewController), bundle: nil)
         vc.name = price

@@ -25,6 +25,7 @@ class BaseTableViewCell: UITableViewCell {
         
         thumbnailView?.layer.cornerRadius = 5
         thumbnailView?.layer.masksToBounds = true
+        selectionStyle = .None
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
