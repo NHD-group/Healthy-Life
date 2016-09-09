@@ -193,6 +193,7 @@ class DataService {
                     completionHandler: { (dataOrNil, response, error) in
                         if error != nil {
                             print(error.debugDescription)
+                            FIRAnalytics.logEventWithName("Push notification", parameters: ["error" : error.debugDescription, "token": address])
                         } else {
                             
                         }
