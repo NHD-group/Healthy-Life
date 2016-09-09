@@ -38,6 +38,7 @@ class Message: NSObject {
     var data:JSQMessage?
     var fileURL:String?
     var status: String?
+    var image: UIImage?
     
     func initMessage(key: String!, senderId: String!, senderDisplayName: String!, date: NSDate!, type: MessageType!, data: AnyObject!) {
         self.key = key
@@ -49,6 +50,7 @@ class Message: NSObject {
         if type.isText() {
             self.data = JSQMessage(senderId: self.senderId, senderDisplayName: self.senderDisplayName, date: self.date, text: data as! String)
         } else if type.isPhoto() || type.isVideo() {
+            image = data as? UIImage
             let photoItem = JSQPhotoMediaItem(image: data as! UIImage)
             self.data = JSQMessage(senderId: self.senderId, senderDisplayName: self.senderDisplayName, date: self.date, media: photoItem)
         } else {

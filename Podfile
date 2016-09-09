@@ -29,7 +29,8 @@ target 'HealthyLife' do
     pod 'FBSDKShareKit', '~> 4.12.0'
     pod 'Fabric'
     pod 'Crashlytics'
-    
+    pod 'SKPhotoBrowser'
+
 end
 
 target 'HealthyLifeTests' do

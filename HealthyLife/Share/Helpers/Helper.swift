@@ -9,6 +9,7 @@
 import UIKit
 import MBProgressHUD
 import AVFoundation
+import SKPhotoBrowser
 
 class Helper: NSObject {
     
@@ -125,5 +126,29 @@ class Helper: NSObject {
         }
         
         return height
+    }
+    
+    class func viewPhotoInFullScreen(image: UIImage?, caption: String?) {
+        viewPhotoInFullScreen(image, caption: caption, inViewController: nil)
+    }
+    
+    class func viewPhotoInFullScreen(image: UIImage?, caption: String?, inViewController vc: UIViewController?) {
+        guard let image = image else {
+            return
+        }
+        // 1. create SKPhoto Array from UIImage
+        var images = [SKPhoto]()
+        let photo = SKPhoto.photoWithImage(image)// add some UIImage
+        photo.caption = caption ?? ""
+        images.append(photo)
+        
+        // 2. create PhotoBrowser Instance, and present from your viewController.
+        let browser = SKPhotoBrowser(photos: images)
+        browser.initializePageIndex(0)
+        if let vc = vc {
+            vc.presentViewController(browser, animated: true, completion: {})
+        } else {
+            Helper.getRootViewController()?.presentViewController(browser, animated: true, completion: {})
+        }
     }
 }

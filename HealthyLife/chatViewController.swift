@@ -287,6 +287,8 @@ class chatViewController: JSQMessagesViewController {
         if message.type.isVideo() {
             
             NHDVideoPlayerViewController.showPlayer(nil, orLink: message.fileURL, title: senderDisplayName, inViewController: self)
+        } else {
+            Helper.viewPhotoInFullScreen(message.image, caption: senderDisplayName, inViewController: self.navigationController)
         }
     }
     

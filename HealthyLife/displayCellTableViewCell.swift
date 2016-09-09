@@ -73,5 +73,16 @@ class displayCellTableViewCell: UITableViewCell {
         }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapOnImage))
+        avaImage.addGestureRecognizer(gesture)
+        avaImage.userInteractionEnabled = true
+    }
     
+    func tapOnImage() {
+        
+        Helper.viewPhotoInFullScreen(avaImage.image, caption: weightChangedLabel.text)
+    }
 }

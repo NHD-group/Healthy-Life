@@ -103,10 +103,18 @@ class FoodCollectionViewCell: UICollectionViewCell {
         loveImage.addGestureRecognizer(tap)
         loveImage.userInteractionEnabled = true
         
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapOnImage))
+        foodImageView.addGestureRecognizer(gesture)
+        foodImageView.userInteractionEnabled = true
+        
         backview.layer.cornerRadius = 10
         backview.clipsToBounds = true
         foodImageView.layer.cornerRadius = 5
         foodImageView.clipsToBounds = true
     }
     
+    func tapOnImage() {
+        
+        Helper.viewPhotoInFullScreen(foodImageView.image, caption: food.foodDes)
+    }
 }
