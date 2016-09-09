@@ -132,11 +132,15 @@ class NHDVideoPlayerViewController: BaseViewController {
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setupVideoPlayer()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        setupVideoPlayer()
         setupUI()
     }
     
@@ -150,9 +154,11 @@ class NHDVideoPlayerViewController: BaseViewController {
             return
         }
         
-        self.asset = AVAsset(URL: videoURL)
-        let playerItem = AVPlayerItem(asset: self.asset!)
-        avPlayer = AVPlayer(playerItem: playerItem)
+        dispatch_async(dispatch_get_main_queue()) {
+            self.asset = AVAsset(URL: videoURL)
+        }
+        
+        avPlayer = AVPlayer(URL: videoURL)
         avPlayer.allowsExternalPlayback = true
         avPlayer.usesExternalPlaybackWhileExternalScreenIsActive = true
         
@@ -272,6 +278,9 @@ class NHDVideoPlayerViewController: BaseViewController {
         return .Landscape
     }
 
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
     
     override func prefersStatusBarHidden() -> Bool {
         return true
