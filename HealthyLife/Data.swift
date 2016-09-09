@@ -127,7 +127,20 @@ class DataService {
         }
 
         if let refreshedToken = FIRInstanceID.instanceID().token() {
-            DataService.dataService.userRef.child("token").setValue(refreshedToken)
+            
+            DataService.dataService.userRef.child("token").observeSingleEventOfType(.Value, withBlock: { snapshot in
+                
+                var list = [String]()
+                
+                if let tokens = snapshot.value as? [String] {
+                    list = tokens
+                }
+                
+                if !list.contains(refreshedToken) {
+                    list.append(refreshedToken)
+                    snapshot.ref.setValue(list)
+                }
+            })
         }
     }
 
@@ -138,12 +151,12 @@ class DataService {
         }
         
         
-        DataService.BaseRef.child("users").child(userid).child("token").observeEventType(.Value, withBlock: { snapshot in
+        DataService.BaseRef.child("users").child(userid).child("token").observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             var list = [String]()
 
-            if let token = snapshot.value as? String {
-                list.append(token)
+            if let tokens = snapshot.value as? [String] {
+                list = tokens
             }
 //            list.append("/topics/user_" + senderid)
 //            list.append("/topics/user_" + userid)
