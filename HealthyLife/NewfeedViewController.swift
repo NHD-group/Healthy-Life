@@ -149,9 +149,11 @@ extension NewfeedViewController: UISearchBarDelegate {
             
             if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
                 let key = snap.key
+                if key != FIRAuth.auth()?.currentUser?.uid {
                 let user = UserProfile(key: key, dictionary: postDictionary)
                 
                 users.insert(user, atIndex: 0)
+                }
             }
         }
         
