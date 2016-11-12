@@ -45,17 +45,17 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 - [x] Customize video player: rate/volume
-- [ ] Youtube APIs
+- [x] Youtube APIs
 - [x] Tabbar animation
-- [ ] Report plan history
+- [x] Report plan history
 - [x] Graph for weight changed history
 - [x] Paypal APIs
 - [x] Customize camera
 
 The following **additional** features are implemented:
 
-- [ ] View photo in fullscreen, zoom in/out
-- [ ] Share plan / video on Social networks
+- [x] View photo in fullscreen, zoom in/out
+- [x] Share plan / video on Social networks
 
 
 ## Video Walkthrough
@@ -77,7 +77,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-Copyright [2016] [NHD-group: Team 6 - Sy Nguyen, Quang Hieu, Nguyen Duy]
+Copyright [2016] [NHD-group: Team 6 - Si Nguyen, Quang Hieu, Nguyen Duy]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
